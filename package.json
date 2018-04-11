@@ -1,0 +1,106 @@
+{
+  "name": "@ngui/common",
+  "description": "Angular5+ library development starter using jest, codecept, ngx-packagr ",
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "modules/dist/bundles/ngui-common.umd.js",
+  "typings": "modules/dist/index.d.ts",
+  "scripts": {
+    "start": "ng serve",
+    "build": "npm run build:app && npm run build:modules",
+    "build:app": "ng build --prod",
+    "build:modules": "ng-packagr -p package.json",
+    "test": "npm run test:unit && npm run test:acceptance",
+    "test:unit": "jest",
+    "test:acceptance": "server-server-and-test start http-get://localhost:4200 test:codecept",
+    "test:codedept": "codeceptjs run",
+    "lint": "tslint --project '.' -t stylish --fix"
+  },
+  "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+  "ngPackage": {
+    "lib": {
+      "entryFile": "modules/index.ts"
+    },
+    "deleteDestPath": true,
+    "dest": "modules/dist"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngxui/common"
+  },
+  "author": "Allen Kim<allenhwkim@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/ngxui/common/issues"
+  },
+  "homepage": "https://github.com/ngxui/common#readme",
+  "keywords": [
+    "angular",
+    "typescript",
+    "jest",
+    "coecept",
+    "package",
+    "module"
+  ],
+  "dependencies": {},
+  "peerDependencies": {},
+  "devDependencies": {
+    "@angular/animations": "^5.2.9",
+    "@angular/cli": "~1.7.3",
+    "@angular/common": "^5.2.0",
+    "@angular/compiler": "^5.2.0",
+    "@angular/compiler-cli": "^5.2.9",
+    "@angular/core": "^5.2.0",
+    "@angular/forms": "^5.2.0",
+    "@angular/http": "^5.2.0",
+    "@angular/language-service": "^5.2.0",
+    "@angular/platform-browser": "^5.2.0",
+    "@angular/platform-browser-dynamic": "^5.2.0",
+    "@angular/router": "^5.2.0",
+    "@types/node": "~6.0.60",
+    "angular-tslint-rules": "^1.2.1",
+    "codeceptjs": "^1.1.7",
+    "codelyzer": "^4.2.1",
+    "core-js": "^2.4.1",
+    "jest": "^22.4.3",
+    "jest-junit-reporter": "^1.1.0",
+    "jest-preset-angular": "^5.2.1",
+    "ng-packagr": "^2.4.1",
+    "pre-commit": "^1.2.2",
+    "puppeteer": "^1.2.0",
+    "rxjs": "^5.5.6",
+    "start-server-and-test": "^1.4.1",
+    "ts-node": "~4.1.0",
+    "tslint": "~5.9.1",
+    "typescript": "~2.5.3",
+    "zone.js": "^0.8.19"
+  },
+  "jest": {
+    "preset": "jest-preset-angular",
+    "setupTestFrameworkScriptFile": "<rootDir>/test/jest-setup.ts",
+    "globals": {
+      "__TRANSFORM_HTML__": true,
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.json"
+      }
+    },
+    "testMatch": [
+      "**/+(*.)+(spec).+(ts|js)?(x)"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "html"
+    ],
+    "moduleNameMapper": null,
+    "transformIgnorePatterns": [
+      "node_modules/(?!@ngrx)"
+    ],
+    "testResultsProcessor": "./node_modules/jest-junit-reporter",
+    "collectCoverageFrom": [
+      "src/**/*(*.service|*.component|*.pipe|*.directive).{ts,html}"
+    ]
+  }
+}

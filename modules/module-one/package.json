@@ -1,0 +1,10 @@
+{
+  "ngPackage": {
+    "lib": {
+      "entryFile": "index.ts"
+    }
+  },
+  "scripts": {
+    "test": "cd ../.. && jest modules/module-one/**/*.spec.ts"
+  }
+}

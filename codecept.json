@@ -1,0 +1,17 @@
+{
+  "tests": "{,!(node_modules)/**/}*-test.js",
+  "timeout": 10000,
+  "output": "./output",
+  "helpers": {
+    "puppeteer": {
+      "show": true,
+      "url": "http://localhost:4200"
+    }
+  },
+  "include": {
+    "I": "./test/codecept-steps-file.js"
+  },
+  "bootstrap": false,
+  "mocha": {},
+  "name": "app"
+}
