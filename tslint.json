@@ -12,9 +12,10 @@
     ],
     "component-selector": [
       true,
-      "element", ["app", "my"],
+      "element", ["app", "ngui"],
       "kebab-case"
     ],
+    "curly": [true, "ignore-same-line"],
     "directive-selector": [
       true,
       "attribute",

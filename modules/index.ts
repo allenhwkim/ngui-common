@@ -1,2 +1,3 @@
-export { OneModule } from './module-one';
-export { TwoModule } from './module-two';
+export { NguiInviewModule } from './in-view';
+export { NguiListModule } from './list';
+export { konsole, DynamicComponentService } from './utils';
