@@ -5,6 +5,9 @@
   "extends": [
     "angular-tslint-rules"
   ],
+  "jsRules": {
+    "no-empty": true
+  },
   "rules": {
     "angular-whitespace": [
       true,

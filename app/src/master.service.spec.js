@@ -7,7 +7,7 @@ describe('MasterService', () => {
   let service;
   let valueService;
   class ValueService {
-    getValue = function() {};
+    getValue = function() {void(0);};
   }
 
   beforeEach(() => {
