@@ -30,9 +30,14 @@ import {
   ViewContainerRef
 } from '@angular/core';
 
+/**
+ * Provide service to add or remove component dynamically
+ */
 @Injectable()
 export class DynamicComponentService {
+  /** used to create a factory from a component class */
   factoryResolver: ComponentFactoryResolver;
+  /** defines where a dynamic components insert into */
   rootViewContainer: ViewContainerRef;
 
   constructor(@Inject(ComponentFactoryResolver) factoryResolver) {

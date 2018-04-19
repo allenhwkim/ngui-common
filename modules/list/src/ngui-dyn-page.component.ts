@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 
 /**
- * this will listen to inView and outView events,
+ * A block of component that listens to inView and outView events,
  * so that it empties contents when out of view after backup items
  * and restores the contents when in view
  */
@@ -37,16 +37,28 @@ import {
   `]
 })
 export class NguiDynPageComponent implements OnInit {
+  /** Allow users to change the contents */
   @Input('template') template: TemplateRef<any>;
-  @Input('items') items;
+  /** List of elements that are used to render this element */
+  @Input('items') items: Array<any>;
 
+  /** IntersectionObserver options */
   options: any;
+  /** Indicates that the page of out of viewport */
   outView = false;
+  /** The copy of items. This is set when this element is out of viewport */
   itemsBackup: Array<any> = [];
+  /**
+   * The first element of this dynamic page component.
+   * The height of it remains the same even when items get empty out.
+   */
   contentsEl: HTMLElement;
 
   constructor(private element: ElementRef, private renderer: Renderer2) {}
 
+  /**
+   * Restore items when in viewport, so that elements are rendered
+   */
   restoreItems(): void {
     if (this.outView) {
       this.outView = false;
@@ -61,6 +73,9 @@ export class NguiDynPageComponent implements OnInit {
       this.element.nativeElement.querySelector('.dyn-page.contents');
   }
 
+  /**
+   * Empty items when not in viewport, so that elements are not rendered
+   */
   emptyItems(): void {
     if (this.items && !this.outView) {
       // set height before emptying contents

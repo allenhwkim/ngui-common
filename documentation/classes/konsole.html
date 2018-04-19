@@ -391,15 +391,20 @@
 </nav>
                </div>
                <!-- START CONTENT -->
-               <div class="content component">
+               <div class="content class">
                    <div class="content-data">
 
 
 
 
+
+
+
+
+
 <ol class="breadcrumb">
-  <li>Components</li>
-  <li>NguiDynPageComponent</li>
+  <li>Classes</li>
+  <li>konsole</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -407,98 +412,42 @@
         <a href="#info" id="info-tab" role="tab" data-toggle="tab" data-link="info">Info</a>
     </li>
 
-    <li>
-        <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-    </li>
 
     <li>
-        <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
     </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info"><p class="comment">
-    <h3>File</h3>
-</p>
-<p class="comment">
-    <code>modules/list/src/ngui-dyn-page.component.ts</code>
-</p>
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>modules/utils/src/konsole.ts</code>
+        </p>
 
-    <p class="comment">
-        <h3>Description</h3>
-    </p>
-    <p class="comment">
-        <p>A block of component that listens to inView and outView events,
-so that it empties contents when out of view after backup items
-and restores the contents when in view</p>
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>window.konsole alternative</p>
 
-    </p>
-
-
-    <p class="comment">
-        <h3>Implements</h3>
-    </p>
-    <p class="comment">
-                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
-    </p>
-
-
-<section>
-    <h3>Metadata</h3>
-    <table class="table table-sm table-hover">
-        <tbody>
+            </p>
 
 
 
+            <p class="comment">
+                <h3>Example</h3>
+            </p>
+            <div class="io-description">
+                        <div>
+                            <pre class="line-numbers"><code class="language-html">konsole.setLogLevel('error');
+konwole.log(1,2,3,4,5);</code></pre>
+                        </div>
+            </div>
 
-
-
-
-
-
-
-
-            <tr>
-                <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>ngui-dyn-page</code></td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-3">styles</td>
-                <td class="col-md-9"><code>
-    :host {display: block}
-  </code></td>
-            </tr>
-
-            <tr>
-                <td class="col-md-3">template</td>
-                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;dyn-page contents&quot;
-  (nguiInView)&#x3D;&quot;restoreItems()&quot;
-  (nguiOutView)&#x3D;&quot;emptyItems()&quot;&gt;
-  &lt;ng-container
-    [ngTemplateOutlet]&#x3D;&quot;template||defaultTemplate&quot;
-    [ngTemplateOutletContext]&#x3D;&quot;{items: items, outView: outView}&quot;&gt;
-  &lt;/ng-container&gt;
-  &lt;div *ngIf&#x3D;&quot;outView&quot;&gt;{{ this.itemsBackup.length }} items hidden&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;ng-template #defaultTemplate&gt;
-  &lt;div *ngIf&#x3D;&quot;items else loading&quot;&gt;
-    Error: [template] is not given.
-  &lt;/div&gt;
-  &lt;ng-template #loading&gt;Loading...&lt;/ng-template&gt;
-&lt;/ng-template&gt;
-</code></pre></td>
-            </tr>
-
-
-
-        </tbody>
-    </table>
-</section>
-
-    <section>
+            <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -511,16 +460,12 @@ and restores the contents when in view</p>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#contentsEl">contentsEl</a>
+                                    <span class="modifier">Static</span>
+                                <a href="#LOG_LEVELS">LOG_LEVELS</a>
                             </li>
                             <li>
-                                <a href="#itemsBackup">itemsBackup</a>
-                            </li>
-                            <li>
-                                <a href="#options">options</a>
-                            </li>
-                            <li>
-                                <a href="#outView">outView</a>
+                                    <span class="modifier">Static</span>
+                                <a href="#logLevel">logLevel</a>
                             </li>
                         </ul>
                     </td>
@@ -535,35 +480,37 @@ and restores the contents when in view</p>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#emptyItems">emptyItems</a>
+                                    <span class="modifier">Static</span>
+                                <a href="#debug">debug</a>
                             </li>
                             <li>
-                                <a href="#ngOnInit">ngOnInit</a>
+                                    <span class="modifier">Static</span>
+                                <a href="#error">error</a>
                             </li>
                             <li>
-                                <a href="#restoreItems">restoreItems</a>
+                                    <span class="modifier">Static</span>
+                                <a href="#info">info</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#log">log</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#setLogLevel">setLogLevel</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#toLog">toLog</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#warn">warn</a>
                             </li>
                         </ul>
                     </td>
                 </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Inputs</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#items">items</a>
-                            </li>
-                            <li>
-                                <a href="#template">template</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
 
 
@@ -572,24 +519,153 @@ and restores the contents when in view</p>
     </table>
 </section>
 
-    <section>
-    <h3 id="constructor">Constructor</h3>
+
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(element: <a href="https://angular.io/api/core/ElementRef" target="_blank">ElementRef</a>, renderer: <a href="https://angular.io/api/core/Renderer2" target="_blank">Renderer2</a>)</code>
+                        <a name="LOG_LEVELS"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                            LOG_LEVELS
+                            </b>
+                            <a href="#LOG_LEVELS"><span class="fa fa-link"></span></a>
+                        </span>
                     </td>
                 </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon fa fa-reset"></span><code>LOG_LEVELS:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+    ALL:   parseInt(&#x27;00000&#x27;, 2),
+    DEBUG: parseInt(&#x27;00001&#x27;, 2),
+    LOG:   parseInt(&#x27;00010&#x27;, 2),
+    INFO:  parseInt(&#x27;00100&#x27;, 2),
+    WARN:  parseInt(&#x27;01000&#x27;, 2),
+    ERROR: parseInt(&#x27;10000&#x27;, 2),
+    NONE:  parseInt(&#x27;11111&#x27;, 2)
+  }</code>
+                        </td>
+                    </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">modules/list/src/ngui-dyn-page.component.ts:55</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">modules/utils/src/konsole.ts:9</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                            <div>
+                        <div class="io-description"><p>all log levels </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="logLevel"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                            logLevel
+                            </b>
+                            <a href="#logLevel"><span class="fa fa-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon fa fa-reset"></span><code>logLevel:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;INFO&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">modules/utils/src/konsole.ts:20</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>current log level set by setLogLevel, default &#39;INFO&#39; </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="debug"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                            debug
+                            </b>
+                            <a href="#debug"><span class="fa fa-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon fa fa-reset"></span>
+                        <code>debug(...args: Array<any>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">modules/utils/src/konsole.ts:45</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>The same as <code>console.debug()</code> if the current log level is greater than <code>debug</code> </p>
+</div>
+
+                            <div class="io-description">
                                     <b>Parameters :</b>
                                     <table class="params">
                                         <thead>
@@ -601,130 +677,29 @@ and restores the contents when in view</p>
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                    <td>element</td>
-                                                  
+                                                        <td>args</td>
                                                         <td>
-                                                                    <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+                                                                    <code>Array&lt;any&gt;</code>
                                                         </td>
-                                                  
+                                                    
                                                     <td>
                                                             no
                                                     </td>
                                                     
-                                                </tr>
-                                                <tr>
-                                                    <td>renderer</td>
-                                                  
-                                                        <td>
-                                                                    <code><a href="https://angular.io/api/core/Renderer2" target="_blank" >Renderer2</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            no
-                                                    </td>
-                                                    
+
                                                 </tr>
                                         </tbody>
                                     </table>
                             </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
-
-    <section>
-    <h3 id="inputs">Inputs</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-2">
-                        <a name="items"></a>
-                        <code>items</code>
-                    </td>
-                    <td class="col-md-10">
-                        <div><p>List of elements that are used to render this element </p>
-</div>
-                            <p>
-                            <em>Type:</em>    <code>Array&lt;any&gt;</code>
-
-                            </p>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">modules/list/src/ngui-dyn-page.component.ts:43</a></div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-2">
-                        <a name="template"></a>
-                        <code>template</code>
-                    </td>
-                    <td class="col-md-10">
-                        <div><p>Allow users to change the contents </p>
-</div>
-                            <p>
-                            <em>Type:</em>    <code>TemplateRef&lt;any&gt;</code>
-
-                            </p>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">modules/list/src/ngui-dyn-page.component.ts:41</a></div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-</section>
-
-
-
-    <section>
-    
-        <h3 id="methods">
-            Methods
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="emptyItems"></a>
-                        <span class="name">
-                            <b>
-                            emptyItems
-                            </b>
-                            <a href="#emptyItems"><span class="fa fa-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>emptyItems()</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">modules/list/src/ngui-dyn-page.component.ts:79</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Empty items when not in viewport, so that elements are not rendered</p>
-</div>
-
+                            <div>
+                            </div>
                             <div class="io-description">
                                 <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                             </div>
+                                <div class="io-description">
+                                    
+                                </div>
                     </td>
                 </tr>
             </tbody>
@@ -733,385 +708,540 @@ and restores the contents when in view</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="ngOnInit"></a>
+                        <a name="error"></a>
                         <span class="name">
                             <b>
-                            ngOnInit
+                                <span class="modifier">Static</span>
+                            error
                             </b>
-                            <a href="#ngOnInit"><span class="fa fa-link"></span></a>
+                            <a href="#error"><span class="fa fa-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>ngOnInit()</code>
+                            <span class="modifier-icon fa fa-reset"></span>
+                        <code>error(...args: Array<any>)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">modules/list/src/ngui-dyn-page.component.ts:71</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">modules/utils/src/konsole.ts:65</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="restoreItems"></a>
-                        <span class="name">
-                            <b>
-                            restoreItems
-                            </b>
-                            <a href="#restoreItems"><span class="fa fa-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>restoreItems()</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">modules/list/src/ngui-dyn-page.component.ts:62</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Restore items when in viewport, so that elements are rendered</p>
+                            <div class="io-description"><p>The same as <code>console.error()</code> if the current log level is greater than <code>error</code> </p>
 </div>
 
                             <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>args</td>
+                                                        <td>
+                                                                    <code>Array&lt;any&gt;</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            no
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
                                 <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                             </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="info"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                            info
+                            </b>
+                            <a href="#info"><span class="fa fa-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon fa fa-reset"></span>
+                        <code>info(...args: Array<any>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">modules/utils/src/konsole.ts:55</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>The same as <code>console.info()</code> if the current log level is greater than <code>info</code> </p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>args</td>
+                                                        <td>
+                                                                    <code>Array&lt;any&gt;</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            no
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="log"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                            log
+                            </b>
+                            <a href="#log"><span class="fa fa-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon fa fa-reset"></span>
+                        <code>log(...args: Array<any>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">modules/utils/src/konsole.ts:50</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>The same as <code>console.log()</code> if the current log level is greater than <code>log</code> </p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>args</td>
+                                                        <td>
+                                                                    <code>Array&lt;any&gt;</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            no
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setLogLevel"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                            setLogLevel
+                            </b>
+                            <a href="#setLogLevel"><span class="fa fa-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon fa fa-reset"></span>
+                        <code>setLogLevel(logLevel: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">modules/utils/src/konsole.ts:31</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>sets the current log level </p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>logLevel</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            no
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="toLog"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                            toLog
+                            </b>
+                            <a href="#toLog"><span class="fa fa-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon fa fa-reset"></span>
+                        <code>toLog(param: )</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">modules/utils/src/konsole.ts:23</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>returns if it should call <code>window.console</code> or not </p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>param</td>
+                                                    
+                                                    <td>
+                                                            no
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="warn"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                            warn
+                            </b>
+                            <a href="#warn"><span class="fa fa-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon fa fa-reset"></span>
+                        <code>warn(...args: Array<any>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">modules/utils/src/konsole.ts:60</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>The same as <code>console.warn()</code> if the current log level is greater than <code>warn</code> </p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>args</td>
+                                                        <td>
+                                                                    <code>Array&lt;any&gt;</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            no
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
                     </td>
                 </tr>
             </tbody>
         </table>
 </section>
 
-    <section>
-    
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="contentsEl"></a>
-                        <span class="name">
-                            <b>
-                            contentsEl
-                            </b>
-                            <a href="#contentsEl"><span class="fa fa-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>contentsEl:     <code>HTMLElement</code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code>HTMLElement</code>
 
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">modules/list/src/ngui-dyn-page.component.ts:55</a></div>
-                            </td>
-                        </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>The first element of this dynamic page component.
-The height of it remains the same even when items get empty out.</p>
-</div>
-                    </td>
-                </tr>
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="itemsBackup"></a>
-                        <span class="name">
-                            <b>
-                            itemsBackup
-                            </b>
-                            <a href="#itemsBackup"><span class="fa fa-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>itemsBackup:     <code>Array&lt;any&gt;</code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code>Array&lt;any&gt;</code>
 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>[]</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">modules/list/src/ngui-dyn-page.component.ts:50</a></div>
-                            </td>
-                        </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>The copy of items. This is set when this element is out of viewport </p>
-</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="options"></a>
-                        <span class="name">
-                            <b>
-                            options
-                            </b>
-                            <a href="#options"><span class="fa fa-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>options:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">modules/list/src/ngui-dyn-page.component.ts:46</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>IntersectionObserver options </p>
-</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="outView"></a>
-                        <span class="name">
-                            <b>
-                            outView
-                            </b>
-                            <a href="#outView"><span class="fa fa-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>outView:     <code></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>false</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">modules/list/src/ngui-dyn-page.component.ts:48</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Indicates that the page of out of viewport </p>
-</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-</section>
-
-</div>
+    </div>
 
 
     <div class="tab-pane fade tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
-  Component,
-  ElementRef,
-  Input,
-  OnInit,
-  Renderer2,
-  TemplateRef
-} from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export abstract class konsole { // tslint:disable-line
+  /** all log levels */
+  static LOG_LEVELS &#x3D; {
+    ALL:   parseInt(&#x27;00000&#x27;, 2),
+    DEBUG: parseInt(&#x27;00001&#x27;, 2),
+    LOG:   parseInt(&#x27;00010&#x27;, 2),
+    INFO:  parseInt(&#x27;00100&#x27;, 2),
+    WARN:  parseInt(&#x27;01000&#x27;, 2),
+    ERROR: parseInt(&#x27;10000&#x27;, 2),
+    NONE:  parseInt(&#x27;11111&#x27;, 2)
+  };
 
-/**
- * A block of component that listens to inView and outView events,
- * so that it empties contents when out of view after backup items
- * and restores the contents when in view
- */
-@Component({
-  selector: &#x27;ngui-dyn-page&#x27;,
-  template: &#x60;
-    &lt;div class&#x3D;&quot;dyn-page contents&quot;
-      (nguiInView)&#x3D;&quot;restoreItems()&quot;
-      (nguiOutView)&#x3D;&quot;emptyItems()&quot;&gt;
-      &lt;ng-container
-        [ngTemplateOutlet]&#x3D;&quot;template||defaultTemplate&quot;
-        [ngTemplateOutletContext]&#x3D;&quot;{items: items, outView: outView}&quot;&gt;
-      &lt;/ng-container&gt;
-      &lt;div *ngIf&#x3D;&quot;outView&quot;&gt;{{ this.itemsBackup.length }} items hidden&lt;/div&gt;
-    &lt;/div&gt;
+  /** current log level set by setLogLevel, default &#x27;INFO&#x27; */
+  static logLevel &#x3D; &#x27;INFO&#x27;;
 
-    &lt;ng-template #defaultTemplate&gt;
-      &lt;div *ngIf&#x3D;&quot;items else loading&quot;&gt;
-        Error: [template] is not given.
-      &lt;/div&gt;
-      &lt;ng-template #loading&gt;Loading...&lt;/ng-template&gt;
-    &lt;/ng-template&gt;
-  &#x60;,
-  styles: [&#x60;
-    :host {display: block}
-  &#x60;]
-})
-export class NguiDynPageComponent implements OnInit {
-  /** Allow users to change the contents */
-  @Input(&#x27;template&#x27;) template: TemplateRef&lt;any&gt;;
-  /** List of elements that are used to render this element */
-  @Input(&#x27;items&#x27;) items: Array&lt;any&gt;;
+  /** returns if it should call &#x60;window.console&#x60; or not */
+  static toLog(param): boolean { // returns to log or not
+    const restrictionNum &#x3D; this.LOG_LEVELS[this.logLevel];
+    const requiredNum &#x3D; this.LOG_LEVELS[param];
 
-  /** IntersectionObserver options */
-  options: any;
-  /** Indicates that the page of out of viewport */
-  outView &#x3D; false;
-  /** The copy of items. This is set when this element is out of viewport */
-  itemsBackup: Array&lt;any&gt; &#x3D; [];
-  /**
-   * The first element of this dynamic page component.
-   * The height of it remains the same even when items get empty out.
-   */
-  contentsEl: HTMLElement;
+    return requiredNum &gt; restrictionNum;
+  }
 
-  constructor(private element: ElementRef, private renderer: Renderer2) {}
-
-  /**
-   * Restore items when in viewport, so that elements are rendered
-   */
-  restoreItems(): void {
-    if (this.outView) {
-      this.outView &#x3D; false;
-      this.items &#x3D; Array.from(this.itemsBackup || []);
-      this.itemsBackup &#x3D; undefined;
-      this.renderer.setStyle(this.contentsEl, &#x27;height&#x27;, undefined);
+  /** sets the current log level */
+  static setLogLevel(logLevel: string): any {
+    logLevel &#x3D; logLevel.toUpperCase();
+    const logLevels &#x3D; Object.keys(this.LOG_LEVELS);
+    if (logLevels.indexOf(logLevel) &gt; -1) {
+      if (window &amp;&amp; window.sessionStorage) { // for browser env.
+        window.sessionStorage.setItem(&#x27;konsole.LOG_LEVEL&#x27;, logLevel);
+      }
+      this.logLevel &#x3D; logLevel;
+    } else {
+      console.error(&#x60;Error, invalid logLevel, it must be one of ${logLevels}&#x60;);
     }
   }
 
-  ngOnInit(): void {
-    this.contentsEl &#x3D;
-      this.element.nativeElement.querySelector(&#x27;.dyn-page.contents&#x27;);
+  /** The same as &#x60;console.debug()&#x60; if the current log level is greater than &#x60;debug&#x60; */
+  static debug(...args: Array&lt;any&gt;): void {
+    this.toLog(&#x27;DEBUG&#x27;) &amp;&amp; console.debug.apply(console, arguments);
   }
 
-  /**
-   * Empty items when not in viewport, so that elements are not rendered
-   */
-  emptyItems(): void {
-    if (this.items &amp;&amp; !this.outView) {
-      // set height before emptying contents
-      const height &#x3D; this.element.nativeElement.getBoundingClientRect().height;
-      this.renderer.setStyle(this.contentsEl, &#x27;height&#x27;, &#x60;${height}px&#x60;);
-
-      this.outView &#x3D; true;
-      this.itemsBackup &#x3D; Array.from(this.items || []);
-      this.items &#x3D; undefined;
-    }
+  /** The same as &#x60;console.log()&#x60; if the current log level is greater than &#x60;log&#x60; */
+  static log(...args: Array&lt;any&gt;): void {
+    this.toLog(&#x27;LOG&#x27;) &amp;&amp; console.log.apply(console, arguments);
   }
 
+  /** The same as &#x60;console.info()&#x60; if the current log level is greater than &#x60;info&#x60; */
+  static info(...args: Array&lt;any&gt;): void {
+    this.toLog(&#x27;INFO&#x27;) &amp;&amp; console.info.apply(console, arguments);
+  }
+
+  /** The same as &#x60;console.warn()&#x60; if the current log level is greater than &#x60;warn&#x60; */
+  static warn(...args: Array&lt;any&gt;): void {
+    this.toLog(&#x27;WARN&#x27;) &amp;&amp; console.warn.apply(console, arguments);
+  }
+
+  /** The same as &#x60;console.error()&#x60; if the current log level is greater than &#x60;error&#x60; */
+  static error(...args: Array&lt;any&gt;): void {
+    this.toLog(&#x27;ERROR&#x27;) &amp;&amp; console.error.apply(console, arguments);
+  }
 }
-</code></pre>
-    </div>
 
+// konsole.setLogLevel(&#x27;all&#x27;);
+// konsole.debug(&#x27;yes&#x27;);
+// konsole.log(&#x27;yes&#x27;);
+// konsole.info(&#x27;yes&#x27;);
+// konsole.warn(&#x27;yes&#x27;);
+// konsole.error(&#x27;yes&#x27;);
 
-    <div class="tab-pane fade" id="c-tree">
-        <div id="tree-container"></div>
-        <div class="tree-legend">
-            <div class="title">
-                <b>Legend</b>
-            </div>
-            <div>
-                <div class="color htmlelement"></div><span>Html element</span>
-            </div>
-            <div>
-                <div class="color component"></div><span>Component</span>
-            </div>
-            <div>
-                <div class="color directive"></div><span>Html element with directive</span>
-            </div>
-        </div>
+// konsole.setLogLevel(&#x27;none&#x27;);
+// konsole.debug(&#x27;no&#x27;);
+// konsole.log(&#x27;no&#x27;);
+// konsole.info(&#x27;no&#x27;);
+// konsole.warn(&#x27;no&#x27;);
+// konsole.error(&#x27;no&#x27;);
+
+// konsole.setLogLevel(&#x27;info&#x27;);
+// konsole.debug(&#x27;no&#x27;);
+// konsole.log(&#x27;no&#x27;);
+// konsole.info(&#x27;yes&#x27;);
+// konsole.warn(&#x27;yes&#x27;);
+// konsole.error(&#x27;yes&#x27;);
+
+// konsole.setLogLevel(&#x27;WARN&#x27;);
+// konsole.debug(&#x27;no&#x27;);
+// konsole.log(&#x27;no&#x27;);
+// konsole.info(&#x27;no&#x27;);
+// konsole.warn(&#x27;yes&#x27;);
+// konsole.error(&#x27;yes&#x27;);
+
+// konsole.setLogLevel(&#x27;ERROR&#x27;);
+// konsole.debug(&#x27;no&#x27;);
+// konsole.log(&#x27;no&#x27;);
+// konsole.info(&#x27;no&#x27;);
+// konsole.warn(&#x27;no&#x27;);
+// konsole.error(&#x27;yes&#x27;);</code></pre>
     </div>
 </div>
-
-<script src="../js/libs/vis.min.js"></script>
-<script src="../js/libs/htmlparser.js"></script>
-<script src="../js/libs/deep-iterator.js"></script>
-<script>
-        var COMPONENT_TEMPLATE = '<div><div class="dyn-page contents"  (nguiInView)="restoreItems()"  (nguiOutView)="emptyItems()">  <ng-container    [ngTemplateOutlet]="template||defaultTemplate"    [ngTemplateOutletContext]="{items: items, outView: outView}">  </ng-container>  <div *ngIf="outView">{{ this.itemsBackup.length }} items hidden</div></div><ng-template #defaultTemplate>  <div *ngIf="items else loading">    Error: [template] is not given.  </div>  <ng-template #loading>Loading...</ng-template></ng-template></div>'
-    var COMPONENTS = [{'name': 'NguiDynPageComponent', 'selector': 'ngui-dyn-page'},{'name': 'NguiInviewComponent', 'selector': 'ngui-inview'}];
-    var DIRECTIVES = [{'name': 'NguiInviewDirective', 'selector': '[nguiInview], [nguiOutview]'}];
-    var ACTUAL_COMPONENT = {'name': 'NguiDynPageComponent'};
-</script>
-<script src="../js/tree.js"></script>
-
-
-
-
-
 
 
 
@@ -1143,7 +1273,7 @@ export class NguiDynPageComponent implements OnInit {
 
         <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_URL = 'NguiDynPageComponent.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'konsole.html';
         </script>
 
        <script src="../js/search/search.js"></script>

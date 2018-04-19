@@ -14,11 +14,13 @@ Angular5+ UI common directives, functions, services
 ## Install
 
 1. install @ngui/common
+
 ```
 $ npm install @ngui/common --save
 ```
 
-2. import NguiCommonModule to your AppModule
+2. import NguiCommonModule to your AppModule  
+
 ```
 import { InViewModule } from '@ngui/common';
 
@@ -31,7 +33,8 @@ import { InViewModule } from '@ngui/common';
 export class AppModule { }
 ```
 
-## Use it in your code
+## Use it in your code  
+
 ```
 <input auto-complete [(ngModel)]="myData" [source]="mySource" />
 ```
@@ -51,7 +54,7 @@ Collection of basic utility function
 - outerHeight(el)
 - outerWidth(el)
 
-## ListModule
+### ListModule
 
 Handles list elements with highlight and keyboard/mouse interaction
 - Provides `ngui-list` component
