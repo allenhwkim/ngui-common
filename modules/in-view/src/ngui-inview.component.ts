@@ -66,7 +66,7 @@ export class NguiInviewComponent implements OnInit, OnDestroy {
   /** fires (inview) and (notInview) events when this component is visible or not visible  */
   handleIntersect(entries, observer): void {
     entries.forEach((entry: IntersectionObserverEntry) => {
-      if (entry.isIntersecting) {
+      if (entry['isIntersecting']) {
         this.isInview = true;
         this.defaultInviewHandler(entry);
         this.inview.emit(entry);

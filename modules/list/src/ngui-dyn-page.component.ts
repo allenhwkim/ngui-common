@@ -1,4 +1,5 @@
 import {
+  ChangeDetectorRef,
   Component,
   ElementRef,
   Input,
@@ -16,8 +17,8 @@ import {
   selector: 'ngui-dyn-page',
   template: `
     <div class="dyn-page contents"
-      (nguiInView)="restoreItems()"
-      (nguiOutView)="emptyItems()">
+      (nguiInview)="restoreItems()"
+      (nguiOutview)="emptyItems()">
       <ng-container
         [ngTemplateOutlet]="template||defaultTemplate"
         [ngTemplateOutletContext]="{items: items, outView: outView}">
@@ -26,10 +27,8 @@ import {
     </div>
 
     <ng-template #defaultTemplate>
-      <div *ngIf="items else loading">
-        Error: [template] is not given.
-      </div>
-      <ng-template #loading>Loading...</ng-template>
+      <div *ngIf="items else noItems">[template] missing</div>
+      <ng-template #noItems>[items] missing</ng-template>
     </ng-template>
   `,
   styles: [`
@@ -54,7 +53,11 @@ export class NguiDynPageComponent implements OnInit {
    */
   contentsEl: HTMLElement;
 
-  constructor(private element: ElementRef, private renderer: Renderer2) {}
+  constructor(
+    private element: ElementRef,
+    private renderer: Renderer2,
+    private cdRef: ChangeDetectorRef
+  ) {}
 
   /**
    * Restore items when in viewport, so that elements are rendered
@@ -65,6 +68,7 @@ export class NguiDynPageComponent implements OnInit {
       this.items = Array.from(this.itemsBackup || []);
       this.itemsBackup = undefined;
       this.renderer.setStyle(this.contentsEl, 'height', undefined);
+      this.cdRef.detectChanges();
     }
   }
 
@@ -85,6 +89,7 @@ export class NguiDynPageComponent implements OnInit {
       this.outView = true;
       this.itemsBackup = Array.from(this.items || []);
       this.items = undefined;
+      this.cdRef.detectChanges();
     }
   }
 

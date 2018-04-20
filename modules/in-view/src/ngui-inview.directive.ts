@@ -57,7 +57,7 @@ export class NguiInviewDirective implements OnInit, OnDestroy {
    */
   handleIntersect(entries, observer): void {
     entries.forEach((entry: IntersectionObserverEntry) => {
-      if (entry.isIntersecting) {
+      if (entry['isIntersecting']) {
         this.nguiInview.emit(entry);
       } else {
         this.nguiOutview.emit(entry);

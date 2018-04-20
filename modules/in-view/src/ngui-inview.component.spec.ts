@@ -7,13 +7,13 @@ import { NguiInviewComponent } from './ngui-inview.component';
 describe('AppComponent', () => {
   let component: ComponentFixture<any>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [ NguiInviewComponent ]
       // schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
-    component = TestBed.createComponent(NguiInviewComponent;
-  }));
+    component = TestBed.createComponent(NguiInviewComponent);
+  });
 
   it("should run '#constructor'", async(() => {
     // const comp = component.debugElement.componentInstance;

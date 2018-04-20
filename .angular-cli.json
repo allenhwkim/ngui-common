@@ -13,7 +13,7 @@
       "polyfills": "polyfills.ts",
       "tsconfig": "../tsconfig.json",
       "prefix": "app",
-      "styles": [],
+      "styles": ["styles.css"],
       "scripts": [] 
     }
   ],
