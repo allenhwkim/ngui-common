@@ -53,7 +53,7 @@ export class NguiVirtualListComponent implements OnInit {
    * The handler of this event must;
    *  - Call `$event.addItems(items: Array<any>)` to fill contents
    * If not, only the first page is loaded, and rest of the pages won't be loaded;
-   * 
+   *
    * @example
    * <ngui-virtual-list [template]="myTemplate" (bottomInview)="loadItems($event)">
    * </ngui-virtual-list>
