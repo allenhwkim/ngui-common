@@ -1,25 +1,25 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef } from '@angular/core';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <h2>ngui-dyn-page component test</h2>
+    <h2>ngui-inview-page component test</h2>
 
     <h3>[items] and [template] not given</h3>
-    <ngui-dyn-page id="item-template-missing"></ngui-dyn-page>
+    <ngui-inview-page id="item-template-missing"></ngui-inview-page>
 
     <h3>[items] not given</h3>
-    <ngui-dyn-page id="items-missing" [template]="myTemplate"></ngui-dyn-page>
+    <ngui-inview-page id="items-missing" [template]="myTemplate"></ngui-inview-page>
 
     <h3>[template] not given</h3>
-    <ngui-dyn-page id="templaxte-missing" [items]="items"></ngui-dyn-page>
+    <ngui-inview-page id="templaxte-missing" [items]="items"></ngui-inview-page>
 
     <h3>[item] and [template] given</h3>
-    <ngui-dyn-page
+    <ngui-inview-page
       id="item-template-given"
       style="border:1px solid #ccc"
       [items]="items"
-      [template]="myTemplate"></ngui-dyn-page>
+      [template]="myTemplate"></ngui-inview-page>
 
     <ng-template #myTemplate let-items="items">
       <div *ngIf="items else noItems">
@@ -46,7 +46,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef } fro
     }
   `]
 })
-export class DynPageComponent {
+export class InviewPageComponent {
   get numElements(): number {
     return this.element.nativeElement.querySelectorAll('li').length;
   }

@@ -2,7 +2,7 @@ import { async, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 // do not import any other than you test. For others, mock it
-import { NguiDynPageComponent } from './ngui-dyn-page.component';
+import { NguiVirtualListComponent } from './ngui-virtual-list.component';
 import { MockComponent } from '../../../test/jest-setup';
 
 describe('AppComponent', () => {
@@ -12,12 +12,12 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        NguiDynPageComponent,
+        NguiVirtualListComponent,
         MockComponent('some-component')
       ]
       // schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
-    fixture = TestBed.createComponent(NguiDynPageComponent);
+    fixture = TestBed.createComponent(NguiVirtualListComponent);
     component = fixture.debugElement.componentInstance;
   }));
 

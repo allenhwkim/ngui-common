@@ -1,2 +1,3 @@
-export {DynPageComponent} from './dyn-page-component';
+export {InviewPageComponent} from './inview-page-component';
 export {ListComponent} from './list-component';
+export {VirtualListComponent} from './virtual-list-component';

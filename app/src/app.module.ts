@@ -6,15 +6,16 @@ import { NguiInviewModule, NguiListModule, NguiUtilsModule } from '../../modules
 
 import { AppComponent } from './app.component';
 import { InviewComponent, InviewDirectiveTestComponent } from './inview-module-test';
-import { DynPageComponent, ListComponent } from './list-module-test';
+import { InviewPageComponent, ListComponent, VirtualListComponent } from './list-module-test';
 
 @NgModule({
   declarations: [
     AppComponent,
     InviewComponent,
-    InviewDirective,
-    DynPageComponent,
-    ListComponent
+    InviewDirectiveTestComponent,
+    InviewPageComponent,
+    ListComponent,
+    VirtualListComponent
   ],
   imports: [
     BrowserModule,
@@ -25,8 +26,9 @@ import { DynPageComponent, ListComponent } from './list-module-test';
       [
         { path: 'inview/ngui-inview', component: InviewComponent },
         { path: 'inview/nguiInview', component: InviewDirectiveTestComponent },
-        { path: 'list/ngui-dyn-page', component: DynPageComponent },
+        { path: 'list/ngui-inview-page', component: InviewPageComponent },
         { path: 'list/ngui-list', component: ListComponent },
+        { path: 'list/ngui-virtual-list', component: VirtualListComponent },
         { path: '', redirectTo: '/inview/ngui-inview', pathMatch: 'full'}
       ] // , { enableTracing: true } // debugging purposes only
     )

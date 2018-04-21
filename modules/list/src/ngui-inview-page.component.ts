@@ -14,9 +14,9 @@ import {
  * and restores the contents when in view
  */
 @Component({
-  selector: 'ngui-dyn-page',
+  selector: 'ngui-inview-page',
   template: `
-    <div class="dyn-page contents"
+    <div class="inview-page contents"
       (nguiInview)="restoreItems()"
       (nguiOutview)="emptyItems()">
       <ng-container
@@ -35,7 +35,7 @@ import {
     :host {display: block}
   `]
 })
-export class NguiDynPageComponent implements OnInit {
+export class NguiInviewPageComponent implements OnInit {
   /** Allow users to change the contents */
   @Input('template') template: TemplateRef<any>;
   /** List of elements that are used to render this element */
@@ -48,7 +48,7 @@ export class NguiDynPageComponent implements OnInit {
   /** The copy of items. This is set when this element is out of viewport */
   itemsBackup: Array<any> = [];
   /**
-   * The first element of this dynamic page component.
+   * The first element of this component.
    * The height of it remains the same even when items get empty out.
    */
   contentsEl: HTMLElement;
@@ -74,7 +74,7 @@ export class NguiDynPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.contentsEl =
-      this.element.nativeElement.querySelector('.dyn-page.contents');
+      this.element.nativeElement.querySelector('.inview-page.contents');
   }
 
   /**
@@ -91,6 +91,11 @@ export class NguiDynPageComponent implements OnInit {
       this.items = undefined;
       this.cdRef.detectChanges();
     }
+  }
+
+  setItems(items: Array<any>): void {
+    this.items = items;
+    this.cdRef.detectChanges();
   }
 
 }
