@@ -1,8 +1,10 @@
 /**
  * window.konsole alternative
- * @example
+ * ### example
+ * ```
  * konsole.setLogLevel('error');
  * konwole.log(1,2,3,4,5);
+ * ```
  */
 export abstract class konsole { // tslint:disable-line
   /** all log levels */

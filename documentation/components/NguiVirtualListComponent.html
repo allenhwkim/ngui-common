@@ -467,16 +467,15 @@
 </nav>
                </div>
                <!-- START CONTENT -->
-               <div class="content directive">
+               <div class="content component">
                    <div class="content-data">
 
 
 
 
-
 <ol class="breadcrumb">
-  <li>Directives</li>
-  <li>NguiInviewDirective</li>
+  <li>Components</li>
+  <li>NguiVirtualListComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -484,54 +483,98 @@
         <a href="#info" id="info-tab" role="tab" data-toggle="tab" data-link="info">Info</a>
     </li>
 
-
     <li>
         <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
     </li>
 
+    <li>
+        <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+    </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info">
-        <p class="comment">
-            <h3>File</h3>
-        </p>
-        <p class="comment">
-            <code>modules/in-view/src/ngui-inview.directive.ts</code>
-        </p>
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>modules/list/src/ngui-virtual-list.component.ts</code>
+</p>
 
-            <p class="comment">
-                <h3>Description</h3>
-            </p>
-            <p class="comment">
-                <p>Fires (nguiInview) or (nguiOutview) events dependents on the element is in viewport or not</p>
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Virtual List</p>
+<p>The <code>&lt;ngui-inview ..&gt;</code> inserts <ngui-inview-page> into
+<code>&lt;div #pages&gt;</code> when it is in viewport
+When it&#39;s inserted, it will be pushed down, which makes it out of viewport.
+User scrolls down to see the bottom of the list,
+then it will insert another <code>&lt;ngui-inview-page&gt;</code> again.</p>
+<p><ngui-inview-page> listens to (nguiInview) and (nguiOutview) events,
+when <ngui-inview-page> is out of view port, it empties out the contents.
+and it restores back the contents when it is in viewport again.</p>
+<h3 id="example">example</h3>
+<pre class="line-numbers"><code class="language-ts">&lt;ngui-virtual-list (bottomInview)=&quot;loadItems($event)&quot;&gt;
+   &lt;ng-template let-items=&quot;items&quot;&gt;
+     &lt;div *ngIf=&quot;!items&quot;&gt;Loading&lt;/div&gt;
+     &lt;li *ngFor=&quot;let num of items; trackBy: num&quot;&gt;row number: {{ num }}&lt;/li&gt;
+   &lt;/ng-template&gt;
+&lt;/ngui-virtual-list&gt;</code></pre>
+    </p>
 
-            </p>
 
-            <p class="comment">
-                <h3>Implements</h3>
-            </p>
-            <p class="comment">
-                        <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
-                        <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
-            </p>
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/AfterViewInit" target="_blank" >AfterViewInit</a></code>
+    </p>
 
 
-        <section>
-            <h3>Metadata</h3>
-            <table class="table table-sm table-hover">
-                <tbody>
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
 
-                    <tr>
-                        <td class="col-md-3">selector</td>
-                        <td class="col-md-9"><code>[nguiInview], [nguiOutview]</code></td>
-                    </tr>
 
-                </tbody>
-            </table>
-        </section>
 
-            <section>
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>ngui-virtual-list</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">styles</td>
+                <td class="col-md-9"><code>
+    :host {display: block}
+  </code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">template</td>
+                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;!-- hold multiple &lt;ngui-inview-page&gt; --&gt;
+&lt;div #pages&gt;&lt;/div&gt;
+&lt;!-- insert &lt;ngui-inview-page&gt; into #pages --&gt;
+&lt;ngui-inview (inview)&#x3D;&quot;addInviewPageToPages()&quot;&gt;&lt;/ngui-inview&gt;
+</code></pre></td>
+            </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -544,15 +587,24 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#compLoading">compLoading</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dynamicComponentService">dynamicComponentService</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Public</span>
                                 <a href="#element">element</a>
                             </li>
                             <li>
-                                <a href="#observer">observer</a>
+                                <a href="#isCompLoading">isCompLoading</a>
                             </li>
                             <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#renderer">renderer</a>
+                                <a href="#pagesRef">pagesRef</a>
+                            </li>
+                            <li>
+                                <a href="#template">template</a>
                             </li>
                         </ul>
                     </td>
@@ -567,32 +619,18 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#handleIntersect">handleIntersect</a>
+                                <a href="#addInviewPageToPages">addInviewPageToPages</a>
                             </li>
                             <li>
-                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                                <a href="#addItems">addItems</a>
                             </li>
                             <li>
-                                <a href="#ngOnInit">ngOnInit</a>
+                                <a href="#ngAfterViewInit">ngAfterViewInit</a>
                             </li>
                         </ul>
                     </td>
                 </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Inputs</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#options">options</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -603,10 +641,13 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#nguiInview">nguiInview</a>
+                                <a href="#bottomInview">bottomInview</a>
                             </li>
                             <li>
-                                <a href="#nguiOutview">nguiOutview</a>
+                                <a href="#escaped">escaped</a>
+                            </li>
+                            <li>
+                                <a href="#selected">selected</a>
                             </li>
                         </ul>
                     </td>
@@ -618,18 +659,18 @@
     </table>
 </section>
 
-            <section>
+    <section>
     <h3 id="constructor">Constructor</h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(element: <a href="https://angular.io/api/core/ElementRef" target="_blank">ElementRef</a>, renderer: <a href="https://angular.io/api/core/Renderer2" target="_blank">Renderer2</a>, platformId: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+<code>constructor(element: <a href="https://angular.io/api/core/ElementRef" target="_blank">ElementRef</a>, dynamicComponentService: <a href="../injectables/DynamicComponentService.html">DynamicComponentService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">modules/in-view/src/ngui-inview.directive.ts:31</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">modules/list/src/ngui-virtual-list.component.ts:86</a></div>
                             </td>
                         </tr>
 
@@ -659,22 +700,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                    <td>renderer</td>
+                                                    <td>dynamicComponentService</td>
                                                   
                                                         <td>
-                                                                    <code><a href="https://angular.io/api/core/Renderer2" target="_blank" >Renderer2</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            no
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                    <td>platformId</td>
-                                                  
-                                                        <td>
-                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                                    <code><a href="../injectables/DynamicComponentService.html" target="_self" >DynamicComponentService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -691,46 +720,23 @@
         </table>
 </section>
 
-            <section>
-    <h3 id="inputs">Inputs</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-2">
-                        <a name="options"></a>
-                        <code>options</code>
-                    </td>
-                    <td class="col-md-10">
-                        <div><p>IntersectionObserver options </p>
-</div>
-                            <p>
-                            <em>Type:</em>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
-                            </p>
-                        <p>
-                            <em>Default value: </em><code>{}</code>
-                        </p>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">modules/in-view/src/ngui-inview.directive.ts:26</a></div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-</section>
-            <section>
+    <section>
     <h3 id="outputs">Outputs</h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-2">
-                        <a name="nguiInview"></a>
-                        <code>nguiInview</code>
+                        <a name="bottomInview"></a>
+                        <code>bottomInview</code>
                     </td>
                     <td class="col-md-10">
-                        <div><p>Event that will be fired when in viewport </p>
+                        <div><p><p>Event fired when bottom of the virtual list is in view
+The handler of this event must;</p></p>
+<ul>
+<li>Call <code>$event.addItems(items: Array&lt;any&gt;)</code> to fill contents
+If not, only the first page is loaded, and rest of the pages won&#39;t be loaded;</li>
+</ul>
 </div>
                         <em><code>$event</code> type:</em>    <code>EventEmitter&lt;any&gt;</code>
 
@@ -738,7 +744,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">modules/in-view/src/ngui-inview.directive.ts:29</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">modules/list/src/ngui-virtual-list.component.ts:79</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -747,19 +753,36 @@
             <tbody>
                 <tr>
                     <td class="col-md-2">
-                        <a name="nguiOutview"></a>
-                        <code>nguiOutview</code>
+                        <a name="escaped"></a>
+                        <code>escaped</code>
                     </td>
                     <td class="col-md-10">
-                        <div><p>Event that will be fired when out of  viewport </p>
-</div>
                         <em><code>$event</code> type:</em>    <code>EventEmitter&lt;any&gt;</code>
 
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">modules/in-view/src/ngui-inview.directive.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">modules/list/src/ngui-virtual-list.component.ts:81</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="selected"></a>
+                        <code>selected</code>
+                    </td>
+                    <td class="col-md-10">
+                        <em><code>$event</code> type:</em>    <code>EventEmitter&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">modules/list/src/ngui-virtual-list.component.ts:80</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -767,7 +790,7 @@
 </section>
 
 
-            <section>
+    <section>
     
         <h3 id="methods">
             Methods
@@ -776,33 +799,71 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="handleIntersect"></a>
+                        <a name="addInviewPageToPages"></a>
                         <span class="name">
                             <b>
-                            handleIntersect
+                            addInviewPageToPages
                             </b>
-                            <a href="#handleIntersect"><span class="fa fa-link"></span></a>
+                            <a href="#addInviewPageToPages"><span class="fa fa-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>handleIntersect(entries: , observer: )</code>
+<code>addInviewPageToPages()</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">modules/in-view/src/ngui-inview.directive.ts:58</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="105" class="link-to-prism">modules/list/src/ngui-virtual-list.component.ts:105</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Fires (nguiInview) event when this element is in viewport
-  and fires (nguiOutview) event when this element is not in viewport</p>
+                            <div class="io-description"><p>When the bottom is inview port, this function is called
+It will insert a dynamicall created NguiInviewPageComponent with the given template.
+It will also fires (bottomInview) event, so that user can fill up items for the page.</p>
 </div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="addItems"></a>
+                        <span class="name">
+                            <b>
+                            addItems
+                            </b>
+                            <a href="#addItems"><span class="fa fa-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>addItems(items: Array<any>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="122" class="link-to-prism">modules/list/src/ngui-virtual-list.component.ts:122</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -810,21 +871,16 @@
                                         <thead>
                                             <tr>
                                                 <td>Name</td>
+                                                    <td>Type</td>
                                                 <td>Optional</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>entries</td>
-                                                    
-                                                    <td>
-                                                            no
-                                                    </td>
-                                                    
-
-                                                </tr>
-                                                <tr>
-                                                        <td>observer</td>
+                                                        <td>items</td>
+                                                        <td>
+                                                                    <code>Array&lt;any&gt;</code>
+                                                        </td>
                                                     
                                                     <td>
                                                             no
@@ -852,70 +908,31 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="ngOnDestroy"></a>
+                        <a name="ngAfterViewInit"></a>
                         <span class="name">
                             <b>
-                            ngOnDestroy
+                            ngAfterViewInit
                             </b>
-                            <a href="#ngOnDestroy"><span class="fa fa-link"></span></a>
+                            <a href="#ngAfterViewInit"><span class="fa fa-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>ngOnDestroy()</code>
+<code>ngAfterViewInit()</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">modules/in-view/src/ngui-inview.directive.ts:48</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="94" class="link-to-prism">modules/list/src/ngui-virtual-list.component.ts:94</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Stops IntersectionObserver </p>
-</div>
-
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="ngOnInit"></a>
-                        <span class="name">
-                            <b>
-                            ngOnInit
-                            </b>
-                            <a href="#ngOnInit"><span class="fa fa-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>ngOnInit()</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">modules/in-view/src/ngui-inview.directive.ts:40</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Starts IntersectionObserver </p>
+                            <div class="io-description"><p>Check if necessary input and output is provided </p>
 </div>
 
                             <div class="io-description">
@@ -928,11 +945,86 @@
         </table>
 </section>
 
-            <section>
+    <section>
     
         <h3 id="inputs">
             Properties
         </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="compLoading"></a>
+                        <span class="name">
+                            <b>
+                            compLoading
+                            </b>
+                            <a href="#compLoading"><span class="fa fa-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>compLoading:     <code><a href="../components/NguiInviewPageComponent.html" target="_self" >NguiInviewPageComponent</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../components/NguiInviewPageComponent.html" target="_self" >NguiInviewPageComponent</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">modules/list/src/ngui-virtual-list.component.ts:84</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The last NguiInviewPageComponent being inserted </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dynamicComponentService"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            dynamicComponentService
+                            </b>
+                            <a href="#dynamicComponentService"><span class="fa fa-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon fa fa-reset"></span><code>dynamicComponentService:     <code><a href="../injectables/DynamicComponentService.html" target="_self" >DynamicComponentService</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../injectables/DynamicComponentService.html" target="_self" >DynamicComponentService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">modules/list/src/ngui-virtual-list.component.ts:90</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
@@ -961,7 +1053,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">modules/in-view/src/ngui-inview.directive.ts:34</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">modules/list/src/ngui-virtual-list.component.ts:89</a></div>
                             </td>
                         </tr>
 
@@ -972,30 +1064,75 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="observer"></a>
+                        <a name="isCompLoading"></a>
                         <span class="name">
                             <b>
-                            observer
+                            isCompLoading
                             </b>
-                            <a href="#observer"><span class="fa fa-link"></span></a>
+                            <a href="#isCompLoading"><span class="fa fa-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <code>observer:     <code>IntersectionObserver</code>
+                        <code>isCompLoading:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>IntersectionObserver</code>
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">modules/in-view/src/ngui-inview.directive.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">modules/list/src/ngui-virtual-list.component.ts:86</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Indicates if a page is still loading </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="pagesRef"></a>
+                        <span class="name">
+                            <b>
+                            pagesRef
+                            </b>
+                            <a href="#pagesRef"><span class="fa fa-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>pagesRef:     <code><a href="https://angular.io/api/core/ViewContainerRef" target="_blank" >ViewContainerRef</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://angular.io/api/core/ViewContainerRef" target="_blank" >ViewContainerRef</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Decorators : </i><code>ViewChild</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">modules/list/src/ngui-virtual-list.component.ts:57</a></div>
                             </td>
                         </tr>
 
@@ -1006,31 +1143,35 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="renderer"></a>
+                        <a name="template"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Public</span>
-                            renderer
+                            template
                             </b>
-                            <a href="#renderer"><span class="fa fa-link"></span></a>
+                            <a href="#template"><span class="fa fa-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon fa fa-reset"></span><code>renderer:     <code><a href="https://angular.io/api/core/Renderer2" target="_blank" >Renderer2</a></code>
+                        <code>template:     <code>TemplateRef&lt;any&gt;</code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://angular.io/api/core/Renderer2" target="_blank" >Renderer2</a></code>
+                            <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Decorators : </i><code>ContentChild</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">modules/in-view/src/ngui-inview.directive.ts:35</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">modules/list/src/ngui-virtual-list.component.ts:60</a></div>
                             </td>
                         </tr>
 
@@ -1039,82 +1180,171 @@
         </table>
 </section>
 
-
-    </div>
+</div>
 
 
     <div class="tab-pane fade tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
-  Directive,
+  ChangeDetectorRef,
+  Component,
+  ContentChild,
   ElementRef,
   EventEmitter,
-  Inject,
   Input,
-  OnDestroy,
-  OnInit,
+  AfterViewInit,
   Output,
-  PLATFORM_ID,
   Renderer2,
-  ViewChild
+  TemplateRef,
+  ViewChild,
+  ViewContainerRef
 } from &#x27;@angular/core&#x27;;
-import { isPlatformBrowser } from &#x27;@angular/common&#x27;;
+
+import { DynamicComponentService } from &#x27;../../utils&#x27;;
+import { NguiInviewPageComponent } from &#x27;./ngui-inview-page.component&#x27;;
 
 /**
- * Fires (nguiInview) or (nguiOutview) events dependents on the element is in viewport or not
+ * Virtual List
+ *
+ * The &#x60;&lt;ngui-inview ..&gt;&#x60; inserts &lt;ngui-inview-page&gt; into
+ * &#x60;&lt;div #pages&gt;&#x60; when it is in viewport
+ * When it&#x27;s inserted, it will be pushed down, which makes it out of viewport.
+ * User scrolls down to see the bottom of the list,
+ * then it will insert another &#x60;&lt;ngui-inview-page&gt;&#x60; again.
+ *
+ * &lt;ngui-inview-page&gt; listens to (nguiInview) and (nguiOutview) events,
+ * when &lt;ngui-inview-page&gt; is out of view port, it empties out the contents.
+ * and it restores back the contents when it is in viewport again.
+ *
+ * ### example
+ * &#x60;&#x60;&#x60;ts
+ * &lt;ngui-virtual-list (bottomInview)&#x3D;&quot;loadItems($event)&quot;&gt;
+ *   &lt;ng-template let-items&#x3D;&quot;items&quot;&gt;
+ *     &lt;div *ngIf&#x3D;&quot;!items&quot;&gt;Loading&lt;/div&gt;
+ *     &lt;li *ngFor&#x3D;&quot;let num of items; trackBy: num&quot;&gt;row number: {{ num }}&lt;/li&gt;
+ *   &lt;/ng-template&gt;
+ * &lt;/ngui-virtual-list&gt;
+ * &#x60;&#x60;&#x60;
  */
-@Directive({
-  selector: &#x27;[nguiInview], [nguiOutview]&#x27; // tslint:disable-line
+@Component({
+  selector: &#x27;ngui-virtual-list&#x27;,
+  template: &#x60;
+    &lt;!-- hold multiple &lt;ngui-inview-page&gt; --&gt;
+    &lt;div #pages&gt;&lt;/div&gt;
+    &lt;!-- insert &lt;ngui-inview-page&gt; into #pages --&gt;
+    &lt;ngui-inview (inview)&#x3D;&quot;addInviewPageToPages()&quot;&gt;&lt;/ngui-inview&gt;
+  &#x60;,
+  styles: [&#x60;
+    :host {display: block}
+  &#x60;]
 })
-export class NguiInviewDirective implements OnInit, OnDestroy {
-  observer: IntersectionObserver;
+export class NguiVirtualListComponent implements AfterViewInit {
 
-  /** IntersectionObserver options */
-  @Input() options: any &#x3D; {};
+  // the container NguiInviewPage will be inserted
+  @ViewChild(&#x27;pages&#x27;, {read: ViewContainerRef}) pagesRef: ViewContainerRef;
 
-  /** Event that will be fired when in viewport */
-  @Output() nguiInview: EventEmitter&lt;any&gt; &#x3D; new EventEmitter();
-  /** Event that will be fired when out of  viewport */
-  @Output() nguiOutview: EventEmitter&lt;any&gt; &#x3D; new EventEmitter();
+  // Template of NguiInviewPage. Allow users to define their own template
+  @ContentChild(TemplateRef) template: TemplateRef&lt;any&gt;;
+
+  /**
+   * Event fired when bottom of the virtual list is in view
+   * The handler of this event must;
+   *  - Call &#x60;$event.addItems(items: Array&lt;any&gt;)&#x60; to fill contents
+   * If not, only the first page is loaded, and rest of the pages won&#x27;t be loaded;
+   *
+   * @example
+   * &lt;ngui-virtual-list (bottomInview)&#x3D;&quot;loadItems($event)&quot;&gt;
+   *   &lt;ng-template let-items&#x3D;&quot;items&quot;&gt;
+   *     &lt;div *ngIf&#x3D;&quot;items else noItems&quot;&gt;
+   *        &lt;li *ngFor&#x3D;&quot;let num of items; trackBy: num&quot;&gt;row number: {{ num }}&lt;/li&gt;
+   *     &lt;/div&gt;
+   *     &lt;ng-template #noItems&gt;Loading&lt;/ng-template&gt;
+   *   &lt;/ng-template&gt;
+   * &lt;/ngui-virtual-list&gt;
+   *
+   */
+  @Output() bottomInview: EventEmitter&lt;any&gt; &#x3D; new EventEmitter();
+  @Output() selected: EventEmitter&lt;any&gt; &#x3D; new EventEmitter();
+  @Output() escaped: EventEmitter&lt;any&gt; &#x3D; new EventEmitter();
+
+  /** The last NguiInviewPageComponent being inserted */
+  compLoading: NguiInviewPageComponent;
+  /** Indicates if a page is still loading */
+  isCompLoading: boolean;
 
   constructor(
     public element: ElementRef,
-    public renderer: Renderer2,
-    @Inject(PLATFORM_ID) private platformId: any) {
-  }
+    public dynamicComponentService: DynamicComponentService
+  ) {}
 
-  /** Starts IntersectionObserver */
-  ngOnInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.observer &#x3D; new IntersectionObserver(this.handleIntersect.bind(this), this.options);
-      this.observer.observe(this.element.nativeElement);
-    }
-  }
-
-  /** Stops IntersectionObserver */
-  ngOnDestroy(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.observer.disconnect();
+  /** Check if necessary input and output is provided */
+  ngAfterViewInit(): void {
+    if (!this.template || !this.bottomInview.observers.length) {
+      console.error(&#x27;&lt;ngui-virtual-list&gt; requires [template] and {bottomInview)&#x27;);
     }
   }
 
   /**
-   * Fires (nguiInview) event when this element is in viewport
-   *  and fires (nguiOutview) event when this element is not in viewport
+   * When the bottom is inview port, this function is called
+   * It will insert a dynamicall created NguiInviewPageComponent with the given template.
+   * It will also fires (bottomInview) event, so that user can fill up items for the page.
    */
-  handleIntersect(entries, observer): void {
-    entries.forEach((entry: IntersectionObserverEntry) &#x3D;&gt; {
-      if (entry[&#x27;isIntersecting&#x27;]) {
-        this.nguiInview.emit(entry);
-      } else {
-        this.nguiOutview.emit(entry);
-      }
-    });
+  addInviewPageToPages(): void {
+    if (!this.isCompLoading) {
+      const compRef &#x3D;
+        this.dynamicComponentService.createComponent(NguiInviewPageComponent, this.pagesRef);
+      this.dynamicComponentService.insertComponent(compRef);
+
+      this.isCompLoading &#x3D; true;
+      this.compLoading &#x3D; compRef.instance;
+      this.compLoading.template &#x3D; this.template;
+
+      this.bottomInview.emit(this); // Fire evnet, so that user can load items
+    } else {
+      console.log(&#x27;Already a page being inserted, skipping adding a page&#x27;);
+    }
   }
+
+  // set items of NguiInviewPageComponent
+  addItems(items: Array&lt;any&gt;): void {
+    this.compLoading.setItems(items);
+    this.isCompLoading &#x3D; false;
+  }
+
 }
 </code></pre>
     </div>
 
+
+    <div class="tab-pane fade" id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
 </div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!-- hold multiple <ngui-inview-page> --><div #pages></div><!-- insert <ngui-inview-page> into #pages --><ngui-inview (inview)="addInviewPageToPages()"></ngui-inview></div>'
+    var COMPONENTS = [{'name': 'NguiInviewComponent', 'selector': 'ngui-inview'},{'name': 'NguiInviewPageComponent', 'selector': 'ngui-inview-page'},{'name': 'NguiVirtualListComponent', 'selector': 'ngui-virtual-list'}];
+    var DIRECTIVES = [{'name': 'NguiInviewDirective', 'selector': '[nguiInview], [nguiOutview]'},{'name': 'NguiListDirective', 'selector': 'ngui-list'},{'name': 'NguiListItemDirective', 'selector': 'ngui-list-item'}];
+    var ACTUAL_COMPONENT = {'name': 'NguiVirtualListComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
 
 
 
@@ -1150,7 +1380,7 @@ export class NguiInviewDirective implements OnInit, OnDestroy {
 
         <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_URL = 'NguiInviewDirective.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'NguiVirtualListComponent.html';
         </script>
 
        <script src="../js/search/search.js"></script>

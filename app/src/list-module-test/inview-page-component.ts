@@ -9,24 +9,21 @@ import { ChangeDetectionStrategy, Component, ElementRef } from '@angular/core';
     <ngui-inview-page id="item-template-missing"></ngui-inview-page>
 
     <h3>[items] not given</h3>
-    <ngui-inview-page id="items-missing" [template]="myTemplate"></ngui-inview-page>
+    <ngui-inview-page id="items-missing">
+      <ng-template let-items="items">template without [items]</ng-template>
+    </ngui-inview-page>
 
     <h3>[template] not given</h3>
     <ngui-inview-page id="templaxte-missing" [items]="items"></ngui-inview-page>
 
     <h3>[item] and [template] given</h3>
-    <ngui-inview-page
-      id="item-template-given"
-      style="border:1px solid #ccc"
-      [items]="items"
-      [template]="myTemplate"></ngui-inview-page>
-
-    <ng-template #myTemplate let-items="items">
-      <div *ngIf="items else noItems">
-        <li *ngFor="let num of items; trackBy: num">row number: {{ num }}</li>
-      </div>
-      <ng-template #noItems>[items] missing</ng-template>
-    </ng-template>
+    <ngui-inview-page id="item-template-given" style="border:1px solid #ccc" [items]="items">
+      <ng-template let-items="items">
+        <div *ngIf="items else noItems">
+          <li *ngFor="let num of items; trackBy: num">row number: {{ num }}</li>
+        </div>
+      </ng-template>
+    </ngui-inview-page>
 
     <h3>filler</h3>
     <div style="height: 800px; border: 1px solid #ccc">

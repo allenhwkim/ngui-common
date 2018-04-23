@@ -9,15 +9,12 @@ import 'rxjs/add/operator/delay';
   template: `
     <h2>ngui-virtual-list component test</h2>
 
-    <ngui-virtual-list [template]="myTemplate" (bottomInview)="loadItems($event)">
-    </ngui-virtual-list>
-
-    <ng-template #myTemplate let-items="items">
-      <div *ngIf="items else noItems">
+    <ngui-virtual-list (bottomInview)="loadItems($event)">
+      <ng-template let-items="items">
+        <div *ngIf="!items">Loading</div>
         <li *ngFor="let num of items; trackBy: num">row number: {{ num }}</li>
-      </div>
-      <ng-template #noItems>Loading</ng-template>
-    </ng-template>
+      </ng-template>
+    </ngui-virtual-list>
 
     <div class="num-elements">
       Number of all elements on document: {{ numDomElements }}

@@ -1,10 +1,11 @@
 import {
   ChangeDetectorRef,
   Component,
+  ContentChild,
   ElementRef,
   EventEmitter,
   Input,
-  OnInit,
+  AfterViewInit,
   Output,
   Renderer2,
   TemplateRef,
@@ -18,15 +19,25 @@ import { NguiInviewPageComponent } from './ngui-inview-page.component';
 /**
  * Virtual List
  *
- * The <ngui-inview ..> inserts <ngui-inview-page> into
- * <div #pages> when it is in viewport
+ * The `<ngui-inview ..>` inserts <ngui-inview-page> into
+ * `<div #pages>` when it is in viewport
  * When it's inserted, it will be pushed down, which makes it out of viewport.
  * User scrolls down to see the bottom of the list,
- * then it will insert another <ngui-inview-page> again.
+ * then it will insert another `<ngui-inview-page>` again.
  *
  * <ngui-inview-page> listens to (nguiInview) and (nguiOutview) events,
  * when <ngui-inview-page> is out of view port, it empties out the contents.
  * and it restores back the contents when it is in viewport again.
+ *
+ * ### example
+ * ```ts
+ * <ngui-virtual-list (bottomInview)="loadItems($event)">
+ *   <ng-template let-items="items">
+ *     <div *ngIf="!items">Loading</div>
+ *     <li *ngFor="let num of items; trackBy: num">row number: {{ num }}</li>
+ *   </ng-template>
+ * </ngui-virtual-list>
+ * ```
  */
 @Component({
   selector: 'ngui-virtual-list',
@@ -40,13 +51,13 @@ import { NguiInviewPageComponent } from './ngui-inview-page.component';
     :host {display: block}
   `]
 })
-export class NguiVirtualListComponent implements OnInit {
+export class NguiVirtualListComponent implements AfterViewInit {
 
   // the container NguiInviewPage will be inserted
   @ViewChild('pages', {read: ViewContainerRef}) pagesRef: ViewContainerRef;
 
-  /** Template of NguiInviewPage. Allow users to define their own template */
-  @Input() template: TemplateRef<any>;
+  // Template of NguiInviewPage. Allow users to define their own template
+  @ContentChild(TemplateRef) template: TemplateRef<any>;
 
   /**
    * Event fired when bottom of the virtual list is in view
@@ -54,18 +65,22 @@ export class NguiVirtualListComponent implements OnInit {
    *  - Call `$event.addItems(items: Array<any>)` to fill contents
    * If not, only the first page is loaded, and rest of the pages won't be loaded;
    *
-   * @example
-   * <ngui-virtual-list [template]="myTemplate" (bottomInview)="loadItems($event)">
-   * </ngui-virtual-list>
    *
-   * <ng-template #myTemplate let-items="items">
-   *   <div *ngIf="items else noItems">
-   *      <li *ngFor="let num of items; trackBy: num">row number: {{ num }}</li>
-   *   </div>
-   *   <ng-template #noItems>Loading</ng-template>
-   * </ng-template>
+   * ### example
+   * ```ts
+   * <ngui-virtual-list (bottomInview)="loadItems($event)">
+   *   <ng-template let-items="items">
+   *     <div *ngIf="items else noItems">
+   *        <li *ngFor="let num of items; trackBy: num">row number: {{ num }}</li>
+   *     </div>
+   *     <ng-template #noItems>Loading</ng-template>
+   *   </ng-template>
+   * </ngui-virtual-list>
+   * ```
    */
   @Output() bottomInview: EventEmitter<any> = new EventEmitter();
+  @Output() selected: EventEmitter<any> = new EventEmitter();
+  @Output() escaped: EventEmitter<any> = new EventEmitter();
 
   /** The last NguiInviewPageComponent being inserted */
   compLoading: NguiInviewPageComponent;
@@ -78,7 +93,7 @@ export class NguiVirtualListComponent implements OnInit {
   ) {}
 
   /** Check if necessary input and output is provided */
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     if (!this.template || !this.bottomInview.observers.length) {
       console.error('<ngui-virtual-list> requires [template] and {bottomInview)');
     }

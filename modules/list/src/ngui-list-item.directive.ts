@@ -6,36 +6,47 @@ import {
   Inject,
   Input,
   OnInit,
+  Optional,
   Renderer2
 } from '@angular/core';
 
 import { NguiListDirective } from './ngui-list.directive';
+import { NguiVirtualListComponent } from './ngui-virtual-list.component';
 
 // tabindex, keydown, keyup(ENTER, ESC), click
 @Directive({
-  selector: '[nguiListItem]' // tslint:disable-line
+  selector: 'ngui-list-item' // tslint:disable-line
 })
 export class NguiListItemDirective implements OnInit {
+  @Input('item') object: any; // tslint:disable-line
+
   nextSibling: HTMLElement;
   prevSibling: HTMLElement;
-  @Input('nguiListItem') object: any; // tslint:disable-line
+  parentListComp: NguiListDirective | NguiVirtualListComponent;
 
   constructor(
     private el: ElementRef,
     private renderer: Renderer2,
-    @Host() private listDirective: NguiListDirective
+    @Optional() @Host() private listDirective: NguiListDirective,
+    @Optional() @Host() private virtualListComponent: NguiVirtualListComponent
   ) {}
 
   ngOnInit(): void {
     this.renderer.setAttribute(this.el.nativeElement, 'tabindex', '1');
+    this.parentListComp = this.listDirective || this.virtualListComponent;
+    if (!this.parentListComp) {
+      throw Error('ngui-list-item requires parent of ngui-list or ngui-virtual-list.');
+    }
   }
 
   // handles keyboard up, down, left, right
   @HostListener('keydown', ['$event']) keydown(event): void {
     const el = this.el.nativeElement;
     const keyCode = event.which || event.keyCode;
+
     const nextListItem = el.nextElementSibling
       || el.parentElement.firstElementChild;
+
     const prevListItem = el.previousElementSibling
       || el.parentElement.lastElementChild;
 
@@ -57,10 +68,10 @@ export class NguiListItemDirective implements OnInit {
 
     switch (keyCode) {
       case 13: // return key
-        this.listDirective.selected.emit(this.object);
+        this.parentListComp.selected.emit(this.object);
         break;
       case 27: // esc key
-        this.listDirective.escaped.emit();
+        this.parentListComp.escaped.emit();
         break;
       default:
         break;

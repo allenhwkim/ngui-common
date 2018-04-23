@@ -1,6 +1,7 @@
 import {
   ChangeDetectorRef,
   Component,
+  ContentChild,
   ElementRef,
   Input,
   OnInit,
@@ -12,6 +13,17 @@ import {
  * A block of component that listens to inView and outView events,
  * so that it empties contents when out of view after backup items
  * and restores the contents when in view
+ *
+ * ### example
+ * ```ts
+ * <ngui-inview-page [items]="items">
+ *   <ng-template let-items="items">
+ *     <div *ngIf="items else noItems">
+ *       <li *ngFor="let num of items; trackBy: num">row number: {{ num }}</li>
+ *     </div>
+ *   </ng-template>
+ * </ngui-inview-page>
+ * ```
  */
 @Component({
   selector: 'ngui-inview-page',
@@ -27,8 +39,8 @@ import {
     </div>
 
     <ng-template #defaultTemplate>
-      <div *ngIf="items else noItems">[template] missing</div>
-      <ng-template #noItems>[items] missing</ng-template>
+      <div *ngIf="!items"> Error: requires [items] </div>
+      <div *ngIf="!template"> Error: requires &lt;ng-template></div>
     </ng-template>
   `,
   styles: [`
@@ -36,8 +48,11 @@ import {
   `]
 })
 export class NguiInviewPageComponent implements OnInit {
+
   /** Allow users to change the contents */
-  @Input('template') template: TemplateRef<any>;
+  @ContentChild(TemplateRef) template: TemplateRef<any>;
+  // @Input('template') template: TemplateRef<any>;
+
   /** List of elements that are used to render this element */
   @Input('items') items: Array<any>;
 

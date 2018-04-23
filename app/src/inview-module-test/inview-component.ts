@@ -8,7 +8,7 @@ import { Component, ElementRef } from '@angular/core';
     <hr/>
 
     <div *ngFor="let i of numArr; trackBy: i">
-      <ngui-inview>
+      <ngui-inview> <!-- only displays when this is in viewport -->
         <img *ngIf src="https://picsum.photos/800/300?image={{i}}" height="33%">
       </ngui-inview>
     </div>

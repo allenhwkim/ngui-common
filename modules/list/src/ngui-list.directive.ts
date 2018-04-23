@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[ngui-list]' // tslint:disable-line
+  selector: 'ngui-list' // tslint:disable-line
 })
 export class NguiListDirective {
   @Output() selected: EventEmitter<any> = new EventEmitter();
