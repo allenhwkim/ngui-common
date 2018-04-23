@@ -12,7 +12,9 @@ import 'rxjs/add/operator/delay';
     <ngui-virtual-list (bottomInview)="loadItems($event)">
       <ng-template let-items="items">
         <div *ngIf="!items">Loading</div>
-        <li *ngFor="let num of items; trackBy: num">row number: {{ num }}</li>
+        <ngui-list-item *ngFor="let num of items; trackBy: num">
+          row number: {{ num }}
+        </ngui-list-item>
       </ng-template>
     </ngui-virtual-list>
 
@@ -21,6 +23,7 @@ import 'rxjs/add/operator/delay';
     </div>
   `,
   styles: [`
+    ngui-list-item {display: block}
     .num-elements {
       position: fixed; padding: 5px;
       bottom: 0; left: 50%; background: #333;color: #fff;

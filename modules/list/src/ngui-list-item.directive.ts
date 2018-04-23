@@ -41,14 +41,14 @@ export class NguiListItemDirective implements OnInit {
 
   // handles keyboard up, down, left, right
   @HostListener('keydown', ['$event']) keydown(event): void {
-    const el = this.el.nativeElement;
+    const thisListItem = this.el.nativeElement;
     const keyCode = event.which || event.keyCode;
-
-    const nextListItem = el.nextElementSibling
-      || el.parentElement.firstElementChild;
-
-    const prevListItem = el.previousElementSibling
-      || el.parentElement.lastElementChild;
+    const parentListEl = this.parentListComp.element.nativeElement;
+    const listItems: Array<HTMLElement>
+      = Array.from(parentListEl.querySelectorAll('ngui-list-item'));
+    const listItemNdx = listItems.indexOf(thisListItem);
+    const nextListItem = listItems[listItemNdx + 1] || listItems[0];
+    const prevListItem = listItems[listItemNdx - 1] || listItems[listItems.length - 1];
 
     switch (keyCode) {
       case 37: case 38: // up arrow, left arrow
@@ -80,6 +80,6 @@ export class NguiListItemDirective implements OnInit {
 
   // handles keyboard enter(13), esc(27)
   @HostListener('click', ['$event']) mousedown(event): void {
-    this.listDirective.selected.emit(this.object);
+    this.parentListComp.selected.emit(this.object);
   }
 }

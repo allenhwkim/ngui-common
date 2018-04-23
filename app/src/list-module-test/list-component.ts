@@ -14,7 +14,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
    encapsulation: ViewEncapsulation.None
 })
 export class ListComponent  {
-  items = (new Array(100)).fill(0).map((_, i) => ({id: i, value: `value ${i}`}));
+  items = (new Array(10)).fill(0).map((_, i) => ({id: i, value: `value ${i}`}));
 
   selected(item): void {
     console.log('item selected', item);

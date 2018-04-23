@@ -1,11 +1,11 @@
 import {
+  AfterViewInit,
   ChangeDetectorRef,
   Component,
   ContentChild,
   ElementRef,
   EventEmitter,
   Input,
-  AfterViewInit,
   Output,
   Renderer2,
   TemplateRef,
@@ -53,18 +53,19 @@ import { NguiInviewPageComponent } from './ngui-inview-page.component';
 })
 export class NguiVirtualListComponent implements AfterViewInit {
 
-  // the container NguiInviewPage will be inserted
+  /** the container NguiInviewPage will be inserted */
   @ViewChild('pages', {read: ViewContainerRef}) pagesRef: ViewContainerRef;
-
-  // Template of NguiInviewPage. Allow users to define their own template
+  /** Template of NguiInviewPage. Allow users to define their own template  */
   @ContentChild(TemplateRef) template: TemplateRef<any>;
+  /** Fired when child `<ngui-list-item>` is selected */
+  @Output() selected: EventEmitter<any> = new EventEmitter();
+  /** Fired when `ESC` key is pressed from `<ngui-list-item>` */
+  @Output() escaped: EventEmitter<any> = new EventEmitter();
 
   /**
    * Event fired when bottom of the virtual list is in view
-   * The handler of this event must;
-   *  - Call `$event.addItems(items: Array<any>)` to fill contents
+   * The handler of this event must call `$event.addItems(items: Array<any>)` to fill contents
    * If not, only the first page is loaded, and rest of the pages won't be loaded;
-   *
    *
    * ### example
    * ```ts
@@ -79,8 +80,6 @@ export class NguiVirtualListComponent implements AfterViewInit {
    * ```
    */
   @Output() bottomInview: EventEmitter<any> = new EventEmitter();
-  @Output() selected: EventEmitter<any> = new EventEmitter();
-  @Output() escaped: EventEmitter<any> = new EventEmitter();
 
   /** The last NguiInviewPageComponent being inserted */
   compLoading: NguiInviewPageComponent;
