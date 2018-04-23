@@ -9,6 +9,7 @@ import { InviewComponent, InviewDirectiveTestComponent } from './inview-module-t
 import { InviewPageComponent, ListComponent, VirtualListComponent } from './list-module-test';
 
 import {
+  MyDynamicComponent,
   DynamicComponentServiceTestComponent,
   NguiForInDirectiveTestComponent,
   NguiHighlightPipeTestComponent
@@ -22,6 +23,7 @@ import {
     InviewPageComponent,
     ListComponent,
     VirtualListComponent,
+    MyDynamicComponent,
     DynamicComponentServiceTestComponent,
     NguiForInDirectiveTestComponent,
     NguiHighlightPipeTestComponent
@@ -46,6 +48,7 @@ import {
     )
   ],
   providers: [],
+  entryComponents: [MyDynamicComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

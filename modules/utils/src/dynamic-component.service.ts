@@ -64,8 +64,9 @@ export class DynamicComponentService {
    * insert component
    */
   insertComponent(componentRef: ComponentRef<any>): Component {
-    const compId = `dyn-comp-${Math.floor(Math.random() * 10 ** 7) + 10 ** 6}`;
-    componentRef.location.nativeElement.id = compId;
+    const compId = `ngui-dyn-${Math.floor(Math.random() * 10 ** 7) + 10 ** 6}`;
+    componentRef.location.nativeElement.setAttribute('id', compId);
+    componentRef.instance.id = compId;
 
     this.rootViewContainer.insert(componentRef.hostView);
 
