@@ -9,9 +9,8 @@ import { InviewComponent, InviewDirectiveTestComponent } from './inview-module-t
 import { InviewPageComponent, ListComponent, VirtualListComponent } from './list-module-test';
 
 import {
-  MyDynamicComponent,
   DynamicComponentServiceTestComponent,
-  NguiForInDirectiveTestComponent,
+  MyDynamicComponent,
   NguiHighlightPipeTestComponent
 } from './utils-module-test';
 
@@ -25,7 +24,6 @@ import {
     VirtualListComponent,
     MyDynamicComponent,
     DynamicComponentServiceTestComponent,
-    NguiForInDirectiveTestComponent,
     NguiHighlightPipeTestComponent
   ],
   imports: [
@@ -41,7 +39,6 @@ import {
         { path: 'list/ngui-list', component: ListComponent },
         { path: 'list/ngui-virtual-list', component: VirtualListComponent },
         { path: 'utils/dynamic-component-service', component: DynamicComponentServiceTestComponent },
-        { path: 'utils/ngui-for-in', component: NguiForInDirectiveTestComponent },
         { path: 'utils/ngui-highlight', component: NguiHighlightPipeTestComponent },
         { path: '', redirectTo: '/inview/ngui-inview', pathMatch: 'full'}
       ] // , { enableTracing: true } // debugging purposes only

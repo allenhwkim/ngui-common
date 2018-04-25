@@ -1,1 +1,5 @@
-export { NguiListModule } from './src/ngui-list.module';
+
+export { 
+  NguiListModule,
+  NguiVirtualListComponent
+} from './src/ngui-list.module';

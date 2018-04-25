@@ -27,3 +27,5 @@ import { NguiListItemDirective } from './ngui-list-item.directive';
   entryComponents: [NguiInviewPageComponent]
 })
 export class NguiListModule {}
+
+export { NguiVirtualListComponent } from './ngui-virtual-list.component';

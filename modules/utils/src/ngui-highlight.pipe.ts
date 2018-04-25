@@ -5,8 +5,8 @@ export class NguiHighlightPipe implements PipeTransform {
   transform(text: string, search: string): string {
     let ret = text;
     if (search) {
-      const re  = new RegExp(search, 'i');
-      ret = text.replace(re, `<span class="ngui-highlight">${search}</span>`);
+      const re  = new RegExp(search, 'ig');
+      ret = text.replace(re, match => `<span class="ngui-highlight">${match}</span>`);
     }
 
     return ret;

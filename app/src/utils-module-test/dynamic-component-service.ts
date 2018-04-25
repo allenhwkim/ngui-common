@@ -13,7 +13,7 @@ import { DynamicComponentService } from '../../../modules';
 @Component({
   template: `
     <div>
-      This is MyComponent({{id}}), which is inserted dynamically.
+      This is MyComponent({{ id }}), which is inserted dynamically.
       <a href="javascript:void(0)" (click)="remove.emit()">Remove</a>
     </div>
   `
