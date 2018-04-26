@@ -12,6 +12,7 @@ import {
 
 import { NguiListDirective } from './ngui-list.directive';
 import { NguiVirtualListComponent } from './ngui-virtual-list.component';
+import { NguiAutocompleteComponent } from './ngui-autocomplete.component';
 
 // tabindex, keydown, keyup(ENTER, ESC), click
 @Directive({
@@ -22,20 +23,21 @@ export class NguiListItemDirective implements OnInit {
 
   nextSibling: HTMLElement;
   prevSibling: HTMLElement;
-  parentListComp: NguiListDirective | NguiVirtualListComponent;
+  parentListComp: NguiListDirective | NguiVirtualListComponent | NguiAutocompleteComponent;
 
   constructor(
     private el: ElementRef,
     private renderer: Renderer2,
     @Optional() @Host() private listDirective: NguiListDirective,
-    @Optional() @Host() private virtualListComponent: NguiVirtualListComponent
+    @Optional() @Host() private virtualListComponent: NguiVirtualListComponent,
+    @Optional() @Host() private autocompleteComponent: NguiAutocompleteComponent
   ) {}
 
   ngOnInit(): void {
-    this.renderer.setAttribute(this.el.nativeElement, 'tabindex', '1');
-    this.parentListComp = this.listDirective || this.virtualListComponent;
+    this.renderer.setAttribute(this.el.nativeElement, 'tabindex', '0');
+    this.parentListComp = this.listDirective || this.virtualListComponent || this.autocompleteComponent;
     if (!this.parentListComp) {
-      throw Error('ngui-list-item requires parent of ngui-list or ngui-virtual-list.');
+      throw Error('ngui-list-item requires parent of ngui-list, ngui-virtual-list, or ngui-autocomplete.');
     }
   }
 
@@ -80,6 +82,19 @@ export class NguiListItemDirective implements OnInit {
 
   // handles keyboard enter(13), esc(27)
   @HostListener('click', ['$event']) mousedown(event): void {
+    console.log('this.parentListComp', this.parentListComp)
     this.parentListComp.selected.emit(this.object);
+  }
+
+  @HostListener('focus', ['$event']) focused(event): void {
+    if (this.parentListComp['setFocused']) {
+      this.parentListComp['setFocused']('listItem', true);
+    }
+  }
+
+  @HostListener('blur', ['$event']) blurred(event): void {
+    if (this.parentListComp['setFocused']) {
+      this.parentListComp['setFocused']('listItem', false);
+    }
   }
 }

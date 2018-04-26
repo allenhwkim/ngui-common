@@ -3,7 +3,7 @@ import { inject, TestBed } from '@angular/core/testing';
 
 import { NguiHighlightPipe } from './ngui-highlight.pipe';
 
-describe('AutoComplete Component - Highlight pipe', () => {
+describe('Highlight Component - Highlight pipe', () => {
   let pipe: NguiHighlightPipe;
 
   beforeEach(() => {

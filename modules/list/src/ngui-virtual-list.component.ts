@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   ChangeDetectorRef,
   Component,
+  ComponentRef,
   ContentChild,
   ElementRef,
   EventEmitter,
@@ -12,6 +13,9 @@ import {
   ViewChild,
   ViewContainerRef
 } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/observable/fromEvent';
 
 import { DynamicComponentService } from '../../utils';
 import { NguiInviewPageComponent } from './ngui-inview-page.component';
@@ -42,10 +46,14 @@ import { NguiInviewPageComponent } from './ngui-inview-page.component';
 @Component({
   selector: 'ngui-virtual-list',
   template: `
-    <!-- hold multiple <ngui-inview-page> -->
-    <div #pages></div>
-    <!-- insert <ngui-inview-page> into #pages -->
-    <ngui-inview (inview)="addInviewPageToPages()"></ngui-inview>
+    <div class="ngui-virtual-list"
+      (focus)="_focused = true"
+      (click)="_focused = true">
+      <!-- hold multiple <ngui-inview-page> -->
+      <div #pages></div>
+      <!-- insert <ngui-inview-page> into #pages -->
+      <ngui-inview (inview)="addAnInviewPageToPages()"></ngui-inview>
+    </div>
   `,
   styles: [`
     :host {display: block}
@@ -82,13 +90,16 @@ export class NguiVirtualListComponent implements AfterViewInit {
   @Output() bottomInview: EventEmitter<any> = new EventEmitter();
 
   /** The last NguiInviewPageComponent being inserted */
-  compLoading: NguiInviewPageComponent;
+  _inviewPage: NguiInviewPageComponent;
+  _focused = false;
   /** Indicates if a page is still loading */
-  isCompLoading: boolean;
+  isListLoading: boolean;
+  inviewPages: Array<ComponentRef<NguiInviewPageComponent>> = [];
 
   constructor(
     public element: ElementRef,
-    public dynamicComponentService: DynamicComponentService
+    public dynamicComponentService: DynamicComponentService,
+    public cdr: ChangeDetectorRef
   ) {}
 
   /** Check if necessary input and output is provided */
@@ -103,15 +114,16 @@ export class NguiVirtualListComponent implements AfterViewInit {
    * It will insert a dynamicall created NguiInviewPageComponent with the given template.
    * It will also fires (bottomInview) event, so that user can fill up items for the page.
    */
-  addInviewPageToPages(): void {
-    if (!this.isCompLoading) {
+  addAnInviewPageToPages(): void {
+    if (!this.isListLoading) {
       const compRef =
         this.dynamicComponentService.createComponent(NguiInviewPageComponent, this.pagesRef);
       this.dynamicComponentService.insertComponent(compRef);
 
-      this.isCompLoading = true;
-      this.compLoading = compRef.instance;
-      this.compLoading.template = this.template;
+      this.isListLoading = true;
+      this._inviewPage = compRef.instance;
+      this._inviewPage.template = this.template;
+      this.inviewPages.push(compRef);
 
       this.bottomInview.emit(this); // Fire evnet, so that user can load items
     } else {
@@ -120,9 +132,18 @@ export class NguiVirtualListComponent implements AfterViewInit {
   }
 
   // set items of NguiInviewPageComponent
-  addItems(items: Array<any>): void {
-    this.compLoading.setItems(items);
-    this.isCompLoading = false;
+  addList(items: Array<any>): void {
+    this._inviewPage.setItems(items);
+    this.isListLoading = false;
+  }
+
+  reloadList(items: Array<any>): void {
+    this.inviewPages.forEach(compRef => {
+      compRef.destroy();
+      this.cdr.detectChanges();
+    });
+    this.inviewPages = [];
+    this.addList(items);
   }
 
 }
