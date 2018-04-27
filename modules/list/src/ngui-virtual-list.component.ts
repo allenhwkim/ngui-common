@@ -52,7 +52,7 @@ import { NguiInviewPageComponent } from './ngui-inview-page.component';
       <!-- hold multiple <ngui-inview-page> -->
       <div #pages></div>
       <!-- insert <ngui-inview-page> into #pages -->
-      <ngui-inview (inview)="addAnInviewPageToPages()"></ngui-inview>
+      <ngui-inview (inview)="addAnInviewPageToPages(true)"></ngui-inview>
     </div>
   `,
   styles: [`
@@ -97,6 +97,7 @@ export class NguiVirtualListComponent implements AfterViewInit {
   inviewPages: Array<ComponentRef<NguiInviewPageComponent>> = [];
 
   constructor(
+    public renderer: Renderer2,
     public element: ElementRef,
     public dynamicComponentService: DynamicComponentService,
     public cdr: ChangeDetectorRef
@@ -114,7 +115,7 @@ export class NguiVirtualListComponent implements AfterViewInit {
    * It will insert a dynamicall created NguiInviewPageComponent with the given template.
    * It will also fires (bottomInview) event, so that user can fill up items for the page.
    */
-  addAnInviewPageToPages(): void {
+  addAnInviewPageToPages(byInview = true): void {
     if (!this.isListLoading) {
       const compRef =
         this.dynamicComponentService.createComponent(NguiInviewPageComponent, this.pagesRef);
@@ -133,17 +134,9 @@ export class NguiVirtualListComponent implements AfterViewInit {
 
   // set items of NguiInviewPageComponent
   addList(items: Array<any>): void {
+    // console.log('xxxxxxxxxxxxxxxxxxxxxxxxxx addList is called')
     this._inviewPage.setItems(items);
     this.isListLoading = false;
-  }
-
-  reloadList(items: Array<any>): void {
-    this.inviewPages.forEach(compRef => {
-      compRef.destroy();
-      this.cdr.detectChanges();
-    });
-    this.inviewPages = [];
-    this.addList(items);
   }
 
 }

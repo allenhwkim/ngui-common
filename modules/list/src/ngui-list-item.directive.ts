@@ -82,7 +82,7 @@ export class NguiListItemDirective implements OnInit {
 
   // handles keyboard enter(13), esc(27)
   @HostListener('click', ['$event']) mousedown(event): void {
-    console.log('this.parentListComp', this.parentListComp)
+    console.log('this.parentListComp', this.parentListComp);
     this.parentListComp.selected.emit(this.object);
   }
 

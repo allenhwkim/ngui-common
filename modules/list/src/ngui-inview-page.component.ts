@@ -5,6 +5,7 @@ import {
   ElementRef,
   Input,
   OnInit,
+  OnDestroy,
   Renderer2,
   TemplateRef
 } from '@angular/core';
@@ -47,7 +48,7 @@ import {
     :host {display: block}
   `]
 })
-export class NguiInviewPageComponent implements OnInit {
+export class NguiInviewPageComponent implements OnInit, OnDestroy {
 
   /** Allow users to change the contents */
   @ContentChild(TemplateRef) template: TemplateRef<any>;
@@ -67,6 +68,7 @@ export class NguiInviewPageComponent implements OnInit {
    * The height of it remains the same even when items get empty out.
    */
   contentsEl: HTMLElement;
+  destroyed: boolean;
 
   constructor(
     private element: ElementRef,
@@ -92,11 +94,16 @@ export class NguiInviewPageComponent implements OnInit {
       this.element.nativeElement.querySelector('.inview-page.contents');
   }
 
+  ngOnDestroy(): void {
+    console.log('xxxxxxxxxxxxxxxxxxxxx ngOnDestroy');
+    this.destroyed = true;
+  }
+
   /**
    * Empty items when not in viewport, so that elements are not rendered
    */
   emptyItems(): void {
-    if (this.items && !this.outView) {
+    if (this.items && this.contentsEl && !this.outView) {
       // set height before emptying contents
       const height = this.element.nativeElement.getBoundingClientRect().height;
       this.renderer.setStyle(this.contentsEl, 'height', `${height}px`);
@@ -104,7 +111,7 @@ export class NguiInviewPageComponent implements OnInit {
       this.outView = true;
       this.itemsBackup = Array.from(this.items || []);
       this.items = undefined;
-      this.cdRef.detectChanges();
+      this.cdRef && this.cdRef.detectChanges();
     }
   }
 
