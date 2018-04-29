@@ -47,7 +47,7 @@ export class NguiInviewDirective implements OnInit, OnDestroy {
   /** Stops IntersectionObserver */
   ngOnDestroy(): void {
     if (isPlatformBrowser(this.platformId)) {
-      this.observer.disconnect();
+      this.observer && this.observer.disconnect();
     }
   }
 

@@ -14,11 +14,12 @@ import { NguiVirtualListComponent } from './ngui-virtual-list.component';
   template: `
     <div *ngIf="isReady" class="ngui-autocomplete">
       <div #pages></div>
-      <ngui-inview (inview)="addAnInviewPageToPages(true)"></ngui-inview>
+      <ngui-inview (inview)="addAnInviewPageToPages()"></ngui-inview>
     </div>
   `,
   styles: [`
     :host {position: absolute; background-color: #fff; max-height: 300px; overflow: auto}
+    .ngui-autocomplete { border: 1px solid #ccc; padding: 4px }
   `]
 })
 export class NguiAutocompleteComponent extends NguiVirtualListComponent implements OnInit {
@@ -61,14 +62,14 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
     this.keyupTimer = setTimeout(_ => {
       this.isEscaped = false;
       this.isValueSelected = false;
-      // if (!this.isListLoading) {
-        this.clearList();
-        this.addAnInviewPageToPages(false); // this will load new items
-      // }
+      this.clearList();
+      this.addAnInviewPageToPages(); // this will load new items
     }, 500);
   }
 
   onInputElFocused(event): void {
+    console.log('xxxxxxxxxxxxxxxxx focused');
+    this.isListLoading = false;
     this.setFocused('input', true);
   }
 
@@ -97,14 +98,16 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
   }
 
   positionThisUnderInputEl(): void {
-    const thisElBCR = this.element.nativeElement.getBoundingClientRect();
+    const thisEl = this.element.nativeElement;
+    const thisElBCR = thisEl.getBoundingClientRect();
     const thisInputElBCR = this.inputEl.getBoundingClientRect();
     const closeToBottom = thisInputElBCR.bottom + 100 > window.innerHeight;
     const styleTo = closeToBottom ? 'bottom' : 'top';
-    const top = thisInputElBCR.top + thisInputElBCR.height;
-    this.renderer.setStyle(this.element.nativeElement, 'left', `${thisInputElBCR.left}px`);
-    this.renderer.setStyle(this.element.nativeElement, 'top', `${top}px`);
+    const top = thisInputElBCR.top + thisInputElBCR.height + window.scrollY;
+
+    this.renderer.setStyle(thisEl, 'left', `${thisInputElBCR.left}px`);
+    this.renderer.setStyle(thisEl, 'top', `${top}px`);
+    this.renderer.setStyle(thisEl, 'minWidth', `${thisInputElBCR.width}px`);
   }
 
 }
-

@@ -52,7 +52,7 @@ import { NguiInviewPageComponent } from './ngui-inview-page.component';
       <!-- hold multiple <ngui-inview-page> -->
       <div #pages></div>
       <!-- insert <ngui-inview-page> into #pages -->
-      <ngui-inview (inview)="addAnInviewPageToPages(true)"></ngui-inview>
+      <ngui-inview (inview)="addAnInviewPageToPages()"></ngui-inview>
     </div>
   `,
   styles: [`
@@ -90,7 +90,7 @@ export class NguiVirtualListComponent implements AfterViewInit {
   @Output() bottomInview: EventEmitter<any> = new EventEmitter();
 
   /** The last NguiInviewPageComponent being inserted */
-  _inviewPage: NguiInviewPageComponent;
+  inviewPage: ComponentRef<NguiInviewPageComponent>;
   _focused = false;
   /** Indicates if a page is still loading */
   isListLoading: boolean;
@@ -115,16 +115,16 @@ export class NguiVirtualListComponent implements AfterViewInit {
    * It will insert a dynamicall created NguiInviewPageComponent with the given template.
    * It will also fires (bottomInview) event, so that user can fill up items for the page.
    */
-  addAnInviewPageToPages(byInview = true): void {
+  addAnInviewPageToPages(): void {
     if (!this.isListLoading) {
-      const compRef =
-        this.dynamicComponentService.createComponent(NguiInviewPageComponent, this.pagesRef);
-      this.dynamicComponentService.insertComponent(compRef);
-
       this.isListLoading = true;
-      this._inviewPage = compRef.instance;
-      this._inviewPage.template = this.template;
-      this.inviewPages.push(compRef);
+
+      this.inviewPage =
+        this.dynamicComponentService.createComponent(NguiInviewPageComponent, this.pagesRef);
+      this.dynamicComponentService.insertComponent(this.inviewPage);
+
+      this.inviewPage.instance.template = this.template;
+      this.inviewPages.push(this.inviewPage);
 
       this.bottomInview.emit(this); // Fire evnet, so that user can load items
     } else {
@@ -134,9 +134,9 @@ export class NguiVirtualListComponent implements AfterViewInit {
 
   // set items of NguiInviewPageComponent
   addList(items: Array<any>): void {
-    // console.log('xxxxxxxxxxxxxxxxxxxxxxxxxx addList is called')
-    this._inviewPage.setItems(items);
+    console.log('xxxxxxxxxxxxxxxxxxxxxxxxxx addList is called');
     this.isListLoading = false;
+    this.inviewPage.instance.setItems(items);
   }
 
 }

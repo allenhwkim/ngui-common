@@ -4,8 +4,8 @@ import {
   ContentChild,
   ElementRef,
   Input,
-  OnInit,
   OnDestroy,
+  OnInit,
   Renderer2,
   TemplateRef
 } from '@angular/core';
@@ -111,13 +111,17 @@ export class NguiInviewPageComponent implements OnInit, OnDestroy {
       this.outView = true;
       this.itemsBackup = Array.from(this.items || []);
       this.items = undefined;
-      this.cdRef && this.cdRef.detectChanges();
+      if (!this.destroyed) {
+        this.cdRef.detectChanges();
+      }
     }
   }
 
   setItems(items: Array<any>): void {
-    this.items = items;
-    this.cdRef.detectChanges();
+    if (!this.destroyed) {
+      this.items = items;
+      this.cdRef.detectChanges();
+    }
   }
 
 }
