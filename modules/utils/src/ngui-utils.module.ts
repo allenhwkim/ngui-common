@@ -8,5 +8,4 @@ import { NguiHighlightPipe } from './ngui-highlight.pipe';
   exports: [NguiHighlightPipe],
   providers: [DynamicComponentService]
 })
-export class NguiUtilsModule {
-}
+export class NguiUtilsModule {}

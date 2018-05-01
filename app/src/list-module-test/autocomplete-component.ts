@@ -45,16 +45,15 @@ export class AutocompleteComponent {
   }
 
   loadList(): void {
+      console.log('AutoCompleteComponent.loadList is called();');
     const keyword = this.autocomplete.inputEl.value;
     const items = Array(50).fill(0).map((_, i) => {
       let obj = { id: 1, value: `foo${keyword}bar` }; // tslint:disable-line
       return obj; // tslint:disable-line
     });
     Observable.of(items).delay(500).subscribe(result => {
-      if (this.autocomplete.isReady) {
-        this.autocomplete.addList(result);
-        this.numPage++;
-      }
+      this.autocomplete.addList(result);
+      this.numPage++;
     });
   }
 }

@@ -66,13 +66,11 @@ export class NguiListItemDirective implements OnInit {
 
   // handles keyboard enter(13), esc(27)
   @HostListener('keyup', ['$event']) keyup(event): void {
-    const keyCode = event.which || event.keyCode;
-
-    switch (keyCode) {
-      case 13: // return key
+    switch (event.key) {
+      case 'Enter':
         this.parentListComp.selected.emit(this.object);
         break;
-      case 27: // esc key
+      case 'Escape':
         this.parentListComp.escaped.emit();
         break;
       default:
@@ -80,7 +78,6 @@ export class NguiListItemDirective implements OnInit {
     }
   }
 
-  // handles keyboard enter(13), esc(27)
   @HostListener('click', ['$event']) mousedown(event): void {
     console.log('this.parentListComp', this.parentListComp);
     this.parentListComp.selected.emit(this.object);

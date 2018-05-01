@@ -134,8 +134,8 @@ export class NguiVirtualListComponent implements AfterViewInit {
 
   // set items of NguiInviewPageComponent
   addList(items: Array<any>): void {
-    console.log('xxxxxxxxxxxxxxxxxxxxxxxxxx addList is called');
     this.isListLoading = false;
+    console.log('>>>>>> NguiVirtualListComponent.addList() is called()');
     this.inviewPage.instance.setItems(items);
   }
 

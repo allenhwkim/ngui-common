@@ -47,6 +47,7 @@ export class VirtualListComponent {
   loadItems(virtualList: any): void {
     const items: Array<any> = Array.from(Array(50), (_, x) => (this.totalPage * 50) + x);
     Observable.of(items).delay(1000).subscribe(result => {
+      console.log('VirtualListComponent.loadItems() is called');
       virtualList.addList(result);
       this.totalPage++;
     });

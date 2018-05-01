@@ -95,7 +95,7 @@ export class NguiInviewPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    console.log('xxxxxxxxxxxxxxxxxxxxx ngOnDestroy');
+    console.log('NguiInviewPageComponent.ngOnDestroy() is called');
     this.destroyed = true;
   }
 
@@ -119,6 +119,7 @@ export class NguiInviewPageComponent implements OnInit, OnDestroy {
 
   setItems(items: Array<any>): void {
     if (!this.destroyed) {
+      console.log('NguiInviewPageComponent.setItems() is called with', items);
       this.items = items;
       this.cdRef.detectChanges();
     }
