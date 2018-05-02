@@ -32,6 +32,8 @@ import {
     <div class="inview-page contents"
       (nguiInview)="restoreItems()"
       (nguiOutview)="emptyItems()">
+      <!-- add blank ngui-list-item by condition  -->
+      <!-- no match found ngui-list-item by condition -->
       <ng-container
         [ngTemplateOutlet]="template||defaultTemplate"
         [ngTemplateOutletContext]="{items: items, outView: outView}">

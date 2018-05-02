@@ -18,7 +18,8 @@ import 'rxjs/add/operator/delay';
       (bottomInview)="loadList()"
       (selected)="selected($event)"
       (escaped)="escaped()">
-      <ng-template let-items="items" let-keyword="keyword">
+      <ng-template #items let-items="items" let-keyword="keyword">
+        <div *ngIf="!items">Loading</div> <!-- loading text -->
         <ngui-list-item [item]="item" *ngFor="let item of items; trackBy: id">
           <span [innerHTML]="item.value"></span>
         </ngui-list-item>
@@ -45,7 +46,7 @@ export class AutocompleteComponent {
   }
 
   loadList(): void {
-      console.log('AutoCompleteComponent.loadList is called();');
+    console.log('AutoCompleteComponent.loadList is called();');
     const keyword = this.autocomplete.inputEl.value;
     const items = Array(50).fill(0).map((_, i) => {
       let obj = { id: 1, value: `foo${keyword}bar` }; // tslint:disable-line
@@ -53,6 +54,7 @@ export class AutocompleteComponent {
     });
     Observable.of(items).delay(500).subscribe(result => {
       this.autocomplete.addList(result);
+      // this.autocomplete.addList([]);
       this.numPage++;
     });
   }

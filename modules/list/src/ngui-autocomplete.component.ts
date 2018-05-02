@@ -1,7 +1,9 @@
 import {
   Component,
+  ContentChild,
   Input,
-  OnInit
+  OnInit,
+  TemplateRef
 } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromEvent';
@@ -14,19 +16,8 @@ import { NguiVirtualListComponent } from './ngui-virtual-list.component';
   selector: 'ngui-autocomplete',
   template: `
     <div *ngIf="isReady" class="ngui-autocomplete">
-      <div *ngIf="isListLoading">
-        <ng-container [ngTemplateOutlet]="loadingTemplate"></ng-container>
-      </div>
-      <div *ngIf="!isListLoading">
-        <div *ngIf="_noMatchFound">
-          <ng-container [ngTemplateOutlet]="noMatchFoundTemplate"></ng-container>
-        </div>
-        <div *ngIf="_showBlankOption">
-          <ng-container [ngTemplateOutlet]="blankOptionTemplate"></ng-container>
-        </div>
-      </div>
       <div #pages></div>
-      <ngui-inview (inview)="addAutocompleteList()"></ngui-inview>
+      <ngui-inview (inview)="addMorePages()"></ngui-inview>
     </div>
   `,
   styles: [`
@@ -38,9 +29,8 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
   @Input() for: string; // input tag id
   @Input() minInputChars = 1;
 
-  @Input() blankOptionTemplate: any;    // Template reference
-  @Input() noMatchFoundTemplate: any;   // Template reference
-  @Input() loadingTemplate: any;        // Template reference
+  /** Template of NguiInviewPage. Allow users to define their own template  */
+  @ContentChild(TemplateRef) template: TemplateRef<any>;
 
   inputEl: HTMLInputElement;
   _focused: any = {input: false, listItem: false};
@@ -51,10 +41,17 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
   _orgInputValue: string;
   _prevInputValue: string;
   _lastSelected: any;
-  _noMatchFound: boolean;
-  _showBlankOption: boolean;
 
-  /** return autocomplete display condition */
+  wow(): void {
+    alert('wow');
+  }
+  /**
+   * returns autocomplete display condition
+   * autocompolete list is only visible
+   *   - when input element is focused or list element is focused
+   *   - when input value has enought characters
+   *   - and user just did not selected or escaped
+   */
   get isReady(): boolean {
     const selectedOrEscaped = this._selectedFromList || this._escapedFromList;
     const focused = this._focused.input || this._focused.listItem;
@@ -78,33 +75,18 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
     this._selectedFromList = true;
     this.inputEl.focus();
     this._lastSelected = value;
+    this.cdr.detectChanges();    // for ChangeDetectionStrategy.OnPush
     console.log('NguiAutoCompleteComponent.onSelected() is called', value);
   }
 
-  onEscaped(value): void {
+  onEscaped(): void {
     this._escapedFromList = true;
     this.inputEl.focus();
     if (!this._lastSelected) {
       this.inputEl.value = this._orgInputValue;
     }
-    console.log('NguiAutoCompleteComponent.onEscaped() is called', value);
-  }
-
-  onInputElKeyup(event: KeyboardEvent): void {
-    console.log('NguiAutoCompleteComponent.onInputKeyup() is called', event.key);
-    const firstList = this.element.nativeElement.querySelector('ngui-list-item');
-    if (firstList) { // if list is available to choose
-      if (event.key === 'Enter') {
-        fireEvent(firstList, 'keyup', {key: 'Enter'});
-      } else if (event.key === 'Escape') {
-        fireEvent(firstList, 'keyup', {key: 'Escape'});
-      } else if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
-        firstList.focus();
-      }
-    }
-    if (this.inputEl.value.length >= this.minInputChars) {
-      this.addAutocompleteList();
-    }
+    this.cdr.detectChanges(); // for ChangeDetectionStrategy.OnPush
+    console.log('NguiAutoCompleteComponent.onEscaped() is called');
   }
 
   onInputElFocused(event): void {
@@ -128,6 +110,51 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
     this.inviewPages = [];
   }
 
+  onInputElKeyup(event: KeyboardEvent): void {
+    console.log('NguiAutoCompleteComponent.onInputKeyup() is called', event.key);
+    const firstList = this.element.nativeElement.querySelector('ngui-list-item');
+    if (event.key === 'Enter' || event.key === 'Escape') {
+      if (firstList) {
+        fireEvent(firstList, 'keyup', {key: event.key});
+      } else {
+        this.onEscaped();
+      }
+    } else if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
+      firstList && firstList.focus();
+    } else if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
+      //
+    } else if (this.inputEl.value.length >= this.minInputChars) {
+      this._selectedFromList = false;
+      this._escapedFromList = false;
+      this.addAutocompleteList();
+    }
+  }
+
+  /** Complete the first page of autocomplete */
+  addAutocompleteList(): void {
+    if (this.isReady) {
+      clearTimeout(this._acTimer);
+      this._acTimer = setTimeout(_ => {
+        this.isListLoading = false; // ???????/
+        this._prevInputValue = this.inputEl.value;
+        this._escapedFromList = false;
+        this._selectedFromList = false;
+        this.clearList();
+        this.addAnInviewPageToPages();
+      }, 200);
+    }
+  }
+
+  /** Complete after the first page of autocomplete when it scrolls to the bottom */
+  addMorePages(): void {
+    console.debug('NguiAutocompleteComponent.addMorePages() is called.');
+    if (this.inviewPages.length) {
+      this.addAnInviewPageToPages();
+    } else {
+      console.debug('skipping addMorePages');
+    }
+  }
+
   setFocused(elType: 'input' | 'listItem', val: boolean): void {
     if (val) {
       clearTimeout(this._focusTimer);
@@ -136,7 +163,7 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
     } else {
       this._focusTimer = setTimeout(_ => {
         this._focused[elType] = false;
-        this.cdr.detectChanges();
+        this.cdr.detectChanges(); // for ChangeDetectionStrategy.OnPush
       }, 100);
     }
   }
@@ -153,38 +180,17 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
     this.renderer.setStyle(thisEl, 'minWidth', `${thisInputElBCR.width}px`);
   }
 
-  addAutocompleteList(): void {
-    if (this._prevInputValue !== this.inputEl.value) {
-      clearTimeout(this._acTimer);
-      this._acTimer = setTimeout(_ => {
-        this._prevInputValue = this.inputEl.value;
-        this._escapedFromList = false;
-        this._selectedFromList = false;
-        this.clearList();
-        this.addAnInviewPageToPages();
-      }, 200);
-    } else {
-      console.log('skipping addAutocompleteList(), prev === current');
-    }
-  }
-
   // set items of NguiInviewPageComponent
   addList(items: Array<any>): void {
     console.log('>>>>>> NguiAutocompleteComponent.addList() is called()');
-
     this.isListLoading = false;
-    this._noMatchFound = false;
-    this._showBlankOption = false;
 
-    // if the first page, show no match found or blank option
+    // TODO: ........ for 1st page only, show no match found or blank option
     if (this.inviewPages.length === 1) {
-      if (!items || items.length === 0) {
-        this._noMatchFound = true;
-      } else {
-        this._showBlankOption = true;
-      }
+      // for 1st page only, show no match found or blank option
     }
     this.inviewPage.instance.setItems(items);
+    this.cdr.detectChanges();
   }
 
 }
