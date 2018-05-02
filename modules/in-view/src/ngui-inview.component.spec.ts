@@ -5,14 +5,14 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { NguiInviewComponent } from './ngui-inview.component';
 
 describe('AppComponent', () => {
-  let component: ComponentFixture<any>;
+  // let component: ComponentFixture<any>;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [ NguiInviewComponent ]
-      // schemas: [NO_ERRORS_SCHEMA]
-    }).compileComponents();
-    component = TestBed.createComponent(NguiInviewComponent);
+    // TestBed.configureTestingModule({
+    //   declarations: [ NguiInviewComponent ]
+    //   // schemas: [NO_ERRORS_SCHEMA]
+    // }).compileComponents();
+    // component = TestBed.createComponent(NguiInviewComponent);
   });
 
   it("should run '#constructor'", async(() => {

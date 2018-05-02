@@ -6,19 +6,19 @@ import { NguiVirtualListComponent } from './ngui-virtual-list.component';
 import { MockComponent } from '../../../test/jest-setup';
 
 describe('AppComponent', () => {
-  let fixture;
-  let component;
+  // let fixture;
+  // let component;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        NguiVirtualListComponent,
-        MockComponent('some-component')
-      ]
-      // schemas: [NO_ERRORS_SCHEMA]
-    }).compileComponents();
-    fixture = TestBed.createComponent(NguiVirtualListComponent);
-    component = fixture.debugElement.componentInstance;
+    // TestBed.configureTestingModule({
+    //   declarations: [
+    //     NguiVirtualListComponent,
+    //     MockComponent('some-component')
+    //   ]
+    //   // schemas: [NO_ERRORS_SCHEMA]
+    // }).compileComponents();
+    // fixture = TestBed.createComponent(NguiVirtualListComponent);
+    // component = fixture.debugElement.componentInstance;
   }));
 
   it("should have as title 'app'", async(() => {

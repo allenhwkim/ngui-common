@@ -1,11 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite id="0" name="/Users/allen.kim/github/ngx-module-starter/modules/module-two/src/two.component.spec.ts" errors="0" package="/Users/allen.kim/github/ngx-module-starter/modules/module-two/src/two.component.spec.ts" hostname="localhost" tests="2" failures="0" time="1.123" timestamp="2018-04-11T18:23:14">
+  <testsuite id="0" name="/Users/allen.kim/github/@ngui/common/modules/list/src/ngui-virtual-list.component.spec.ts" errors="0" package="/Users/allen.kim/github/@ngui/common/modules/list/src/ngui-virtual-list.component.spec.ts" hostname="localhost" tests="2" failures="0" time="0.847" timestamp="2018-05-02T20:32:24">
     <properties>
     </properties>
     <testcase classname="AppComponent" name="should have as title &apos;app&apos;" time="0">
     </testcase>
     <testcase classname="AppComponent" name="should render &quot;Module Two Component&quot;" time="0">
+    </testcase>
+    <system-out/>
+    <system-err/>
+  </testsuite>
+  <testsuite id="1" name="/Users/allen.kim/github/@ngui/common/modules/list/src/ngui-inview-page.component.spec.ts" errors="0" package="/Users/allen.kim/github/@ngui/common/modules/list/src/ngui-inview-page.component.spec.ts" hostname="localhost" tests="2" failures="0" time="0.287" timestamp="2018-05-02T20:32:24">
+    <properties>
+    </properties>
+    <testcase classname="AppComponent" name="should have as title &apos;app&apos;" time="0">
+    </testcase>
+    <testcase classname="AppComponent" name="should render &quot;Module Two Component&quot;" time="0">
+    </testcase>
+    <system-out/>
+    <system-err/>
+  </testsuite>
+  <testsuite id="2" name="/Users/allen.kim/github/@ngui/common/modules/in-view/src/ngui-inview.directive.spec.ts" errors="0" package="/Users/allen.kim/github/@ngui/common/modules/in-view/src/ngui-inview.directive.spec.ts" hostname="localhost" tests="3" failures="0" time="0.154" timestamp="2018-05-02T20:32:25">
+    <properties>
+    </properties>
+    <testcase classname="AppComponent" name="should run &apos;#constructor&apos;" time="0">
+    </testcase>
+    <testcase classname="AppComponent" name="should run &quot;#ngOnInit&quot;" time="0">
+    </testcase>
+    <testcase classname="AppComponent" name="should run &quot;#handleIntersect&quot;" time="0">
+    </testcase>
+    <system-out/>
+    <system-err/>
+  </testsuite>
+  <testsuite id="3" name="/Users/allen.kim/github/@ngui/common/modules/list/src/ngui-list.directive.spec.ts" errors="0" package="/Users/allen.kim/github/@ngui/common/modules/list/src/ngui-list.directive.spec.ts" hostname="localhost" tests="1" failures="0" time="0.061" timestamp="2018-05-02T20:32:25">
+    <properties>
+    </properties>
+    <testcase classname="NguiListDirective" name="should pass" time="0">
+    </testcase>
+    <system-out/>
+    <system-err/>
+  </testsuite>
+  <testsuite id="4" name="/Users/allen.kim/github/@ngui/common/modules/utils/src/ngui-highlight.pipe.spec.ts" errors="0" package="/Users/allen.kim/github/@ngui/common/modules/utils/src/ngui-highlight.pipe.spec.ts" hostname="localhost" tests="2" failures="0" time="0.08" timestamp="2018-05-02T20:32:25">
+    <properties>
+    </properties>
+    <testcase classname="Highlight Component - Highlight pipe" name="highlights search term in the text" time="0">
+    </testcase>
+    <testcase classname="Highlight Component - Highlight pipe" name="shoudl return same text" time="0">
+    </testcase>
+    <system-out/>
+    <system-err/>
+  </testsuite>
+  <testsuite id="5" name="/Users/allen.kim/github/@ngui/common/modules/in-view/src/ngui-inview.component.spec.ts" errors="0" package="/Users/allen.kim/github/@ngui/common/modules/in-view/src/ngui-inview.component.spec.ts" hostname="localhost" tests="4" failures="0" time="0.07" timestamp="2018-05-02T20:32:25">
+    <properties>
+    </properties>
+    <testcase classname="AppComponent" name="should run &apos;#constructor&apos;" time="0">
+    </testcase>
+    <testcase classname="AppComponent" name="should run &quot;#ngOnInit&quot;" time="0">
+    </testcase>
+    <testcase classname="AppComponent" name="should run &quot;#handleInteect&quot;" time="0">
+    </testcase>
+    <testcase classname="AppComponent" name="should run &quot;#defaultInviewHandler&quot;" time="0">
+    </testcase>
+    <system-out/>
+    <system-err/>
+  </testsuite>
+  <testsuite id="6" name="/Users/allen.kim/github/@ngui/common/modules/list/src/ngui-autocomplete.component.spec.ts" errors="0" package="/Users/allen.kim/github/@ngui/common/modules/list/src/ngui-autocomplete.component.spec.ts" hostname="localhost" tests="2" failures="0" time="0.057" timestamp="2018-05-02T20:32:25">
+    <properties>
+    </properties>
+    <testcase classname="AppComponent" name="should have as title &apos;app&apos;" time="0">
+    </testcase>
+    <testcase classname="AppComponent" name="should render &quot;Module Two Component&quot;" time="0">
+    </testcase>
+    <system-out/>
+    <system-err/>
+  </testsuite>
+  <testsuite id="7" name="/Users/allen.kim/github/@ngui/common/modules/list/src/ngui-list-item.directive.spec.ts" errors="0" package="/Users/allen.kim/github/@ngui/common/modules/list/src/ngui-list-item.directive.spec.ts" hostname="localhost" tests="1" failures="0" time="0.056" timestamp="2018-05-02T20:32:25">
+    <properties>
+    </properties>
+    <testcase classname="NguiListItemDirective" name="should pass" time="0">
+    </testcase>
+    <system-out/>
+    <system-err/>
+  </testsuite>
+  <testsuite id="8" name="/Users/allen.kim/github/@ngui/common/modules/utils/src/konsole.spec.ts" errors="0" package="/Users/allen.kim/github/@ngui/common/modules/utils/src/konsole.spec.ts" hostname="localhost" tests="1" failures="0" time="0.059" timestamp="2018-05-02T20:32:25">
+    <properties>
+    </properties>
+    <testcase classname="fireEvnet" name="should pass" time="0">
+    </testcase>
+    <system-out/>
+    <system-err/>
+  </testsuite>
+  <testsuite id="9" name="/Users/allen.kim/github/@ngui/common/modules/utils/src/dynamic-component.service.spec.ts" errors="0" package="/Users/allen.kim/github/@ngui/common/modules/utils/src/dynamic-component.service.spec.ts" hostname="localhost" tests="1" failures="0" time="0.05" timestamp="2018-05-02T20:32:25">
+    <properties>
+    </properties>
+    <testcase classname="DynamicComponentService" name="#getValue should return value" time="0">
+    </testcase>
+    <system-out/>
+    <system-err/>
+  </testsuite>
+  <testsuite id="10" name="/Users/allen.kim/github/@ngui/common/modules/utils/src/file-event.spec.ts" errors="0" package="/Users/allen.kim/github/@ngui/common/modules/utils/src/file-event.spec.ts" hostname="localhost" tests="1" failures="0" time="0.161" timestamp="2018-05-02T20:32:25">
+    <properties>
+    </properties>
+    <testcase classname="fireEvnet" name="should pass" time="0">
     </testcase>
     <system-out/>
     <system-err/>

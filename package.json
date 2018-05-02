@@ -13,8 +13,8 @@
     "doc": "compodoc modules -p tsconfig.json",
     "test": "npm run test:unit && npm run test:acceptance",
     "test:unit": "jest",
-    "test:acceptance": "server-server-and-test start http-get://localhost:4200 test:codecept",
-    "test:codedept": "codeceptjs run",
+    "test:acceptance": "start-server-and-test start http-get://localhost:4200 test:codecept",
+    "test:codecept": "codeceptjs run",
     "lint": "tslint --project '.' -t stylish --fix"
   },
   "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
@@ -80,6 +80,10 @@
     "dest": "modules/dist"
   },
   "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "modules/**/*.{component,directive,service}.ts"
+    ],
     "preset": "jest-preset-angular",
     "setupTestFrameworkScriptFile": "<rootDir>/test/jest-setup.ts",
     "globals": {
@@ -100,9 +104,6 @@
     "transformIgnorePatterns": [
       "node_modules/(?!@ngrx)"
     ],
-    "testResultsProcessor": "./node_modules/jest-junit-reporter",
-    "collectCoverageFrom": [
-      "src/**/*(*.service|*.component|*.pipe|*.directive).{ts,html}"
-    ]
+    "testResultsProcessor": "./node_modules/jest-junit-reporter"
   }
 }
