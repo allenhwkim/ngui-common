@@ -7,12 +7,15 @@ import {
   Input,
   OnInit,
   Optional,
-  Renderer2
+  Renderer2,
+  ViewContainerRef
 } from '@angular/core';
 
 import { NguiListDirective } from './ngui-list.directive';
 import { NguiVirtualListComponent } from './ngui-virtual-list.component';
 import { NguiAutocompleteComponent } from './ngui-autocomplete.component';
+import { NoneSelect } from './none-select';
+import { NoMatchFound } from './no-match-found';
 
 // tabindex, keydown, keyup(ENTER, ESC), click
 @Directive({
@@ -28,6 +31,7 @@ export class NguiListItemDirective implements OnInit {
   constructor(
     private el: ElementRef,
     private renderer: Renderer2,
+    private viewContainer: ViewContainerRef,
     @Optional() @Host() private listDirective: NguiListDirective,
     @Optional() @Host() private virtualListComponent: NguiVirtualListComponent,
     @Optional() @Host() private autocompleteComponent: NguiAutocompleteComponent
@@ -38,6 +42,10 @@ export class NguiListItemDirective implements OnInit {
     this.parentListComp = this.listDirective || this.virtualListComponent || this.autocompleteComponent;
     if (!this.parentListComp) {
       throw Error('ngui-list-item requires parent of ngui-list, ngui-virtual-list, or ngui-autocomplete.');
+    }
+    if (this.object instanceof NoneSelect || this.object instanceof NoMatchFound) {
+      this.viewContainer.clear();
+      this.el.nativeElement.innerHTML = this.object.html;
     }
   }
 

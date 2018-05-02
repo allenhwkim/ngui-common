@@ -11,6 +11,8 @@ import 'rxjs/add/operator/map';
 
 import { fireEvent } from '../../utils';
 import { NguiVirtualListComponent } from './ngui-virtual-list.component';
+import { NoMatchFound } from './no-match-found';
+import { NoneSelect } from './none-select';
 
 @Component({
   selector: 'ngui-autocomplete',
@@ -28,6 +30,7 @@ import { NguiVirtualListComponent } from './ngui-virtual-list.component';
 export class NguiAutocompleteComponent extends NguiVirtualListComponent implements OnInit {
   @Input() for: string; // input tag id
   @Input() minInputChars = 1;
+  @Input() blankOption: string;
 
   /** Template of NguiInviewPage. Allow users to define their own template  */
   @ContentChild(TemplateRef) template: TemplateRef<any>;
@@ -186,10 +189,19 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
     this.isListLoading = false;
 
     // TODO: ........ for 1st page only, show no match found or blank option
+    let noMatchItem: any;
+    let blankItem: any;
     if (this.inviewPages.length === 1) {
-      // for 1st page only, show no match found or blank option
+      if (!items || items.length === 0) { // add no match item
+        noMatchItem = new NoMatchFound();
+      } else if (this.blankOption) {
+        blankItem = new NoneSelect();
+        blankItem.html = this.blankOption;
+      }
     }
-    this.inviewPage.instance.setItems(items);
+
+    const allItems = [].concat(noMatchItem, blankItem, items).filter(x => x);
+    this.inviewPage.instance.setItems(allItems);
     this.cdr.detectChanges();
   }
 
