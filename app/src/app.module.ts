@@ -11,6 +11,7 @@ import { AutocompleteComponent, InviewPageComponent, ListComponent, VirtualListC
 
 import {
   DynamicComponentServiceTestComponent,
+  FireEventTestComponent,
   MyDynamicComponent,
   NguiHighlightPipeTestComponent
 } from './utils-module-test';
@@ -33,6 +34,7 @@ import {
         { path: 'list/ngui-autocomplete', component: AutocompleteComponent },
         { path: 'utils/dynamic-component-service', component: DynamicComponentServiceTestComponent },
         { path: 'utils/ngui-highlight', component: NguiHighlightPipeTestComponent },
+        { path: 'utils/fire-event', component: FireEventTestComponent },
         { path: '', redirectTo: '/inview/ngui-inview', pathMatch: 'full'}
       ] // , { enableTracing: true } // debugging purposes only
     )
@@ -47,7 +49,8 @@ import {
     AutocompleteComponent,
     MyDynamicComponent,
     DynamicComponentServiceTestComponent,
-    NguiHighlightPipeTestComponent
+    NguiHighlightPipeTestComponent,
+    FireEventTestComponent
   ],
   providers: [],
   entryComponents: [MyDynamicComponent],

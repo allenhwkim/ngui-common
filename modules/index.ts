@@ -9,5 +9,6 @@ export {
 export {
   NguiUtilsModule,
   konsole,
-  DynamicComponentService
+  DynamicComponentService,
+  fireEvent
 } from './utils';
