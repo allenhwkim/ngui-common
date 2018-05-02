@@ -37,6 +37,7 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+test-report.xml
 
 # e2e
 /e2e/*.js
