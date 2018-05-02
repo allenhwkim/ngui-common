@@ -15,7 +15,6 @@ import 'rxjs/add/operator/delay';
     <input id="search" [formControl]="search" />
 
     <ngui-autocomplete for="search" #autocomplete
-      blankOption="Select Any"
       (bottomInview)="loadList()"
       (selected)="selected($event)"
       (escaped)="escaped()">

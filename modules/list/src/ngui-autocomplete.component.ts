@@ -30,7 +30,8 @@ import { NoneSelect } from './none-select';
 export class NguiAutocompleteComponent extends NguiVirtualListComponent implements OnInit {
   @Input() for: string; // input tag id
   @Input() minInputChars = 1;
-  @Input() blankOption: string;
+  @Input() blankOption = 'Select One';
+  @Input() noMatchItem = 'No Match Found';
 
   /** Template of NguiInviewPage. Allow users to define their own template  */
   @ContentChild(TemplateRef) template: TemplateRef<any>;
@@ -192,8 +193,9 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
     let noMatchItem: any;
     let blankItem: any;
     if (this.inviewPages.length === 1) {
-      if (!items || items.length === 0) { // add no match item
+      if (this.noMatchItem && (!items || items.length === 0)) { // add no match item
         noMatchItem = new NoMatchFound();
+        blankItem.html = this.noMatchItem;
       } else if (this.blankOption) {
         blankItem = new NoneSelect();
         blankItem.html = this.blankOption;
