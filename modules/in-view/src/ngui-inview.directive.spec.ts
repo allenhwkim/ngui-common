@@ -1,46 +1,87 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { Component, NO_ERRORS_SCHEMA } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  NO_ERRORS_SCHEMA,
+  PLATFORM_ID,
+  Renderer2
+} from '@angular/core';
+import { By } from '@angular/platform-browser';
 
 // do not import any other than you test. For others, mock it
 import { NguiInviewDirective } from './ngui-inview.directive';
 
-// Ref. https://codecraft.tv/courses/angular/unit-testing/directives/
-@Component({
-  template: `
-    <div (nguiInview)="a($event)" (nguiOutview)="b($event)">`
-})
-class TestComponent {
-  a(entry): void {/* */}
-  b(entry): void {/* */}
+(window as any).IntersectionObserver = jest.fn();
+IntersectionObserver.prototype.observe = jest.fn();
+IntersectionObserver.prototype.disconnect = jest.fn();
+
+class MockElementRef extends ElementRef {
+  constructor() { super(undefined); }
+  nativeElement = {};
 }
 
-describe('AppComponent', () => {
-  let fixture: ComponentFixture<TestComponent>;
-  let component: TestComponent;
+@Component({
+  template: `
+    <div
+      [options]="options"
+      (nguiInview)="onNguiInview($event)"
+      (nguiOutview)="onNguiOutview($event)">
+    </div>
+  `
+})
+class DirectiveTestComponent {
+  options: any;
+  onNguiInview(event): void {/* */}
+  onNguiOutvie(event): void {/* */}
+}
+
+describe('NguiInviewDirective', () => {
+  let fixture;
+  let component;
+  let directiveEl;
+  let directive;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NguiInviewDirective, TestComponent ]
-      // schemas: [NO_ERRORS_SCHEMA]
+      declarations: [NguiInviewDirective, DirectiveTestComponent],
+      providers: [
+        Renderer2,
+        { provide: ElementRef, useClass: MockElementRef },
+        { provide: PLATFORM_ID, useValue: 'browser'}
+      ]
     }).compileComponents();
-    fixture = TestBed.createComponent(TestComponent);
+    fixture = TestBed.createComponent(DirectiveTestComponent);
     component = fixture.componentInstance;
+    directiveEl = fixture.debugElement.query(By.directive(NguiInviewDirective));
+    directive = directiveEl.injector.get(NguiInviewDirective);
+    directive.observer = { disconnect: jest.fn() };
   }));
 
-  it("should run '#constructor'", async(() => {
-    // const comp = fixture.debugElement.componentInstance;
-    // expect(comp).toBeTruthy();
+  it('should run a directive', async(() => {
+    expect(component).toBeTruthy();
+    expect(directive).toBeTruthy();
   }));
 
-  it('should run "#ngOnInit"', async(() => {
-    // const fixture = TestBed.createComponent(TwoComponent);
-    // fixture.detectChanges();
-    // const compiled = fixture.debugElement.nativeElement;
-    // expect(compiled.querySelector('p').textContent).toContain('Module Two');
+  it('should run #ngOnInit', async(() => {
+    directive.ngOnInit();
+    expect(directive.observer).toBeTruthy();
   }));
 
-  it('should run "#handleIntersect"', async(() => {
-    // TODO
+  it('should run #ngOnDestroy', async(() => {
+    directive.ngOnDestroy();
+    expect(directive.observer.disconnect).toHaveBeenCalled();
+  }));
+
+  it('should run #handleIntersect', async(() => {
+    let entries = [ {isIntersecting: true} ];
+    directive.nguiInview.emit = jest.fn();
+    directive.handleIntersect(entries);
+    expect(directive.nguiInview.emit).toHaveBeenCalled();
+
+    entries = [ {isIntersecting: false} ];
+    directive.nguiOutview.emit = jest.fn();
+    directive.handleIntersect(entries);
+    expect(directive.nguiOutview.emit).toHaveBeenCalled();
   }));
 
 });

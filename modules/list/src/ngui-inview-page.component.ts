@@ -76,7 +76,7 @@ export class NguiInviewPageComponent implements OnInit, OnDestroy {
     private element: ElementRef,
     private renderer: Renderer2,
     private cdRef: ChangeDetectorRef
-  ) {}
+  ) { }
 
   /**
    * Restore items when in viewport, so that elements are rendered

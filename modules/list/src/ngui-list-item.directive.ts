@@ -35,7 +35,7 @@ export class NguiListItemDirective implements OnInit {
     @Optional() @Host() private listDirective: NguiListDirective,
     @Optional() @Host() private virtualListComponent: NguiVirtualListComponent,
     @Optional() @Host() private autocompleteComponent: NguiAutocompleteComponent
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.renderer.setAttribute(this.el.nativeElement, 'tabindex', '0');
@@ -43,7 +43,7 @@ export class NguiListItemDirective implements OnInit {
     if (!this.parentListComp) {
       throw Error('ngui-list-item requires parent of ngui-list, ngui-virtual-list, or ngui-autocomplete.');
     }
-    if (this.object instanceof NoneSelect || this.object instanceof NoMatchFound) {
+    if ((this.object instanceof NoneSelect) || (this.object instanceof NoMatchFound)) {
       this.viewContainer.clear();
       this.el.nativeElement.innerHTML = this.object.html;
     }
@@ -87,7 +87,6 @@ export class NguiListItemDirective implements OnInit {
   }
 
   @HostListener('click', ['$event']) mousedown(event): void {
-    console.log('this.parentListComp', this.parentListComp);
     this.parentListComp.selected.emit(this.object);
   }
 

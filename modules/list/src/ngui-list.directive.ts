@@ -15,5 +15,5 @@ export class NguiListDirective {
   /** Fired when `ESC` key is pressed from `<ngui-list-item>` */
   @Output() escaped: EventEmitter<any> = new EventEmitter();
 
-  constructor(public element: ElementRef) {}
+  constructor(public element: ElementRef) { }
 }

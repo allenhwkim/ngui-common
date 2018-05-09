@@ -46,9 +46,6 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
   _prevInputValue: string;
   _lastSelected: any;
 
-  wow(): void {
-    alert('wow');
-  }
   /**
    * returns autocomplete display condition
    * autocompolete list is only visible
