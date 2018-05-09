@@ -517,175 +517,72 @@
 </nav>
                </div>
                <!-- START CONTENT -->
-               <div class="content directive">
+               <div class="content miscellaneous-functions">
                    <div class="content-data">
 
 
 
 
 
+
+
+
+
+
+
+
+
 <ol class="breadcrumb">
-  <li>Directives</li>
-  <li>NguiInviewDirective</li>
+  <li>Miscellaneous</li>
+  <li>Functions</li>
 </ol>
 
-<ul class="nav nav-tabs" role="tablist">
-    <li class="active">
-        <a href="#info" id="info-tab" role="tab" data-toggle="tab" data-link="info">Info</a>
-    </li>
-
-
-    <li>
-        <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-    </li>
-
-</ul>
-
-<div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info">
-        <p class="comment">
-            <h3>File</h3>
-        </p>
-        <p class="comment">
-            <code>modules/in-view/src/ngui-inview.directive.ts</code>
-        </p>
-
-            <p class="comment">
-                <h3>Description</h3>
-            </p>
-            <p class="comment">
-                <p>Fires (nguiInview) or (nguiOutview) events dependents on the element is in viewport or not</p>
-
-            </p>
-
-            <p class="comment">
-                <h3>Implements</h3>
-            </p>
-            <p class="comment">
-                        <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
-                        <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
-            </p>
-
-
-        <section>
-            <h3>Metadata</h3>
-            <table class="table table-sm table-hover">
-                <tbody>
-
-                    <tr>
-                        <td class="col-md-3">selector</td>
-                        <td class="col-md-9"><code>[nguiInview], [nguiOutview]</code></td>
-                    </tr>
-
-                </tbody>
-            </table>
-        </section>
-
-            <section>
+<section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Properties</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#element">element</a>
-                            </li>
-                            <li>
-                                <a href="#observer">observer</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#renderer">renderer</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Methods</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#handleIntersect">handleIntersect</a>
-                            </li>
-                            <li>
-                                <a href="#ngOnDestroy">ngOnDestroy</a>
-                            </li>
-                            <li>
-                                <a href="#ngOnInit">ngOnInit</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Inputs</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#options">options</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Outputs</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#nguiInview">nguiInview</a>
-                            </li>
-                            <li>
-                                <a href="#nguiOutview">nguiOutview</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-
-
-
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#fireEvent" title="modules/utils/src/fire-event.ts"><b>fireEvent</b>&nbsp;&nbsp;&nbsp;(modules/.../fire-event.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
         </tbody>
     </table>
 </section>
 
-            <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
+    <h3>modules/utils/src/fire-event.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(element: <a href="https://angular.io/api/core/ElementRef" target="_blank">ElementRef</a>, renderer: <a href="https://angular.io/api/core/Renderer2" target="_blank">Renderer2</a>, platformId: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                        <a name="fireEvent"></a>
+                        <span class="name">
+                            <b>
+                            fireEvent
+                            </b>
+                            <a href="#fireEvent"><span class="fa fa-link"></span></a>
+                        </span>
                     </td>
                 </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">modules/in-view/src/ngui-inview.directive.ts:31</a></div>
-                            </td>
-                        </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>fireEvent(el: undefined, type: undefined, options: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
 
                 <tr>
                     <td class="col-md-4">
-                            <div>
+                            <div class="io-description"><p>fire the given event with options on the element</p>
+</div>
+
+                            <div class="io-description">
                                     <b>Parameters :</b>
                                     <table class="params">
                                         <thead>
@@ -697,184 +594,32 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                    <td>element</td>
-                                                  
+                                                        <td>el</td>
                                                         <td>
-                                                                    <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
                                                         </td>
-                                                  
+                                                    
                                                     <td>
                                                             no
                                                     </td>
                                                     
+
                                                 </tr>
                                                 <tr>
-                                                    <td>renderer</td>
-                                                  
+                                                        <td>type</td>
                                                         <td>
-                                                                    <code><a href="https://angular.io/api/core/Renderer2" target="_blank" >Renderer2</a></code>
                                                         </td>
-                                                  
+                                                    
                                                     <td>
                                                             no
                                                     </td>
                                                     
+
                                                 </tr>
                                                 <tr>
-                                                    <td>platformId</td>
-                                                  
+                                                        <td>options</td>
                                                         <td>
                                                                     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
                                                         </td>
-                                                  
-                                                    <td>
-                                                            no
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
-
-            <section>
-    <h3 id="inputs">Inputs</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-2">
-                        <a name="options"></a>
-                        <code>options</code>
-                    </td>
-                    <td class="col-md-10">
-                        <div><p>IntersectionObserver options </p>
-</div>
-                            <p>
-                            <em>Type:</em>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                            </p>
-                        <p>
-                            <em>Default value: </em><code>{}</code>
-                        </p>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">modules/in-view/src/ngui-inview.directive.ts:26</a></div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-</section>
-            <section>
-    <h3 id="outputs">Outputs</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-2">
-                        <a name="nguiInview"></a>
-                        <code>nguiInview</code>
-                    </td>
-                    <td class="col-md-10">
-                        <div><p>Event that will be fired when in viewport </p>
-</div>
-                        <em><code>$event</code> type:</em>    <code>EventEmitter&lt;any&gt;</code>
-
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">modules/in-view/src/ngui-inview.directive.ts:29</a></div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-2">
-                        <a name="nguiOutview"></a>
-                        <code>nguiOutview</code>
-                    </td>
-                    <td class="col-md-10">
-                        <div><p>Event that will be fired when out of  viewport </p>
-</div>
-                        <em><code>$event</code> type:</em>    <code>EventEmitter&lt;any&gt;</code>
-
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">modules/in-view/src/ngui-inview.directive.ts:31</a></div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-</section>
-
-
-            <section>
-    
-        <h3 id="methods">
-            Methods
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="handleIntersect"></a>
-                        <span class="name">
-                            <b>
-                            handleIntersect
-                            </b>
-                            <a href="#handleIntersect"><span class="fa fa-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>handleIntersect(entries: , observer: )</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">modules/in-view/src/ngui-inview.directive.ts:58</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Fires (nguiInview) event when this element is in viewport
-  and fires (nguiOutview) event when this element is not in viewport</p>
-</div>
-
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>entries</td>
-                                                    
-                                                    <td>
-                                                            no
-                                                    </td>
-                                                    
-
-                                                </tr>
-                                                <tr>
-                                                        <td>observer</td>
                                                     
                                                     <td>
                                                             no
@@ -886,293 +631,17 @@
                                     </table>
                             </div>
                             <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="ngOnDestroy"></a>
-                        <span class="name">
-                            <b>
-                            ngOnDestroy
-                            </b>
-                            <a href="#ngOnDestroy"><span class="fa fa-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>ngOnDestroy()</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">modules/in-view/src/ngui-inview.directive.ts:48</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Stops IntersectionObserver </p>
-</div>
-
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="ngOnInit"></a>
-                        <span class="name">
-                            <b>
-                            ngOnInit
-                            </b>
-                            <a href="#ngOnInit"><span class="fa fa-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>ngOnInit()</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">modules/in-view/src/ngui-inview.directive.ts:40</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Starts IntersectionObserver </p>
-</div>
-
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
+                                    <b>Example :</b>
+                                        <div>
+                                            <pre class="line-numbers"><code class="language-html">fireEvent(el, &amp;#39;click&amp;#39;);
+fireEvent(el, &amp;#39;keypress&amp;#39;, {key: &amp;#39;Enter&amp;#39;});</code></pre>
+                                        </div>
                             </div>
                     </td>
                 </tr>
             </tbody>
         </table>
 </section>
-
-            <section>
-    
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="element"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            element
-                            </b>
-                            <a href="#element"><span class="fa fa-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon fa fa-reset"></span><code>element:     <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
-
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">modules/in-view/src/ngui-inview.directive.ts:34</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="observer"></a>
-                        <span class="name">
-                            <b>
-                            observer
-                            </b>
-                            <a href="#observer"><span class="fa fa-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>observer:     <code>IntersectionObserver</code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code>IntersectionObserver</code>
-
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">modules/in-view/src/ngui-inview.directive.ts:23</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="renderer"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            renderer
-                            </b>
-                            <a href="#renderer"><span class="fa fa-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon fa fa-reset"></span><code>renderer:     <code><a href="https://angular.io/api/core/Renderer2" target="_blank" >Renderer2</a></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://angular.io/api/core/Renderer2" target="_blank" >Renderer2</a></code>
-
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">modules/in-view/src/ngui-inview.directive.ts:35</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-</section>
-
-
-    </div>
-
-
-    <div class="tab-pane fade tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
-  Directive,
-  ElementRef,
-  EventEmitter,
-  Inject,
-  Input,
-  OnDestroy,
-  OnInit,
-  Output,
-  PLATFORM_ID,
-  Renderer2,
-  ViewChild
-} from &#x27;@angular/core&#x27;;
-import { isPlatformBrowser } from &#x27;@angular/common&#x27;;
-
-/**
- * Fires (nguiInview) or (nguiOutview) events dependents on the element is in viewport or not
- */
-@Directive({
-  selector: &#x27;[nguiInview], [nguiOutview]&#x27; // tslint:disable-line
-})
-export class NguiInviewDirective implements OnInit, OnDestroy {
-  observer: IntersectionObserver;
-
-  /** IntersectionObserver options */
-  @Input() options: any &#x3D; {};
-
-  /** Event that will be fired when in viewport */
-  @Output() nguiInview: EventEmitter&lt;any&gt; &#x3D; new EventEmitter();
-  /** Event that will be fired when out of  viewport */
-  @Output() nguiOutview: EventEmitter&lt;any&gt; &#x3D; new EventEmitter();
-
-  constructor(
-    public element: ElementRef,
-    public renderer: Renderer2,
-    @Inject(PLATFORM_ID) private platformId: any) {
-  }
-
-  /** Starts IntersectionObserver */
-  ngOnInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.observer &#x3D; new IntersectionObserver(this.handleIntersect.bind(this), this.options);
-      this.observer.observe(this.element.nativeElement);
-    }
-  }
-
-  /** Stops IntersectionObserver */
-  ngOnDestroy(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.observer &amp;&amp; this.observer.disconnect();
-    }
-  }
-
-  /**
-   * Fires (nguiInview) event when this element is in viewport
-   *  and fires (nguiOutview) event when this element is not in viewport
-   */
-  handleIntersect(entries, observer): void {
-    entries.forEach((entry: IntersectionObserverEntry) &#x3D;&gt; {
-      if (entry[&#x27;isIntersecting&#x27;]) {
-        this.nguiInview.emit(entry);
-      } else {
-        this.nguiOutview.emit(entry);
-      }
-    });
-  }
-}
-</code></pre>
-    </div>
-
-</div>
-
-
-
-
-
-
-
-
 
 
                    </div><div class="search-results">
@@ -1200,7 +669,7 @@ export class NguiInviewDirective implements OnInit, OnDestroy {
 
         <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_URL = 'NguiInviewDirective.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'functions.html';
         </script>
 
        <script src="../js/search/search.js"></script>
