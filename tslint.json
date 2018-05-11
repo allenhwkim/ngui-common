@@ -1,4 +1,12 @@
 {
+  "linterOptions": {
+    "exclude": [
+      "acceptance-report/**/*",
+      "test-report/**/*",
+      "app/dist/**/*",
+      "documentation/**/*"
+    ]
+  },
   "rulesDirectory": [
     "node_modules/codelyzer"
   ],
@@ -34,7 +42,9 @@
     "no-forward-ref": false,
     "no-unnecessary-class": false,
     "no-implicit-dependencies": false,
+    "no-require-imports": false,
     "use-view-encapsulation": false,
-    "i18n": false
+    "i18n": false,
+    "trackBy-function": false
   }
 }

@@ -7,7 +7,7 @@ import {
   ViewChild,
   ViewContainerRef
 } from '@angular/core';
-import { DynamicComponentService } from '../../../modules';
+import { DynamicComponentService } from '../../../modules/utils';
 
 // component 1
 @Component({
@@ -19,6 +19,7 @@ import { DynamicComponentService } from '../../../modules';
   `
 })
 export class MyDynamicComponent {
+  id: number;
   @Output() remove: EventEmitter<any> = new EventEmitter();
 }
 

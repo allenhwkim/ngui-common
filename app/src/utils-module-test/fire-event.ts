@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
-import { fireEvent } from '../../../modules';
+import { fireEvent } from '../../../modules/utils';
 
 @Component({
   template: `
@@ -40,7 +40,7 @@ export class FireEventTestComponent {
 
   constructor(private el: ElementRef) {}
 
-  fireEventTo(selector: string, type, options): void {
+  fireEventTo(selector: string, type, options?): void {
     const target = this.el.nativeElement.querySelector(selector);
     fireEvent(target, type, options);
   }

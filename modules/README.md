@@ -8,10 +8,9 @@ UtilsModule | Collection of basic functions | computedStyle<br/> outerHeight<br/
 
 ## InviewModule Example
 ```
-<ngui-in-view ...>
-  <ngui-in-view-loading>Loading</ngui-in-view-loading>
+<ngui-inview ...>
   <img src="big-image.png" />
-</ngui-in-view>
+</ngui-inview>
 ```
 
 ## ListModule Example

@@ -1,17 +1,24 @@
 {
   "tests": "{,!(node_modules)/**/}*-test.js",
   "timeout": 10000,
-  "output": "./output",
+  "output": "./acceptance-report",
   "helpers": {
     "puppeteer": {
       "show": true,
       "url": "http://localhost:4200"
+    },
+    "Mochawesome": {
+      "uniqueScreenshotNames": "true"
     }
   },
   "include": {
     "I": "./test/codecept-steps-file.js"
   },
   "bootstrap": false,
-  "mocha": {},
+  "mocha": {
+    "reporterOptions": {
+      "reportDir": "acceptance-report"
+    }
+  },
   "name": "app"
 }

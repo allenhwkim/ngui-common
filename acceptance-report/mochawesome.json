@@ -1,0 +1,141 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2018-05-11T18:57:33.575Z",
+    "end": "2018-05-11T18:57:35.948Z",
+    "duration": 2373,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "passPercentClass": "success",
+    "pendingPercentClass": "danger"
+  },
+  "suites": {
+    "uuid": "8a4c2725-8f13-450b-b4bc-c904c60f4e0d",
+    "title": "",
+    "fullFile": "",
+    "file": "",
+    "beforeHooks": [],
+    "afterHooks": [],
+    "tests": [],
+    "suites": [
+      {
+        "uuid": "db16a926-8af7-485e-bf3f-c9290475dbb6",
+        "title": "My First Test",
+        "fullFile": "/Users/allen.kim/github/ngui-common/test/acceptance/my-first-codecept-test.js",
+        "file": "/test/acceptance/my-first-codecept-test.js",
+        "beforeHooks": [
+          {
+            "title": "\"before all\" hook: codeceptjs.beforeSuite",
+            "fullTitle": "My First Test \"before all\" hook: codeceptjs.beforeSuite",
+            "timedOut": false,
+            "duration": 0,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "scenario.suiteSetup(suite)",
+            "err": {},
+            "isRoot": false,
+            "uuid": "1124512a-04b5-4261-8825-882b8cb720e0",
+            "isHook": true,
+            "skipped": false
+          },
+          {
+            "title": "\"before each\" hook: codeceptjs.before",
+            "fullTitle": "My First Test \"before each\" hook: codeceptjs.before",
+            "timedOut": false,
+            "duration": 1018,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "scenario.setup(suite)",
+            "err": {},
+            "isRoot": false,
+            "uuid": "c0dc6c7b-e031-4a1e-b114-131abef1e44c",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "afterHooks": [
+          {
+            "title": "\"after all\" hook: codeceptjs.afterSuite",
+            "fullTitle": "My First Test \"after all\" hook: codeceptjs.afterSuite",
+            "timedOut": false,
+            "duration": 0,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "scenario.suiteTeardown(suite)",
+            "err": {},
+            "isRoot": false,
+            "uuid": "f1646c72-9034-478e-8ff2-226d862b7df8",
+            "isHook": true,
+            "skipped": false
+          },
+          {
+            "title": "\"after each\" hook: finalize codeceptjs",
+            "fullTitle": "My First Test \"after each\" hook: finalize codeceptjs",
+            "timedOut": false,
+            "duration": 47,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "scenario.teardown(suite)",
+            "err": {},
+            "isRoot": false,
+            "uuid": "59758813-50b4-4b70-8771-f85c45f9ad92",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "tests": [
+          {
+            "title": "test something",
+            "fullTitle": "My First Test: test something",
+            "timedOut": false,
+            "duration": 1284,
+            "state": "passed",
+            "speed": "slow",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "I => {\n  I.amOnPage('/');\n  I.see('Test Page');",
+            "err": {},
+            "isRoot": false,
+            "uuid": "a49acd81-998d-4fa2-9b93-4220baab2d3c",
+            "isHook": false,
+            "skipped": false
+          }
+        ],
+        "suites": [],
+        "passes": [
+          "a49acd81-998d-4fa2-9b93-4220baab2d3c"
+        ],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 1284,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 0
+      }
+    ],
+    "passes": [],
+    "failures": [],
+    "pending": [],
+    "skipped": [],
+    "duration": 0,
+    "root": true,
+    "rootEmpty": true,
+    "_timeout": 0
+  },
+  "copyrightYear": 2018
+}

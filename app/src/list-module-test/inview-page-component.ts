@@ -20,7 +20,7 @@ import { ChangeDetectionStrategy, Component, ElementRef } from '@angular/core';
     <ngui-inview-page id="item-template-given" style="border:1px solid #ccc" [items]="items">
       <ng-template let-items="items">
         <div *ngIf="items else noItems">
-          <li *ngFor="let num of items; trackBy: num">row number: {{ num }}</li>
+          <li *ngFor="let num of items">row number: {{ num }}</li>
         </div>
       </ng-template>
     </ngui-inview-page>

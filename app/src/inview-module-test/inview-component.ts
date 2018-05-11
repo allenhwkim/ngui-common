@@ -7,7 +7,7 @@ import { Component, ElementRef } from '@angular/core';
     List Of Images
     <hr/>
 
-    <div *ngFor="let i of numArr; trackBy: i">
+    <div *ngFor="let i of numArr">
       <ngui-inview> <!-- only displays when this is in viewport -->
         <img *ngIf src="https://picsum.photos/800/300?image={{i}}" height="33%">
       </ngui-inview>
@@ -33,6 +33,8 @@ export class InviewComponent {
   }
 
   numArr = Array.from(Array(100), (_, x) => x);
+  trackBy = (index, item) => item;
 
   constructor(public element: ElementRef) {}
+
 }

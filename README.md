@@ -7,9 +7,14 @@ Angular5+ UI common directives, functions, services
 [![npm](https://img.shields.io/npm/l/@ngui/common.svg)](https://www.npmjs.com/package/@ngui/common)
 
 ## Demo 
-- [InviewModule]()  
-- [ListModule]()   
-- [UtilsModule]()   
+- [InviewModule](app/dist/inview/ngui-inview)  
+- [ListModule](app/dist/list/ngui-list)   
+- [UtilsModule](app/dist/utils/dynamic-component-service)   
+
+[Object Documentation](/documentation/index.html)
+[Code Coverage Report](/coverage/index.html)
+[Unit Test Report](/test-report/index.html)
+[Acceptance Report](/acceptance-report/mochawesome.html)
 
 ## Install
 
@@ -46,7 +51,6 @@ Handles lazy loading of Angular components
 - Utilize HTML5 IntersectionObserver 
 - For IE11, please add polyfill for this module
   `<script src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>`
-- Provides `ngui-in-view` and `ngui-in-view-loading` components
 
 ### UtilsModules
 Collection of basic utility function

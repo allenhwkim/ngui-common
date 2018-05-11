@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, ElementRef, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
-import { NguiAutocompleteComponent } from '../../../modules';
+import { NguiAutocompleteComponent } from '../../../modules/list';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';

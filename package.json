@@ -8,14 +8,15 @@
   "scripts": {
     "start": "ng serve",
     "build": "npm run build:app && npm run build:modules",
-    "build:app": "ng build --prod",
-    "build:modules": "ng-packagr -p package.json",
+    "build:app": "ng build --prod --base-href=.",
+    "build:modules": "ng-packagr -p ng-package.js",
     "doc": "compodoc modules -p tsconfig.json",
     "test": "npm run test:unit && npm run test:acceptance",
     "test:unit": "jest --coverage=true",
     "test:acceptance": "start-server-and-test start http-get://localhost:4200 test:codecept",
-    "test:codecept": "codeceptjs run",
-    "lint": "tslint --project '.' -t stylish --fix"
+    "test:codecept": "codeceptjs run --reporter mochawesome",
+    "lint": "tslint --project '.' -t stylish --fix",
+    "prepublishOnly": "npm test && npm run build && npm run doc"
   },
   "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
   "pre-commit": [
@@ -62,6 +63,7 @@
     "jest": "^22.4.3",
     "jest-html-reporter": "^2.3.0",
     "jest-preset-angular": "^5.2.1",
+    "mochawesome": "^3.0.2",
     "ng-packagr": "^2.4.1",
     "ngentest": "^0.1.0",
     "pre-commit": "^1.2.2",
