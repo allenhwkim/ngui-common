@@ -1,4 +1,8 @@
 language: node_js
-node_js:
-  - "node"
-  - "lts/*"
+# needs Ubuntu Trusty
+dist: trusty
+# Note: if you switch to sudo: false, you'll need to launch chrome with --no-sandbox.
+# See https://github.com/travis-ci/travis-ci/issues/8836
+sudo: required
+addons:
+  chrome: stable # have Travis install chrome stable.
