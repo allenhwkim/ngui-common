@@ -1,13 +1,13 @@
 // tslint:disble
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, TestBed } from '@angular/core/testing';
 
 import { NguiInviewPageComponent } from './ngui-inview-page.component';
-import { ChangeDetectorRef, Directive, ElementRef, Renderer2 } from '@angular/core';
+import { ChangeDetectorRef, ElementRef, Renderer2 } from '@angular/core';
 
 class MockElementRef extends ElementRef {
-  constructor() { super(undefined); }
   nativeElement = {
   };
+  constructor() { super(undefined); }
 }
 (window as any).HTMLElement = jest.fn();
 

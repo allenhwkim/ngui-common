@@ -38,7 +38,7 @@ import {
         [ngTemplateOutlet]="template||defaultTemplate"
         [ngTemplateOutletContext]="{items: items, outView: outView}">
       </ng-container>
-      <div *ngIf="outView">{{ this.itemsBackup.length }} items hidden</div>
+      <div *ngIf="outView">{{ itemsBackup.length }} items hidden</div>
     </div>
 
     <ng-template #defaultTemplate>
@@ -57,7 +57,7 @@ export class NguiInviewPageComponent implements OnInit, OnDestroy {
   // @Input('template') template: TemplateRef<any>;
 
   /** List of elements that are used to render this element */
-  @Input('items') items: Array<any>;
+  @Input() items: Array<any>;
 
   /** IntersectionObserver options */
   options: any;

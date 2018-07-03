@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
 
 import {NguiListDirective} from './ngui-list.directive';
-import {Component, Directive, ElementRef} from '@angular/core';
+import {Component, ElementRef} from '@angular/core';
 
 class MockElementRef extends ElementRef {
   constructor() { super(undefined); }

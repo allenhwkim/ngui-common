@@ -8,8 +8,7 @@ import {
   OnInit,
   Output,
   PLATFORM_ID,
-  Renderer2,
-  ViewChild
+  Renderer2
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -55,7 +54,7 @@ export class NguiInviewDirective implements OnInit, OnDestroy {
    * Fires (nguiInview) event when this element is in viewport
    *  and fires (nguiOutview) event when this element is not in viewport
    */
-  handleIntersect(entries, observer): void {
+  handleIntersect(entries): void {
     entries.forEach((entry: IntersectionObserverEntry) => {
       if (entry['isIntersecting']) {
         this.nguiInview.emit(entry);

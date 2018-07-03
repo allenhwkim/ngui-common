@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
 
 import {NguiListItemDirective} from './ngui-list-item.directive';
-import {Component, Directive, ElementRef, Renderer2, ViewContainerRef} from '@angular/core';
+import {Component, ElementRef, Renderer2, ViewContainerRef} from '@angular/core';
 import {NguiListDirective} from './ngui-list.directive';
 import {NguiVirtualListComponent} from './ngui-virtual-list.component';
 import {NguiAutocompleteComponent} from './ngui-autocomplete.component';
@@ -75,7 +75,7 @@ describe('NguiListItemDirective', () => {
   }));
         
   it('should run #keydown()', async(() => {
-    function El() { this.focus = jest.fn(); };
+    function El() { this.focus = jest.fn(); }
     const thisEl = new El();
     const allEl = [new El(), thisEl, new El()];
 

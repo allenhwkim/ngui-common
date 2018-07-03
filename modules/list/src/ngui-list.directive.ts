@@ -2,7 +2,6 @@ import {
   Directive,
   ElementRef,
   EventEmitter,
-  Host,
   Output
 } from '@angular/core';
 

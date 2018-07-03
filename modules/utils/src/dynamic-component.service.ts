@@ -29,7 +29,6 @@ import {
   ComponentRef,
   Inject,
   Injectable,
-  ReflectiveInjector,
   ViewContainerRef
 } from '@angular/core';
 

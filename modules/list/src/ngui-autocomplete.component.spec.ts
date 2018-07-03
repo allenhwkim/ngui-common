@@ -1,19 +1,19 @@
 /* tslint:disable */
-import { async, ComponentFixtureAutoDetect, TestBed } from '@angular/core/testing';
+import { async, TestBed } from '@angular/core/testing';
 // import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 // do not import any other than you test. For others, mock it
 import { NguiAutocompleteComponent } from './ngui-autocomplete.component';
 import { MockComponent } from '../../../test/jest-setup';
 
-import { ChangeDetectorRef, ElementRef, Injectable, Renderer2 } from '@angular/core';
+import {ChangeDetectorRef, ComponentRef, ElementRef, Renderer2} from '@angular/core';
 
 import { DynamicComponentService } from '../../utils';
 
 class MockElementRef extends ElementRef {
   constructor() { super(undefined); }
   nativeElement = {
-    getBoundingClientRect: _ => ({
+    getBoundingClientRect: () => ({
       top: 10, height: 10
     })
   };
@@ -21,7 +21,7 @@ class MockElementRef extends ElementRef {
 
 class MockDynamicComponentService extends DynamicComponentService {
   createComponent(comp, ref) {
-    return { instance: {} }
+    return <ComponentRef<any>>{ instance: {} }
   }
   insertComponent(param) {}
 }
@@ -115,7 +115,7 @@ describe('NguiAutocompleteComponent', () => {
   }));
 
   it('should run #addAutocompleteList', async(() => {
-    Object.defineProperty(component, 'isReady', {value: _ => true})
+    Object.defineProperty(component, 'isReady', {value: () => true});
     component.inputEl = document.querySelector('#my-input');
     component.clearList = jest.fn();
     component.addAnInviewPageToPages = jest.fn();
@@ -148,8 +148,8 @@ describe('NguiAutocompleteComponent', () => {
     component.cdr.detectChanges = jest.fn();
     component.inviewPages = [1];
     component.inviewPage = {
-      instance: { setItems: jest.fn()};
-    }
+      instance: { setItems: jest.fn()}
+    };
     component.addList([123]);
     expect(component.inviewPage.instance.setItems).toHaveBeenCalled();
   }));
