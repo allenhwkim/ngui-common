@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">86.78% </span>
+        <span class="strong">86.44% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>105/121</span>
+        <span class='fraction'>102/118</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">46% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>18/19</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">86.09% </span>
+        <span class="strong">85.71% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>99/115</span>
+        <span class='fraction'>96/112</span>
       </div>
     </div>
     <p class="quiet">
@@ -249,11 +249,8 @@
 <a name='L201'></a><a href='#L201'>201</a>
 <a name='L202'></a><a href='#L202'>202</a>
 <a name='L203'></a><a href='#L203'>203</a>
-<a name='L204'></a><a href='#L204'>204</a>
-<a name='L205'></a><a href='#L205'>205</a>
-<a name='L206'></a><a href='#L206'>206</a>
-<a name='L207'></a><a href='#L207'>207</a>
-<a name='L208'></a><a href='#L208'>208</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<a name='L204'></a><a href='#L204'>204</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -261,9 +258,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -428,8 +422,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -443,7 +435,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -467,14 +459,12 @@
   OnInit,
   TemplateRef
 } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/fromEvent';
-import 'rxjs/add/operator/map';
 &nbsp;
 import { fireEvent } from '../../utils';
 import { NguiVirtualListComponent } from './ngui-virtual-list.component';
 import { NoMatchFound } from './no-match-found';
 import { NoneSelect } from './none-select';
+import { fromEvent } from 'rxjs/internal/observable/fromEvent';
 &nbsp;
 @Component({
   selector: 'ngui-autocomplete',
@@ -527,7 +517,7 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
     this.inputEl = &lt;HTMLInputElement&gt; document.querySelector('#' + this.for); // tslint:disable-line
     this.positionThisUnderInputEl();
 &nbsp;
-    Observable.fromEvent(this.inputEl, 'keyup').subscribe(this.onInputElKeyup.bind(this));
+    fromEvent(this.inputEl, 'keyup').subscribe(this.onInputElKeyup.bind(this));
     this.inputEl.addEventListener('focus', this.onInputElFocused.bind(this));
     this.inputEl.addEventListener('blur', this.onInputElBlurred.bind(this));
     this.selected.subscribe(this.onSelected.bind(this));
@@ -562,7 +552,7 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
     this.setFocused('input', true);
   }
 &nbsp;
-  onInputElBlurred(event): void {
+  onInputElBlurred(): void {
     this.setFocused('input', false);
   }
 &nbsp;
@@ -597,7 +587,7 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
   addAutocompleteList(): void {
     <span class="missing-if-branch" title="else path not taken" >E</span>if (this.isReady) {
       clearTimeout(this._acTimer);
-      this._acTimer = setTimeout(_ =&gt; {
+      this._acTimer = setTimeout(() =&gt; {
         this.isListLoading = false; // ???????/
         this._prevInputValue = this.inputEl.value;
         this._escapedFromList = false;
@@ -624,7 +614,7 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
       this._focused = {input: false, listItem: false};
       this._focused[elType] = true;
     } else {
-      this._focusTimer = setTimeout(_ =&gt; {
+      this._focusTimer = setTimeout(() =&gt; {
         this._focused[elType] = false;
         this.cdr.detectChanges(); // for ChangeDetectionStrategy.OnPush
       }, 100);
@@ -633,9 +623,7 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
 &nbsp;
   positionThisUnderInputEl(): void {
     const thisEl = this.element.nativeElement;
-    const thisElBCR = thisEl.getBoundingClientRect();
     const thisInputElBCR = this.inputEl.getBoundingClientRect();
-    const closeToBottom = thisInputElBCR.bottom + 100 &gt; window.innerHeight;
     const top = thisInputElBCR.top + thisInputElBCR.height + window.scrollY;
 &nbsp;
     this.renderer.setStyle(thisEl, 'left', `${thisInputElBCR.left}px`);
@@ -650,7 +638,7 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
 &nbsp;
     // TODO: ........ for 1st page only, show no match found or blank option
     let noMatchItem: any;
-    let blankItem: any;
+    let blankItem: any = {};
     <span class="missing-if-branch" title="else path not taken" >E</span>if (this.inviewPages.length === 1) {
       <span class="missing-if-branch" title="if path not taken" >I</span>if (this.noMatchItem &amp;&amp; (!items || items.length === 0)) { // add no match item
 <span class="cstat-no" title="statement not covered" >        noMatchItem = new NoMatchFound();</span>
@@ -673,7 +661,7 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri May 11 2018 16:10:11 GMT-0400 (EDT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jul 03 2018 10:44:10 GMT-0400 (EDT)
 </div>
 </div>
 <script src="../../prettify.js"></script>
