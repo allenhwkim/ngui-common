@@ -5,14 +5,12 @@ import {
   OnInit,
   TemplateRef
 } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/fromEvent';
-import 'rxjs/add/operator/map';
 
 import { fireEvent } from '../../utils';
 import { NguiVirtualListComponent } from './ngui-virtual-list.component';
 import { NoMatchFound } from './no-match-found';
 import { NoneSelect } from './none-select';
+import { fromEvent } from 'rxjs/internal/observable/fromEvent';
 
 @Component({
   selector: 'ngui-autocomplete',
@@ -65,7 +63,7 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
     this.inputEl = <HTMLInputElement> document.querySelector('#' + this.for); // tslint:disable-line
     this.positionThisUnderInputEl();
 
-    Observable.fromEvent(this.inputEl, 'keyup').subscribe(this.onInputElKeyup.bind(this));
+    fromEvent(this.inputEl, 'keyup').subscribe(this.onInputElKeyup.bind(this));
     this.inputEl.addEventListener('focus', this.onInputElFocused.bind(this));
     this.inputEl.addEventListener('blur', this.onInputElBlurred.bind(this));
     this.selected.subscribe(this.onSelected.bind(this));
@@ -100,7 +98,7 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
     this.setFocused('input', true);
   }
 
-  onInputElBlurred(event): void {
+  onInputElBlurred(): void {
     this.setFocused('input', false);
   }
 
@@ -135,7 +133,7 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
   addAutocompleteList(): void {
     if (this.isReady) {
       clearTimeout(this._acTimer);
-      this._acTimer = setTimeout(_ => {
+      this._acTimer = setTimeout(() => {
         this.isListLoading = false; // ???????/
         this._prevInputValue = this.inputEl.value;
         this._escapedFromList = false;
@@ -162,7 +160,7 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
       this._focused = {input: false, listItem: false};
       this._focused[elType] = true;
     } else {
-      this._focusTimer = setTimeout(_ => {
+      this._focusTimer = setTimeout(() => {
         this._focused[elType] = false;
         this.cdr.detectChanges(); // for ChangeDetectionStrategy.OnPush
       }, 100);
@@ -171,9 +169,7 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
 
   positionThisUnderInputEl(): void {
     const thisEl = this.element.nativeElement;
-    const thisElBCR = thisEl.getBoundingClientRect();
     const thisInputElBCR = this.inputEl.getBoundingClientRect();
-    const closeToBottom = thisInputElBCR.bottom + 100 > window.innerHeight;
     const top = thisInputElBCR.top + thisInputElBCR.height + window.scrollY;
 
     this.renderer.setStyle(thisEl, 'left', `${thisInputElBCR.left}px`);
@@ -188,7 +184,7 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
 
     // TODO: ........ for 1st page only, show no match found or blank option
     let noMatchItem: any;
-    let blankItem: any;
+    let blankItem: any = {};
     if (this.inviewPages.length === 1) {
       if (this.noMatchItem && (!items || items.length === 0)) { // add no match item
         noMatchItem = new NoMatchFound();

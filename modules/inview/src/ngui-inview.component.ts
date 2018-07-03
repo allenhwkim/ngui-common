@@ -10,8 +10,7 @@ import {
   Output,
   PLATFORM_ID,
   Renderer2,
-  TemplateRef,
-  ViewChild
+  TemplateRef
  } from '@angular/core';
 
 import { isPlatformBrowser } from '@angular/common';
@@ -66,7 +65,7 @@ export class NguiInviewComponent implements OnInit, OnDestroy {
   }
 
   /** fires (inview) and (notInview) events when this component is visible or not visible  */
-  handleIntersect(entries, observer): void {
+  handleIntersect(entries): void {
     entries.forEach((entry: IntersectionObserverEntry) => {
       if (entry['isIntersecting']) {
         this.isInview = true;

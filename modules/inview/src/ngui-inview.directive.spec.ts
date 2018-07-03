@@ -1,8 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, TestBed } from '@angular/core/testing';
 import {
   Component,
   ElementRef,
-  NO_ERRORS_SCHEMA,
   PLATFORM_ID,
   Renderer2
 } from '@angular/core';
@@ -16,8 +15,8 @@ IntersectionObserver.prototype.observe = jest.fn();
 IntersectionObserver.prototype.disconnect = jest.fn();
 
 class MockElementRef extends ElementRef {
-  constructor() { super(undefined); }
   nativeElement = {};
+  constructor() { super(undefined); }
 }
 
 @Component({
@@ -31,8 +30,8 @@ class MockElementRef extends ElementRef {
 })
 class DirectiveTestComponent {
   options: any;
-  onNguiInview(event): void {/* */}
-  onNguiOutvie(event): void {/* */}
+  onNguiInview(): void {/* */}
+  onNguiOutvie(): void {/* */}
 }
 
 describe('NguiInviewDirective', () => {

@@ -1,7 +1,5 @@
 import {
   Component,
-  ComponentRef,
-  ElementRef,
   EventEmitter,
   Output,
   ViewChild,
@@ -43,7 +41,7 @@ export class DynamicComponentServiceTestComponent {
   insertComponent(): void {
     const compRef = this.dcs.createComponent(MyDynamicComponent, this.containerRef);
     this.dcs.insertComponent(compRef);
-    compRef.instance.remove.subscribe(_ => compRef.destroy()); // dealing with @output
+    compRef.instance.remove.subscribe(() => compRef.destroy()); // dealing with @output
   }
 
 }

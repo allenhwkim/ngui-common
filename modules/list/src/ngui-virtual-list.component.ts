@@ -6,16 +6,12 @@ import {
   ContentChild,
   ElementRef,
   EventEmitter,
-  Input,
   Output,
   Renderer2,
   TemplateRef,
   ViewChild,
   ViewContainerRef
 } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/observable/fromEvent';
 
 import { DynamicComponentService } from '../../utils';
 import { NguiInviewPageComponent } from './ngui-inview-page.component';
@@ -126,7 +122,7 @@ export class NguiVirtualListComponent implements AfterViewInit {
       this.inviewPage.instance.template = this.template;
       this.inviewPages.push(this.inviewPage);
 
-      this.bottomInview.emit(this); // Fire evnet, so that user can load items
+      this.bottomInview.emit(this); // fire event, so that user can load items
     } else {
       console.log('Already a page being inserted, skipping adding a page');
     }

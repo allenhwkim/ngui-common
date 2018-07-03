@@ -1,8 +1,7 @@
 // tslint:disable
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, TestBed } from '@angular/core/testing';
 import {
   ElementRef,
-  NO_ERRORS_SCHEMA,
   PLATFORM_ID,
   Renderer2
 } from '@angular/core';

@@ -27,13 +27,13 @@ describe('DynamicComponentService', () => {
   it('should run #insertComponent', () => {
     const component = {
       location: {
-        nativeElement: { setAttribute: jest.fn(); }
+        nativeElement: { setAttribute: jest.fn() }
       },
       instance: {}
     };
 
     service.rootViewContainer = {
-      insert: jest.fn();
+      insert: jest.fn()
     };
     service.insertComponent(component);
 

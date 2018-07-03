@@ -3,7 +3,6 @@ import {
   ElementRef,
   Host,
   HostListener,
-  Inject,
   Input,
   OnInit,
   Optional,

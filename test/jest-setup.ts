@@ -13,14 +13,7 @@
  */
 import 'jest-preset-angular';
 
-// common rxjs imports
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/catch';
-// ...
-
-import { Component, Directive, EventEmitter, Pipe, PipeTransform, Type } from '@angular/core';
+import { Component, Directive, EventEmitter, Pipe, PipeTransform } from '@angular/core';
 
 Error.stackTraceLimit = 2;
 

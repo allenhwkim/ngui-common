@@ -1,11 +1,9 @@
-import { ChangeDetectionStrategy, Component, ElementRef, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 import { NguiAutocompleteComponent } from '../../../modules/list';
-
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/delay';
+import { of } from 'rxjs/internal/observable/of';
+import { delay } from 'rxjs/operators';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -48,11 +46,12 @@ export class AutocompleteComponent {
   loadList(): void {
     console.log('AutoCompleteComponent.loadList is called();');
     const keyword = this.autocomplete.inputEl.value;
-    const items = Array(50).fill(0).map((_, i) => {
-      let obj = { id: 1, value: `foo${keyword}bar` }; // tslint:disable-line
-      return obj; // tslint:disable-line
+    const items = Array(50).fill(0).map(() => {
+        return {id: 1, value: `foo${keyword}bar`};
     });
-    Observable.of(items).delay(500).subscribe(result => {
+    of(items).pipe(
+        delay(500)
+    ).subscribe(result => {
       this.autocomplete.addList(result);
       // this.autocomplete.addList([]);
       this.numPage++;
