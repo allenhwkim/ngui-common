@@ -8,7 +8,7 @@
   "scripts": {
     "start": "ng serve",
     "build": "npm run build:app && npm run build:modules",
-    "build:app": "ng build --base-href=.",
+    "build:app": "ng build --prod --base-href=.",
     "build:modules": "ng-packagr -p ng-package.js",
     "doc": "compodoc modules -p tsconfig.json",
     "test": "npm run test:unit && npm run test:acceptance",
