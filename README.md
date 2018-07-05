@@ -1,6 +1,6 @@
 # @ngui/common
 
-Angular5+ UI common directives, functions, services
+Angular 6+ UI common directives, functions, services
 
 [![Build Status](https://travis-ci.org/allenhwkim/ngui-common.svg?branch=master)](https://travis-ci.org/allenhwkim/ngui-common)
 [![npm](https://img.shields.io/npm/dt/@ngui/common.svg)](https://www.npmjs.com/package/@ngui/common) 
@@ -38,7 +38,8 @@ export class AppModule { }
 ## Use it in your code  
 
 ```
-<ngui-inview> <!-- only displays when this is in viewport -->
+<ngui-inview style="height: 33%"> 
+  <!-- Image will only be loaded when "ngui-inview" component becomes visible -->
   <img *ngIf src="https://picsum.photos/800/300" height="33%">
 </ngui-inview>
 ```
@@ -46,8 +47,8 @@ export class AppModule { }
 ## Modules
 
 ### NguiInViewModule 
-Handles lazy loading of Angular components, which utilizes HTML5 IntersectionObserver 
-For IE11, please add polyfill for this module `<script src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>`
+Handles lazy rendering of Angular components, which utilizes HTML5 IntersectionObserver. 
+For IE11 and Safari please add [IntersectionObserver polyfill](https://github.com/w3c/IntersectionObserver/tree/master/polyfill).
 - ngui-inview component
 - ngui-inview directive
 
