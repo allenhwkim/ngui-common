@@ -36,7 +36,9 @@
     "jest",
     "coecept",
     "package",
-    "module"
+    "module",
+    "virtual-scroll",
+    "lazy-rendering"
   ],
   "dependencies": {},
   "peerDependencies": {},
