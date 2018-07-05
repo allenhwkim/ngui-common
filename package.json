@@ -1,6 +1,6 @@
 {
   "name": "@ngui/common",
-  "description": "Angular5+ library development starter using jest, codecept, ngx-packagr ",
+  "description": "Angular5+ common modules; virtual-scroll, lazy-rendering, interactive list, etc",
   "version": "0.3.0",
   "license": "MIT",
   "main": "modules/dist/bundles/ngui-common.umd.js",
