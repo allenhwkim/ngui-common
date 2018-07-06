@@ -1,5 +1,5 @@
 import { Component, ElementRef } from '@angular/core';
-import { fireEvent } from '../../../modules/utils';
+import { fireEvent } from '../../../modules';
 
 @Component({
   template: `

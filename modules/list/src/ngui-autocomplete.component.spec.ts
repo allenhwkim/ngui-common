@@ -8,7 +8,7 @@ import { MockComponent } from '../../../test/jest-setup';
 
 import {ChangeDetectorRef, ComponentRef, ElementRef, Renderer2} from '@angular/core';
 
-import { DynamicComponentService } from '../../utils';
+import { DynamicComponentService } from '../../utils/src/ngui-utils.module';
 
 class MockElementRef extends ElementRef {
   constructor() { super(undefined); }

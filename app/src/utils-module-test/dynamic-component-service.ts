@@ -5,7 +5,7 @@ import {
   ViewChild,
   ViewContainerRef
 } from '@angular/core';
-import { DynamicComponentService } from '../../../modules/utils';
+import { DynamicComponentService } from '../../../modules';
 
 // component 1
 @Component({

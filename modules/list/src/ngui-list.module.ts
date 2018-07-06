@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { NguiInviewModule } from '../../inview';
+import { NguiInviewModule } from '../../inview/src/ngui-inview.module';
 import { NguiInviewPageComponent } from './ngui-inview-page.component';
 import { NguiVirtualListComponent } from './ngui-virtual-list.component';
 import { NguiListDirective } from './ngui-list.directive';

@@ -9,3 +9,7 @@ import { NguiHighlightPipe } from './ngui-highlight.pipe';
   providers: [DynamicComponentService]
 })
 export class NguiUtilsModule {}
+
+export { DynamicComponentService } from './dynamic-component.service';
+export { konsole } from './konsole';
+export { fireEvent } from './fire-event';

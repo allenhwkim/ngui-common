@@ -1,3 +1,14 @@
-export { NguiInviewModule } from './inview';
-export { NguiListModule } from './list';
-export { NguiUtilsModule } from './utils';
+export { NguiInviewModule } from './inview/src/ngui-inview.module';
+
+export {
+  NguiListModule,
+  NguiAutocompleteComponent,
+  NguiVirtualListComponent
+} from './list/src/ngui-list.module';
+
+export {
+  DynamicComponentService,
+  konsole,
+  fireEvent,
+  NguiUtilsModule
+} from './utils/src/ngui-utils.module';

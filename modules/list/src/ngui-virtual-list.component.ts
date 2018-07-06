@@ -13,7 +13,7 @@ import {
   ViewContainerRef
 } from '@angular/core';
 
-import { DynamicComponentService } from '../../utils';
+import { DynamicComponentService } from '../../utils/src/ngui-utils.module';
 import { NguiInviewPageComponent } from './ngui-inview-page.component';
 
 /**

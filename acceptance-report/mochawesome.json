@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2018-07-03T14:44:27.492Z",
-    "end": "2018-07-03T14:44:29.714Z",
-    "duration": 2223,
+    "start": "2018-07-06T19:19:45.700Z",
+    "end": "2018-07-06T19:19:48.128Z",
+    "duration": 2428,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -19,7 +19,7 @@
     "pendingPercentClass": "danger"
   },
   "suites": {
-    "uuid": "f9ed2b4c-62f2-4577-8f63-8372fc45ad94",
+    "uuid": "2a2fac11-8d83-4f1a-8699-8ce3c778ff5d",
     "title": "",
     "fullFile": "",
     "file": "",
@@ -28,7 +28,7 @@
     "tests": [],
     "suites": [
       {
-        "uuid": "d36d1304-f838-4e9d-ae32-1d0fca25d4d8",
+        "uuid": "5cd40ed1-7884-4a2d-901e-75e15e7084c7",
         "title": "My First Test",
         "fullFile": "/Users/allen.kim/github/ngui-common/test/acceptance/my-first-codecept-test.js",
         "file": "/test/acceptance/my-first-codecept-test.js",
@@ -37,14 +37,14 @@
             "title": "\"before all\" hook: codeceptjs.beforeSuite",
             "fullTitle": "My First Test \"before all\" hook: codeceptjs.beforeSuite",
             "timedOut": false,
-            "duration": 1,
+            "duration": 0,
             "pass": false,
             "fail": false,
             "pending": false,
             "code": "scenario.suiteSetup(suite)",
             "err": {},
             "isRoot": false,
-            "uuid": "c2481f61-308b-4718-b765-ab021a1234d2",
+            "uuid": "e594db3f-93bd-4a1d-99b7-d105459bf798",
             "isHook": true,
             "skipped": false
           },
@@ -52,14 +52,14 @@
             "title": "\"before each\" hook: codeceptjs.before",
             "fullTitle": "My First Test \"before each\" hook: codeceptjs.before",
             "timedOut": false,
-            "duration": 1015,
+            "duration": 1137,
             "pass": false,
             "fail": false,
             "pending": false,
             "code": "scenario.setup(suite)",
             "err": {},
             "isRoot": false,
-            "uuid": "53b41423-03e6-4289-af92-440badfa4323",
+            "uuid": "2840b984-0724-4f2e-89be-06ee55b6eb40",
             "isHook": true,
             "skipped": false
           }
@@ -76,7 +76,7 @@
             "code": "scenario.suiteTeardown(suite)",
             "err": {},
             "isRoot": false,
-            "uuid": "4f09b382-44c6-4ba2-b8b8-6f450b9b05a7",
+            "uuid": "8095209e-db24-4640-a760-5118ad2dcb5c",
             "isHook": true,
             "skipped": false
           },
@@ -84,14 +84,14 @@
             "title": "\"after each\" hook: finalize codeceptjs",
             "fullTitle": "My First Test \"after each\" hook: finalize codeceptjs",
             "timedOut": false,
-            "duration": 41,
+            "duration": 55,
             "pass": false,
             "fail": false,
             "pending": false,
             "code": "scenario.teardown(suite)",
             "err": {},
             "isRoot": false,
-            "uuid": "5da5688f-64ce-454d-9984-5c1b2b462aa8",
+            "uuid": "1064a2fd-4a06-4c48-8e1a-f563bcb42834",
             "isHook": true,
             "skipped": false
           }
@@ -101,7 +101,7 @@
             "title": "test something",
             "fullTitle": "My First Test: test something",
             "timedOut": false,
-            "duration": 1146,
+            "duration": 1217,
             "state": "passed",
             "speed": "slow",
             "pass": true,
@@ -110,19 +110,19 @@
             "code": "I => {\n  I.amOnPage('/');\n  I.see('Test Page');",
             "err": {},
             "isRoot": false,
-            "uuid": "f90c297e-c130-4c1f-8a98-fe85d8eb2343",
+            "uuid": "d7eb9e30-fa16-43ce-8765-429f2050d345",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "f90c297e-c130-4c1f-8a98-fe85d8eb2343"
+          "d7eb9e30-fa16-43ce-8765-429f2050d345"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 1146,
+        "duration": 1217,
         "root": false,
         "rootEmpty": false,
         "_timeout": 0

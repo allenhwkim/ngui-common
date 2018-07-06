@@ -6,7 +6,7 @@ import {
   TemplateRef
 } from '@angular/core';
 
-import { fireEvent } from '../../utils';
+import { fireEvent } from '../../utils/src/ngui-utils.module';
 import { NguiVirtualListComponent } from './ngui-virtual-list.component';
 import { NoMatchFound } from './no-match-found';
 import { NoneSelect } from './none-select';
