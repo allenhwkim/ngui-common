@@ -1,6 +1,6 @@
 {
   "name": "@ngui/common",
-  "description": "Angular5+ library development starter using jest, codecept, ngx-packagr ",
+  "description": "Angular5+ common modules; virtual-scroll, lazy-rendering, interactive list, etc",
   "version": "0.3.0",
   "license": "MIT",
   "main": "modules/dist/bundles/ngui-common.umd.js",
@@ -8,7 +8,7 @@
   "scripts": {
     "start": "ng serve",
     "build": "npm run build:app && npm run build:modules",
-    "build:app": "ng build --base-href=.",
+    "build:app": "ng build --prod --base-href=.",
     "build:modules": "ng-packagr -p ng-package.js",
     "doc": "compodoc modules -p tsconfig.json",
     "test": "npm run test:unit && npm run test:acceptance",
@@ -36,7 +36,9 @@
     "jest",
     "coecept",
     "package",
-    "module"
+    "module",
+    "virtual-scroll",
+    "lazy-rendering"
   ],
   "dependencies": {},
   "peerDependencies": {},
