@@ -1,8 +1,0 @@
-{
-  "name": "@ngui/common/utils",
-  "version": "0.1.0",
-  "scripts": {
-    "test": "cd ../.. && jest modules/list/**/*.spec.ts",
-    "doc": "cd ../../ && compodoc modules -p tsconfig.json && open -a 'Google Chrome' documentation/modules.html"
-  }
-}

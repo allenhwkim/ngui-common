@@ -1,0 +1,42 @@
+{
+  "name": "@ngui/common",
+  "description": "Angular 6+ common modules; virtual-scroll, lazy-rendering, interactive list, etc",
+  "version": "0.3.2",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngxui/common"
+  },
+  "author": "Allen Kim<allenhwkim@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/ngxui/common/issues"
+  },
+  "homepage": "https://github.com/ngxui/common#readme",
+  "keywords": [
+    "angular",
+    "typescript",
+    "jest",
+    "coecept",
+    "package",
+    "module",
+    "virtual-scroll",
+    "lazy-rendering"
+  ],
+  "peerDependencies": {
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
+  },
+  "dependencies": {
+    "tslib": "^1.9.0"
+  },
+  "main": "bundles/ngui-common.umd.js",
+  "module": "fesm5/ngui-common.js",
+  "es2015": "fesm2015/ngui-common.js",
+  "esm5": "esm5/ngui-common.js",
+  "esm2015": "esm2015/ngui-common.js",
+  "fesm5": "fesm5/ngui-common.js",
+  "fesm2015": "fesm2015/ngui-common.js",
+  "typings": "ngui-common.d.ts",
+  "metadata": "ngui-common.metadata.json",
+  "sideEffects": false
+}

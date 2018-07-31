@@ -1,11 +1,11 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
-    "allowJs": true,
     "declaration": false,
+    "module": "es2015",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -13,7 +13,18 @@
     "typeRoots": [
       "node_modules/@types"
     ],
-    "lib": ["es5", "es6", "dom"]
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "paths": {
+      "@ngui/common": [
+        "dist/ngui-common"
+      ],
+      "@ngui/common/*": [
+        "dist/ngui-common/*"
+      ]
+    }
   },
   "exclude": [
     "node_modules",
