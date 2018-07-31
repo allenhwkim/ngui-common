@@ -1,8 +1,0 @@
-{
-  "name": "@ngui/common/inview",
-  "version": "0.1.0",
-  "scripts": {
-    "test": "cd ../.. && jest modules/inview/**/*.spec.ts",
-    "doc": "cd ../../ && compodoc modules -p tsconfig.json && open -a 'Google Chrome' documentation/modules.html"
-  }
-}

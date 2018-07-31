@@ -1,0 +1,12 @@
+.links, .test {
+    display: inline-block;
+    padding: 12px;
+}
+.links {
+    background: #eee;
+}
+.test {
+    border: 1px solid #ccc;
+    vertical-align: top;
+    min-width: 50%;
+}
