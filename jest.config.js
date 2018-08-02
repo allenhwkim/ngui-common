@@ -22,7 +22,8 @@ module.exports = {
   "globals": {
     "__TRANSFORM_HTML__": true,
     "ts-jest": {
-      "tsConfigFile": "tsconfig.json"
+      "tsConfigFile": "tsconfig.json",
+      "useBabelrc": true
     }
   },
   "testMatch": [
@@ -35,7 +36,7 @@ module.exports = {
   ],
   "moduleNameMapper": null,
   "transformIgnorePatterns": [
-    "node_modules/(?!@ngrx)"
+    "node_modules/(?!(jest-test))"
   ],
   "testResultsProcessor": "./node_modules/jest-html-reporter"
 };
