@@ -7,6 +7,8 @@ import {NguiInviewPageComponent} from './src/ngui-inview-page.component';
 import {NguiVirtualListComponent} from './src/ngui-virtual-list.component';
 import {NguiInviewModule} from '../ngui-inview/ngui-inview.module';
 
+export {NguiAutocompleteComponent, NguiListItemDirective, NguiListDirective, NguiInviewPageComponent, NguiVirtualListComponent};
+
 @NgModule({
     imports: [
         CommonModule,
@@ -30,9 +32,3 @@ import {NguiInviewModule} from '../ngui-inview/ngui-inview.module';
 })
 export class NguiListModule {
 }
-
-export {NguiAutocompleteComponent} from './src/ngui-autocomplete.component';
-export {NguiListItemDirective} from './src/ngui-list-item.directive';
-export {NguiListDirective} from './src/ngui-list.directive';
-export {NguiInviewPageComponent} from './src/ngui-inview-page.component';
-export {NguiVirtualListComponent} from './src/ngui-virtual-list.component';

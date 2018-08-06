@@ -4,9 +4,6 @@ module.exports = {
   "collectCoverageFrom": [
     "projects/ngui-common/src/lib/**/src/*.{component,directive,service,pipe}.ts"
   ],
-  "coveragePathIgnorePatterns": [
-      ".module.ts"
-  ],
   "coverageReporters": [
     "text",
     "html"
