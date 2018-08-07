@@ -3,6 +3,8 @@ import {CommonModule} from '@angular/common';
 import {NguiInviewComponent} from './src/ngui-inview.component';
 import {NguiInviewDirective} from './src/ngui-inview.directive';
 
+export {NguiInviewComponent, NguiInviewDirective};
+
 @NgModule({
     imports: [
         CommonModule
@@ -18,6 +20,3 @@ import {NguiInviewDirective} from './src/ngui-inview.directive';
 })
 export class NguiInviewModule {
 }
-
-export {NguiInviewComponent} from './src/ngui-inview.component';
-export {NguiInviewDirective} from './src/ngui-inview.directive';
