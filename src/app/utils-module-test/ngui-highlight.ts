@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   template: `
@@ -6,9 +6,8 @@ import { Component, ViewEncapsulation } from '@angular/core';
     <div [innerHTML]="'nguiHighlight pipe highlights the given word' | nguiHighlight:'highlight'"></div>
   `,
   // tslint:disable
-  styles: ['.ngui-highlight { color: red; font-weight: bold;}'],
+  styles: ['::ng-deep .ngui-highlight { color: red; font-weight: bold;}']
   // tslint:enable
-  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class NguiHighlightPipeTestComponent {
 }
