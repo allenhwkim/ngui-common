@@ -5,13 +5,13 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ngxui/common"
+    "url": "git+https://github.com/allenhwkim/ngui-common"
   },
   "author": "Allen Kim<allenhwkim@gmail.com>",
   "bugs": {
-    "url": "https://github.com/ngxui/common/issues"
+    "url": "https://github.com/allenhwkim/ngui-common/issues"
   },
-  "homepage": "https://github.com/ngxui/common#readme",
+  "homepage": "https://github.com/allenhwkim/ngui-common#readme",
   "keywords": [
     "angular",
     "typescript",
