@@ -1,7 +1,7 @@
 {
   "name": "@ngui/common-app",
   "description": "Angular 6+ common modules; virtual-scroll, lazy-rendering, interactive list, etc",
-  "version": "0.3.2",
+  "version": "0.4.1",
   "license": "MIT",
   "main": "dist/ngui-common/bundles/ngui-common.umd.js",
   "typings": "dist/ngui-common/ngui-common.d.ts",
