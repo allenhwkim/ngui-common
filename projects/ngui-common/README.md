@@ -7,11 +7,12 @@ Angular 6+ UI common directives, functions, services
 [![npm](https://img.shields.io/npm/v/@ngui/common.svg)](https://www.npmjs.com/package/@ngui/common)
 [![npm](https://img.shields.io/npm/l/@ngui/common.svg)](https://www.npmjs.com/package/@ngui/common)
  
-[Demo](https://rawgit.com/allenhwkim/ngui-common/master/dist/ngui-common-app)  
+[Demo](https://rawgit.com/allenhwkim/ngui-common/master/dist/ngui-common-app/index.html)  
 [Object Documentation](https://rawgit.com/allenhwkim/ngui-common/master/documentation/index.html)  
 [Code Coverage Report](https://rawgit.com/allenhwkim/ngui-common/master/coverage/index.html)  
 [Unit Test Report](https://rawgit.com/allenhwkim/ngui-common/master/test-report.html)  
 [Acceptance Report](https://rawgit.com/allenhwkim/ngui-common/master/acceptance-report/mochawesome.html)  
+[Article on Medium](https://medium.com/allenhwkim/simple-lazy-loading-with-angular-716dd3b174a)  
 
 ## Install
 
