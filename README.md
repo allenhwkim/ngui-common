@@ -12,6 +12,7 @@ Angular 6+ UI common directives, functions, services
 [Code Coverage Report](https://rawgit.com/allenhwkim/ngui-common/master/coverage/index.html)  
 [Unit Test Report](https://rawgit.com/allenhwkim/ngui-common/master/test-report.html)  
 [Acceptance Report](https://rawgit.com/allenhwkim/ngui-common/master/acceptance-report/mochawesome.html)  
+[Article on Medium](https://medium.com/allenhwkim/simple-lazy-loading-with-angular-716dd3b174a)  
 
 ## Install
 
