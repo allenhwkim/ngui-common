@@ -3,7 +3,6 @@ import {
   Component,
   ElementRef,
   PLATFORM_ID,
-  Renderer2
 } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
@@ -45,7 +44,6 @@ describe('NguiInviewDirective', () => {
     TestBed.configureTestingModule({
       declarations: [NguiInviewDirective, DirectiveTestComponent],
       providers: [
-        Renderer2,
         { provide: ElementRef, useClass: MockElementRef },
         { provide: PLATFORM_ID, useValue: 'browser'}
       ]

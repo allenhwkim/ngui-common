@@ -7,8 +7,7 @@ import {
     OnDestroy,
     OnInit,
     Output,
-    PLATFORM_ID,
-    Renderer2
+    PLATFORM_ID
 } from '@angular/core';
 import {isPlatformBrowser} from '@angular/common';
 
@@ -31,7 +30,6 @@ export class NguiInviewDirective implements OnInit, OnDestroy {
 
     constructor(
         public element: ElementRef,
-        public renderer: Renderer2,
         @Inject(PLATFORM_ID) private platformId: any) {
     }
 

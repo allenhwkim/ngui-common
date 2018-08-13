@@ -1,8 +1,7 @@
 import { async, TestBed } from '@angular/core/testing';
 import {
   ElementRef,
-  PLATFORM_ID,
-  Renderer2
+  PLATFORM_ID
 } from '@angular/core';
 
 import { NguiInviewComponent } from './ngui-inview.component';
@@ -25,7 +24,6 @@ describe('NguiInviewComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ NguiInviewComponent ],
       providers: [
-        Renderer2,
         { provide: ElementRef, useClass: MockElementRef },
         { provide: PLATFORM_ID, useValue: 'browser'}
       ]

@@ -9,7 +9,6 @@ import {
     OnInit,
     Output,
     PLATFORM_ID,
-    Renderer2,
     TemplateRef
 } from '@angular/core';
 
@@ -48,7 +47,6 @@ export class NguiInviewComponent implements OnInit, OnDestroy {
 
     constructor(
         private element: ElementRef,
-        private renderer: Renderer2,
         @Inject(PLATFORM_ID) private platformId: any) {
     }
 
