@@ -46,7 +46,8 @@ export abstract class konsole { // tslint:disable-line
   /** The same as `console.debug()` if the current log level is greater than `debug` */
   static debug(...args: Array<any>): void {
     if (this.toLog('DEBUG')) {
-        console.debug.apply(console, arguments);
+        // noinspection TsLint
+        console.debug.apply(console, arguments); // tslint:disable-line
     }
   }
 
@@ -60,7 +61,8 @@ export abstract class konsole { // tslint:disable-line
   /** The same as `console.info()` if the current log level is greater than `info` */
   static info(...args: Array<any>): void {
     if (this.toLog('INFO')) {
-        console.info.apply(console, arguments);
+        // noinspection TsLint
+        console.info.apply(console, arguments); // tslint:disable-line
     }
   }
 
