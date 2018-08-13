@@ -47,7 +47,7 @@ export class AutocompleteComponent {
     console.log('AutoCompleteComponent.loadList is called();');
     const keyword = this.autocomplete.inputEl.value;
     const items = Array(50).fill(0).map(() => {
-        return {id: 1, value: `foo${keyword}bar`};
+      return {id: 1, value: `foo${keyword}bar`};
     });
     of(items).pipe(
         delay(500)

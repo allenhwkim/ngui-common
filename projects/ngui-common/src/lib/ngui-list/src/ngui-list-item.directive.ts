@@ -60,28 +60,28 @@ export class NguiListItemDirective implements OnInit {
     const prevListItem = listItems[listItemNdx - 1] || listItems[listItems.length - 1];
 
     switch (keyCode) {
-      case 37: case 38: // up arrow, left arrow
-        prevListItem.focus();
-        break;
-      case 39: case 40: // down arrow, right arrow
-        nextListItem.focus();
-        break;
-      default:
-        break;
+    case 37: case 38: // up arrow, left arrow
+      prevListItem.focus();
+      break;
+    case 39: case 40: // down arrow, right arrow
+      nextListItem.focus();
+      break;
+    default:
+      break;
     }
   }
 
   // handles keyboard enter(13), esc(27)
   @HostListener('keyup', ['$event']) keyup(event): void {
     switch (event.key) {
-      case 'Enter':
-        this.parentListComp.selected.emit(this.object);
-        break;
-      case 'Escape':
-        this.parentListComp.escaped.emit();
-        break;
-      default:
-        break;
+    case 'Enter':
+      this.parentListComp.selected.emit(this.object);
+      break;
+    case 'Escape':
+      this.parentListComp.escaped.emit();
+      break;
+    default:
+      break;
     }
   }
 

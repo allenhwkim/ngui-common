@@ -11,8 +11,8 @@ export {DynamicComponentService, NguiHighlightPipe, konsole, fireEvent};
   imports: [
     CommonModule
   ],
-    declarations: [NguiHighlightPipe],
-    exports: [NguiHighlightPipe],
-    providers: [DynamicComponentService]
+  declarations: [NguiHighlightPipe],
+  exports: [NguiHighlightPipe],
+  providers: [DynamicComponentService]
 })
 export class NguiUtilsModule { }

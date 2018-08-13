@@ -10,25 +10,25 @@ import {NguiInviewModule} from '../ngui-inview/ngui-inview.module';
 export {NguiAutocompleteComponent, NguiListItemDirective, NguiListDirective, NguiInviewPageComponent, NguiVirtualListComponent};
 
 @NgModule({
-    imports: [
-        CommonModule,
-        NguiInviewModule
-    ],
-    declarations: [
-        NguiAutocompleteComponent,
-        NguiInviewPageComponent,
-        NguiListDirective,
-        NguiListItemDirective,
-        NguiVirtualListComponent
-    ],
-    exports: [
-        NguiAutocompleteComponent,
-        NguiInviewPageComponent,
-        NguiListDirective,
-        NguiListItemDirective,
-        NguiVirtualListComponent
-    ],
-    entryComponents: [NguiInviewPageComponent]
+  imports: [
+    CommonModule,
+    NguiInviewModule
+  ],
+  declarations: [
+    NguiAutocompleteComponent,
+    NguiInviewPageComponent,
+    NguiListDirective,
+    NguiListItemDirective,
+    NguiVirtualListComponent
+  ],
+  exports: [
+    NguiAutocompleteComponent,
+    NguiInviewPageComponent,
+    NguiListDirective,
+    NguiListItemDirective,
+    NguiVirtualListComponent
+  ],
+  entryComponents: [NguiInviewPageComponent]
 })
 export class NguiListModule {
 }

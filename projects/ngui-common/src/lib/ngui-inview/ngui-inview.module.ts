@@ -6,17 +6,17 @@ import {NguiInviewDirective} from './src/ngui-inview.directive';
 export {NguiInviewComponent, NguiInviewDirective};
 
 @NgModule({
-    imports: [
-        CommonModule
-    ],
-    declarations: [
-        NguiInviewComponent,
-        NguiInviewDirective
-    ],
-    exports: [
-        NguiInviewComponent,
-        NguiInviewDirective
-    ]
+  imports: [
+    CommonModule
+  ],
+  declarations: [
+    NguiInviewComponent,
+    NguiInviewDirective
+  ],
+  exports: [
+    NguiInviewComponent,
+    NguiInviewDirective
+  ]
 })
 export class NguiInviewModule {
 }

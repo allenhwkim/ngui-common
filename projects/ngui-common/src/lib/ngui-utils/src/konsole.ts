@@ -54,7 +54,7 @@ export abstract class konsole { // tslint:disable-line
   /** The same as `console.log()` if the current log level is greater than `log` */
   static log(...args: Array<any>): void {
     if (this.toLog('LOG')) {
-        console.log.apply(console, arguments);
+      console.log.apply(console, arguments);
     }
   }
 
@@ -69,14 +69,14 @@ export abstract class konsole { // tslint:disable-line
   /** The same as `console.warn()` if the current log level is greater than `warn` */
   static warn(...args: Array<any>): void {
     if (this.toLog('WARN')) {
-        console.warn.apply(console, arguments);
+      console.warn.apply(console, arguments);
     }
   }
 
   /** The same as `console.error()` if the current log level is greater than `error` */
   static error(...args: Array<any>): void {
     if (this.toLog('ERROR')) {
-        console.error.apply(console, arguments);
+      console.error.apply(console, arguments);
     }
   }
 }

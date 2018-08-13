@@ -7,11 +7,11 @@ import { Component, ViewEncapsulation } from '@angular/core';
         <span [innerHTML]="item.value | nguiHighlight:'val'"></span>
       </ngui-list-item>
     </ngui-list>`,
-   styles: [`
+  styles: [`
      ngui-list-item { display: block; }
      .ngui-highlight { font-weight: bold; }
    `],
-   encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None
 })
 export class ListComponent  {
   items = (new Array(10)).fill(0).map((_, i) => ({id: i, value: `value ${i}`}));
