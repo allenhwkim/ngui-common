@@ -1,21 +1,27 @@
-import { ElementRef, EventEmitter, OnDestroy, OnInit, Renderer2, TemplateRef } from '@angular/core';
+import { ElementRef, EventEmitter, OnDestroy, OnInit, TemplateRef } from '@angular/core';
 /**
  * An element that listens to viewport positioning and fires inView and notInview events
  * ### example
  * ```ts
- * <ngui-in-view [options]="myOptions" (inView)="doA()" (notInview)="doB()">
+ * <ngui-in-view [observerOptions]="myObserverOptions" (inView)="doA()" (notInview)="doB()">
  *   <img *ngIf src="https://picsum.photos/800/300?image=1>
  * </ngui-in-view>
  * ```
  */
 export declare class NguiInviewComponent implements OnInit, OnDestroy {
     private element;
-    private renderer;
     private platformId;
     /** <ng-template> reference */
     template: TemplateRef<any>;
     /** IntersectionObserver options */
+    observerOptions: IntersectionObserverInit;
+    /** Deprecated config. Use `observerOptions` instead.
+     * @deprecated Use `observerOptions` instead. */
     options: any;
+    /** Controls whether blur effect is applied to a component with less than 80% intersection ratio.
+     * Only applies when there are no "inview" event handlers defined.
+     **/
+    blurEnabled: boolean;
     inview: EventEmitter<any>;
     notInview: EventEmitter<any>;
     observer: IntersectionObserver;
@@ -23,7 +29,7 @@ export declare class NguiInviewComponent implements OnInit, OnDestroy {
     isInview: boolean;
     /** indicates that this element is 80% in viewport. Used by the default callback */
     once80PctVisible: boolean;
-    constructor(element: ElementRef, renderer: Renderer2, platformId: any);
+    constructor(element: ElementRef, platformId: any);
     /** Starts IntersectionObserver */
     ngOnInit(): void;
     /** stop IntersectionObserver */
