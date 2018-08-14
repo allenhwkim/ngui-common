@@ -18,7 +18,7 @@ import {isPlatformBrowser} from '@angular/common';
  * An element that listens to viewport positioning and fires inView and notInview events
  * ### example
  * ```ts
- * <ngui-in-view [options]="myOptions" (inView)="doA()" (notInview)="doB()">
+ * <ngui-in-view [observerOptions]="myObserverOptions" (inView)="doA()" (notInview)="doB()">
  *   <img *ngIf src="https://picsum.photos/800/300?image=1>
  * </ngui-in-view>
  * ```
@@ -34,8 +34,17 @@ import {isPlatformBrowser} from '@angular/common';
 export class NguiInviewComponent implements OnInit, OnDestroy {
     /** <ng-template> reference */
   @ContentChild(TemplateRef) template: TemplateRef<any>;
+
     /** IntersectionObserver options */
-  @Input() options: any = {threshold: [.1, .2, .3, .4, .5, .6, .7, .8]};
+  @Input() observerOptions: IntersectionObserverInit = {threshold: [.1, .2, .3, .4, .5, .6, .7, .8]};
+    /** Deprecated config. Use `observerOptions` instead.
+     * @deprecated Use `observerOptions` instead. */
+  @Input() options: any;
+  /** Controls whether blur effect is applied to a component with less than 80% intersection ratio.
+   * Only applies when there are no "inview" event handlers defined.
+   **/
+  @Input() blurEnabled = true;
+
   @Output() inview: EventEmitter<any> = new EventEmitter();
   @Output() notInview: EventEmitter<any> = new EventEmitter();
 
@@ -52,8 +61,12 @@ export class NguiInviewComponent implements OnInit, OnDestroy {
 
     /** Starts IntersectionObserver */
   ngOnInit(): void {
+    if (this.options) {
+      this.observerOptions = this.options;
+    }
+
     if (isPlatformBrowser(this.platformId)) {
-      this.observer = new IntersectionObserver(this.handleIntersect.bind(this), this.options);
+      this.observer = new IntersectionObserver(this.handleIntersect.bind(this), this.observerOptions);
       this.observer.observe(this.element.nativeElement);
     }
   }
@@ -81,7 +94,7 @@ export class NguiInviewComponent implements OnInit, OnDestroy {
      * this won't be invoked if user provides any (inview) event. e.g. (inview)="something()"
      */
   defaultInviewHandler(entry): any {
-    if (this.once80PctVisible || this.inview.observers.length) {
+    if (!this.blurEnabled || this.once80PctVisible || this.inview.observers.length) {
       return;
     }
 

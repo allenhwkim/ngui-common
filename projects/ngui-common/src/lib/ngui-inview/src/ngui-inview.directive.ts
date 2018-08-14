@@ -21,7 +21,10 @@ export class NguiInviewDirective implements OnInit, OnDestroy {
   observer: IntersectionObserver;
 
     /** IntersectionObserver options */
-  @Input() options: any = {};
+  @Input() observerOptions: IntersectionObserverInit = {threshold: [.1, .2, .3, .4, .5, .6, .7, .8]};
+    /** Deprecated config. Use `observerOptions` instead.
+     * @deprecated Use `observerOptions` instead. */
+  @Input() options: any;
 
     /** Event that will be fired when in viewport */
   @Output() nguiInview: EventEmitter<any> = new EventEmitter();
@@ -35,8 +38,12 @@ export class NguiInviewDirective implements OnInit, OnDestroy {
 
     /** Starts IntersectionObserver */
   ngOnInit(): void {
+    if (this.options) {
+      this.observerOptions = this.options;
+    }
+
     if (isPlatformBrowser(this.platformId)) {
-      this.observer = new IntersectionObserver(this.handleIntersect.bind(this), this.options);
+      this.observer = new IntersectionObserver(this.handleIntersect.bind(this), this.observerOptions);
       this.observer.observe(this.element.nativeElement);
     }
   }
