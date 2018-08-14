@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">96.3% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>25/25</span>
+        <span class='fraction'>26/27</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">72.73% </span>
+        <span class="strong">68.42% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>16/22</span>
+        <span class='fraction'>13/19</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>6/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">95.83% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>22/22</span>
+        <span class='fraction'>23/24</span>
       </div>
     </div>
     <p class="quiet">
@@ -112,8 +112,11 @@
 <a name='L64'></a><a href='#L64'>64</a>
 <a name='L65'></a><a href='#L65'>65</a>
 <a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -138,19 +141,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -187,8 +195,7 @@
     OnDestroy,
     OnInit,
     Output,
-    PLATFORM_ID,
-    Renderer2
+    PLATFORM_ID
 } from '@angular/core';
 import {isPlatformBrowser} from '@angular/common';
 &nbsp;
@@ -199,50 +206,55 @@ import {isPlatformBrowser} from '@angular/common';
     selector: '[nguiInview], [nguiOutview]' // tslint:disable-line
 })
 export class NguiInviewDirective implements OnInit, OnDestroy {
-    observer: IntersectionObserver;
+  observer: IntersectionObserver;
 &nbsp;
     /** IntersectionObserver options */
-    @Input() options: any = {};
+  @Input() observerOptions: IntersectionObserverInit = {threshold: [.1, .2, .3, .4, .5, .6, .7, .8]};
+    /** @deprecated Use `observerOptions` instead. */
+  @Input() options: any;
 &nbsp;
     /** Event that will be fired when in viewport */
-    @Output() nguiInview: EventEmitter<span class="branch-1 cbranch-no" title="branch not covered" >&lt;any&gt; = new EventEmitter();</span>
+  @Output() nguiInview: EventEmitter<span class="branch-1 cbranch-no" title="branch not covered" >&lt;any&gt; = new EventEmitter();</span>
     /** Event that will be fired when out of  viewport */
-    @Output() nguiOutview: EventEmitter<span class="branch-1 cbranch-no" title="branch not covered" >&lt;any&gt; = new EventEmitter();</span>
+  @Output() nguiOutview: EventEmitter<span class="branch-1 cbranch-no" title="branch not covered" >&lt;any&gt; = new EventEmitter();</span>
 &nbsp;
-    constructor(
+  constructor(
         public element: ElementRef<span class="branch-1 cbranch-no" title="branch not covered" >,</span>
-        public renderer: Renderer2<span class="branch-2 cbranch-no" title="branch not covered" >,</span>
         @Inject(PLATFORM_ID) private platformId: any) {
-    }
+  }
 &nbsp;
     /** Starts IntersectionObserver */
-    ngOnInit(): void {
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (isPlatformBrowser(this.platformId)) {
-            this.observer = new IntersectionObserver(this.handleIntersect.bind(this), this.options);
-            this.observer.observe(this.element.nativeElement);
-        }
+  ngOnInit(): void {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (this.options) {
+<span class="cstat-no" title="statement not covered" >      this.observerOptions = this.options;</span>
     }
 &nbsp;
-    /** Stops IntersectionObserver */
-    ngOnDestroy(): void {
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (isPlatformBrowser(this.platformId) &amp;&amp; this.observer) {
-            this.observer.disconnect();
-        }
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (isPlatformBrowser(this.platformId)) {
+      this.observer = new IntersectionObserver(this.handleIntersect.bind(this), this.observerOptions);
+      this.observer.observe(this.element.nativeElement);
     }
+  }
+&nbsp;
+    /** Stops IntersectionObserver */
+  ngOnDestroy(): void {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (isPlatformBrowser(this.platformId) &amp;&amp; this.observer) {
+      this.observer.disconnect();
+    }
+  }
 &nbsp;
     /**
      * Fires (nguiInview) event when this element is in viewport
      *  and fires (nguiOutview) event when this element is not in viewport
      */
-    handleIntersect(entries): void {
-        entries.forEach((entry: IntersectionObserverEntry) =&gt; {
-            if (entry['isIntersecting']) {
-                this.nguiInview.emit(entry);
-            } else {
-                this.nguiOutview.emit(entry);
-            }
-        });
-    }
+  handleIntersect(entries): void {
+    entries.forEach((entry: IntersectionObserverEntry) =&gt; {
+      if (entry['isIntersecting']) {
+        this.nguiInview.emit(entry);
+      } else {
+        this.nguiOutview.emit(entry);
+      }
+    });
+  }
 }
 &nbsp;</pre></td></tr>
 </table></pre>
@@ -250,7 +262,7 @@ export class NguiInviewDirective implements OnInit, OnDestroy {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jul 31 2018 15:20:04 GMT+0200 (Romance Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Aug 14 2018 14:43:47 GMT+0200 (Romance Daylight Time)
 </div>
 </div>
 <script src="..\..\prettify.js"></script>

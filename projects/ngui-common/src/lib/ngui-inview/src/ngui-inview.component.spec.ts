@@ -75,4 +75,14 @@ describe('NguiInviewComponent', () => {
     expect(entry.target.style.filter).toBe('unset');
   }));
 
+  it('should respect "blurEnabled" config option', async(() => {
+    const entry: any = {target: {style: {}}};
+
+    entry.intersectionRatio = 0.7;
+    component.blurEnabled = false;
+    component.defaultInviewHandler(entry);
+    expect(entry.target.style.opacity).toBe(undefined);
+    expect(entry.target.style.filter).toBe(undefined);
+  }));
+
 });

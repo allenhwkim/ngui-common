@@ -7,11 +7,12 @@ Angular 6+ UI common directives, functions, services
 [![npm](https://img.shields.io/npm/v/@ngui/common.svg)](https://www.npmjs.com/package/@ngui/common)
 [![npm](https://img.shields.io/npm/l/@ngui/common.svg)](https://www.npmjs.com/package/@ngui/common)
  
-[Demo](https://rawgit.com/allenhwkim/ngui-common/master/dist/ngui-common-app)  
+[Demo](https://rawgit.com/allenhwkim/ngui-common/master/dist/ngui-common-app/index.html)  
 [Object Documentation](https://rawgit.com/allenhwkim/ngui-common/master/documentation/index.html)  
 [Code Coverage Report](https://rawgit.com/allenhwkim/ngui-common/master/coverage/index.html)  
 [Unit Test Report](https://rawgit.com/allenhwkim/ngui-common/master/test-report.html)  
 [Acceptance Report](https://rawgit.com/allenhwkim/ngui-common/master/acceptance-report/mochawesome.html)  
+[Article on Medium](https://medium.com/allenhwkim/simple-lazy-loading-with-angular-716dd3b174a)  
 
 ## Install
 
@@ -38,7 +39,8 @@ export class AppModule { }
 ## Use it in your code  
 
 ```
-<ngui-inview> <!-- only displays when this is in viewport -->
+<!-- the image is only displayed when "ngui-inview" is in viewport -->
+<ngui-inview style="min-height: 300px">
   <img *ngIf src="https://picsum.photos/800/300" height="33%">
 </ngui-inview>
 ```
@@ -46,13 +48,15 @@ export class AppModule { }
 ## Modules
 
 ### NguiInViewModule 
-Handles lazy loading of Angular components, which utilizes HTML5 IntersectionObserver 
-For IE11 and Safari, please add polyfill for this module `<script src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>`
+Handles lazy rendering of Angular components, which utilizes HTML5 IntersectionObserver.
+
+For IE11 and Safari, please add [polyfill](https://github.com/w3c/IntersectionObserver/tree/master/polyfill) for this module:  
+`<script src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>`
 - ngui-inview component
 - ngui-inview directive
 
 ### NguiUtilsModules
-Collection of basic utility function
+Collection of basic utility functions
 - DynamicComponentService
 - nguiHilight pipe
 - fireEvent function
