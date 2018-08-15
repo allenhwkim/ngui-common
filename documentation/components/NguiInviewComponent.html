@@ -48,6 +48,12 @@
                       <a href="index.html" data-type="chapter-link"><span class="fa fa-file-text-o"></span>README</a>
                     </li>
                     <li class="link">
+                            <a href="changelog.html"
+                        data-type="chapter-link">
+                            <span class="fa fa-fw fa-file-text-o"></span>CHANGELOG
+                        </a>
+                    </li>
+                    <li class="link">
                             <a href="license.html"
                         data-type="chapter-link">
                             <span class="fa fa-fw fa-file-text-o"></span>LICENSE
@@ -306,6 +312,12 @@
                     </li>
                     <li class="link">
                       <a href="index.html" data-type="chapter-link"><span class="fa fa-file-text-o"></span>README</a>
+                    </li>
+                    <li class="link">
+                            <a href="changelog.html"
+                        data-type="chapter-link">
+                            <span class="fa fa-fw fa-file-text-o"></span>CHANGELOG
+                        </a>
                     </li>
                     <li class="link">
                             <a href="license.html"
@@ -869,7 +881,7 @@ Only applies when there are no &quot;inview&quot; event handlers defined.</p>
                         <code>inview</code>
                     </td>
                     <td class="col-md-10">
-                        <em><code>$event</code> type:</em>    <code>EventEmitter&lt;any&gt;</code>
+                        <em><code>$event</code> type:</em>    <code>EventEmitter&lt;IntersectionObserverEntry&gt;</code>
 
                     </td>
                 </tr>
@@ -888,7 +900,7 @@ Only applies when there are no &quot;inview&quot; event handlers defined.</p>
                         <code>notInview</code>
                     </td>
                     <td class="col-md-10">
-                        <em><code>$event</code> type:</em>    <code>EventEmitter&lt;any&gt;</code>
+                        <em><code>$event</code> type:</em>    <code>EventEmitter&lt;IntersectionObserverEntry&gt;</code>
 
                     </td>
                 </tr>
@@ -929,7 +941,7 @@ Only applies when there are no &quot;inview&quot; event handlers defined.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">projects/ngui-common/src/lib/ngui-inview/src/ngui-inview.component.ts:92</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">projects/ngui-common/src/lib/ngui-inview/src/ngui-inview.component.ts:96</a></div>
                             </td>
                         </tr>
 
@@ -997,7 +1009,7 @@ this won&#39;t be invoked if user provides any (inview) event. e.g. (inview)=&qu
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">projects/ngui-common/src/lib/ngui-inview/src/ngui-inview.component.ts:76</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">projects/ngui-common/src/lib/ngui-inview/src/ngui-inview.component.ts:80</a></div>
                             </td>
                         </tr>
 
@@ -1064,7 +1076,7 @@ this won&#39;t be invoked if user provides any (inview) event. e.g. (inview)=&qu
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">projects/ngui-common/src/lib/ngui-inview/src/ngui-inview.component.ts:71</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">projects/ngui-common/src/lib/ngui-inview/src/ngui-inview.component.ts:75</a></div>
                             </td>
                         </tr>
 
@@ -1339,8 +1351,8 @@ export class NguiInviewComponent implements OnInit, OnDestroy {
    **/
   @Input() blurEnabled &#x3D; true;
 
-  @Output() inview: EventEmitter&lt;any&gt; &#x3D; new EventEmitter();
-  @Output() notInview: EventEmitter&lt;any&gt; &#x3D; new EventEmitter();
+  @Output() inview: EventEmitter&lt;IntersectionObserverEntry&gt; &#x3D; new EventEmitter();
+  @Output() notInview: EventEmitter&lt;IntersectionObserverEntry&gt; &#x3D; new EventEmitter();
 
   observer: IntersectionObserver;
     /** indicates that this element is in viewport */
@@ -1355,8 +1367,12 @@ export class NguiInviewComponent implements OnInit, OnDestroy {
 
     /** Starts IntersectionObserver */
   ngOnInit(): void {
+    if (this.options) {
+      this.observerOptions &#x3D; this.options;
+    }
+
     if (isPlatformBrowser(this.platformId)) {
-      this.observer &#x3D; new IntersectionObserver(this.handleIntersect.bind(this), this.observerOptions || this.options);
+      this.observer &#x3D; new IntersectionObserver(this.handleIntersect.bind(this), this.observerOptions);
       this.observer.observe(this.element.nativeElement);
     }
   }
