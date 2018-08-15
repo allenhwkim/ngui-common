@@ -27,9 +27,9 @@ export class NguiInviewDirective implements OnInit, OnDestroy {
   @Input() options: any;
 
     /** Event that will be fired when in viewport */
-  @Output() nguiInview: EventEmitter<any> = new EventEmitter();
+  @Output() nguiInview: EventEmitter<IntersectionObserverEntry> = new EventEmitter();
     /** Event that will be fired when out of  viewport */
-  @Output() nguiOutview: EventEmitter<any> = new EventEmitter();
+  @Output() nguiOutview: EventEmitter<IntersectionObserverEntry> = new EventEmitter();
 
   constructor(
         public element: ElementRef,

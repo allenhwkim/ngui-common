@@ -45,8 +45,8 @@ export class NguiInviewComponent implements OnInit, OnDestroy {
    **/
   @Input() blurEnabled = true;
 
-  @Output() inview: EventEmitter<any> = new EventEmitter();
-  @Output() notInview: EventEmitter<any> = new EventEmitter();
+  @Output() inview: EventEmitter<IntersectionObserverEntry> = new EventEmitter();
+  @Output() notInview: EventEmitter<IntersectionObserverEntry> = new EventEmitter();
 
   observer: IntersectionObserver;
     /** indicates that this element is in viewport */
