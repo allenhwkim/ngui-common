@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2018-07-31T13:20:26.092Z",
-    "end": "2018-07-31T13:20:29.058Z",
-    "duration": 2966,
+    "start": "2018-11-02T10:34:38.334Z",
+    "end": "2018-11-02T10:34:43.433Z",
+    "duration": 5099,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -19,7 +19,7 @@
     "pendingPercentClass": "danger"
   },
   "suites": {
-    "uuid": "b8891f2a-f068-4970-b336-824b2cede6ab",
+    "uuid": "45dff2d7-b351-4574-8b28-376763258d80",
     "title": "",
     "fullFile": "",
     "file": "",
@@ -28,7 +28,7 @@
     "tests": [],
     "suites": [
       {
-        "uuid": "6cacd5fd-7c11-4f20-bb54-124937888cb9",
+        "uuid": "3014a4f9-04ef-4d56-bdff-6659b25f4c79",
         "title": "My First Test",
         "fullFile": "C:\\Users\\PC1\\PhpstormProjects\\ngui-common\\test\\acceptance\\my-first-codecept-test.js",
         "file": "\\test\\acceptance\\my-first-codecept-test.js",
@@ -44,7 +44,7 @@
             "code": "scenario.suiteSetup(suite)",
             "err": {},
             "isRoot": false,
-            "uuid": "a69ff338-7d59-40fd-854c-a6948d2706e1",
+            "uuid": "fe20858b-66c6-4554-9c41-1573fa75e1c2",
             "isHook": true,
             "skipped": false
           },
@@ -52,14 +52,14 @@
             "title": "\"before each\" hook: codeceptjs.before",
             "fullTitle": "My First Test \"before each\" hook: codeceptjs.before",
             "timedOut": false,
-            "duration": 914,
+            "duration": 3325,
             "pass": false,
             "fail": false,
             "pending": false,
             "code": "scenario.setup(suite)",
             "err": {},
             "isRoot": false,
-            "uuid": "e7d5e452-9901-4f52-bfd9-5637c21c7020",
+            "uuid": "ebe99c57-50a2-452b-b8db-76c44d704bd4",
             "isHook": true,
             "skipped": false
           }
@@ -76,7 +76,7 @@
             "code": "scenario.suiteTeardown(suite)",
             "err": {},
             "isRoot": false,
-            "uuid": "5ce0bf94-e825-47ec-9eed-9f77222c0f57",
+            "uuid": "603379f1-a2b9-405e-82cf-c15c27734194",
             "isHook": true,
             "skipped": false
           },
@@ -84,14 +84,14 @@
             "title": "\"after each\" hook: finalize codeceptjs",
             "fullTitle": "My First Test \"after each\" hook: finalize codeceptjs",
             "timedOut": false,
-            "duration": 314,
+            "duration": 311,
             "pass": false,
             "fail": false,
             "pending": false,
             "code": "scenario.teardown(suite)",
             "err": {},
             "isRoot": false,
-            "uuid": "bcaca65f-78a8-47a7-b655-addc3a0cdb58",
+            "uuid": "e8a3e92e-4fa6-4d27-a6ff-2e649001e38b",
             "isHook": true,
             "skipped": false
           }
@@ -101,28 +101,28 @@
             "title": "test something",
             "fullTitle": "My First Test: test something",
             "timedOut": false,
-            "duration": 1731,
+            "duration": 1452,
             "state": "passed",
             "speed": "slow",
             "pass": true,
             "fail": false,
             "pending": false,
-            "code": "I => {\n  I.amOnPage('/');\n  I.see('Test Page');",
+            "code": "I.amOnPage('/');\nI.see('Test Page');",
             "err": {},
             "isRoot": false,
-            "uuid": "c5ca7266-8e4f-4f10-832e-d6448fd110f5",
+            "uuid": "8a1808e9-dede-4e26-88a2-77d457c5262f",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "c5ca7266-8e4f-4f10-832e-d6448fd110f5"
+          "8a1808e9-dede-4e26-88a2-77d457c5262f"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 1731,
+        "duration": 1452,
         "root": false,
         "rootEmpty": false,
         "_timeout": 0
