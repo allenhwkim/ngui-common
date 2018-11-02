@@ -12,9 +12,9 @@ export declare class NguiInviewDirective implements OnInit, OnDestroy {
      * @deprecated Use `observerOptions` instead. */
     options: any;
     /** Event that will be fired when in viewport */
-    nguiInview: EventEmitter<any>;
+    nguiInview: EventEmitter<IntersectionObserverEntry>;
     /** Event that will be fired when out of  viewport */
-    nguiOutview: EventEmitter<any>;
+    nguiOutview: EventEmitter<IntersectionObserverEntry>;
     constructor(element: ElementRef, platformId: any);
     /** Starts IntersectionObserver */
     ngOnInit(): void;
