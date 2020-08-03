@@ -1,49 +1,30 @@
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,uselessCode} checked by tsc
- */
+import * as tslib_1 from "tslib";
 import { Directive, ElementRef, EventEmitter, Output } from '@angular/core';
-export class NguiListDirective {
-    /**
-     * @param {?} element
-     */
+let NguiListDirective = class NguiListDirective {
     constructor(element) {
         this.element = element;
-        /**
-         * Fired when child `<ngui-list-item>` is selected
-         */
+        /** Fired when child `<ngui-list-item>` is selected */
         this.selected = new EventEmitter();
-        /**
-         * Fired when `ESC` key is pressed from `<ngui-list-item>`
-         */
+        /** Fired when `ESC` key is pressed from `<ngui-list-item>` */
         this.escaped = new EventEmitter();
     }
-}
-NguiListDirective.decorators = [
-    { type: Directive, args: [{
-                selector: 'ngui-list' // tslint:disable-line
-            },] }
-];
-/** @nocollapse */
+};
 NguiListDirective.ctorParameters = () => [
     { type: ElementRef }
 ];
-NguiListDirective.propDecorators = {
-    selected: [{ type: Output }],
-    escaped: [{ type: Output }]
-};
-if (false) {
-    /**
-     * Fired when child `<ngui-list-item>` is selected
-     * @type {?}
-     */
-    NguiListDirective.prototype.selected;
-    /**
-     * Fired when `ESC` key is pressed from `<ngui-list-item>`
-     * @type {?}
-     */
-    NguiListDirective.prototype.escaped;
-    /** @type {?} */
-    NguiListDirective.prototype.element;
-}
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibmd1aS1saXN0LmRpcmVjdGl2ZS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL0BuZ3VpL2NvbW1vbi8iLCJzb3VyY2VzIjpbImxpYi9uZ3VpLWxpc3Qvc3JjL25ndWktbGlzdC5kaXJlY3RpdmUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7OztBQUFBLE9BQU8sRUFDTCxTQUFTLEVBQ1QsVUFBVSxFQUNWLFlBQVksRUFDWixNQUFNLEVBQ1AsTUFBTSxlQUFlLENBQUM7QUFLdkIsTUFBTSxPQUFPLGlCQUFpQjs7OztJQU01QixZQUFtQixPQUFtQjtRQUFuQixZQUFPLEdBQVAsT0FBTyxDQUFZOzs7O1FBSjVCLGFBQVEsR0FBc0IsSUFBSSxZQUFZLEVBQUUsQ0FBQzs7OztRQUVqRCxZQUFPLEdBQXNCLElBQUksWUFBWSxFQUFFLENBQUM7SUFFaEIsQ0FBQzs7O1lBVDVDLFNBQVMsU0FBQztnQkFDVCxRQUFRLEVBQUUsV0FBVyxDQUFDLHNCQUFzQjthQUM3Qzs7OztZQVBDLFVBQVU7Ozt1QkFVVCxNQUFNO3NCQUVOLE1BQU07Ozs7Ozs7SUFGUCxxQ0FBMkQ7Ozs7O0lBRTNELG9DQUEwRDs7SUFFOUMsb0NBQTBCIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHtcclxuICBEaXJlY3RpdmUsXHJcbiAgRWxlbWVudFJlZixcclxuICBFdmVudEVtaXR0ZXIsXHJcbiAgT3V0cHV0XHJcbn0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XHJcblxyXG5ARGlyZWN0aXZlKHtcclxuICBzZWxlY3RvcjogJ25ndWktbGlzdCcgLy8gdHNsaW50OmRpc2FibGUtbGluZVxyXG59KVxyXG5leHBvcnQgY2xhc3MgTmd1aUxpc3REaXJlY3RpdmUge1xyXG4gIC8qKiBGaXJlZCB3aGVuIGNoaWxkIGA8bmd1aS1saXN0LWl0ZW0+YCBpcyBzZWxlY3RlZCAqL1xyXG4gIEBPdXRwdXQoKSBzZWxlY3RlZDogRXZlbnRFbWl0dGVyPGFueT4gPSBuZXcgRXZlbnRFbWl0dGVyKCk7XHJcbiAgLyoqIEZpcmVkIHdoZW4gYEVTQ2Aga2V5IGlzIHByZXNzZWQgZnJvbSBgPG5ndWktbGlzdC1pdGVtPmAgKi9cclxuICBAT3V0cHV0KCkgZXNjYXBlZDogRXZlbnRFbWl0dGVyPGFueT4gPSBuZXcgRXZlbnRFbWl0dGVyKCk7XHJcblxyXG4gIGNvbnN0cnVjdG9yKHB1YmxpYyBlbGVtZW50OiBFbGVtZW50UmVmKSB7IH1cclxufVxyXG4iXX0=
+tslib_1.__decorate([
+    Output(),
+    tslib_1.__metadata("design:type", EventEmitter)
+], NguiListDirective.prototype, "selected", void 0);
+tslib_1.__decorate([
+    Output(),
+    tslib_1.__metadata("design:type", EventEmitter)
+], NguiListDirective.prototype, "escaped", void 0);
+NguiListDirective = tslib_1.__decorate([
+    Directive({
+        selector: 'ngui-list' // tslint:disable-line
+    }),
+    tslib_1.__metadata("design:paramtypes", [ElementRef])
+], NguiListDirective);
+export { NguiListDirective };
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibmd1aS1saXN0LmRpcmVjdGl2ZS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL0BuZ3VpL2NvbW1vbi8iLCJzb3VyY2VzIjpbImxpYi9uZ3VpLWxpc3Qvc3JjL25ndWktbGlzdC5kaXJlY3RpdmUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBLE9BQU8sRUFDTCxTQUFTLEVBQ1QsVUFBVSxFQUNWLFlBQVksRUFDWixNQUFNLEVBQ1AsTUFBTSxlQUFlLENBQUM7QUFLdkIsSUFBYSxpQkFBaUIsR0FBOUIsTUFBYSxpQkFBaUI7SUFNNUIsWUFBbUIsT0FBbUI7UUFBbkIsWUFBTyxHQUFQLE9BQU8sQ0FBWTtRQUx0QyxzREFBc0Q7UUFDNUMsYUFBUSxHQUFzQixJQUFJLFlBQVksRUFBRSxDQUFDO1FBQzNELDhEQUE4RDtRQUNwRCxZQUFPLEdBQXNCLElBQUksWUFBWSxFQUFFLENBQUM7SUFFaEIsQ0FBQztDQUM1QyxDQUFBOztZQUQ2QixVQUFVOztBQUo1QjtJQUFULE1BQU0sRUFBRTtzQ0FBVyxZQUFZO21EQUEyQjtBQUVqRDtJQUFULE1BQU0sRUFBRTtzQ0FBVSxZQUFZO2tEQUEyQjtBQUovQyxpQkFBaUI7SUFIN0IsU0FBUyxDQUFDO1FBQ1QsUUFBUSxFQUFFLFdBQVcsQ0FBQyxzQkFBc0I7S0FDN0MsQ0FBQzs2Q0FPNEIsVUFBVTtHQU4zQixpQkFBaUIsQ0FPN0I7U0FQWSxpQkFBaUIiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge1xyXG4gIERpcmVjdGl2ZSxcclxuICBFbGVtZW50UmVmLFxyXG4gIEV2ZW50RW1pdHRlcixcclxuICBPdXRwdXRcclxufSBmcm9tICdAYW5ndWxhci9jb3JlJztcclxuXHJcbkBEaXJlY3RpdmUoe1xyXG4gIHNlbGVjdG9yOiAnbmd1aS1saXN0JyAvLyB0c2xpbnQ6ZGlzYWJsZS1saW5lXHJcbn0pXHJcbmV4cG9ydCBjbGFzcyBOZ3VpTGlzdERpcmVjdGl2ZSB7XHJcbiAgLyoqIEZpcmVkIHdoZW4gY2hpbGQgYDxuZ3VpLWxpc3QtaXRlbT5gIGlzIHNlbGVjdGVkICovXHJcbiAgQE91dHB1dCgpIHNlbGVjdGVkOiBFdmVudEVtaXR0ZXI8YW55PiA9IG5ldyBFdmVudEVtaXR0ZXIoKTtcclxuICAvKiogRmlyZWQgd2hlbiBgRVNDYCBrZXkgaXMgcHJlc3NlZCBmcm9tIGA8bmd1aS1saXN0LWl0ZW0+YCAqL1xyXG4gIEBPdXRwdXQoKSBlc2NhcGVkOiBFdmVudEVtaXR0ZXI8YW55PiA9IG5ldyBFdmVudEVtaXR0ZXIoKTtcclxuXHJcbiAgY29uc3RydWN0b3IocHVibGljIGVsZW1lbnQ6IEVsZW1lbnRSZWYpIHsgfVxyXG59XHJcbiJdfQ==
