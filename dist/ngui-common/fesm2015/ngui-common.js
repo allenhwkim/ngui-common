@@ -1,5 +1,4 @@
-import { __decorate, __metadata, __param } from 'tslib';
-import { EventEmitter, ElementRef, Inject, PLATFORM_ID, ContentChild, TemplateRef, Input, Output, Component, Directive, NgModule, ComponentFactoryResolver, Injectable, Renderer2, ChangeDetectorRef, ViewChild, ViewContainerRef, Optional, Host, HostListener, Pipe } from '@angular/core';
+import { EventEmitter, Component, ElementRef, Inject, PLATFORM_ID, ContentChild, TemplateRef, Input, Output, Directive, NgModule, Injectable, ComponentFactoryResolver, Renderer2, ChangeDetectorRef, ViewChild, ViewContainerRef, Optional, Host, HostListener, Pipe } from '@angular/core';
 import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { fromEvent } from 'rxjs';
 
@@ -12,7 +11,7 @@ import { fromEvent } from 'rxjs';
  * </ngui-inview>
  * ```
  */
-let NguiInviewComponent = class NguiInviewComponent {
+class NguiInviewComponent {
     constructor(element, platformId) {
         this.element = element;
         this.platformId = platformId;
@@ -76,52 +75,34 @@ let NguiInviewComponent = class NguiInviewComponent {
             this.once80PctVisible = true;
         }
     }
-};
+}
+NguiInviewComponent.decorators = [
+    { type: Component, args: [{
+                selector: 'ngui-inview',
+                template: `
+        <ng-container *ngIf="isInview" [ngTemplateOutlet]="template">
+        </ng-container>
+    `,
+                styles: [':host {display: block;}']
+            },] }
+];
 NguiInviewComponent.ctorParameters = () => [
     { type: ElementRef },
     { type: undefined, decorators: [{ type: Inject, args: [PLATFORM_ID,] }] }
 ];
-__decorate([
-    ContentChild(TemplateRef, { static: true }),
-    __metadata("design:type", TemplateRef)
-], NguiInviewComponent.prototype, "template", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], NguiInviewComponent.prototype, "observerOptions", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], NguiInviewComponent.prototype, "options", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], NguiInviewComponent.prototype, "blurEnabled", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], NguiInviewComponent.prototype, "inview", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], NguiInviewComponent.prototype, "notInview", void 0);
-NguiInviewComponent = __decorate([
-    Component({
-        selector: 'ngui-inview',
-        template: `
-        <ng-container *ngIf="isInview" [ngTemplateOutlet]="template">
-        </ng-container>
-    `,
-        styles: [':host {display: block;}']
-    }),
-    __param(1, Inject(PLATFORM_ID)),
-    __metadata("design:paramtypes", [ElementRef, Object])
-], NguiInviewComponent);
+NguiInviewComponent.propDecorators = {
+    template: [{ type: ContentChild, args: [TemplateRef, { static: true },] }],
+    observerOptions: [{ type: Input }],
+    options: [{ type: Input }],
+    blurEnabled: [{ type: Input }],
+    inview: [{ type: Output }],
+    notInview: [{ type: Output }]
+};
 
 /**
  * Fires (nguiInview) or (nguiOutview) events dependents on the element is in viewport or not
  */
-let NguiInviewDirective = class NguiInviewDirective {
+class NguiInviewDirective {
     constructor(element, platformId) {
         this.element = element;
         this.platformId = platformId;
@@ -162,52 +143,40 @@ let NguiInviewDirective = class NguiInviewDirective {
             }
         });
     }
-};
+}
+NguiInviewDirective.decorators = [
+    { type: Directive, args: [{
+                selector: '[nguiInview], [nguiOutview]' // tslint:disable-line
+            },] }
+];
 NguiInviewDirective.ctorParameters = () => [
     { type: ElementRef },
     { type: undefined, decorators: [{ type: Inject, args: [PLATFORM_ID,] }] }
 ];
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], NguiInviewDirective.prototype, "observerOptions", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], NguiInviewDirective.prototype, "options", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], NguiInviewDirective.prototype, "nguiInview", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], NguiInviewDirective.prototype, "nguiOutview", void 0);
-NguiInviewDirective = __decorate([
-    Directive({
-        selector: '[nguiInview], [nguiOutview]' // tslint:disable-line
-    }),
-    __param(1, Inject(PLATFORM_ID)),
-    __metadata("design:paramtypes", [ElementRef, Object])
-], NguiInviewDirective);
-
-let NguiInviewModule = class NguiInviewModule {
+NguiInviewDirective.propDecorators = {
+    observerOptions: [{ type: Input }],
+    options: [{ type: Input }],
+    nguiInview: [{ type: Output }],
+    nguiOutview: [{ type: Output }]
 };
-NguiInviewModule = __decorate([
-    NgModule({
-        imports: [
-            CommonModule
-        ],
-        declarations: [
-            NguiInviewComponent,
-            NguiInviewDirective
-        ],
-        exports: [
-            NguiInviewComponent,
-            NguiInviewDirective
-        ]
-    })
-], NguiInviewModule);
+
+class NguiInviewModule {
+}
+NguiInviewModule.decorators = [
+    { type: NgModule, args: [{
+                imports: [
+                    CommonModule
+                ],
+                declarations: [
+                    NguiInviewComponent,
+                    NguiInviewDirective
+                ],
+                exports: [
+                    NguiInviewComponent,
+                    NguiInviewDirective
+                ]
+            },] }
+];
 
 /**
  * fire the given event with options on the element
@@ -230,9 +199,34 @@ function fireEvent(el, type, options = {}) {
 }
 
 /**
+ * Insert a component dynamically using a service
+ *
+ * ### Example
+ * ```ts
+ * import { DynamicComponentService } from './dynamic.component.service';
+ * import { MyDynamicComponent } from './my-1.component';
+ *
+ * @Component({
+ *   template: ` ... <div #dymamic></div>`
+ * })
+ * export class MyComponent {
+ *   @ViewChild('dynamic', {read:ViewContainerRef}) vcr: ViewContainerRef;
+ *
+ *   constructor(public dcs: DynamicComponentService) {}
+ *
+ *   insertComp() {
+ *     let compRef = this.dcs.createComponent(MyDynamicComponent, this.vcr);
+ *     ths.dcs.insertComonent(cmpRef);
+ *     compRef.instance.items = [1,2,3];              // dealing with @input
+ *     compRef.instance.output$.subscribe(val => {}); // dealing with @output
+ *   }
+ * }
+ * ```
+ */
+/**
  * Provide service to add or remove component dynamically
  */
-let DynamicComponentService = class DynamicComponentService {
+class DynamicComponentService {
     constructor(factoryResolver) {
         this.factoryResolver = factoryResolver;
     }
@@ -257,15 +251,13 @@ let DynamicComponentService = class DynamicComponentService {
         this.rootViewContainer.insert(componentRef.hostView);
         return componentRef.instance;
     }
-};
+}
+DynamicComponentService.decorators = [
+    { type: Injectable }
+];
 DynamicComponentService.ctorParameters = () => [
     { type: undefined, decorators: [{ type: Inject, args: [ComponentFactoryResolver,] }] }
 ];
-DynamicComponentService = __decorate([
-    Injectable(),
-    __param(0, Inject(ComponentFactoryResolver)),
-    __metadata("design:paramtypes", [Object])
-], DynamicComponentService);
 
 /**
  * A block of component that listens to inView and outView events,
@@ -283,7 +275,7 @@ DynamicComponentService = __decorate([
  * </ngui-inview-page>
  * ```
  */
-let NguiInviewPageComponent = class NguiInviewPageComponent {
+class NguiInviewPageComponent {
     constructor(element, renderer, cdRef) {
         this.element = element;
         this.renderer = renderer;
@@ -336,24 +328,11 @@ let NguiInviewPageComponent = class NguiInviewPageComponent {
             this.cdRef.detectChanges();
         }
     }
-};
-NguiInviewPageComponent.ctorParameters = () => [
-    { type: ElementRef },
-    { type: Renderer2 },
-    { type: ChangeDetectorRef }
-];
-__decorate([
-    ContentChild(TemplateRef, { static: true }),
-    __metadata("design:type", TemplateRef)
-], NguiInviewPageComponent.prototype, "template", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Array)
-], NguiInviewPageComponent.prototype, "items", void 0);
-NguiInviewPageComponent = __decorate([
-    Component({
-        selector: 'ngui-inview-page',
-        template: `
+}
+NguiInviewPageComponent.decorators = [
+    { type: Component, args: [{
+                selector: 'ngui-inview-page',
+                template: `
     <div class="inview-page contents"
       (nguiInview)="restoreItems()"
       (nguiOutview)="emptyItems()">
@@ -371,14 +350,20 @@ NguiInviewPageComponent = __decorate([
       <div *ngIf="!template"> Error: requires &lt;ng-template></div>
     </ng-template>
   `,
-        styles: [`
+                styles: [`
     :host {display: block}
   `]
-    }),
-    __metadata("design:paramtypes", [ElementRef,
-        Renderer2,
-        ChangeDetectorRef])
-], NguiInviewPageComponent);
+            },] }
+];
+NguiInviewPageComponent.ctorParameters = () => [
+    { type: ElementRef },
+    { type: Renderer2 },
+    { type: ChangeDetectorRef }
+];
+NguiInviewPageComponent.propDecorators = {
+    template: [{ type: ContentChild, args: [TemplateRef, { static: true },] }],
+    items: [{ type: Input }]
+};
 
 /**
  * Virtual List
@@ -403,7 +388,7 @@ NguiInviewPageComponent = __decorate([
  * </ngui-virtual-list>
  * ```
  */
-let NguiVirtualListComponent = class NguiVirtualListComponent {
+class NguiVirtualListComponent {
     constructor(renderer, element, dynamicComponentService, cdr) {
         this.renderer = renderer;
         this.element = element;
@@ -465,37 +450,11 @@ let NguiVirtualListComponent = class NguiVirtualListComponent {
         console.log('>>>>>> NguiVirtualListComponent.addList() is called()');
         this.inviewPage.instance.setItems(items);
     }
-};
-NguiVirtualListComponent.ctorParameters = () => [
-    { type: Renderer2 },
-    { type: ElementRef },
-    { type: DynamicComponentService },
-    { type: ChangeDetectorRef }
-];
-__decorate([
-    ViewChild('pages', { read: ViewContainerRef }),
-    __metadata("design:type", ViewContainerRef)
-], NguiVirtualListComponent.prototype, "pagesRef", void 0);
-__decorate([
-    ContentChild(TemplateRef),
-    __metadata("design:type", TemplateRef)
-], NguiVirtualListComponent.prototype, "template", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], NguiVirtualListComponent.prototype, "selected", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], NguiVirtualListComponent.prototype, "escaped", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], NguiVirtualListComponent.prototype, "bottomInview", void 0);
-NguiVirtualListComponent = __decorate([
-    Component({
-        selector: 'ngui-virtual-list',
-        template: `
+}
+NguiVirtualListComponent.decorators = [
+    { type: Component, args: [{
+                selector: 'ngui-virtual-list',
+                template: `
     <div class="ngui-virtual-list"
       (focus)="_focused = true"
       (click)="_focused = true">
@@ -505,15 +464,24 @@ NguiVirtualListComponent = __decorate([
     </div>
     <ngui-inview (inview)="addAnInviewPageToPages()"></ngui-inview>
   `,
-        styles: [`
+                styles: [`
     :host {display: block}
   `]
-    }),
-    __metadata("design:paramtypes", [Renderer2,
-        ElementRef,
-        DynamicComponentService,
-        ChangeDetectorRef])
-], NguiVirtualListComponent);
+            },] }
+];
+NguiVirtualListComponent.ctorParameters = () => [
+    { type: Renderer2 },
+    { type: ElementRef },
+    { type: DynamicComponentService },
+    { type: ChangeDetectorRef }
+];
+NguiVirtualListComponent.propDecorators = {
+    pagesRef: [{ type: ViewChild, args: ['pages', { read: ViewContainerRef },] }],
+    template: [{ type: ContentChild, args: [TemplateRef,] }],
+    selected: [{ type: Output }],
+    escaped: [{ type: Output }],
+    bottomInview: [{ type: Output }]
+};
 
 class NoMatchFound {
     constructor() {
@@ -527,7 +495,7 @@ class NoneSelect {
     }
 }
 
-let NguiAutocompleteComponent = class NguiAutocompleteComponent extends NguiVirtualListComponent {
+class NguiAutocompleteComponent extends NguiVirtualListComponent {
     constructor() {
         super(...arguments);
         this.minInputChars = 1;
@@ -676,31 +644,11 @@ let NguiAutocompleteComponent = class NguiAutocompleteComponent extends NguiVirt
         this.inviewPage.instance.setItems(allItems);
         this.cdr.detectChanges();
     }
-};
-__decorate([
-    Input(),
-    __metadata("design:type", String)
-], NguiAutocompleteComponent.prototype, "for", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], NguiAutocompleteComponent.prototype, "minInputChars", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], NguiAutocompleteComponent.prototype, "blankOption", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], NguiAutocompleteComponent.prototype, "noMatchItem", void 0);
-__decorate([
-    ContentChild(TemplateRef),
-    __metadata("design:type", TemplateRef)
-], NguiAutocompleteComponent.prototype, "template", void 0);
-NguiAutocompleteComponent = __decorate([
-    Component({
-        selector: 'ngui-autocomplete',
-        template: `
+}
+NguiAutocompleteComponent.decorators = [
+    { type: Component, args: [{
+                selector: 'ngui-autocomplete',
+                template: `
     <ng-container *ngIf="isReady">
       <div class="ngui-autocomplete">
         <div #pages></div>
@@ -708,14 +656,21 @@ NguiAutocompleteComponent = __decorate([
       <ngui-inview (inview)="addMorePages()"></ngui-inview>
     </ng-container>
   `,
-        styles: [`
+                styles: [`
     :host {position: absolute; background-color: #fff; max-height: 300px; overflow: auto}
     .ngui-autocomplete { border: 1px solid #ccc; padding: 4px }
   `]
-    })
-], NguiAutocompleteComponent);
+            },] }
+];
+NguiAutocompleteComponent.propDecorators = {
+    for: [{ type: Input }],
+    minInputChars: [{ type: Input }],
+    blankOption: [{ type: Input }],
+    noMatchItem: [{ type: Input }],
+    template: [{ type: ContentChild, args: [TemplateRef,] }]
+};
 
-let NguiListDirective = class NguiListDirective {
+class NguiListDirective {
     constructor(element) {
         this.element = element;
         /** Fired when child `<ngui-list-item>` is selected */
@@ -723,27 +678,22 @@ let NguiListDirective = class NguiListDirective {
         /** Fired when `ESC` key is pressed from `<ngui-list-item>` */
         this.escaped = new EventEmitter();
     }
-};
+}
+NguiListDirective.decorators = [
+    { type: Directive, args: [{
+                selector: 'ngui-list' // tslint:disable-line
+            },] }
+];
 NguiListDirective.ctorParameters = () => [
     { type: ElementRef }
 ];
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], NguiListDirective.prototype, "selected", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], NguiListDirective.prototype, "escaped", void 0);
-NguiListDirective = __decorate([
-    Directive({
-        selector: 'ngui-list' // tslint:disable-line
-    }),
-    __metadata("design:paramtypes", [ElementRef])
-], NguiListDirective);
+NguiListDirective.propDecorators = {
+    selected: [{ type: Output }],
+    escaped: [{ type: Output }]
+};
 
 // tabindex, keydown, keyup(ENTER, ESC), click
-let NguiListItemDirective = class NguiListItemDirective {
+class NguiListItemDirective {
     constructor(el, renderer, viewContainer, listDirective, virtualListComponent, autocompleteComponent) {
         this.el = el;
         this.renderer = renderer;
@@ -811,7 +761,12 @@ let NguiListItemDirective = class NguiListItemDirective {
             this.parentListComp['setFocused']('listItem', false);
         }
     }
-};
+}
+NguiListItemDirective.decorators = [
+    { type: Directive, args: [{
+                selector: 'ngui-list-item' // tslint:disable-line
+            },] }
+];
 NguiListItemDirective.ctorParameters = () => [
     { type: ElementRef },
     { type: Renderer2 },
@@ -820,82 +775,42 @@ NguiListItemDirective.ctorParameters = () => [
     { type: NguiVirtualListComponent, decorators: [{ type: Optional }, { type: Host }] },
     { type: NguiAutocompleteComponent, decorators: [{ type: Optional }, { type: Host }] }
 ];
-__decorate([
-    Input('item'),
-    __metadata("design:type", Object)
-], NguiListItemDirective.prototype, "object", void 0);
-__decorate([
-    HostListener('keydown', ['$event']),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", void 0)
-], NguiListItemDirective.prototype, "keydown", null);
-__decorate([
-    HostListener('keyup', ['$event']),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", void 0)
-], NguiListItemDirective.prototype, "keyup", null);
-__decorate([
-    HostListener('click', ['$event']),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], NguiListItemDirective.prototype, "mousedown", null);
-__decorate([
-    HostListener('focus', ['$event']),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], NguiListItemDirective.prototype, "focused", null);
-__decorate([
-    HostListener('blur', ['$event']),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], NguiListItemDirective.prototype, "blurred", null);
-NguiListItemDirective = __decorate([
-    Directive({
-        selector: 'ngui-list-item' // tslint:disable-line
-    }),
-    __param(3, Optional()), __param(3, Host()),
-    __param(4, Optional()), __param(4, Host()),
-    __param(5, Optional()), __param(5, Host()),
-    __metadata("design:paramtypes", [ElementRef,
-        Renderer2,
-        ViewContainerRef,
-        NguiListDirective,
-        NguiVirtualListComponent,
-        NguiAutocompleteComponent])
-], NguiListItemDirective);
-
-let NguiListModule = class NguiListModule {
+NguiListItemDirective.propDecorators = {
+    object: [{ type: Input, args: ['item',] }],
+    keydown: [{ type: HostListener, args: ['keydown', ['$event'],] }],
+    keyup: [{ type: HostListener, args: ['keyup', ['$event'],] }],
+    mousedown: [{ type: HostListener, args: ['click', ['$event'],] }],
+    focused: [{ type: HostListener, args: ['focus', ['$event'],] }],
+    blurred: [{ type: HostListener, args: ['blur', ['$event'],] }]
 };
-NguiListModule = __decorate([
-    NgModule({
-        imports: [
-            CommonModule,
-            NguiInviewModule
-        ],
-        declarations: [
-            NguiAutocompleteComponent,
-            NguiInviewPageComponent,
-            NguiListDirective,
-            NguiListItemDirective,
-            NguiVirtualListComponent
-        ],
-        exports: [
-            NguiAutocompleteComponent,
-            NguiInviewPageComponent,
-            NguiListDirective,
-            NguiListItemDirective,
-            NguiVirtualListComponent
-        ],
-        entryComponents: [NguiInviewPageComponent]
-    })
-], NguiListModule);
 
-let NguiHighlightPipe = class NguiHighlightPipe {
+class NguiListModule {
+}
+NguiListModule.decorators = [
+    { type: NgModule, args: [{
+                imports: [
+                    CommonModule,
+                    NguiInviewModule
+                ],
+                declarations: [
+                    NguiAutocompleteComponent,
+                    NguiInviewPageComponent,
+                    NguiListDirective,
+                    NguiListItemDirective,
+                    NguiVirtualListComponent
+                ],
+                exports: [
+                    NguiAutocompleteComponent,
+                    NguiInviewPageComponent,
+                    NguiListDirective,
+                    NguiListItemDirective,
+                    NguiVirtualListComponent
+                ],
+                entryComponents: [NguiInviewPageComponent]
+            },] }
+];
+
+class NguiHighlightPipe {
     transform(text, search) {
         let ret = text;
         if (search) {
@@ -904,10 +819,10 @@ let NguiHighlightPipe = class NguiHighlightPipe {
         }
         return ret;
     }
-};
-NguiHighlightPipe = __decorate([
-    Pipe({ name: 'nguiHighlight' })
-], NguiHighlightPipe);
+}
+NguiHighlightPipe.decorators = [
+    { type: Pipe, args: [{ name: 'nguiHighlight' },] }
+];
 
 /**
  * window.konsole alternative
@@ -1014,35 +929,35 @@ konsole.logLevel = 'INFO';
 // konsole.warn('no');
 // konsole.error('yes');
 
-let NguiUtilsModule = class NguiUtilsModule {
-};
-NguiUtilsModule = __decorate([
-    NgModule({
-        imports: [
-            CommonModule
-        ],
-        declarations: [NguiHighlightPipe],
-        exports: [NguiHighlightPipe],
-        providers: [DynamicComponentService]
-    })
-], NguiUtilsModule);
+class NguiUtilsModule {
+}
+NguiUtilsModule.decorators = [
+    { type: NgModule, args: [{
+                imports: [
+                    CommonModule
+                ],
+                declarations: [NguiHighlightPipe],
+                exports: [NguiHighlightPipe],
+                providers: [DynamicComponentService]
+            },] }
+];
 
-let NguiCommonModule = class NguiCommonModule {
-};
-NguiCommonModule = __decorate([
-    NgModule({
-        imports: [
-            NguiInviewModule,
-            NguiListModule,
-            NguiUtilsModule
-        ],
-        exports: [
-            NguiInviewModule,
-            NguiListModule,
-            NguiUtilsModule
-        ]
-    })
-], NguiCommonModule);
+class NguiCommonModule {
+}
+NguiCommonModule.decorators = [
+    { type: NgModule, args: [{
+                imports: [
+                    NguiInviewModule,
+                    NguiListModule,
+                    NguiUtilsModule
+                ],
+                exports: [
+                    NguiInviewModule,
+                    NguiListModule,
+                    NguiUtilsModule
+                ]
+            },] }
+];
 
 /*
  * Public API Surface of ngui-common

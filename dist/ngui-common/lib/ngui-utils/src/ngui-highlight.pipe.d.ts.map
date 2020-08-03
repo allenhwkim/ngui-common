@@ -1,0 +1,1 @@
+{"version":3,"file":"ngui-highlight.pipe.d.ts","sources":["ngui-highlight.pipe.d.ts"],"names":[],"mappings":"AAAA;;AACA;AACA;;;AACA","sourcesContent":["import { PipeTransform } from '@angular/core';\r\nexport declare class NguiHighlightPipe implements PipeTransform {\r\n    transform(text: string, search: string): string;\r\n}\r\n"]}

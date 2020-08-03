@@ -1,5 +1,4 @@
-import { __decorate, __metadata, __param } from 'tslib';
-import { EventEmitter, ElementRef, Inject, PLATFORM_ID, ContentChild, TemplateRef, Input, Output, Component, Directive, NgModule, ComponentFactoryResolver, Injectable, Renderer2, ChangeDetectorRef, ViewChild, ViewContainerRef, Optional, Host, HostListener, Pipe } from '@angular/core';
+import { EventEmitter, Component, ElementRef, Inject, PLATFORM_ID, ContentChild, TemplateRef, Input, Output, Directive, NgModule, Injectable, ComponentFactoryResolver, Renderer2, ChangeDetectorRef, ViewChild, ViewContainerRef, Optional, Host, HostListener, Pipe } from '@angular/core';
 import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { fromEvent } from 'rxjs';
 
@@ -62,7 +61,7 @@ function NguiAutocompleteComponent_ng_container_0_Template(rf, ctx) { if (rf & 1
     ɵngcc0.ɵɵelementEnd();
     ɵngcc0.ɵɵelementContainerEnd();
 } }
-let NguiInviewComponent = class NguiInviewComponent {
+class NguiInviewComponent {
     constructor(element, platformId) {
         this.element = element;
         this.platformId = platformId;
@@ -126,7 +125,7 @@ let NguiInviewComponent = class NguiInviewComponent {
             this.once80PctVisible = true;
         }
     }
-};
+}
 NguiInviewComponent.ɵfac = function NguiInviewComponent_Factory(t) { return new (t || NguiInviewComponent)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(PLATFORM_ID)); };
 NguiInviewComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NguiInviewComponent, selectors: [["ngui-inview"]], contentQueries: function NguiInviewComponent_ContentQueries(rf, ctx, dirIndex) { if (rf & 1) {
         ɵngcc0.ɵɵstaticContentQuery(dirIndex, TemplateRef, true);
@@ -142,38 +141,46 @@ NguiInviewComponent.ctorParameters = () => [
     { type: ElementRef },
     { type: undefined, decorators: [{ type: Inject, args: [PLATFORM_ID,] }] }
 ];
-__decorate([
-    ContentChild(TemplateRef, { static: true }),
-    __metadata("design:type", TemplateRef)
-], NguiInviewComponent.prototype, "template", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], NguiInviewComponent.prototype, "observerOptions", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], NguiInviewComponent.prototype, "options", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], NguiInviewComponent.prototype, "blurEnabled", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], NguiInviewComponent.prototype, "inview", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], NguiInviewComponent.prototype, "notInview", void 0);
-NguiInviewComponent = __decorate([ __param(1, Inject(PLATFORM_ID)),
-    __metadata("design:paramtypes", [ElementRef, Object])
-], NguiInviewComponent);
+NguiInviewComponent.propDecorators = {
+    template: [{ type: ContentChild, args: [TemplateRef, { static: true },] }],
+    observerOptions: [{ type: Input }],
+    options: [{ type: Input }],
+    blurEnabled: [{ type: Input }],
+    inview: [{ type: Output }],
+    notInview: [{ type: Output }]
+};
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NguiInviewComponent, [{
+        type: Component,
+        args: [{
+                selector: 'ngui-inview',
+                template: `
+        <ng-container *ngIf="isInview" [ngTemplateOutlet]="template">
+        </ng-container>
+    `,
+                styles: [':host {display: block;}']
+            }]
+    }], function () { return [{ type: ɵngcc0.ElementRef }, { type: undefined, decorators: [{
+                type: Inject,
+                args: [PLATFORM_ID]
+            }] }]; }, { observerOptions: [{
+            type: Input
+        }], blurEnabled: [{
+            type: Input
+        }], inview: [{
+            type: Output
+        }], notInview: [{
+            type: Output
+        }], template: [{
+            type: ContentChild,
+            args: [TemplateRef, { static: true }]
+        }], options: [{
+            type: Input
+        }] }); })();
 
 /**
  * Fires (nguiInview) or (nguiOutview) events dependents on the element is in viewport or not
  */
-let NguiInviewDirective = class NguiInviewDirective {
+class NguiInviewDirective {
     constructor(element, platformId) {
         this.element = element;
         this.platformId = platformId;
@@ -214,39 +221,60 @@ let NguiInviewDirective = class NguiInviewDirective {
             }
         });
     }
-};
+}
 NguiInviewDirective.ɵfac = function NguiInviewDirective_Factory(t) { return new (t || NguiInviewDirective)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(PLATFORM_ID)); };
 NguiInviewDirective.ɵdir = ɵngcc0.ɵɵdefineDirective({ type: NguiInviewDirective, selectors: [["", "nguiInview", ""], ["", "nguiOutview", ""]], inputs: { observerOptions: "observerOptions", options: "options" }, outputs: { nguiInview: "nguiInview", nguiOutview: "nguiOutview" } });
 NguiInviewDirective.ctorParameters = () => [
     { type: ElementRef },
     { type: undefined, decorators: [{ type: Inject, args: [PLATFORM_ID,] }] }
 ];
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], NguiInviewDirective.prototype, "observerOptions", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], NguiInviewDirective.prototype, "options", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], NguiInviewDirective.prototype, "nguiInview", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], NguiInviewDirective.prototype, "nguiOutview", void 0);
-NguiInviewDirective = __decorate([ __param(1, Inject(PLATFORM_ID)),
-    __metadata("design:paramtypes", [ElementRef, Object])
-], NguiInviewDirective);
-
-let NguiInviewModule = class NguiInviewModule {
+NguiInviewDirective.propDecorators = {
+    observerOptions: [{ type: Input }],
+    options: [{ type: Input }],
+    nguiInview: [{ type: Output }],
+    nguiOutview: [{ type: Output }]
 };
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NguiInviewDirective, [{
+        type: Directive,
+        args: [{
+                selector: '[nguiInview], [nguiOutview]' // tslint:disable-line
+            }]
+    }], function () { return [{ type: ɵngcc0.ElementRef }, { type: undefined, decorators: [{
+                type: Inject,
+                args: [PLATFORM_ID]
+            }] }]; }, { observerOptions: [{
+            type: Input
+        }], nguiInview: [{
+            type: Output
+        }], nguiOutview: [{
+            type: Output
+        }], options: [{
+            type: Input
+        }] }); })();
+
+class NguiInviewModule {
+}
 NguiInviewModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NguiInviewModule });
 NguiInviewModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NguiInviewModule_Factory(t) { return new (t || NguiInviewModule)(); }, imports: [[
             CommonModule
         ]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NguiInviewModule, { declarations: function () { return [NguiInviewComponent, NguiInviewDirective]; }, imports: function () { return [CommonModule]; }, exports: function () { return [NguiInviewComponent, NguiInviewDirective]; } }); })();
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NguiInviewModule, [{
+        type: NgModule,
+        args: [{
+                imports: [
+                    CommonModule
+                ],
+                declarations: [
+                    NguiInviewComponent,
+                    NguiInviewDirective
+                ],
+                exports: [
+                    NguiInviewComponent,
+                    NguiInviewDirective
+                ]
+            }]
+    }], null, null); })();
 
 /**
  * fire the given event with options on the element
@@ -269,9 +297,34 @@ function fireEvent(el, type, options = {}) {
 }
 
 /**
+ * Insert a component dynamically using a service
+ *
+ * ### Example
+ * ```ts
+ * import { DynamicComponentService } from './dynamic.component.service';
+ * import { MyDynamicComponent } from './my-1.component';
+ *
+ * @Component({
+ *   template: ` ... <div #dymamic></div>`
+ * })
+ * export class MyComponent {
+ *   @ViewChild('dynamic', {read:ViewContainerRef}) vcr: ViewContainerRef;
+ *
+ *   constructor(public dcs: DynamicComponentService) {}
+ *
+ *   insertComp() {
+ *     let compRef = this.dcs.createComponent(MyDynamicComponent, this.vcr);
+ *     ths.dcs.insertComonent(cmpRef);
+ *     compRef.instance.items = [1,2,3];              // dealing with @input
+ *     compRef.instance.output$.subscribe(val => {}); // dealing with @output
+ *   }
+ * }
+ * ```
+ */
+/**
  * Provide service to add or remove component dynamically
  */
-let DynamicComponentService = class DynamicComponentService {
+class DynamicComponentService {
     constructor(factoryResolver) {
         this.factoryResolver = factoryResolver;
     }
@@ -296,15 +349,18 @@ let DynamicComponentService = class DynamicComponentService {
         this.rootViewContainer.insert(componentRef.hostView);
         return componentRef.instance;
     }
-};
+}
 DynamicComponentService.ɵfac = function DynamicComponentService_Factory(t) { return new (t || DynamicComponentService)(ɵngcc0.ɵɵinject(ComponentFactoryResolver)); };
 DynamicComponentService.ɵprov = ɵngcc0.ɵɵdefineInjectable({ token: DynamicComponentService, factory: DynamicComponentService.ɵfac });
 DynamicComponentService.ctorParameters = () => [
     { type: undefined, decorators: [{ type: Inject, args: [ComponentFactoryResolver,] }] }
 ];
-DynamicComponentService = __decorate([ __param(0, Inject(ComponentFactoryResolver)),
-    __metadata("design:paramtypes", [Object])
-], DynamicComponentService);
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(DynamicComponentService, [{
+        type: Injectable
+    }], function () { return [{ type: undefined, decorators: [{
+                type: Inject,
+                args: [ComponentFactoryResolver]
+            }] }]; }, null); })();
 
 /**
  * A block of component that listens to inView and outView events,
@@ -322,7 +378,7 @@ DynamicComponentService = __decorate([ __param(0, Inject(ComponentFactoryResolve
  * </ngui-inview-page>
  * ```
  */
-let NguiInviewPageComponent = class NguiInviewPageComponent {
+class NguiInviewPageComponent {
     constructor(element, renderer, cdRef) {
         this.element = element;
         this.renderer = renderer;
@@ -375,7 +431,7 @@ let NguiInviewPageComponent = class NguiInviewPageComponent {
             this.cdRef.detectChanges();
         }
     }
-};
+}
 NguiInviewPageComponent.ɵfac = function NguiInviewPageComponent_Factory(t) { return new (t || NguiInviewPageComponent)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef)); };
 NguiInviewPageComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NguiInviewPageComponent, selectors: [["ngui-inview-page"]], contentQueries: function NguiInviewPageComponent_ContentQueries(rf, ctx, dirIndex) { if (rf & 1) {
         ɵngcc0.ɵɵstaticContentQuery(dirIndex, TemplateRef, true);
@@ -401,18 +457,42 @@ NguiInviewPageComponent.ctorParameters = () => [
     { type: Renderer2 },
     { type: ChangeDetectorRef }
 ];
-__decorate([
-    ContentChild(TemplateRef, { static: true }),
-    __metadata("design:type", TemplateRef)
-], NguiInviewPageComponent.prototype, "template", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Array)
-], NguiInviewPageComponent.prototype, "items", void 0);
-NguiInviewPageComponent = __decorate([ __metadata("design:paramtypes", [ElementRef,
-        Renderer2,
-        ChangeDetectorRef])
-], NguiInviewPageComponent);
+NguiInviewPageComponent.propDecorators = {
+    template: [{ type: ContentChild, args: [TemplateRef, { static: true },] }],
+    items: [{ type: Input }]
+};
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NguiInviewPageComponent, [{
+        type: Component,
+        args: [{
+                selector: 'ngui-inview-page',
+                template: `
+    <div class="inview-page contents"
+      (nguiInview)="restoreItems()"
+      (nguiOutview)="emptyItems()">
+      <!-- add blank ngui-list-item by condition  -->
+      <!-- no match found ngui-list-item by condition -->
+      <ng-container
+        [ngTemplateOutlet]="template||defaultTemplate"
+        [ngTemplateOutletContext]="{items: items, outView: outView}">
+      </ng-container>
+      <div *ngIf="outView">{{ itemsBackup.length }} items hidden</div>
+    </div>
+
+    <ng-template #defaultTemplate>
+      <div *ngIf="!items"> Error: requires [items] </div>
+      <div *ngIf="!template"> Error: requires &lt;ng-template></div>
+    </ng-template>
+  `,
+                styles: [`
+    :host {display: block}
+  `]
+            }]
+    }], function () { return [{ type: ɵngcc0.ElementRef }, { type: ɵngcc0.Renderer2 }, { type: ɵngcc0.ChangeDetectorRef }]; }, { items: [{
+            type: Input
+        }], template: [{
+            type: ContentChild,
+            args: [TemplateRef, { static: true }]
+        }] }); })();
 
 /**
  * Virtual List
@@ -437,7 +517,7 @@ NguiInviewPageComponent = __decorate([ __metadata("design:paramtypes", [ElementR
  * </ngui-virtual-list>
  * ```
  */
-let NguiVirtualListComponent = class NguiVirtualListComponent {
+class NguiVirtualListComponent {
     constructor(renderer, element, dynamicComponentService, cdr) {
         this.renderer = renderer;
         this.element = element;
@@ -499,7 +579,7 @@ let NguiVirtualListComponent = class NguiVirtualListComponent {
         console.log('>>>>>> NguiVirtualListComponent.addList() is called()');
         this.inviewPage.instance.setItems(items);
     }
-};
+}
 NguiVirtualListComponent.ɵfac = function NguiVirtualListComponent_Factory(t) { return new (t || NguiVirtualListComponent)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(DynamicComponentService), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef)); };
 NguiVirtualListComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NguiVirtualListComponent, selectors: [["ngui-virtual-list"]], contentQueries: function NguiVirtualListComponent_ContentQueries(rf, ctx, dirIndex) { if (rf & 1) {
         ɵngcc0.ɵɵcontentQuery(dirIndex, TemplateRef, true);
@@ -526,31 +606,44 @@ NguiVirtualListComponent.ctorParameters = () => [
     { type: DynamicComponentService },
     { type: ChangeDetectorRef }
 ];
-__decorate([
-    ViewChild('pages', { read: ViewContainerRef }),
-    __metadata("design:type", ViewContainerRef)
-], NguiVirtualListComponent.prototype, "pagesRef", void 0);
-__decorate([
-    ContentChild(TemplateRef),
-    __metadata("design:type", TemplateRef)
-], NguiVirtualListComponent.prototype, "template", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], NguiVirtualListComponent.prototype, "selected", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], NguiVirtualListComponent.prototype, "escaped", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], NguiVirtualListComponent.prototype, "bottomInview", void 0);
-NguiVirtualListComponent = __decorate([ __metadata("design:paramtypes", [Renderer2,
-        ElementRef,
-        DynamicComponentService,
-        ChangeDetectorRef])
-], NguiVirtualListComponent);
+NguiVirtualListComponent.propDecorators = {
+    pagesRef: [{ type: ViewChild, args: ['pages', { read: ViewContainerRef },] }],
+    template: [{ type: ContentChild, args: [TemplateRef,] }],
+    selected: [{ type: Output }],
+    escaped: [{ type: Output }],
+    bottomInview: [{ type: Output }]
+};
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NguiVirtualListComponent, [{
+        type: Component,
+        args: [{
+                selector: 'ngui-virtual-list',
+                template: `
+    <div class="ngui-virtual-list"
+      (focus)="_focused = true"
+      (click)="_focused = true">
+      <!-- hold multiple <ngui-inview-page> -->
+      <div #pages></div>
+      <!-- insert <ngui-inview-page> into #pages -->
+    </div>
+    <ngui-inview (inview)="addAnInviewPageToPages()"></ngui-inview>
+  `,
+                styles: [`
+    :host {display: block}
+  `]
+            }]
+    }], function () { return [{ type: ɵngcc0.Renderer2 }, { type: ɵngcc0.ElementRef }, { type: DynamicComponentService }, { type: ɵngcc0.ChangeDetectorRef }]; }, { selected: [{
+            type: Output
+        }], escaped: [{
+            type: Output
+        }], bottomInview: [{
+            type: Output
+        }], pagesRef: [{
+            type: ViewChild,
+            args: ['pages', { read: ViewContainerRef }]
+        }], template: [{
+            type: ContentChild,
+            args: [TemplateRef]
+        }] }); })();
 
 class NoMatchFound {
     constructor() {
@@ -564,7 +657,7 @@ class NoneSelect {
     }
 }
 
-let NguiAutocompleteComponent = class NguiAutocompleteComponent extends NguiVirtualListComponent {
+class NguiAutocompleteComponent extends NguiVirtualListComponent {
     constructor() {
         super(...arguments);
         this.minInputChars = 1;
@@ -713,7 +806,7 @@ let NguiAutocompleteComponent = class NguiAutocompleteComponent extends NguiVirt
         this.inviewPage.instance.setItems(allItems);
         this.cdr.detectChanges();
     }
-};
+}
 NguiAutocompleteComponent.ɵfac = function NguiAutocompleteComponent_Factory(t) { return ɵNguiAutocompleteComponent_BaseFactory(t || NguiAutocompleteComponent); };
 NguiAutocompleteComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NguiAutocompleteComponent, selectors: [["ngui-autocomplete"]], contentQueries: function NguiAutocompleteComponent_ContentQueries(rf, ctx, dirIndex) { if (rf & 1) {
         ɵngcc0.ɵɵcontentQuery(dirIndex, TemplateRef, true);
@@ -725,28 +818,45 @@ NguiAutocompleteComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NguiAutoco
     } if (rf & 2) {
         ɵngcc0.ɵɵproperty("ngIf", ctx.isReady);
     } }, directives: [ɵngcc1.NgIf, NguiInviewComponent], styles: ["[_nghost-%COMP%] {position: absolute; background-color: #fff; max-height: 300px; overflow: auto}\n    .ngui-autocomplete[_ngcontent-%COMP%] { border: 1px solid #ccc; padding: 4px }"] });
-__decorate([
-    Input(),
-    __metadata("design:type", String)
-], NguiAutocompleteComponent.prototype, "for", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], NguiAutocompleteComponent.prototype, "minInputChars", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], NguiAutocompleteComponent.prototype, "blankOption", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], NguiAutocompleteComponent.prototype, "noMatchItem", void 0);
-__decorate([
-    ContentChild(TemplateRef),
-    __metadata("design:type", TemplateRef)
-], NguiAutocompleteComponent.prototype, "template", void 0);
+NguiAutocompleteComponent.propDecorators = {
+    for: [{ type: Input }],
+    minInputChars: [{ type: Input }],
+    blankOption: [{ type: Input }],
+    noMatchItem: [{ type: Input }],
+    template: [{ type: ContentChild, args: [TemplateRef,] }]
+};
+const ɵNguiAutocompleteComponent_BaseFactory = ɵngcc0.ɵɵgetInheritedFactory(NguiAutocompleteComponent);
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NguiAutocompleteComponent, [{
+        type: Component,
+        args: [{
+                selector: 'ngui-autocomplete',
+                template: `
+    <ng-container *ngIf="isReady">
+      <div class="ngui-autocomplete">
+        <div #pages></div>
+      </div>
+      <ngui-inview (inview)="addMorePages()"></ngui-inview>
+    </ng-container>
+  `,
+                styles: [`
+    :host {position: absolute; background-color: #fff; max-height: 300px; overflow: auto}
+    .ngui-autocomplete { border: 1px solid #ccc; padding: 4px }
+  `]
+            }]
+    }], null, { minInputChars: [{
+            type: Input
+        }], blankOption: [{
+            type: Input
+        }], noMatchItem: [{
+            type: Input
+        }], for: [{
+            type: Input
+        }], template: [{
+            type: ContentChild,
+            args: [TemplateRef]
+        }] }); })();
 
-let NguiListDirective = class NguiListDirective {
+class NguiListDirective {
     constructor(element) {
         this.element = element;
         /** Fired when child `<ngui-list-item>` is selected */
@@ -754,25 +864,29 @@ let NguiListDirective = class NguiListDirective {
         /** Fired when `ESC` key is pressed from `<ngui-list-item>` */
         this.escaped = new EventEmitter();
     }
-};
+}
 NguiListDirective.ɵfac = function NguiListDirective_Factory(t) { return new (t || NguiListDirective)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef)); };
 NguiListDirective.ɵdir = ɵngcc0.ɵɵdefineDirective({ type: NguiListDirective, selectors: [["ngui-list"]], outputs: { selected: "selected", escaped: "escaped" } });
 NguiListDirective.ctorParameters = () => [
     { type: ElementRef }
 ];
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], NguiListDirective.prototype, "selected", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], NguiListDirective.prototype, "escaped", void 0);
-NguiListDirective = __decorate([ __metadata("design:paramtypes", [ElementRef])
-], NguiListDirective);
+NguiListDirective.propDecorators = {
+    selected: [{ type: Output }],
+    escaped: [{ type: Output }]
+};
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NguiListDirective, [{
+        type: Directive,
+        args: [{
+                selector: 'ngui-list' // tslint:disable-line
+            }]
+    }], function () { return [{ type: ɵngcc0.ElementRef }]; }, { selected: [{
+            type: Output
+        }], escaped: [{
+            type: Output
+        }] }); })();
 
 // tabindex, keydown, keyup(ENTER, ESC), click
-let NguiListItemDirective = class NguiListItemDirective {
+class NguiListItemDirective {
     constructor(el, renderer, viewContainer, listDirective, virtualListComponent, autocompleteComponent) {
         this.el = el;
         this.renderer = renderer;
@@ -840,7 +954,7 @@ let NguiListItemDirective = class NguiListItemDirective {
             this.parentListComp['setFocused']('listItem', false);
         }
     }
-};
+}
 NguiListItemDirective.ɵfac = function NguiListItemDirective_Factory(t) { return new (t || NguiListItemDirective)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ViewContainerRef), ɵngcc0.ɵɵdirectiveInject(NguiListDirective, 9), ɵngcc0.ɵɵdirectiveInject(NguiVirtualListComponent, 9), ɵngcc0.ɵɵdirectiveInject(NguiAutocompleteComponent, 9)); };
 NguiListItemDirective.ɵdir = ɵngcc0.ɵɵdefineDirective({ type: NguiListItemDirective, selectors: [["ngui-list-item"]], hostBindings: function NguiListItemDirective_HostBindings(rf, ctx) { if (rf & 1) {
         ɵngcc0.ɵɵlistener("keydown", function NguiListItemDirective_keydown_HostBindingHandler($event) { return ctx.keydown($event); })("keyup", function NguiListItemDirective_keyup_HostBindingHandler($event) { return ctx.keyup($event); })("click", function NguiListItemDirective_click_HostBindingHandler($event) { return ctx.mousedown($event); })("focus", function NguiListItemDirective_focus_HostBindingHandler($event) { return ctx.focused($event); })("blur", function NguiListItemDirective_blur_HostBindingHandler($event) { return ctx.blurred($event); });
@@ -853,60 +967,85 @@ NguiListItemDirective.ctorParameters = () => [
     { type: NguiVirtualListComponent, decorators: [{ type: Optional }, { type: Host }] },
     { type: NguiAutocompleteComponent, decorators: [{ type: Optional }, { type: Host }] }
 ];
-__decorate([
-    Input('item'),
-    __metadata("design:type", Object)
-], NguiListItemDirective.prototype, "object", void 0);
-__decorate([
-    HostListener('keydown', ['$event']),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", void 0)
-], NguiListItemDirective.prototype, "keydown", null);
-__decorate([
-    HostListener('keyup', ['$event']),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", void 0)
-], NguiListItemDirective.prototype, "keyup", null);
-__decorate([
-    HostListener('click', ['$event']),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], NguiListItemDirective.prototype, "mousedown", null);
-__decorate([
-    HostListener('focus', ['$event']),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], NguiListItemDirective.prototype, "focused", null);
-__decorate([
-    HostListener('blur', ['$event']),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], NguiListItemDirective.prototype, "blurred", null);
-NguiListItemDirective = __decorate([ __param(3, Optional()), __param(3, Host()),
-    __param(4, Optional()), __param(4, Host()),
-    __param(5, Optional()), __param(5, Host()),
-    __metadata("design:paramtypes", [ElementRef,
-        Renderer2,
-        ViewContainerRef,
-        NguiListDirective,
-        NguiVirtualListComponent,
-        NguiAutocompleteComponent])
-], NguiListItemDirective);
-
-let NguiListModule = class NguiListModule {
+NguiListItemDirective.propDecorators = {
+    object: [{ type: Input, args: ['item',] }],
+    keydown: [{ type: HostListener, args: ['keydown', ['$event'],] }],
+    keyup: [{ type: HostListener, args: ['keyup', ['$event'],] }],
+    mousedown: [{ type: HostListener, args: ['click', ['$event'],] }],
+    focused: [{ type: HostListener, args: ['focus', ['$event'],] }],
+    blurred: [{ type: HostListener, args: ['blur', ['$event'],] }]
 };
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NguiListItemDirective, [{
+        type: Directive,
+        args: [{
+                selector: 'ngui-list-item' // tslint:disable-line
+            }]
+    }], function () { return [{ type: ɵngcc0.ElementRef }, { type: ɵngcc0.Renderer2 }, { type: ɵngcc0.ViewContainerRef }, { type: NguiListDirective, decorators: [{
+                type: Optional
+            }, {
+                type: Host
+            }] }, { type: NguiVirtualListComponent, decorators: [{
+                type: Optional
+            }, {
+                type: Host
+            }] }, { type: NguiAutocompleteComponent, decorators: [{
+                type: Optional
+            }, {
+                type: Host
+            }] }]; }, { keydown: [{
+            type: HostListener,
+            args: ['keydown', ['$event']]
+        }], keyup: [{
+            type: HostListener,
+            args: ['keyup', ['$event']]
+        }], mousedown: [{
+            type: HostListener,
+            args: ['click', ['$event']]
+        }], focused: [{
+            type: HostListener,
+            args: ['focus', ['$event']]
+        }], blurred: [{
+            type: HostListener,
+            args: ['blur', ['$event']]
+        }], object: [{
+            type: Input,
+            args: ['item']
+        }] }); })();
+
+class NguiListModule {
+}
 NguiListModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NguiListModule });
 NguiListModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NguiListModule_Factory(t) { return new (t || NguiListModule)(); }, imports: [[
             CommonModule,
             NguiInviewModule
         ]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NguiListModule, { declarations: function () { return [NguiAutocompleteComponent, NguiInviewPageComponent, NguiListDirective, NguiListItemDirective, NguiVirtualListComponent]; }, imports: function () { return [CommonModule, NguiInviewModule]; }, exports: function () { return [NguiAutocompleteComponent, NguiInviewPageComponent, NguiListDirective, NguiListItemDirective, NguiVirtualListComponent]; } }); })();
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NguiListModule, [{
+        type: NgModule,
+        args: [{
+                imports: [
+                    CommonModule,
+                    NguiInviewModule
+                ],
+                declarations: [
+                    NguiAutocompleteComponent,
+                    NguiInviewPageComponent,
+                    NguiListDirective,
+                    NguiListItemDirective,
+                    NguiVirtualListComponent
+                ],
+                exports: [
+                    NguiAutocompleteComponent,
+                    NguiInviewPageComponent,
+                    NguiListDirective,
+                    NguiListItemDirective,
+                    NguiVirtualListComponent
+                ],
+                entryComponents: [NguiInviewPageComponent]
+            }]
+    }], null, null); })();
 
-let NguiHighlightPipe = class NguiHighlightPipe {
+class NguiHighlightPipe {
     transform(text, search) {
         let ret = text;
         if (search) {
@@ -915,9 +1054,13 @@ let NguiHighlightPipe = class NguiHighlightPipe {
         }
         return ret;
     }
-};
+}
 NguiHighlightPipe.ɵfac = function NguiHighlightPipe_Factory(t) { return new (t || NguiHighlightPipe)(); };
 NguiHighlightPipe.ɵpipe = ɵngcc0.ɵɵdefinePipe({ name: "nguiHighlight", type: NguiHighlightPipe, pure: true });
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NguiHighlightPipe, [{
+        type: Pipe,
+        args: [{ name: 'nguiHighlight' }]
+    }], null, null); })();
 
 /**
  * window.konsole alternative
@@ -1024,270 +1167,12 @@ konsole.logLevel = 'INFO';
 // konsole.warn('no');
 // konsole.error('yes');
 
-let NguiUtilsModule = class NguiUtilsModule {
-};
+class NguiUtilsModule {
+}
 NguiUtilsModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NguiUtilsModule });
 NguiUtilsModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NguiUtilsModule_Factory(t) { return new (t || NguiUtilsModule)(); }, providers: [DynamicComponentService], imports: [[
             CommonModule
         ]] });
-
-let NguiCommonModule = class NguiCommonModule {
-};
-NguiCommonModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NguiCommonModule });
-NguiCommonModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NguiCommonModule_Factory(t) { return new (t || NguiCommonModule)(); }, imports: [[
-            NguiInviewModule,
-            NguiListModule,
-            NguiUtilsModule
-        ],
-        NguiInviewModule,
-        NguiListModule,
-        NguiUtilsModule] });
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NguiInviewComponent, [{
-        type: Component,
-        args: [{
-                selector: 'ngui-inview',
-                template: `
-        <ng-container *ngIf="isInview" [ngTemplateOutlet]="template">
-        </ng-container>
-    `,
-                styles: [':host {display: block;}']
-            }]
-    }], function () { return [{ type: ɵngcc0.ElementRef }, { type: undefined, decorators: [{
-                type: Inject,
-                args: [PLATFORM_ID]
-            }] }]; }, { observerOptions: [{
-            type: Input
-        }], blurEnabled: [{
-            type: Input
-        }], inview: [{
-            type: Output
-        }], notInview: [{
-            type: Output
-        }], template: [{
-            type: ContentChild,
-            args: [TemplateRef, { static: true }]
-        }], options: [{
-            type: Input
-        }] }); })();
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NguiInviewDirective, [{
-        type: Directive,
-        args: [{
-                selector: '[nguiInview], [nguiOutview]' // tslint:disable-line
-            }]
-    }], function () { return [{ type: ɵngcc0.ElementRef }, { type: undefined, decorators: [{
-                type: Inject,
-                args: [PLATFORM_ID]
-            }] }]; }, { observerOptions: [{
-            type: Input
-        }], nguiInview: [{
-            type: Output
-        }], nguiOutview: [{
-            type: Output
-        }], options: [{
-            type: Input
-        }] }); })();
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NguiInviewModule, { declarations: function () { return [NguiInviewComponent,
-        NguiInviewDirective]; }, imports: function () { return [CommonModule]; }, exports: function () { return [NguiInviewComponent,
-        NguiInviewDirective]; } }); })();
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NguiInviewModule, [{
-        type: NgModule,
-        args: [{
-                imports: [
-                    CommonModule
-                ],
-                declarations: [
-                    NguiInviewComponent,
-                    NguiInviewDirective
-                ],
-                exports: [
-                    NguiInviewComponent,
-                    NguiInviewDirective
-                ]
-            }]
-    }], null, null); })();
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(DynamicComponentService, [{
-        type: Injectable
-    }], function () { return [{ type: undefined, decorators: [{
-                type: Inject,
-                args: [ComponentFactoryResolver]
-            }] }]; }, null); })();
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NguiInviewPageComponent, [{
-        type: Component,
-        args: [{
-                selector: 'ngui-inview-page',
-                template: `
-    <div class="inview-page contents"
-      (nguiInview)="restoreItems()"
-      (nguiOutview)="emptyItems()">
-      <!-- add blank ngui-list-item by condition  -->
-      <!-- no match found ngui-list-item by condition -->
-      <ng-container
-        [ngTemplateOutlet]="template||defaultTemplate"
-        [ngTemplateOutletContext]="{items: items, outView: outView}">
-      </ng-container>
-      <div *ngIf="outView">{{ itemsBackup.length }} items hidden</div>
-    </div>
-
-    <ng-template #defaultTemplate>
-      <div *ngIf="!items"> Error: requires [items] </div>
-      <div *ngIf="!template"> Error: requires &lt;ng-template></div>
-    </ng-template>
-  `,
-                styles: [`
-    :host {display: block}
-  `]
-            }]
-    }], function () { return [{ type: ɵngcc0.ElementRef }, { type: ɵngcc0.Renderer2 }, { type: ɵngcc0.ChangeDetectorRef }]; }, { items: [{
-            type: Input
-        }], template: [{
-            type: ContentChild,
-            args: [TemplateRef, { static: true }]
-        }] }); })();
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NguiVirtualListComponent, [{
-        type: Component,
-        args: [{
-                selector: 'ngui-virtual-list',
-                template: `
-    <div class="ngui-virtual-list"
-      (focus)="_focused = true"
-      (click)="_focused = true">
-      <!-- hold multiple <ngui-inview-page> -->
-      <div #pages></div>
-      <!-- insert <ngui-inview-page> into #pages -->
-    </div>
-    <ngui-inview (inview)="addAnInviewPageToPages()"></ngui-inview>
-  `,
-                styles: [`
-    :host {display: block}
-  `]
-            }]
-    }], function () { return [{ type: ɵngcc0.Renderer2 }, { type: ɵngcc0.ElementRef }, { type: DynamicComponentService }, { type: ɵngcc0.ChangeDetectorRef }]; }, { selected: [{
-            type: Output
-        }], escaped: [{
-            type: Output
-        }], bottomInview: [{
-            type: Output
-        }], pagesRef: [{
-            type: ViewChild,
-            args: ['pages', { read: ViewContainerRef }]
-        }], template: [{
-            type: ContentChild,
-            args: [TemplateRef]
-        }] }); })();
-const ɵNguiAutocompleteComponent_BaseFactory = ɵngcc0.ɵɵgetInheritedFactory(NguiAutocompleteComponent);
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NguiAutocompleteComponent, [{
-        type: Component,
-        args: [{
-                selector: 'ngui-autocomplete',
-                template: `
-    <ng-container *ngIf="isReady">
-      <div class="ngui-autocomplete">
-        <div #pages></div>
-      </div>
-      <ngui-inview (inview)="addMorePages()"></ngui-inview>
-    </ng-container>
-  `,
-                styles: [`
-    :host {position: absolute; background-color: #fff; max-height: 300px; overflow: auto}
-    .ngui-autocomplete { border: 1px solid #ccc; padding: 4px }
-  `]
-            }]
-    }], null, { minInputChars: [{
-            type: Input
-        }], blankOption: [{
-            type: Input
-        }], noMatchItem: [{
-            type: Input
-        }], for: [{
-            type: Input
-        }], template: [{
-            type: ContentChild,
-            args: [TemplateRef]
-        }] }); })();
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NguiListDirective, [{
-        type: Directive,
-        args: [{
-                selector: 'ngui-list' // tslint:disable-line
-            }]
-    }], function () { return [{ type: ɵngcc0.ElementRef }]; }, { selected: [{
-            type: Output
-        }], escaped: [{
-            type: Output
-        }] }); })();
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NguiListItemDirective, [{
-        type: Directive,
-        args: [{
-                selector: 'ngui-list-item' // tslint:disable-line
-            }]
-    }], function () { return [{ type: ɵngcc0.ElementRef }, { type: ɵngcc0.Renderer2 }, { type: ɵngcc0.ViewContainerRef }, { type: NguiListDirective, decorators: [{
-                type: Optional
-            }, {
-                type: Host
-            }] }, { type: NguiVirtualListComponent, decorators: [{
-                type: Optional
-            }, {
-                type: Host
-            }] }, { type: NguiAutocompleteComponent, decorators: [{
-                type: Optional
-            }, {
-                type: Host
-            }] }]; }, { keydown: [{
-            type: HostListener,
-            args: ['keydown', ['$event']]
-        }], keyup: [{
-            type: HostListener,
-            args: ['keyup', ['$event']]
-        }], mousedown: [{
-            type: HostListener,
-            args: ['click', ['$event']]
-        }], focused: [{
-            type: HostListener,
-            args: ['focus', ['$event']]
-        }], blurred: [{
-            type: HostListener,
-            args: ['blur', ['$event']]
-        }], object: [{
-            type: Input,
-            args: ['item']
-        }] }); })();
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NguiListModule, { declarations: function () { return [NguiAutocompleteComponent,
-        NguiInviewPageComponent,
-        NguiListDirective,
-        NguiListItemDirective,
-        NguiVirtualListComponent]; }, imports: function () { return [CommonModule,
-        NguiInviewModule]; }, exports: function () { return [NguiAutocompleteComponent,
-        NguiInviewPageComponent,
-        NguiListDirective,
-        NguiListItemDirective,
-        NguiVirtualListComponent]; } }); })();
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NguiListModule, [{
-        type: NgModule,
-        args: [{
-                imports: [
-                    CommonModule,
-                    NguiInviewModule
-                ],
-                declarations: [
-                    NguiAutocompleteComponent,
-                    NguiInviewPageComponent,
-                    NguiListDirective,
-                    NguiListItemDirective,
-                    NguiVirtualListComponent
-                ],
-                exports: [
-                    NguiAutocompleteComponent,
-                    NguiInviewPageComponent,
-                    NguiListDirective,
-                    NguiListItemDirective,
-                    NguiVirtualListComponent
-                ],
-                entryComponents: [NguiInviewPageComponent]
-            }]
-    }], null, null); })();
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NguiHighlightPipe, [{
-        type: Pipe,
-        args: [{ name: 'nguiHighlight' }]
-    }], null, null); })();
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NguiUtilsModule, { declarations: function () { return [NguiHighlightPipe]; }, imports: function () { return [CommonModule]; }, exports: function () { return [NguiHighlightPipe]; } }); })();
 /*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NguiUtilsModule, [{
         type: NgModule,
@@ -1300,11 +1185,16 @@ const ɵNguiAutocompleteComponent_BaseFactory = ɵngcc0.ɵɵgetInheritedFactory(
                 providers: [DynamicComponentService]
             }]
     }], null, null); })();
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NguiCommonModule, { imports: [NguiInviewModule,
-        NguiListModule,
-        NguiUtilsModule], exports: [NguiInviewModule,
-        NguiListModule,
-        NguiUtilsModule] }); })();
+
+class NguiCommonModule {
+}
+NguiCommonModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NguiCommonModule });
+NguiCommonModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NguiCommonModule_Factory(t) { return new (t || NguiCommonModule)(); }, imports: [[
+            NguiInviewModule,
+            NguiListModule,
+            NguiUtilsModule
+        ], NguiInviewModule, NguiListModule, NguiUtilsModule] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NguiCommonModule, { imports: [NguiInviewModule, NguiListModule, NguiUtilsModule], exports: [NguiInviewModule, NguiListModule, NguiUtilsModule] }); })();
 /*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NguiCommonModule, [{
         type: NgModule,
         args: [{

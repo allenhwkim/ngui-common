@@ -27,24 +27,24 @@
     "@angular/core": ">6.0.0"
   },
   "dependencies": {
-    "tslib": "^1.10.0"
+    "tslib": "^2.0.0"
   },
   "main": "bundles/ngui-common.umd.js",
-  "module": "fesm5/ngui-common.js",
+  "module_ivy_ngcc": "__ivy_ngcc__/fesm2015/ngui-common.js",
+  "module": "fesm2015/ngui-common.js",
   "es2015_ivy_ngcc": "__ivy_ngcc__/fesm2015/ngui-common.js",
   "es2015": "fesm2015/ngui-common.js",
-  "esm5": "esm5/ngui-common.js",
   "esm2015": "esm2015/ngui-common.js",
-  "fesm5": "fesm5/ngui-common.js",
   "fesm2015_ivy_ngcc": "__ivy_ngcc__/fesm2015/ngui-common.js",
   "fesm2015": "fesm2015/ngui-common.js",
   "typings": "ngui-common.d.ts",
   "metadata": "ngui-common.metadata.json",
   "sideEffects": false,
   "__processed_by_ivy_ngcc__": {
-    "es2015": "9.1.12",
-    "fesm2015": "9.1.12",
-    "typings": "9.1.12"
+    "es2015": "10.0.7",
+    "fesm2015": "10.0.7",
+    "module": "10.0.7",
+    "typings": "10.0.7"
   },
   "scripts": {
     "prepublishOnly": "node --eval \"console.error('ERROR: Trying to publish a package that has been compiled by NGCC. This is not allowed.\\nPlease delete and rebuild the package, without compiling with NGCC, before attempting to publish.\\nNote that NGCC may have been run by importing this package into another project that is being built with Ivy enabled.\\n')\" && exit 1"

@@ -7,4 +7,4 @@ export declare class NguiCommonModule {
     static ɵinj: ɵngcc0.ɵɵInjectorDef<NguiCommonModule>;
 }
 
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibmd1aS1jb21tb24ubW9kdWxlLmQudHMiLCJzb3VyY2VzIjpbIm5ndWktY29tbW9uLm1vZHVsZS5kLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7QUFBQTs7O0FBQ0EiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgZGVjbGFyZSBjbGFzcyBOZ3VpQ29tbW9uTW9kdWxlIHtcclxufVxyXG4iXX0=
+//# sourceMappingURL=ngui-common.module.d.ts.map
