@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2020-08-03T10:40:44.471Z",
-    "end": "2020-08-03T10:40:49.969Z",
-    "duration": 5498,
+    "start": "2020-08-03T13:09:44.623Z",
+    "end": "2020-08-03T13:09:50.639Z",
+    "duration": 6016,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "827731f9-90b6-4a07-b241-b53216764cc0",
+      "uuid": "7ef662d8-9e7a-40ca-945f-fa529cc439a7",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "9a505aaf-418b-487b-b9b6-831449927d2d",
+          "uuid": "f1010c9f-7d7c-473d-bdb2-f811b25146a0",
           "title": "My First Test",
           "fullFile": "C:\\Users\\PC1\\PhpstormProjects\\ngui-common\\test\\acceptance\\my-first-codecept-test.js",
           "file": "\\test\\acceptance\\my-first-codecept-test.js",
@@ -45,8 +45,8 @@
               "context": null,
               "code": "scenario.suiteSetup(suite)",
               "err": {},
-              "uuid": "42115a0f-984e-4f78-bd16-e26b8f9decc3",
-              "parentUUID": "9a505aaf-418b-487b-b9b6-831449927d2d",
+              "uuid": "071177fa-017a-4240-81b8-76ab5f1f6759",
+              "parentUUID": "f1010c9f-7d7c-473d-bdb2-f811b25146a0",
               "isHook": true,
               "skipped": false
             },
@@ -54,7 +54,7 @@
               "title": "\"before each\" hook: codeceptjs.before",
               "fullTitle": "My First Test \"before each\" hook: codeceptjs.before",
               "timedOut": false,
-              "duration": 1414,
+              "duration": 1632,
               "state": null,
               "speed": null,
               "pass": false,
@@ -63,8 +63,8 @@
               "context": null,
               "code": "scenario.setup(suite)",
               "err": {},
-              "uuid": "3a27c20f-9450-4110-966c-a1e1d8f4723d",
-              "parentUUID": "9a505aaf-418b-487b-b9b6-831449927d2d",
+              "uuid": "39d2b492-506b-4bf6-89e0-1cfe8b34929b",
+              "parentUUID": "f1010c9f-7d7c-473d-bdb2-f811b25146a0",
               "isHook": true,
               "skipped": false
             }
@@ -83,8 +83,8 @@
               "context": null,
               "code": "scenario.suiteTeardown(suite)",
               "err": {},
-              "uuid": "2fa4994a-6ece-4aa0-b1ad-b82c8fb4dda2",
-              "parentUUID": "9a505aaf-418b-487b-b9b6-831449927d2d",
+              "uuid": "91a77497-13bf-4936-b756-5fb648de93ad",
+              "parentUUID": "f1010c9f-7d7c-473d-bdb2-f811b25146a0",
               "isHook": true,
               "skipped": false
             },
@@ -92,7 +92,7 @@
               "title": "\"after each\" hook: finalize codeceptjs",
               "fullTitle": "My First Test \"after each\" hook: finalize codeceptjs",
               "timedOut": false,
-              "duration": 199,
+              "duration": 969,
               "state": null,
               "speed": null,
               "pass": false,
@@ -101,8 +101,8 @@
               "context": null,
               "code": "scenario.teardown(suite)",
               "err": {},
-              "uuid": "38048ab0-a371-4893-8016-b08d5106f119",
-              "parentUUID": "9a505aaf-418b-487b-b9b6-831449927d2d",
+              "uuid": "5277da47-c969-4b3a-9f9f-c2b4506dc935",
+              "parentUUID": "f1010c9f-7d7c-473d-bdb2-f811b25146a0",
               "isHook": true,
               "skipped": false
             }
@@ -112,7 +112,7 @@
               "title": "test something",
               "fullTitle": "My First Test: test something",
               "timedOut": false,
-              "duration": 3873,
+              "duration": 3402,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -121,20 +121,20 @@
               "context": null,
               "code": "I.amOnPage('/');\nI.see('Test Page');",
               "err": {},
-              "uuid": "848ae623-0deb-47c7-8dc0-580c69029566",
-              "parentUUID": "9a505aaf-418b-487b-b9b6-831449927d2d",
+              "uuid": "14519493-7f0d-423a-9a0b-346d35a42dcc",
+              "parentUUID": "f1010c9f-7d7c-473d-bdb2-f811b25146a0",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "848ae623-0deb-47c7-8dc0-580c69029566"
+            "14519493-7f0d-423a-9a0b-346d35a42dcc"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 3873,
+          "duration": 3402,
           "root": false,
           "rootEmpty": false,
           "_timeout": 0
