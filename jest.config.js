@@ -16,6 +16,9 @@ module.exports = {
   },
   "preset": "jest-preset-angular",
   "setupFilesAfterEnv": ["<rootDir>/test/jest-setup.ts"],
+  "transform": {
+    "\\.(html|ts)$": "ts-jest"
+  },
   "globals": {
     "ts-jest": {
       "tsConfig": "tsconfig.json",
@@ -34,6 +37,13 @@ module.exports = {
   "transformIgnorePatterns": [
     "node_modules/(?!(jest-test))"
   ],
-  "testResultsProcessor": "./node_modules/jest-html-reporter"
+  "reporters": [
+    "default",
+    ["./node_modules/jest-html-reporter", {
+      "pageTitle": "Test Report",
+      "outputPath": "test-report.html",
+      "includeFailureMsg": true
+    }]
+  ]
 };
 
