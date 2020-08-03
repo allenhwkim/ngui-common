@@ -32,7 +32,7 @@ import { delay } from 'rxjs/operators';
 })
 export class VirtualListComponent {
 
-  @ViewChild('autocomplete') autocomplete: NguiVirtualListComponent;
+  @ViewChild('autocomplete', { static: false }) autocomplete: NguiVirtualListComponent;
 
   get numDomElements(): number {
     return this.element.nativeElement.querySelectorAll('*').length;

@@ -15,16 +15,15 @@ module.exports = {
     }
   },
   "preset": "jest-preset-angular",
-  "setupTestFrameworkScriptFile": "<rootDir>/test/jest-setup.ts",
+  "setupFilesAfterEnv": ["<rootDir>/test/jest-setup.ts"],
   "globals": {
-    "__TRANSFORM_HTML__": true,
     "ts-jest": {
-      "tsConfigFile": "tsconfig.json",
-      "useBabelrc": true
+      "tsConfig": "tsconfig.json",
+      "stringifyContentPathRegex": /\.html$/
     }
   },
   "testMatch": [
-    "**/+(*.)+(spec).+(ts|js)?(x)"
+    "**/*.spec.ts"
   ],
   "moduleFileExtensions": [
     "ts",

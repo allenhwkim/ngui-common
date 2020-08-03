@@ -53,7 +53,7 @@ import {
 export class NguiInviewPageComponent implements OnInit, OnDestroy {
 
   /** Allow users to change the contents */
-  @ContentChild(TemplateRef) template: TemplateRef<any>;
+  @ContentChild(TemplateRef, {static: true}) template: TemplateRef<any>;
   // @Input('template') template: TemplateRef<any>;
 
   /** List of elements that are used to render this element */

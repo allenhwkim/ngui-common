@@ -30,7 +30,7 @@ import { delay } from 'rxjs/operators';
 })
 export class AutocompleteComponent {
 
-  @ViewChild('autocomplete') autocomplete: NguiAutocompleteComponent;
+  @ViewChild('autocomplete', { static: true }) autocomplete: NguiAutocompleteComponent;
 
   numPage = 0;
   search = new FormControl();

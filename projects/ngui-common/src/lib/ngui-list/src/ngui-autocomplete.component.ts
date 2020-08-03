@@ -32,7 +32,7 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
   @Input() noMatchItem = 'No Match Found';
 
   /** Template of NguiInviewPage. Allow users to define their own template  */
-  @ContentChild(TemplateRef) template: TemplateRef<any>;
+  @ContentChild(TemplateRef, {static: false}) template: TemplateRef<any>;
 
   inputEl: HTMLInputElement;
   _focused: any = {input: false, listItem: false};

@@ -34,7 +34,7 @@ export class MyDynamicComponent {
   `]
 })
 export class DynamicComponentServiceTestComponent {
-  @ViewChild('dynamic', {read: ViewContainerRef}) containerRef: ViewContainerRef;
+  @ViewChild('dynamic', { read: ViewContainerRef, static: true }) containerRef: ViewContainerRef;
 
   constructor(public dcs: DynamicComponentService) {}
 
