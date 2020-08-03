@@ -13,9 +13,9 @@ class MockElementRef extends ElementRef {
 
 @Component({
   template: `
-    <ngui-list 
-      (selected)="onSelected($event)" 
-      (escaped)="onEscaped($event)">
+    <ngui-list
+      (selected)="onSelected()"
+      (escaped)="onEscaped()">
     </ngui-list>
   `
 })
@@ -47,5 +47,5 @@ describe('NguiListDirective', () => {
     expect(component).toBeTruthy();
     expect(directive).toBeTruthy();
   }));
-  
+
 });

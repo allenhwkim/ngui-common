@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/ngui-common-app",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -28,6 +29,14 @@
           },
           "configurations": {
             "production": {
+              "budgets": [{
+                "type": "anyComponentStyle",
+                "maximumWarning": "6kb"
+              }, {
+                "type": "initial",
+                "maximumWarning": "2mb",
+                "maximumError": "5mb"
+              }],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -85,8 +94,9 @@
           },
           "configurations": {
             "production": {
-              "project": "projects/ngui-common/ng-package.prod.json"
-            }
+              "project": "projects/ngui-common/ng-package.prod.json",
+              "tsConfig": "projects/ngui-common/tsconfig.lib.prod.json"
+}
           }
         },
         "lint": {

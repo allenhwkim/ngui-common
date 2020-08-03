@@ -1,4 +1,4 @@
-import { DynamicComponentService } from './dynamic-component.service';
+import {DynamicComponentService} from './dynamic-component.service';
 import 'jest';
 
 // For http test, look at this. https://izifortune.com/unit-testing-angular-applications-with-jest/
@@ -6,8 +6,8 @@ import 'jest';
 describe('DynamicComponentService', () => {
   let service;
   const aFactory = {
-      create: jest.fn()
-    };
+    create: jest.fn()
+  };
 
   const factoryResolver = {
     resolveComponentFactory: () => aFactory
@@ -28,7 +28,7 @@ describe('DynamicComponentService', () => {
   it('should run #insertComponent', () => {
     const component = {
       location: {
-        nativeElement: { setAttribute: jest.fn() }
+        nativeElement: {setAttribute: jest.fn()}
       },
       instance: {}
     };

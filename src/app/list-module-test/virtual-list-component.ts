@@ -12,7 +12,7 @@ import { delay } from 'rxjs/operators';
     <ngui-virtual-list (bottomInview)="loadItems($event)">
       <ng-template let-items="items">
         <div *ngIf="!items">Loading</div>
-        <ngui-list-item *ngFor="let num of items; trackBy: num">
+        <ngui-list-item *ngFor="let num of items">
           row number: {{ num }}
         </ngui-list-item>
       </ng-template>
@@ -32,7 +32,7 @@ import { delay } from 'rxjs/operators';
 })
 export class VirtualListComponent {
 
-  @ViewChild('autocomplete', { static: false }) autocomplete: NguiVirtualListComponent;
+  @ViewChild('autocomplete') autocomplete: NguiVirtualListComponent;
 
   get numDomElements(): number {
     return this.element.nativeElement.querySelectorAll('*').length;

@@ -15,10 +15,12 @@ import {fromEvent} from 'rxjs';
 @Component({
   selector: 'ngui-autocomplete',
   template: `
-    <div *ngIf="isReady" class="ngui-autocomplete">
-      <div #pages></div>
+    <ng-container *ngIf="isReady">
+      <div class="ngui-autocomplete">
+        <div #pages></div>
+      </div>
       <ngui-inview (inview)="addMorePages()"></ngui-inview>
-    </div>
+    </ng-container>
   `,
   styles: [`
     :host {position: absolute; background-color: #fff; max-height: 300px; overflow: auto}
@@ -32,7 +34,7 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
   @Input() noMatchItem = 'No Match Found';
 
   /** Template of NguiInviewPage. Allow users to define their own template  */
-  @ContentChild(TemplateRef, {static: false}) template: TemplateRef<any>;
+  @ContentChild(TemplateRef) template: TemplateRef<any>;
 
   inputEl: HTMLInputElement;
   _focused: any = {input: false, listItem: false};

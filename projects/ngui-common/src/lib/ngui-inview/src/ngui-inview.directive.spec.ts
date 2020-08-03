@@ -23,15 +23,15 @@ class MockElementRef extends ElementRef {
   template: `
     <div
       [observerOptions]="observerOptions"
-      (nguiInview)="onNguiInview($event)"
-      (nguiOutview)="onNguiOutview($event)">
+      (nguiInview)="onNguiInview()"
+      (nguiOutview)="onNguiOutview()">
     </div>
   `
 })
 class DirectiveTestComponent {
   observerOptions: IntersectionObserverInit;
   onNguiInview(): void {/* */}
-  onNguiOutvie(): void {/* */}
+  onNguiOutview(): void {/* */}
 }
 
 describe('NguiInviewDirective', () => {

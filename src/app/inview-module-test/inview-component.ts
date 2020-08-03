@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import {Component, ElementRef} from '@angular/core';
 
 @Component({
   template: `
@@ -8,7 +8,9 @@ import { Component, ElementRef } from '@angular/core';
     <hr/>
 
     <div *ngFor="let i of numArr">
-      <ngui-inview> <!-- only displays when this is in viewport -->
+      <ngui-inview
+        (inview)="updateImageCount()"
+      > <!-- only displays when this is in viewport -->
         <img *ngIf src="https://picsum.photos/800/300?image={{i}}" height="33%">
       </ngui-inview>
     </div>
@@ -28,13 +30,12 @@ import { Component, ElementRef } from '@angular/core';
   `]
 })
 export class InviewComponent {
-  get numImages(): number {
-    return this.element.nativeElement.querySelectorAll('img').length;
-  }
-
+  numImages = 0;
   numArr = Array.from(Array(100), (_, x) => x);
-  trackBy = (index, item) => item;
 
   constructor(public element: ElementRef) {}
 
+  updateImageCount() {
+    this.numImages = this.element.nativeElement.querySelectorAll('img').length;
+  }
 }

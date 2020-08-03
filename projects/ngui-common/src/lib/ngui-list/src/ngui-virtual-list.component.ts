@@ -48,8 +48,8 @@ import { NguiInviewPageComponent } from './ngui-inview-page.component';
       <!-- hold multiple <ngui-inview-page> -->
       <div #pages></div>
       <!-- insert <ngui-inview-page> into #pages -->
-      <ngui-inview (inview)="addAnInviewPageToPages()"></ngui-inview>
     </div>
+    <ngui-inview (inview)="addAnInviewPageToPages()"></ngui-inview>
   `,
   styles: [`
     :host {display: block}
@@ -58,9 +58,9 @@ import { NguiInviewPageComponent } from './ngui-inview-page.component';
 export class NguiVirtualListComponent implements AfterViewInit {
 
   /** the container NguiInviewPage will be inserted */
-  @ViewChild('pages', { read: ViewContainerRef, static: false }) pagesRef: ViewContainerRef;
+  @ViewChild('pages', { read: ViewContainerRef }) pagesRef: ViewContainerRef;
   /** Template of NguiInviewPage. Allow users to define their own template  */
-  @ContentChild(TemplateRef, {static: false}) template: TemplateRef<any>;
+  @ContentChild(TemplateRef) template: TemplateRef<any>;
   /** Fired when child `<ngui-list-item>` is selected */
   @Output() selected: EventEmitter<any> = new EventEmitter();
   /** Fired when `ESC` key is pressed from `<ngui-list-item>` */
