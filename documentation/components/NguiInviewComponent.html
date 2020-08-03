@@ -66,11 +66,10 @@
     </p>
     <p class="comment">
         <p>An element that listens to viewport positioning and fires inView and notInview events</p>
-<h3 id="example">example</h3>
-<div><pre class="line-numbers"><code class="language-ts"> * &lt;ngui-inview [observerOptions]=&quot;myObserverOptions&quot; (inview)=&quot;doA()&quot; (notInview)=&quot;doB()&quot;&gt;
- *   &lt;img *ngIf src=&quot;https://picsum.photos/800/300?image=1&gt;
- * &lt;/ngui-inview&gt;
- *</code></pre></div>
+<h3 id="example">Example</h3>
+<div><pre class="line-numbers"><code class="language-ts"> &lt;ngui-inview [observerOptions]=&quot;myObserverOptions&quot; (inview)=&quot;doA()&quot; (notInview)=&quot;doB()&quot;&gt;
+   &lt;img *ngIf src=&quot;https://picsum.photos/800/300?image=1&gt;
+ &lt;/ngui-inview&gt;</code></pre></div>
     </p>
 
 
@@ -78,8 +77,8 @@
         <h3>Implements</h3>
     </p>
     <p class="comment">
-                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
-                <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
     </p>
 
 
@@ -257,7 +256,7 @@
                                                         <td>element</td>
                                                   
                                                         <td>
-                                                                    <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+                                                                        <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -269,7 +268,7 @@
                                                         <td>platformId</td>
                                                   
                                                         <td>
-                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                                        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -291,17 +290,14 @@
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
-                    <td class="col-md-2">
+                    <td class="col-md-4">
                         <a name="blurEnabled"></a>
-                        <code>blurEnabled</code>
+                        <b>blurEnabled</b>
                     </td>
-                    <td class="col-md-10">
-                        <div><p>Controls whether blur effect is applied to a component with less than 80% intersection ratio.
-Only applies when there are no &quot;inview&quot; event handlers defined.</p>
-</div>
-                        <p>
-                            <em>Default value : </em><code>true</code>
-                        </p>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
                     </td>
                 </tr>
                         <tr>
@@ -309,25 +305,32 @@ Only applies when there are no &quot;inview&quot; event handlers defined.</p>
                                     <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/ngui-common/src/lib/ngui-inview/src/ngui-inview.component.ts:46</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Controls whether blur effect is applied to a component with less than 80% intersection ratio.
+Only applies when there are no &quot;inview&quot; event handlers defined.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
-                    <td class="col-md-2">
+                    <td class="col-md-4">
                         <a name="observerOptions"></a>
-                        <code>observerOptions</code>
+                        <b>observerOptions</b>
                     </td>
-                    <td class="col-md-10">
-                        <div><p>IntersectionObserver options </p>
-</div>
-                            <p>
-                            <em>Type :</em>    <code>IntersectionObserverInit</code>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>IntersectionObserverInit</code>
 
-                            </p>
-                        <p>
-                            <em>Default value : </em><code>{threshold: [.1, .2, .3, .4, .5, .6, .7, .8]}</code>
-                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{threshold: [.1, .2, .3, .4, .5, .6, .7, .8]}</code>
                     </td>
                 </tr>
                         <tr>
@@ -335,22 +338,26 @@ Only applies when there are no &quot;inview&quot; event handlers defined.</p>
                                     <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/ngui-common/src/lib/ngui-inview/src/ngui-inview.component.ts:39</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>IntersectionObserver options </p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
-                    <td class="col-md-2">
+                    <td class="col-md-4">
                         <a name="options"></a>
-                        <code>options</code>
+                        <b>options</b>
                     </td>
-                    <td class="col-md-10">
-                        <div><p>Deprecated config. Use <code>observerOptions</code> instead.</p>
-</div>
-                            <p>
-                            <em>Type :</em>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
-                            </p>
                     </td>
                 </tr>
                         <tr>
@@ -358,6 +365,12 @@ Only applies when there are no &quot;inview&quot; event handlers defined.</p>
                                     <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">projects/ngui-common/src/lib/ngui-inview/src/ngui-inview.component.ts:42</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Deprecated config. Use <code>observerOptions</code> instead.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -366,12 +379,14 @@ Only applies when there are no &quot;inview&quot; event handlers defined.</p>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
-                    <td class="col-md-2">
+                    <td class="col-md-4">
                         <a name="inview"></a>
-                        <code>inview</code>
+                        <b>inview</b>
                     </td>
-                    <td class="col-md-10">
-                        <em><code>$event</code> Type:</em>    <code>EventEmitter&lt;IntersectionObserverEntry&gt;</code>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;IntersectionObserverEntry&gt;</code>
 
                     </td>
                 </tr>
@@ -385,12 +400,14 @@ Only applies when there are no &quot;inview&quot; event handlers defined.</p>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
-                    <td class="col-md-2">
+                    <td class="col-md-4">
                         <a name="notInview"></a>
-                        <code>notInview</code>
+                        <b>notInview</b>
                     </td>
-                    <td class="col-md-10">
-                        <em><code>$event</code> Type:</em>    <code>EventEmitter&lt;IntersectionObserverEntry&gt;</code>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;IntersectionObserverEntry&gt;</code>
 
                     </td>
                 </tr>
@@ -406,226 +423,229 @@ Only applies when there are no &quot;inview&quot; event handlers defined.</p>
 
     <section>
     
-        <h3 id="methods">
-            Methods
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="defaultInviewHandler"></a>
-                        <span class="name">
-                            <b>
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defaultInviewHandler"></a>
+                    <span class="name">
+                        <b>
                             defaultInviewHandler
-                            </b>
-                            <a href="#defaultInviewHandler"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
+                        </b>
+                        <a href="#defaultInviewHandler"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
 <code>defaultInviewHandler(entry)</code>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">projects/ngui-common/src/lib/ngui-inview/src/ngui-inview.component.ts:96</a></div>
-                            </td>
-                        </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="96"
+                            class="link-to-prism">projects/ngui-common/src/lib/ngui-inview/src/ngui-inview.component.ts:96</a></div>
+                </td>
+            </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>default intersection handler, which sets blur dependes on intersection ratio
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>default intersection handler, which sets blur dependes on intersection ratio
 this won&#39;t be invoked if user provides any (inview) event. e.g. (inview)=&quot;something()&quot;</p>
 </div>
 
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>entry</td>
-                                                    
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>entry</td>
 
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    <td>
+                                        No
+                                    </td>
 
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="handleIntersect"></a>
-                        <span class="name">
-                            <b>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleIntersect"></a>
+                    <span class="name">
+                        <b>
                             handleIntersect
-                            </b>
-                            <a href="#handleIntersect"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
+                        </b>
+                        <a href="#handleIntersect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
 <code>handleIntersect(entries)</code>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">projects/ngui-common/src/lib/ngui-inview/src/ngui-inview.component.ts:80</a></div>
-                            </td>
-                        </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="80"
+                            class="link-to-prism">projects/ngui-common/src/lib/ngui-inview/src/ngui-inview.component.ts:80</a></div>
+                </td>
+            </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>fires (inview) and (notInview) events when this component is visible or not visible  </p>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>fires (inview) and (notInview) events when this component is visible or not visible  </p>
 </div>
 
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>entries</td>
-                                                    
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>entries</td>
 
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                    <td>
+                                        No
+                                    </td>
 
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="ngOnDestroy"></a>
-                        <span class="name">
-                            <b>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <b>
                             ngOnDestroy
-                            </b>
-                            <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
+                        </b>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
 <code>ngOnDestroy()</code>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">projects/ngui-common/src/lib/ngui-inview/src/ngui-inview.component.ts:75</a></div>
-                            </td>
-                        </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">projects/ngui-common/src/lib/ngui-inview/src/ngui-inview.component.ts:75</a></div>
+                </td>
+            </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>stop IntersectionObserver </p>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>stop IntersectionObserver </p>
 </div>
 
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="ngOnInit"></a>
-                        <span class="name">
-                            <b>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
                             ngOnInit
-                            </b>
-                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
 <code>ngOnInit()</code>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">projects/ngui-common/src/lib/ngui-inview/src/ngui-inview.component.ts:63</a></div>
-                            </td>
-                        </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">projects/ngui-common/src/lib/ngui-inview/src/ngui-inview.component.ts:63</a></div>
+                </td>
+            </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Starts IntersectionObserver </p>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Starts IntersectionObserver </p>
 </div>
 
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
-
     <section>
     
         <h3 id="inputs">
@@ -638,16 +658,9 @@ this won&#39;t be invoked if user provides any (inview) event. e.g. (inview)=&qu
                         <a name="isInview"></a>
                         <span class="name">
                             <b>
-                            isInview
-                            </b>
+                            isInview</b>
                             <a href="#isInview"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>isInview:     <code></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -677,16 +690,9 @@ this won&#39;t be invoked if user provides any (inview) event. e.g. (inview)=&qu
                         <a name="observer"></a>
                         <span class="name">
                             <b>
-                            observer
-                            </b>
+                            observer</b>
                             <a href="#observer"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>observer:     <code>IntersectionObserver</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -711,16 +717,9 @@ this won&#39;t be invoked if user provides any (inview) event. e.g. (inview)=&qu
                         <a name="once80PctVisible"></a>
                         <span class="name">
                             <b>
-                            once80PctVisible
-                            </b>
+                            once80PctVisible</b>
                             <a href="#once80PctVisible"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>once80PctVisible:     <code></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -750,16 +749,9 @@ this won&#39;t be invoked if user provides any (inview) event. e.g. (inview)=&qu
                         <a name="template"></a>
                         <span class="name">
                             <b>
-                            template
-                            </b>
+                            template</b>
                             <a href="#template"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>template:     <code>TemplateRef&lt;any&gt;</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -773,7 +765,7 @@ this won&#39;t be invoked if user provides any (inview) event. e.g. (inview)=&qu
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ContentChild(TemplateRef)<br />
+                                @ContentChild(TemplateRef, {static: true})<br />
                             </code>
                         </td>
                     </tr>
@@ -815,13 +807,13 @@ this won&#39;t be invoked if user provides any (inview) event. e.g. (inview)=&qu
 import {isPlatformBrowser} from &#x27;@angular/common&#x27;;
 
 /**
- * An element that listens to viewport positioning and fires inView and notInview events
- * ### example
- * &#x60;&#x60;&#x60;ts
- * &lt;ngui-inview [observerOptions]&#x3D;&quot;myObserverOptions&quot; (inview)&#x3D;&quot;doA()&quot; (notInview)&#x3D;&quot;doB()&quot;&gt;
- *   &lt;img *ngIf src&#x3D;&quot;https://picsum.photos/800/300?image&#x3D;1&gt;
- * &lt;/ngui-inview&gt;
- * &#x60;&#x60;&#x60;
+ An element that listens to viewport positioning and fires inView and notInview events
+ ### Example
+ &#x60;&#x60;&#x60;ts
+ &lt;ngui-inview [observerOptions]&#x3D;&quot;myObserverOptions&quot; (inview)&#x3D;&quot;doA()&quot; (notInview)&#x3D;&quot;doB()&quot;&gt;
+   &lt;img *ngIf src&#x3D;&quot;https://picsum.photos/800/300?image&#x3D;1&gt;
+ &lt;/ngui-inview&gt;
+ &#x60;&#x60;&#x60;
  */
 @Component({
   selector: &#x27;ngui-inview&#x27;,
@@ -833,7 +825,7 @@ import {isPlatformBrowser} from &#x27;@angular/common&#x27;;
 })
 export class NguiInviewComponent implements OnInit, OnDestroy {
     /** &lt;ng-template&gt; reference */
-  @ContentChild(TemplateRef) template: TemplateRef&lt;any&gt;;
+  @ContentChild(TemplateRef, {static: true}) template: TemplateRef&lt;any&gt;;
 
     /** IntersectionObserver options */
   @Input() observerOptions: IntersectionObserverInit &#x3D; {threshold: [.1, .2, .3, .4, .5, .6, .7, .8]};
@@ -961,6 +953,7 @@ export class NguiInviewComponent implements OnInit, OnDestroy {
 
 
 
+                   
 
 
 
@@ -983,6 +976,7 @@ export class NguiInviewComponent implements OnInit, OnDestroy {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
             var COMPODOC_CURRENT_PAGE_URL = 'NguiInviewComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

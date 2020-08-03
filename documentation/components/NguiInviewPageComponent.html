@@ -68,15 +68,14 @@
         <p>A block of component that listens to inView and outView events,
 so that it empties contents when out of view after backup items
 and restores the contents when in view</p>
-<h3 id="example">example</h3>
-<div><pre class="line-numbers"><code class="language-ts"> * &lt;ngui-inview-page [items]=&quot;items&quot;&gt;
- *   &lt;ng-template let-items=&quot;items&quot;&gt;
- *     &lt;div *ngIf=&quot;items else noItems&quot;&gt;
- *       &lt;li *ngFor=&quot;let num of items; trackBy: num&quot;&gt;row number: {{ num }}&lt;/li&gt;
- *     &lt;/div&gt;
- *   &lt;/ng-template&gt;
- * &lt;/ngui-inview-page&gt;
- *</code></pre></div>
+<h3 id="example">Example</h3>
+<div><pre class="line-numbers"><code class="language-ts"> &lt;ngui-inview-page [items]=&quot;items&quot;&gt;
+   &lt;ng-template let-items=&quot;items&quot;&gt;
+     &lt;div *ngIf=&quot;items else noItems&quot;&gt;
+       &lt;li *ngFor=&quot;let num of items; trackBy: num&quot;&gt;row number: {{ num }}&lt;/li&gt;
+     &lt;/div&gt;
+   &lt;/ng-template&gt;
+ &lt;/ngui-inview-page&gt;</code></pre></div>
     </p>
 
 
@@ -84,8 +83,8 @@ and restores the contents when in view</p>
         <h3>Implements</h3>
     </p>
     <p class="comment">
-                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
-                <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
     </p>
 
 
@@ -265,7 +264,7 @@ and restores the contents when in view</p>
                                                         <td>element</td>
                                                   
                                                         <td>
-                                                                    <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+                                                                        <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -277,7 +276,7 @@ and restores the contents when in view</p>
                                                         <td>renderer</td>
                                                   
                                                         <td>
-                                                                    <code><a href="https://angular.io/api/core/Renderer2" target="_blank" >Renderer2</a></code>
+                                                                        <code><a href="https://angular.io/api/core/Renderer2" target="_blank" >Renderer2</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -289,7 +288,7 @@ and restores the contents when in view</p>
                                                         <td>cdRef</td>
                                                   
                                                         <td>
-                                                                    <code><a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank" >ChangeDetectorRef</a></code>
+                                                                        <code><a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank" >ChangeDetectorRef</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -311,17 +310,15 @@ and restores the contents when in view</p>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
-                    <td class="col-md-2">
+                    <td class="col-md-4">
                         <a name="items"></a>
-                        <code>items</code>
+                        <b>items</b>
                     </td>
-                    <td class="col-md-10">
-                        <div><p>List of elements that are used to render this element </p>
-</div>
-                            <p>
-                            <em>Type :</em>    <code>Array&lt;any&gt;</code>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Array&lt;any&gt;</code>
 
-                            </p>
                     </td>
                 </tr>
                         <tr>
@@ -329,6 +326,12 @@ and restores the contents when in view</p>
                                     <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">projects/ngui-common/src/lib/ngui-list/src/ngui-inview-page.component.ts:60</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>List of elements that are used to render this element </p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -337,236 +340,240 @@ and restores the contents when in view</p>
 
     <section>
     
-        <h3 id="methods">
-            Methods
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="emptyItems"></a>
-                        <span class="name">
-                            <b>
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="emptyItems"></a>
+                    <span class="name">
+                        <b>
                             emptyItems
-                            </b>
-                            <a href="#emptyItems"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
+                        </b>
+                        <a href="#emptyItems"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
 <code>emptyItems()</code>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">projects/ngui-common/src/lib/ngui-list/src/ngui-inview-page.component.ts:107</a></div>
-                            </td>
-                        </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="107"
+                            class="link-to-prism">projects/ngui-common/src/lib/ngui-list/src/ngui-inview-page.component.ts:107</a></div>
+                </td>
+            </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Empty items when not in viewport, so that elements are not rendered</p>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Empty items when not in viewport, so that elements are not rendered</p>
 </div>
 
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="ngOnDestroy"></a>
-                        <span class="name">
-                            <b>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <b>
                             ngOnDestroy
-                            </b>
-                            <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
+                        </b>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
 <code>ngOnDestroy()</code>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">projects/ngui-common/src/lib/ngui-list/src/ngui-inview-page.component.ts:99</a></div>
-                            </td>
-                        </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="99"
+                            class="link-to-prism">projects/ngui-common/src/lib/ngui-list/src/ngui-inview-page.component.ts:99</a></div>
+                </td>
+            </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
+            <tr>
+                <td class="col-md-4">
 
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="ngOnInit"></a>
-                        <span class="name">
-                            <b>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
                             ngOnInit
-                            </b>
-                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
 <code>ngOnInit()</code>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="94" class="link-to-prism">projects/ngui-common/src/lib/ngui-list/src/ngui-inview-page.component.ts:94</a></div>
-                            </td>
-                        </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="94"
+                            class="link-to-prism">projects/ngui-common/src/lib/ngui-list/src/ngui-inview-page.component.ts:94</a></div>
+                </td>
+            </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
+            <tr>
+                <td class="col-md-4">
 
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="restoreItems"></a>
-                        <span class="name">
-                            <b>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="restoreItems"></a>
+                    <span class="name">
+                        <b>
                             restoreItems
-                            </b>
-                            <a href="#restoreItems"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
+                        </b>
+                        <a href="#restoreItems"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
 <code>restoreItems()</code>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">projects/ngui-common/src/lib/ngui-list/src/ngui-inview-page.component.ts:84</a></div>
-                            </td>
-                        </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">projects/ngui-common/src/lib/ngui-list/src/ngui-inview-page.component.ts:84</a></div>
+                </td>
+            </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Restore items when in viewport, so that elements are rendered</p>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Restore items when in viewport, so that elements are rendered</p>
 </div>
 
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="setItems"></a>
-                        <span class="name">
-                            <b>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setItems"></a>
+                    <span class="name">
+                        <b>
                             setItems
-                            </b>
-                            <a href="#setItems"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
+                        </b>
+                        <a href="#setItems"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
 <code>setItems(items: Array<any>)</code>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="122" class="link-to-prism">projects/ngui-common/src/lib/ngui-list/src/ngui-inview-page.component.ts:122</a></div>
-                            </td>
-                        </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="122"
+                            class="link-to-prism">projects/ngui-common/src/lib/ngui-list/src/ngui-inview-page.component.ts:122</a></div>
+                </td>
+            </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
+            <tr>
+                <td class="col-md-4">
 
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>items</td>
-                                                        <td>
-                                                                    <code>Array&lt;any&gt;</code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>items</td>
+                                    <td>
+                                            <code>Array&lt;any&gt;</code>
+                                    </td>
 
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                    <td>
+                                        No
+                                    </td>
 
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
-
     <section>
     
         <h3 id="inputs">
@@ -579,16 +586,9 @@ and restores the contents when in view</p>
                         <a name="contentsEl"></a>
                         <span class="name">
                             <b>
-                            contentsEl
-                            </b>
+                            contentsEl</b>
                             <a href="#contentsEl"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>contentsEl:     <code>HTMLElement</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -620,21 +620,14 @@ The height of it remains the same even when items get empty out.</p>
                         <a name="destroyed"></a>
                         <span class="name">
                             <b>
-                            destroyed
-                            </b>
+                            destroyed</b>
                             <a href="#destroyed"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>destroyed:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-</code>
-                    </td>
-                </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                         </td>
                     </tr>
@@ -654,16 +647,9 @@ The height of it remains the same even when items get empty out.</p>
                         <a name="itemsBackup"></a>
                         <span class="name">
                             <b>
-                            itemsBackup
-                            </b>
+                            itemsBackup</b>
                             <a href="#itemsBackup"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>itemsBackup:     <code>Array&lt;any&gt;</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -699,21 +685,14 @@ The height of it remains the same even when items get empty out.</p>
                         <a name="options"></a>
                         <span class="name">
                             <b>
-                            options
-                            </b>
+                            options</b>
                             <a href="#options"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>options:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-</code>
-                    </td>
-                </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                         </td>
                     </tr>
@@ -739,16 +718,9 @@ The height of it remains the same even when items get empty out.</p>
                         <a name="outView"></a>
                         <span class="name">
                             <b>
-                            outView
-                            </b>
+                            outView</b>
                             <a href="#outView"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>outView:     <code></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -778,16 +750,9 @@ The height of it remains the same even when items get empty out.</p>
                         <a name="template"></a>
                         <span class="name">
                             <b>
-                            template
-                            </b>
+                            template</b>
                             <a href="#template"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>template:     <code>TemplateRef&lt;any&gt;</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -801,7 +766,7 @@ The height of it remains the same even when items get empty out.</p>
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ContentChild(TemplateRef)<br />
+                                @ContentChild(TemplateRef, {static: true})<br />
                             </code>
                         </td>
                     </tr>
@@ -842,17 +807,17 @@ The height of it remains the same even when items get empty out.</p>
  * A block of component that listens to inView and outView events,
  * so that it empties contents when out of view after backup items
  * and restores the contents when in view
- *
- * ### example
- * &#x60;&#x60;&#x60;ts
- * &lt;ngui-inview-page [items]&#x3D;&quot;items&quot;&gt;
- *   &lt;ng-template let-items&#x3D;&quot;items&quot;&gt;
- *     &lt;div *ngIf&#x3D;&quot;items else noItems&quot;&gt;
- *       &lt;li *ngFor&#x3D;&quot;let num of items; trackBy: num&quot;&gt;row number: {{ num }}&lt;/li&gt;
- *     &lt;/div&gt;
- *   &lt;/ng-template&gt;
- * &lt;/ngui-inview-page&gt;
- * &#x60;&#x60;&#x60;
+
+ ### Example
+ &#x60;&#x60;&#x60;ts
+ &lt;ngui-inview-page [items]&#x3D;&quot;items&quot;&gt;
+   &lt;ng-template let-items&#x3D;&quot;items&quot;&gt;
+     &lt;div *ngIf&#x3D;&quot;items else noItems&quot;&gt;
+       &lt;li *ngFor&#x3D;&quot;let num of items; trackBy: num&quot;&gt;row number: {{ num }}&lt;/li&gt;
+     &lt;/div&gt;
+   &lt;/ng-template&gt;
+ &lt;/ngui-inview-page&gt;
+ &#x60;&#x60;&#x60;
  */
 @Component({
   selector: &#x27;ngui-inview-page&#x27;,
@@ -881,7 +846,7 @@ The height of it remains the same even when items get empty out.</p>
 export class NguiInviewPageComponent implements OnInit, OnDestroy {
 
   /** Allow users to change the contents */
-  @ContentChild(TemplateRef) template: TemplateRef&lt;any&gt;;
+  @ContentChild(TemplateRef, {static: true}) template: TemplateRef&lt;any&gt;;
   // @Input(&#x27;template&#x27;) template: TemplateRef&lt;any&gt;;
 
   /** List of elements that are used to render this element */
@@ -1008,6 +973,7 @@ export class NguiInviewPageComponent implements OnInit, OnDestroy {
 
 
 
+                   
 
 
 
@@ -1030,6 +996,7 @@ export class NguiInviewPageComponent implements OnInit, OnDestroy {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
             var COMPODOC_CURRENT_PAGE_URL = 'NguiInviewPageComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>
