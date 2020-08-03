@@ -10,7 +10,7 @@ import { fireEvent } from '../../ngui-utils/src/fire-event';
 import { NguiVirtualListComponent } from './ngui-virtual-list.component';
 import { NoMatchFound } from './no-match-found';
 import { NoneSelect } from './none-select';
-import { fromEvent } from 'rxjs/internal/observable/fromEvent';
+import {fromEvent} from 'rxjs';
 
 @Component({
   selector: 'ngui-autocomplete',
