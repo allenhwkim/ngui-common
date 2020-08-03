@@ -1,8 +1,10 @@
 /**
  * fire the given event with options on the element
- * @example
- * fireEvent(el, 'click');
- * fireEvent(el, 'keypress', {key: 'Enter'});
+ ### Example
+ ```js
+ fireEvent(el, 'click');
+ fireEvent(el, 'keypress', {key: 'Enter'});
+ ```
  */
 export function fireEvent(el: HTMLElement, type: string, options: any = {}): boolean {
   let event;

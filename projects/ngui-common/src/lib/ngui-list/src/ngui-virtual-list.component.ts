@@ -28,16 +28,16 @@ import { NguiInviewPageComponent } from './ngui-inview-page.component';
  * <ngui-inview-page> listens to (nguiInview) and (nguiOutview) events,
  * when <ngui-inview-page> is out of view port, it empties out the contents.
  * and it restores back the contents when it is in viewport again.
- *
- * ### example
- * ```ts
- * <ngui-virtual-list (bottomInview)="loadItems($event)">
- *   <ng-template let-items="items">
- *     <div *ngIf="!items">Loading</div>
- *     <li *ngFor="let num of items; trackBy: num">row number: {{ num }}</li>
- *   </ng-template>
- * </ngui-virtual-list>
- * ```
+
+ ### Example
+ ```ts
+ <ngui-virtual-list (bottomInview)="loadItems($event)">
+   <ng-template let-items="items">
+     <div *ngIf="!items">Loading</div>
+     <li *ngFor="let num of items; trackBy: num">row number: {{ num }}</li>
+   </ng-template>
+ </ngui-virtual-list>
+ ```
  */
 @Component({
   selector: 'ngui-virtual-list',
@@ -70,18 +70,18 @@ export class NguiVirtualListComponent implements AfterViewInit {
    * Event fired when bottom of the virtual list is in view
    * The handler of this event must call `$event.addItems(items: Array<any>)` to fill contents
    * If not, only the first page is loaded, and rest of the pages won't be loaded;
-   *
-   * ### example
-   * ```ts
-   * <ngui-virtual-list (bottomInview)="loadItems($event)">
-   *   <ng-template let-items="items">
-   *     <div *ngIf="items else noItems">
-   *        <li *ngFor="let num of items; trackBy: num">row number: {{ num }}</li>
-   *     </div>
-   *     <ng-template #noItems>Loading</ng-template>
-   *   </ng-template>
-   * </ngui-virtual-list>
-   * ```
+
+   ### Example
+   ```ts
+   <ngui-virtual-list (bottomInview)="loadItems($event)">
+     <ng-template let-items="items">
+       <div *ngIf="items else noItems">
+          <li *ngFor="let num of items; trackBy: num">row number: {{ num }}</li>
+       </div>
+       <ng-template #noItems>Loading</ng-template>
+     </ng-template>
+   </ngui-virtual-list>
+   ```
    */
   @Output() bottomInview: EventEmitter<any> = new EventEmitter();
 

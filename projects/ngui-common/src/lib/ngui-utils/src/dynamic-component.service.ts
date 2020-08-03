@@ -1,28 +1,3 @@
-/**
- * Insert a component dynamically using a service
- *
- * ### Example
- * ```ts
- * import { DynamicComponentService } from './dynamic.component.service';
- * import { MyDynamicComponent } from './my-1.component';
- *
- * @Component({
- *   template: ` ... <div #dymamic></div>`
- * })
- * export class MyComponent {
- *   @ViewChild('dynamic', {read:ViewContainerRef}) vcr: ViewContainerRef;
- *
- *   constructor(public dcs: DynamicComponentService) {}
- *
- *   insertComp() {
- *     let compRef = this.dcs.createComponent(MyDynamicComponent, this.vcr);
- *     ths.dcs.insertComonent(cmpRef);
- *     compRef.instance.items = [1,2,3];              // dealing with @input
- *     compRef.instance.output$.subscribe(val => {}); // dealing with @output
- *   }
- * }
- * ```
- */
 import {
   Component,
   ComponentFactoryResolver,
@@ -33,7 +8,30 @@ import {
 } from '@angular/core';
 
 /**
- * Provide service to add or remove component dynamically
+ * Insert a component dynamically using a service
+ *
+
+ ### Example
+ ```ts
+ import { DynamicComponentService } from './dynamic.component.service';
+ import { MyDynamicComponent } from './my-1.component';
+
+ @Component({
+   template: ` ... <div #dymamic></div>`
+ })
+ export class MyComponent {
+   @ViewChild('dynamic', {read:ViewContainerRef}) vcr: ViewContainerRef;
+
+   constructor(public dcs: DynamicComponentService) {}
+
+   insertComp() {
+     let compRef = this.dcs.createComponent(MyDynamicComponent, this.vcr);
+     ths.dcs.insertComonent(cmpRef);
+     compRef.instance.items = [1,2,3];              // dealing with @input
+     compRef.instance.output$.subscribe(val => {}); // dealing with @output
+   }
+ }
+ ```
  */
 @Injectable()
 export class DynamicComponentService {

@@ -14,17 +14,17 @@ import {
  * A block of component that listens to inView and outView events,
  * so that it empties contents when out of view after backup items
  * and restores the contents when in view
- *
- * ### example
- * ```ts
- * <ngui-inview-page [items]="items">
- *   <ng-template let-items="items">
- *     <div *ngIf="items else noItems">
- *       <li *ngFor="let num of items; trackBy: num">row number: {{ num }}</li>
- *     </div>
- *   </ng-template>
- * </ngui-inview-page>
- * ```
+
+ ### Example
+ ```ts
+ <ngui-inview-page [items]="items">
+   <ng-template let-items="items">
+     <div *ngIf="items else noItems">
+       <li *ngFor="let num of items; trackBy: num">row number: {{ num }}</li>
+     </div>
+   </ng-template>
+ </ngui-inview-page>
+ ```
  */
 @Component({
   selector: 'ngui-inview-page',
