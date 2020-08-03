@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, ElementRef, ViewChild } from '@angular/core';
 
 import { NguiVirtualListComponent } from '@ngui/common';
-import { of } from 'rxjs/internal/observable/of';
+import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
 @Component({
@@ -19,7 +19,7 @@ import { delay } from 'rxjs/operators';
     </ngui-virtual-list>
 
     <div class="num-elements">
-      Number of all elements on document: {{ numDomElements }}
+      Number of rows on screen: {{ numDomElements }}
     </div>
   `,
   styles: [`
@@ -35,7 +35,7 @@ export class VirtualListComponent {
   @ViewChild('autocomplete') autocomplete: NguiVirtualListComponent;
 
   get numDomElements(): number {
-    return this.element.nativeElement.querySelectorAll('*').length;
+    return this.element.nativeElement.querySelectorAll('ngui-list-item').length;
   }
 
   totalPage = 0;

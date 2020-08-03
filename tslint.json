@@ -75,7 +75,6 @@
     "no-trailing-whitespace": true,
     "no-unnecessary-initializer": true,
     "no-unused-expression": true,
-    "no-use-before-declare": true,
     "no-var-keyword": true,
     "object-literal-sort-keys": false,
     "one-line": [
@@ -145,7 +144,6 @@
     "valid-typeof": true,
     "ter-no-mixed-spaces-and-tabs": true,
     "ter-indent": [true, 2],
-    "no-unused-variable": true,
     "no-unsafe-finally": true,
     "no-conditional-assignment": true,
     "trailing-comma": false

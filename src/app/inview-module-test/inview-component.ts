@@ -36,6 +36,6 @@ export class InviewComponent {
   constructor(public element: ElementRef) {}
 
   updateImageCount() {
-    this.numImages = this.element.nativeElement.querySelectorAll('img').length;
+    setTimeout( () => this.numImages = this.element.nativeElement.querySelectorAll('img').length, 100);
   }
 }

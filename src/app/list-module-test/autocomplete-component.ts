@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 import { NguiAutocompleteComponent } from '@ngui/common';
-import { of } from 'rxjs/internal/observable/of';
+import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
 @Component({
@@ -18,7 +18,7 @@ import { delay } from 'rxjs/operators';
       (escaped)="escaped()">
       <ng-template #items let-items="items" let-keyword="keyword">
         <div *ngIf="!items">Loading</div> <!-- loading text -->
-        <ngui-list-item [item]="item" *ngFor="let item of items; trackBy: id">
+        <ngui-list-item [item]="item" *ngFor="let item of items; trackBy: identifyItem">
           <span [innerHTML]="item.value"></span>
         </ngui-list-item>
       </ng-template>
@@ -57,4 +57,9 @@ export class AutocompleteComponent {
       this.numPage++;
     });
   }
+
+  identifyItem(index, item) {
+    return item.id;
+  }
+
 }
