@@ -1,4 +1,4 @@
-import * as tslib_1 from "tslib";
+import { __decorate } from "tslib";
 import { Pipe } from '@angular/core';
 var NguiHighlightPipe = /** @class */ (function () {
     function NguiHighlightPipe() {
@@ -11,7 +11,7 @@ var NguiHighlightPipe = /** @class */ (function () {
         }
         return ret;
     };
-    NguiHighlightPipe = tslib_1.__decorate([
+    NguiHighlightPipe = __decorate([
         Pipe({ name: 'nguiHighlight' })
     ], NguiHighlightPipe);
     return NguiHighlightPipe;

@@ -1,4 +1,4 @@
-import * as tslib_1 from "tslib";
+import { __decorate } from "tslib";
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NguiAutocompleteComponent } from './src/ngui-autocomplete.component';
@@ -11,7 +11,7 @@ export { NguiAutocompleteComponent, NguiListItemDirective, NguiListDirective, Ng
 var NguiListModule = /** @class */ (function () {
     function NguiListModule() {
     }
-    NguiListModule = tslib_1.__decorate([
+    NguiListModule = __decorate([
         NgModule({
             imports: [
                 CommonModule,

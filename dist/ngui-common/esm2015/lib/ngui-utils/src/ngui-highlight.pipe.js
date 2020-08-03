@@ -1,4 +1,4 @@
-import * as tslib_1 from "tslib";
+import { __decorate } from "tslib";
 import { Pipe } from '@angular/core';
 let NguiHighlightPipe = class NguiHighlightPipe {
     transform(text, search) {
@@ -10,7 +10,7 @@ let NguiHighlightPipe = class NguiHighlightPipe {
         return ret;
     }
 };
-NguiHighlightPipe = tslib_1.__decorate([
+NguiHighlightPipe = __decorate([
     Pipe({ name: 'nguiHighlight' })
 ], NguiHighlightPipe);
 export { NguiHighlightPipe };

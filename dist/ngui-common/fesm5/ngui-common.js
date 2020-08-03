@@ -460,11 +460,11 @@ var NguiVirtualListComponent = /** @class */ (function () {
         { type: ChangeDetectorRef }
     ]; };
     __decorate([
-        ViewChild('pages', { read: ViewContainerRef, static: false }),
+        ViewChild('pages', { read: ViewContainerRef }),
         __metadata("design:type", ViewContainerRef)
     ], NguiVirtualListComponent.prototype, "pagesRef", void 0);
     __decorate([
-        ContentChild(TemplateRef, { static: false }),
+        ContentChild(TemplateRef),
         __metadata("design:type", TemplateRef)
     ], NguiVirtualListComponent.prototype, "template", void 0);
     __decorate([
@@ -482,7 +482,7 @@ var NguiVirtualListComponent = /** @class */ (function () {
     NguiVirtualListComponent = __decorate([
         Component({
             selector: 'ngui-virtual-list',
-            template: "\n    <div class=\"ngui-virtual-list\"\n      (focus)=\"_focused = true\"\n      (click)=\"_focused = true\">\n      <!-- hold multiple <ngui-inview-page> -->\n      <div #pages></div>\n      <!-- insert <ngui-inview-page> into #pages -->\n      <ngui-inview (inview)=\"addAnInviewPageToPages()\"></ngui-inview>\n    </div>\n  ",
+            template: "\n    <div class=\"ngui-virtual-list\"\n      (focus)=\"_focused = true\"\n      (click)=\"_focused = true\">\n      <!-- hold multiple <ngui-inview-page> -->\n      <div #pages></div>\n      <!-- insert <ngui-inview-page> into #pages -->\n    </div>\n    <ngui-inview (inview)=\"addAnInviewPageToPages()\"></ngui-inview>\n  ",
             styles: ["\n    :host {display: block}\n  "]
         }),
         __metadata("design:paramtypes", [Renderer2,
@@ -681,13 +681,13 @@ var NguiAutocompleteComponent = /** @class */ (function (_super) {
         __metadata("design:type", Object)
     ], NguiAutocompleteComponent.prototype, "noMatchItem", void 0);
     __decorate([
-        ContentChild(TemplateRef, { static: false }),
+        ContentChild(TemplateRef),
         __metadata("design:type", TemplateRef)
     ], NguiAutocompleteComponent.prototype, "template", void 0);
     NguiAutocompleteComponent = __decorate([
         Component({
             selector: 'ngui-autocomplete',
-            template: "\n    <div *ngIf=\"isReady\" class=\"ngui-autocomplete\">\n      <div #pages></div>\n      <ngui-inview (inview)=\"addMorePages()\"></ngui-inview>\n    </div>\n  ",
+            template: "\n    <ng-container *ngIf=\"isReady\">\n      <div class=\"ngui-autocomplete\">\n        <div #pages></div>\n      </div>\n      <ngui-inview (inview)=\"addMorePages()\"></ngui-inview>\n    </ng-container>\n  ",
             styles: ["\n    :host {position: absolute; background-color: #fff; max-height: 300px; overflow: auto}\n    .ngui-autocomplete { border: 1px solid #ccc; padding: 4px }\n  "]
         })
     ], NguiAutocompleteComponent);

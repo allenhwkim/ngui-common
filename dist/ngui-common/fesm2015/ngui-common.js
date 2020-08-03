@@ -473,11 +473,11 @@ NguiVirtualListComponent.ctorParameters = () => [
     { type: ChangeDetectorRef }
 ];
 __decorate([
-    ViewChild('pages', { read: ViewContainerRef, static: false }),
+    ViewChild('pages', { read: ViewContainerRef }),
     __metadata("design:type", ViewContainerRef)
 ], NguiVirtualListComponent.prototype, "pagesRef", void 0);
 __decorate([
-    ContentChild(TemplateRef, { static: false }),
+    ContentChild(TemplateRef),
     __metadata("design:type", TemplateRef)
 ], NguiVirtualListComponent.prototype, "template", void 0);
 __decorate([
@@ -502,8 +502,8 @@ NguiVirtualListComponent = __decorate([
       <!-- hold multiple <ngui-inview-page> -->
       <div #pages></div>
       <!-- insert <ngui-inview-page> into #pages -->
-      <ngui-inview (inview)="addAnInviewPageToPages()"></ngui-inview>
     </div>
+    <ngui-inview (inview)="addAnInviewPageToPages()"></ngui-inview>
   `,
         styles: [`
     :host {display: block}
@@ -694,17 +694,19 @@ __decorate([
     __metadata("design:type", Object)
 ], NguiAutocompleteComponent.prototype, "noMatchItem", void 0);
 __decorate([
-    ContentChild(TemplateRef, { static: false }),
+    ContentChild(TemplateRef),
     __metadata("design:type", TemplateRef)
 ], NguiAutocompleteComponent.prototype, "template", void 0);
 NguiAutocompleteComponent = __decorate([
     Component({
         selector: 'ngui-autocomplete',
         template: `
-    <div *ngIf="isReady" class="ngui-autocomplete">
-      <div #pages></div>
+    <ng-container *ngIf="isReady">
+      <div class="ngui-autocomplete">
+        <div #pages></div>
+      </div>
       <ngui-inview (inview)="addMorePages()"></ngui-inview>
-    </div>
+    </ng-container>
   `,
         styles: [`
     :host {position: absolute; background-color: #fff; max-height: 300px; overflow: auto}

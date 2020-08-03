@@ -1,4 +1,4 @@
-import * as tslib_1 from "tslib";
+import { __decorate } from "tslib";
 import { NgModule } from '@angular/core';
 import { NguiInviewModule } from './ngui-inview/ngui-inview.module';
 import { NguiListModule } from './ngui-list/ngui-list.module';
@@ -6,7 +6,7 @@ import { NguiUtilsModule } from './ngui-utils/ngui-utils.module';
 var NguiCommonModule = /** @class */ (function () {
     function NguiCommonModule() {
     }
-    NguiCommonModule = tslib_1.__decorate([
+    NguiCommonModule = __decorate([
         NgModule({
             imports: [
                 NguiInviewModule,

@@ -109,16 +109,13 @@
         }
     }
 
-    var __createBinding = Object.create ? (function(o, m, k, k2) {
-        if (k2 === undefined) k2 = k;
-        Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-    }) : (function(o, m, k, k2) {
+    function __createBinding(o, m, k, k2) {
         if (k2 === undefined) k2 = k;
         o[k2] = m[k];
-    });
+    }
 
     function __exportStar(m, exports) {
-        for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
+        for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) exports[p] = m[p];
     }
 
     function __values(o) {
@@ -199,17 +196,11 @@
         return cooked;
     };
 
-    var __setModuleDefault = Object.create ? (function(o, v) {
-        Object.defineProperty(o, "default", { enumerable: true, value: v });
-    }) : function(o, v) {
-        o["default"] = v;
-    };
-
     function __importStar(mod) {
         if (mod && mod.__esModule) return mod;
         var result = {};
-        if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-        __setModuleDefault(result, mod);
+        if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+        result.default = mod;
         return result;
     }
 
@@ -689,11 +680,11 @@
             { type: core.ChangeDetectorRef }
         ]; };
         __decorate([
-            core.ViewChild('pages', { read: core.ViewContainerRef, static: false }),
+            core.ViewChild('pages', { read: core.ViewContainerRef }),
             __metadata("design:type", core.ViewContainerRef)
         ], NguiVirtualListComponent.prototype, "pagesRef", void 0);
         __decorate([
-            core.ContentChild(core.TemplateRef, { static: false }),
+            core.ContentChild(core.TemplateRef),
             __metadata("design:type", core.TemplateRef)
         ], NguiVirtualListComponent.prototype, "template", void 0);
         __decorate([
@@ -711,7 +702,7 @@
         NguiVirtualListComponent = __decorate([
             core.Component({
                 selector: 'ngui-virtual-list',
-                template: "\n    <div class=\"ngui-virtual-list\"\n      (focus)=\"_focused = true\"\n      (click)=\"_focused = true\">\n      <!-- hold multiple <ngui-inview-page> -->\n      <div #pages></div>\n      <!-- insert <ngui-inview-page> into #pages -->\n      <ngui-inview (inview)=\"addAnInviewPageToPages()\"></ngui-inview>\n    </div>\n  ",
+                template: "\n    <div class=\"ngui-virtual-list\"\n      (focus)=\"_focused = true\"\n      (click)=\"_focused = true\">\n      <!-- hold multiple <ngui-inview-page> -->\n      <div #pages></div>\n      <!-- insert <ngui-inview-page> into #pages -->\n    </div>\n    <ngui-inview (inview)=\"addAnInviewPageToPages()\"></ngui-inview>\n  ",
                 styles: ["\n    :host {display: block}\n  "]
             }),
             __metadata("design:paramtypes", [core.Renderer2,
@@ -910,13 +901,13 @@
             __metadata("design:type", Object)
         ], NguiAutocompleteComponent.prototype, "noMatchItem", void 0);
         __decorate([
-            core.ContentChild(core.TemplateRef, { static: false }),
+            core.ContentChild(core.TemplateRef),
             __metadata("design:type", core.TemplateRef)
         ], NguiAutocompleteComponent.prototype, "template", void 0);
         NguiAutocompleteComponent = __decorate([
             core.Component({
                 selector: 'ngui-autocomplete',
-                template: "\n    <div *ngIf=\"isReady\" class=\"ngui-autocomplete\">\n      <div #pages></div>\n      <ngui-inview (inview)=\"addMorePages()\"></ngui-inview>\n    </div>\n  ",
+                template: "\n    <ng-container *ngIf=\"isReady\">\n      <div class=\"ngui-autocomplete\">\n        <div #pages></div>\n      </div>\n      <ngui-inview (inview)=\"addMorePages()\"></ngui-inview>\n    </ng-container>\n  ",
                 styles: ["\n    :host {position: absolute; background-color: #fff; max-height: 300px; overflow: auto}\n    .ngui-autocomplete { border: 1px solid #ccc; padding: 4px }\n  "]
             })
         ], NguiAutocompleteComponent);
