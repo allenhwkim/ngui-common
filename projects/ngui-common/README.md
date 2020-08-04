@@ -1,6 +1,6 @@
 # @ngui/common
 
-Angular 6 and 7 UI common directives, functions, services
+Angular 10+ UI common directives, functions, services
 
 [![Build Status](https://travis-ci.org/allenhwkim/ngui-common.svg?branch=master)](https://travis-ci.org/allenhwkim/ngui-common)
 [![npm](https://img.shields.io/npm/dt/@ngui/common.svg)](https://www.npmjs.com/package/@ngui/common) 

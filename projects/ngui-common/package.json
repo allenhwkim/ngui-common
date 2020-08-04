@@ -1,7 +1,7 @@
 {
   "name": "@ngui/common",
   "description": "Angular 6 and 7 common modules; virtual-scroll, lazy-rendering, interactive list, etc",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -23,8 +23,8 @@
     "lazy-rendering"
   ],
   "peerDependencies": {
-    "@angular/common": ">6.0.0",
-    "@angular/core": ">6.0.0"
+    "@angular/common": ">10.0.0",
+    "@angular/core": ">10.0.0"
   },
   "dependencies": {
     "tslib": "^2.0.0"

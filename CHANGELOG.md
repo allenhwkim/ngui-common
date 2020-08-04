@@ -1,3 +1,8 @@
+## 0.7.0 (2018-11-02)
+
+- Add support for Angular 10
+- Fix issue #15 (deep import warning when using Angular 9+)
+
 ## 0.6.0 (2018-11-02)
 
 - Add support for Angular 7
