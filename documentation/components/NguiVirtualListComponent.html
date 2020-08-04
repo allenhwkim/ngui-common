@@ -75,7 +75,7 @@ then it will insert another <code>&lt;ngui-inview-page&gt;</code> again.</p>
 when <ngui-inview-page> is out of view port, it empties out the contents.
 and it restores back the contents when it is in viewport again.</p>
 <h3 id="example">Example</h3>
-<div><pre class="line-numbers"><code class="language-ts"> &lt;ngui-virtual-list (bottomInview)=&quot;loadItems($event)&quot;&gt;
+<div><pre class="line-numbers"><code class="language-html"> &lt;ngui-virtual-list (bottomInview)=&quot;loadItems($event)&quot;&gt;
    &lt;ng-template let-items=&quot;items&quot;&gt;
      &lt;div *ngIf=&quot;!items&quot;&gt;Loading&lt;/div&gt;
      &lt;li *ngFor=&quot;let num of items; trackBy: num&quot;&gt;row number: {{ num }}&lt;/li&gt;
@@ -357,7 +357,7 @@ and it restores back the contents when it is in viewport again.</p>
 The handler of this event must call <code>$event.addItems(items: Array&lt;any&gt;)</code> to fill contents
 If not, only the first page is loaded, and rest of the pages won&#39;t be loaded;</p>
 <h3 id="example">Example</h3>
-<div><pre class="line-numbers"><code class="language-ts">   &lt;ngui-virtual-list (bottomInview)=&quot;loadItems($event)&quot;&gt;
+<div><pre class="line-numbers"><code class="language-html">   &lt;ngui-virtual-list (bottomInview)=&quot;loadItems($event)&quot;&gt;
      &lt;ng-template let-items=&quot;items&quot;&gt;
        &lt;div *ngIf=&quot;items else noItems&quot;&gt;
           &lt;li *ngFor=&quot;let num of items; trackBy: num&quot;&gt;row number: {{ num }}&lt;/li&gt;
@@ -949,7 +949,7 @@ import { NguiInviewPageComponent } from &#x27;./ngui-inview-page.component&#x27;
  * and it restores back the contents when it is in viewport again.
 
  ### Example
- &#x60;&#x60;&#x60;ts
+ &#x60;&#x60;&#x60;html
  &lt;ngui-virtual-list (bottomInview)&#x3D;&quot;loadItems($event)&quot;&gt;
    &lt;ng-template let-items&#x3D;&quot;items&quot;&gt;
      &lt;div *ngIf&#x3D;&quot;!items&quot;&gt;Loading&lt;/div&gt;
@@ -991,7 +991,7 @@ export class NguiVirtualListComponent implements AfterViewInit {
    * If not, only the first page is loaded, and rest of the pages won&#x27;t be loaded;
 
    ### Example
-   &#x60;&#x60;&#x60;ts
+   &#x60;&#x60;&#x60;html
    &lt;ngui-virtual-list (bottomInview)&#x3D;&quot;loadItems($event)&quot;&gt;
      &lt;ng-template let-items&#x3D;&quot;items&quot;&gt;
        &lt;div *ngIf&#x3D;&quot;items else noItems&quot;&gt;

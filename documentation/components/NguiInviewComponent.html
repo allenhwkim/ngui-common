@@ -67,7 +67,7 @@
     <p class="comment">
         <p>An element that listens to viewport positioning and fires inView and notInview events</p>
 <h3 id="example">Example</h3>
-<div><pre class="line-numbers"><code class="language-ts"> &lt;ngui-inview [observerOptions]=&quot;myObserverOptions&quot; (inview)=&quot;doA()&quot; (notInview)=&quot;doB()&quot;&gt;
+<div><pre class="line-numbers"><code class="language-html"> &lt;ngui-inview [observerOptions]=&quot;myObserverOptions&quot; (inview)=&quot;doA()&quot; (notInview)=&quot;doB()&quot;&gt;
    &lt;img *ngIf src=&quot;https://picsum.photos/800/300?image=1&gt;
  &lt;/ngui-inview&gt;</code></pre></div>
     </p>
@@ -809,7 +809,7 @@ import {isPlatformBrowser} from &#x27;@angular/common&#x27;;
 /**
  An element that listens to viewport positioning and fires inView and notInview events
  ### Example
- &#x60;&#x60;&#x60;ts
+ &#x60;&#x60;&#x60;html
  &lt;ngui-inview [observerOptions]&#x3D;&quot;myObserverOptions&quot; (inview)&#x3D;&quot;doA()&quot; (notInview)&#x3D;&quot;doB()&quot;&gt;
    &lt;img *ngIf src&#x3D;&quot;https://picsum.photos/800/300?image&#x3D;1&gt;
  &lt;/ngui-inview&gt;

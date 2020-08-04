@@ -450,7 +450,7 @@
 The handler of this event must call <code>$event.addItems(items: Array&lt;any&gt;)</code> to fill contents
 If not, only the first page is loaded, and rest of the pages won&#39;t be loaded;</p>
 <h3 id="example">Example</h3>
-<div><pre class="line-numbers"><code class="language-ts">   &lt;ngui-virtual-list (bottomInview)=&quot;loadItems($event)&quot;&gt;
+<div><pre class="line-numbers"><code class="language-html">   &lt;ngui-virtual-list (bottomInview)=&quot;loadItems($event)&quot;&gt;
      &lt;ng-template let-items=&quot;items&quot;&gt;
        &lt;div *ngIf=&quot;items else noItems&quot;&gt;
           &lt;li *ngFor=&quot;let num of items; trackBy: num&quot;&gt;row number: {{ num }}&lt;/li&gt;

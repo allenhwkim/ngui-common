@@ -69,7 +69,7 @@
 so that it empties contents when out of view after backup items
 and restores the contents when in view</p>
 <h3 id="example">Example</h3>
-<div><pre class="line-numbers"><code class="language-ts"> &lt;ngui-inview-page [items]=&quot;items&quot;&gt;
+<div><pre class="line-numbers"><code class="language-html"> &lt;ngui-inview-page [items]=&quot;items&quot;&gt;
    &lt;ng-template let-items=&quot;items&quot;&gt;
      &lt;div *ngIf=&quot;items else noItems&quot;&gt;
        &lt;li *ngFor=&quot;let num of items; trackBy: num&quot;&gt;row number: {{ num }}&lt;/li&gt;
@@ -809,7 +809,7 @@ The height of it remains the same even when items get empty out.</p>
  * and restores the contents when in view
 
  ### Example
- &#x60;&#x60;&#x60;ts
+ &#x60;&#x60;&#x60;html
  &lt;ngui-inview-page [items]&#x3D;&quot;items&quot;&gt;
    &lt;ng-template let-items&#x3D;&quot;items&quot;&gt;
      &lt;div *ngIf&#x3D;&quot;items else noItems&quot;&gt;
