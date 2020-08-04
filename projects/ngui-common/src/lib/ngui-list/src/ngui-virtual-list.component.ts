@@ -30,7 +30,7 @@ import { NguiInviewPageComponent } from './ngui-inview-page.component';
  * and it restores back the contents when it is in viewport again.
 
  ### Example
- ```ts
+ ```html
  <ngui-virtual-list (bottomInview)="loadItems($event)">
    <ng-template let-items="items">
      <div *ngIf="!items">Loading</div>
@@ -72,7 +72,7 @@ export class NguiVirtualListComponent implements AfterViewInit {
    * If not, only the first page is loaded, and rest of the pages won't be loaded;
 
    ### Example
-   ```ts
+   ```html
    <ngui-virtual-list (bottomInview)="loadItems($event)">
      <ng-template let-items="items">
        <div *ngIf="items else noItems">

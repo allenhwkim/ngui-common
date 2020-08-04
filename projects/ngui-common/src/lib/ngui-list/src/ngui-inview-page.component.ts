@@ -16,7 +16,7 @@ import {
  * and restores the contents when in view
 
  ### Example
- ```ts
+ ```html
  <ngui-inview-page [items]="items">
    <ng-template let-items="items">
      <div *ngIf="items else noItems">

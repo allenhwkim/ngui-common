@@ -1,9 +1,9 @@
 /**
  * window.konsole alternative
  ### Example
- ```
+ ```js
  konsole.setLogLevel('error');
- konwole.log(1,2,3,4,5);
+ konsole.log(1,2,3,4,5);
  ```
  */
 export abstract class konsole { // tslint:disable-line

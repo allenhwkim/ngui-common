@@ -17,7 +17,7 @@ import {isPlatformBrowser} from '@angular/common';
 /**
  An element that listens to viewport positioning and fires inView and notInview events
  ### Example
- ```ts
+ ```html
  <ngui-inview [observerOptions]="myObserverOptions" (inview)="doA()" (notInview)="doB()">
    <img *ngIf src="https://picsum.photos/800/300?image=1>
  </ngui-inview>
