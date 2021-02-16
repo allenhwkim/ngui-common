@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ElementRef, ViewChild } from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, ViewChild} from '@angular/core';
 
 import { NguiVirtualListComponent } from '@ngui/common';
 import { of } from 'rxjs';
@@ -11,7 +11,7 @@ import { delay } from 'rxjs/operators';
 
     <ngui-virtual-list (bottomInview)="loadItems($event)">
       <ng-template let-items="items">
-        <div *ngIf="!items">Loading</div>
+        <div *ngIf="!items">Loading...</div>
         <ngui-list-item *ngFor="let num of items">
           row number: {{ num }}
         </ngui-list-item>
@@ -40,16 +40,19 @@ export class VirtualListComponent {
 
   totalPage = 0;
 
-  constructor(public element: ElementRef) {}
+  constructor(
+    public element: ElementRef,
+    private changeDetectorRef: ChangeDetectorRef
+  ) {}
 
   loadItems(virtualList: any): void {
     const items: Array<any> = Array.from(Array(50), (_, x) => (this.totalPage * 50) + x);
     of(items).pipe(
         delay(1000)
     ).subscribe(result => {
-      console.log('VirtualListComponent.loadItems() is called');
       virtualList.addList(result);
       this.totalPage++;
+      this.changeDetectorRef.markForCheck();
     });
   }
 }

@@ -1,7 +1,7 @@
 {
   "name": "@ngui/common",
   "description": "Angular 6 and 7 common modules; virtual-scroll, lazy-rendering, interactive list, etc",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "license": "MIT",
   "repository": {
     "type": "git",
