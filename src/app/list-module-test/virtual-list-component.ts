@@ -32,8 +32,6 @@ import { delay } from 'rxjs/operators';
 })
 export class VirtualListComponent {
 
-  @ViewChild('autocomplete') autocomplete: NguiVirtualListComponent;
-
   get numDomElements(): number {
     return this.element.nativeElement.querySelectorAll('ngui-list-item').length;
   }
@@ -45,7 +43,7 @@ export class VirtualListComponent {
     private changeDetectorRef: ChangeDetectorRef
   ) {}
 
-  loadItems(virtualList: any): void {
+  loadItems(virtualList: NguiVirtualListComponent): void {
     const items: Array<any> = Array.from(Array(50), (_, x) => (this.totalPage * 50) + x);
     of(items).pipe(
         delay(1000)
