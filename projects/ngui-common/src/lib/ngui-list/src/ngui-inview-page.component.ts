@@ -30,6 +30,7 @@ import {
   selector: 'ngui-inview-page',
   template: `
     <div class="inview-page contents"
+      [observerOptions]="observerOptions"
       (nguiInview)="restoreItems()"
       (nguiOutview)="emptyItems()">
       <!-- add blank ngui-list-item by condition  -->
@@ -38,7 +39,6 @@ import {
         [ngTemplateOutlet]="template||defaultTemplate"
         [ngTemplateOutletContext]="{items: items, outView: outView}">
       </ng-container>
-      <div *ngIf="outView">{{ itemsBackup.length }} items hidden</div>
     </div>
 
     <ng-template #defaultTemplate>
@@ -60,7 +60,7 @@ export class NguiInviewPageComponent implements OnInit, OnDestroy {
   @Input() items: Array<any>;
 
   /** IntersectionObserver options */
-  options: any;
+  @Input() observerOptions: IntersectionObserverInit = {threshold: [0, .01]};
   /** Indicates that the page of out of viewport */
   outView = false;
   /** The copy of items. This is set when this element is out of viewport */
@@ -97,7 +97,6 @@ export class NguiInviewPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    console.log('NguiInviewPageComponent.ngOnDestroy() is called');
     this.destroyed = true;
   }
 
@@ -121,7 +120,6 @@ export class NguiInviewPageComponent implements OnInit, OnDestroy {
 
   setItems(items: Array<any>): void {
     if (!this.destroyed) {
-      console.log('NguiInviewPageComponent.setItems() is called with', items);
       this.items = items;
       this.cdRef.detectChanges();
     }

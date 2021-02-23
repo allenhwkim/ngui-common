@@ -123,15 +123,12 @@ export class NguiVirtualListComponent implements AfterViewInit {
       this.inviewPages.push(this.inviewPage);
 
       this.bottomInview.emit(this); // fire event, so that user can load items
-    } else {
-      console.log('Already a page being inserted, skipping adding a page');
     }
   }
 
   // set items of NguiInviewPageComponent
   addList(items: Array<any>): void {
     this.isListLoading = false;
-    console.log('>>>>>> NguiVirtualListComponent.addList() is called()');
     this.inviewPage.instance.setItems(items);
   }
 

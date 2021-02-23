@@ -77,7 +77,6 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
     this.inputEl.focus();
     this._lastSelected = value;
     this.cdr.detectChanges();    // for ChangeDetectionStrategy.OnPush
-    console.log('NguiAutoCompleteComponent.onSelected() is called', value);
   }
 
   onEscaped(): void {
@@ -87,11 +86,9 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
       this.inputEl.value = this._orgInputValue;
     }
     this.cdr.detectChanges(); // for ChangeDetectionStrategy.OnPush
-    console.log('NguiAutoCompleteComponent.onEscaped() is called');
   }
 
   onInputElFocused(event): void {
-    console.log('NguiAutoCompleteComponent.onInputElFocused() is called', event);
     this.isListLoading = false;
     if (typeof this._orgInputValue === 'undefined') {
       this._orgInputValue = this.inputEl.value;
@@ -112,7 +109,6 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
   }
 
   onInputElKeyup(event: KeyboardEvent): void {
-    console.log('NguiAutoCompleteComponent.onInputKeyup() is called', event.key);
     const firstList = this.element.nativeElement.querySelector('ngui-list-item');
     if (event.key === 'Enter' || event.key === 'Escape') {
       if (firstList) {
@@ -178,7 +174,6 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
 
   // set items of NguiInviewPageComponent
   addList(items: Array<any>): void {
-    console.log('>>>>>> NguiAutocompleteComponent.addList() is called()');
     this.isListLoading = false;
 
     // TODO: ........ for 1st page only, show no match found or blank option
