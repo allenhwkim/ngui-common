@@ -1,6 +1,6 @@
 ## 0.8.0 (2021-02-16)
 
-- `ngui-virtual-list` now just inserts newly loaded items without showing "<number> items hidden" message.
+- `ngui-virtual-list` now just inserts newly loaded items without showing `<number> items hidden` message.
 - `observerOptions` can now be customized for `ngui-inview-page`
 - Removed some `console.log()` debugging messages
 
