@@ -1,10 +1,10 @@
 /**
  * window.konsole alternative
- * ### example
- * ```
- * konsole.setLogLevel('error');
- * konwole.log(1,2,3,4,5);
- * ```
+ ### Example
+ ```js
+ konsole.setLogLevel('error');
+ konsole.log(1,2,3,4,5);
+ ```
  */
 export declare abstract class konsole {
     /** all log levels */

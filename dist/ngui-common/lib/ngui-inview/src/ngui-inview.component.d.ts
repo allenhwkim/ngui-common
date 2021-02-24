@@ -1,12 +1,12 @@
 import { ElementRef, EventEmitter, OnDestroy, OnInit, TemplateRef } from '@angular/core';
 /**
- * An element that listens to viewport positioning and fires inView and notInview events
- * ### example
- * ```ts
- * <ngui-inview [observerOptions]="myObserverOptions" (inview)="doA()" (notInview)="doB()">
- *   <img *ngIf src="https://picsum.photos/800/300?image=1>
- * </ngui-inview>
- * ```
+ An element that listens to viewport positioning and fires inView and notInview events
+ ### Example
+ ```html
+ <ngui-inview [observerOptions]="myObserverOptions" (inview)="doA()" (notInview)="doB()">
+   <img *ngIf src="https://picsum.photos/800/300?image=1>
+ </ngui-inview>
+ ```
  */
 import * as ɵngcc0 from '@angular/core';
 export declare class NguiInviewComponent implements OnInit, OnDestroy {

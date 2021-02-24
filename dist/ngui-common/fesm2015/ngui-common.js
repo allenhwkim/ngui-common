@@ -3,13 +3,13 @@ import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { fromEvent } from 'rxjs';
 
 /**
- * An element that listens to viewport positioning and fires inView and notInview events
- * ### example
- * ```ts
- * <ngui-inview [observerOptions]="myObserverOptions" (inview)="doA()" (notInview)="doB()">
- *   <img *ngIf src="https://picsum.photos/800/300?image=1>
- * </ngui-inview>
- * ```
+ An element that listens to viewport positioning and fires inView and notInview events
+ ### Example
+ ```html
+ <ngui-inview [observerOptions]="myObserverOptions" (inview)="doA()" (notInview)="doB()">
+   <img *ngIf src="https://picsum.photos/800/300?image=1>
+ </ngui-inview>
+ ```
  */
 class NguiInviewComponent {
     constructor(element, platformId) {
@@ -180,9 +180,11 @@ NguiInviewModule.decorators = [
 
 /**
  * fire the given event with options on the element
- * @example
- * fireEvent(el, 'click');
- * fireEvent(el, 'keypress', {key: 'Enter'});
+ ### Example
+ ```js
+ fireEvent(el, 'click');
+ fireEvent(el, 'keypress', {key: 'Enter'});
+ ```
  */
 function fireEvent(el, type, options = {}) {
     let event;
@@ -201,30 +203,28 @@ function fireEvent(el, type, options = {}) {
 /**
  * Insert a component dynamically using a service
  *
- * ### Example
- * ```ts
- * import { DynamicComponentService } from './dynamic.component.service';
- * import { MyDynamicComponent } from './my-1.component';
- *
- * @Component({
- *   template: ` ... <div #dymamic></div>`
- * })
- * export class MyComponent {
- *   @ViewChild('dynamic', {read:ViewContainerRef}) vcr: ViewContainerRef;
- *
- *   constructor(public dcs: DynamicComponentService) {}
- *
- *   insertComp() {
- *     let compRef = this.dcs.createComponent(MyDynamicComponent, this.vcr);
- *     ths.dcs.insertComonent(cmpRef);
- *     compRef.instance.items = [1,2,3];              // dealing with @input
- *     compRef.instance.output$.subscribe(val => {}); // dealing with @output
- *   }
- * }
- * ```
- */
-/**
- * Provide service to add or remove component dynamically
+
+ ### Example
+ ```ts
+ import { DynamicComponentService } from './dynamic.component.service';
+ import { MyDynamicComponent } from './my-1.component';
+
+ @Component({
+   template: ` ... <div #dymamic></div>`
+ })
+ export class MyComponent {
+   @ViewChild('dynamic', {read:ViewContainerRef}) vcr: ViewContainerRef;
+
+   constructor(public dcs: DynamicComponentService) {}
+
+   insertComp() {
+     let compRef = this.dcs.createComponent(MyDynamicComponent, this.vcr);
+     ths.dcs.insertComonent(cmpRef);
+     compRef.instance.items = [1,2,3];              // dealing with @input
+     compRef.instance.output$.subscribe(val => {}); // dealing with @output
+   }
+ }
+ ```
  */
 class DynamicComponentService {
     constructor(factoryResolver) {
@@ -263,23 +263,25 @@ DynamicComponentService.ctorParameters = () => [
  * A block of component that listens to inView and outView events,
  * so that it empties contents when out of view after backup items
  * and restores the contents when in view
- *
- * ### example
- * ```ts
- * <ngui-inview-page [items]="items">
- *   <ng-template let-items="items">
- *     <div *ngIf="items else noItems">
- *       <li *ngFor="let num of items; trackBy: num">row number: {{ num }}</li>
- *     </div>
- *   </ng-template>
- * </ngui-inview-page>
- * ```
+
+ ### Example
+ ```html
+ <ngui-inview-page [items]="items">
+   <ng-template let-items="items">
+     <div *ngIf="items else noItems">
+       <li *ngFor="let num of items; trackBy: num">row number: {{ num }}</li>
+     </div>
+   </ng-template>
+ </ngui-inview-page>
+ ```
  */
 class NguiInviewPageComponent {
     constructor(element, renderer, cdRef) {
         this.element = element;
         this.renderer = renderer;
         this.cdRef = cdRef;
+        /** IntersectionObserver options */
+        this.observerOptions = { threshold: [0, .01] };
         /** Indicates that the page of out of viewport */
         this.outView = false;
         /** The copy of items. This is set when this element is out of viewport */
@@ -302,7 +304,6 @@ class NguiInviewPageComponent {
             this.element.nativeElement.querySelector('.inview-page.contents');
     }
     ngOnDestroy() {
-        console.log('NguiInviewPageComponent.ngOnDestroy() is called');
         this.destroyed = true;
     }
     /**
@@ -323,7 +324,6 @@ class NguiInviewPageComponent {
     }
     setItems(items) {
         if (!this.destroyed) {
-            console.log('NguiInviewPageComponent.setItems() is called with', items);
             this.items = items;
             this.cdRef.detectChanges();
         }
@@ -334,6 +334,7 @@ NguiInviewPageComponent.decorators = [
                 selector: 'ngui-inview-page',
                 template: `
     <div class="inview-page contents"
+      [observerOptions]="observerOptions"
       (nguiInview)="restoreItems()"
       (nguiOutview)="emptyItems()">
       <!-- add blank ngui-list-item by condition  -->
@@ -342,7 +343,6 @@ NguiInviewPageComponent.decorators = [
         [ngTemplateOutlet]="template||defaultTemplate"
         [ngTemplateOutletContext]="{items: items, outView: outView}">
       </ng-container>
-      <div *ngIf="outView">{{ itemsBackup.length }} items hidden</div>
     </div>
 
     <ng-template #defaultTemplate>
@@ -362,7 +362,8 @@ NguiInviewPageComponent.ctorParameters = () => [
 ];
 NguiInviewPageComponent.propDecorators = {
     template: [{ type: ContentChild, args: [TemplateRef, { static: true },] }],
-    items: [{ type: Input }]
+    items: [{ type: Input }],
+    observerOptions: [{ type: Input }]
 };
 
 /**
@@ -377,16 +378,16 @@ NguiInviewPageComponent.propDecorators = {
  * <ngui-inview-page> listens to (nguiInview) and (nguiOutview) events,
  * when <ngui-inview-page> is out of view port, it empties out the contents.
  * and it restores back the contents when it is in viewport again.
- *
- * ### example
- * ```ts
- * <ngui-virtual-list (bottomInview)="loadItems($event)">
- *   <ng-template let-items="items">
- *     <div *ngIf="!items">Loading</div>
- *     <li *ngFor="let num of items; trackBy: num">row number: {{ num }}</li>
- *   </ng-template>
- * </ngui-virtual-list>
- * ```
+
+ ### Example
+ ```html
+ <ngui-virtual-list (bottomInview)="loadItems($event)">
+   <ng-template let-items="items">
+     <div *ngIf="!items">Loading</div>
+     <li *ngFor="let num of items; trackBy: num">row number: {{ num }}</li>
+   </ng-template>
+ </ngui-virtual-list>
+ ```
  */
 class NguiVirtualListComponent {
     constructor(renderer, element, dynamicComponentService, cdr) {
@@ -402,18 +403,18 @@ class NguiVirtualListComponent {
          * Event fired when bottom of the virtual list is in view
          * The handler of this event must call `$event.addItems(items: Array<any>)` to fill contents
          * If not, only the first page is loaded, and rest of the pages won't be loaded;
-         *
-         * ### example
-         * ```ts
-         * <ngui-virtual-list (bottomInview)="loadItems($event)">
-         *   <ng-template let-items="items">
-         *     <div *ngIf="items else noItems">
-         *        <li *ngFor="let num of items; trackBy: num">row number: {{ num }}</li>
-         *     </div>
-         *     <ng-template #noItems>Loading</ng-template>
-         *   </ng-template>
-         * </ngui-virtual-list>
-         * ```
+      
+         ### Example
+         ```html
+         <ngui-virtual-list (bottomInview)="loadItems($event)">
+           <ng-template let-items="items">
+             <div *ngIf="items else noItems">
+                <li *ngFor="let num of items; trackBy: num">row number: {{ num }}</li>
+             </div>
+             <ng-template #noItems>Loading</ng-template>
+           </ng-template>
+         </ngui-virtual-list>
+         ```
          */
         this.bottomInview = new EventEmitter();
         this._focused = false;
@@ -440,14 +441,10 @@ class NguiVirtualListComponent {
             this.inviewPages.push(this.inviewPage);
             this.bottomInview.emit(this); // fire event, so that user can load items
         }
-        else {
-            console.log('Already a page being inserted, skipping adding a page');
-        }
     }
     // set items of NguiInviewPageComponent
     addList(items) {
         this.isListLoading = false;
-        console.log('>>>>>> NguiVirtualListComponent.addList() is called()');
         this.inviewPage.instance.setItems(items);
     }
 }
@@ -530,7 +527,6 @@ class NguiAutocompleteComponent extends NguiVirtualListComponent {
         this.inputEl.focus();
         this._lastSelected = value;
         this.cdr.detectChanges(); // for ChangeDetectionStrategy.OnPush
-        console.log('NguiAutoCompleteComponent.onSelected() is called', value);
     }
     onEscaped() {
         this._escapedFromList = true;
@@ -539,10 +535,8 @@ class NguiAutocompleteComponent extends NguiVirtualListComponent {
             this.inputEl.value = this._orgInputValue;
         }
         this.cdr.detectChanges(); // for ChangeDetectionStrategy.OnPush
-        console.log('NguiAutoCompleteComponent.onEscaped() is called');
     }
     onInputElFocused(event) {
-        console.log('NguiAutoCompleteComponent.onInputElFocused() is called', event);
         this.isListLoading = false;
         if (typeof this._orgInputValue === 'undefined') {
             this._orgInputValue = this.inputEl.value;
@@ -560,7 +554,6 @@ class NguiAutocompleteComponent extends NguiVirtualListComponent {
         this.inviewPages = [];
     }
     onInputElKeyup(event) {
-        console.log('NguiAutoCompleteComponent.onInputKeyup() is called', event.key);
         const firstList = this.element.nativeElement.querySelector('ngui-list-item');
         if (event.key === 'Enter' || event.key === 'Escape') {
             if (firstList) {
@@ -625,7 +618,6 @@ class NguiAutocompleteComponent extends NguiVirtualListComponent {
     }
     // set items of NguiInviewPageComponent
     addList(items) {
-        console.log('>>>>>> NguiAutocompleteComponent.addList() is called()');
         this.isListLoading = false;
         // TODO: ........ for 1st page only, show no match found or blank option
         let noMatchItem;
@@ -826,11 +818,11 @@ NguiHighlightPipe.decorators = [
 
 /**
  * window.konsole alternative
- * ### example
- * ```
- * konsole.setLogLevel('error');
- * konwole.log(1,2,3,4,5);
- * ```
+ ### Example
+ ```js
+ konsole.setLogLevel('error');
+ konsole.log(1,2,3,4,5);
+ ```
  */
 class konsole {
     /** returns if it should call `window.console` or not */
