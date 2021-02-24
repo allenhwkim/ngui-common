@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85.15% </span>
+                <span class="strong">85.42% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>86/101</span>
+                <span class='fraction'>82/96</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">84.21% </span>
+                <span class="strong">84.44% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>80/95</span>
+                <span class='fraction'>76/90</span>
             </div>
         
             
@@ -254,12 +254,7 @@
 <a name='L195'></a><a href='#L195'>195</a>
 <a name='L196'></a><a href='#L196'>196</a>
 <a name='L197'></a><a href='#L197'>197</a>
-<a name='L198'></a><a href='#L198'>198</a>
-<a name='L199'></a><a href='#L199'>199</a>
-<a name='L200'></a><a href='#L200'>200</a>
-<a name='L201'></a><a href='#L201'>201</a>
-<a name='L202'></a><a href='#L202'>202</a>
-<a name='L203'></a><a href='#L203'>203</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<a name='L198'></a><a href='#L198'>198</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -338,7 +333,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -348,11 +342,9 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -373,7 +365,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -439,7 +430,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -540,7 +530,6 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
     this.inputEl.focus();
     this._lastSelected = value;
     this.cdr.detectChanges();    // for ChangeDetectionStrategy.OnPush
-    console.log('NguiAutoCompleteComponent.onSelected() is called', value);
   }
 &nbsp;
   onEscaped(): void {
@@ -550,11 +539,9 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
       this.inputEl.value = this._orgInputValue;
     }
     this.cdr.detectChanges(); // for ChangeDetectionStrategy.OnPush
-    console.log('NguiAutoCompleteComponent.onEscaped() is called');
   }
 &nbsp;
   onInputElFocused(event): void {
-    console.log('NguiAutoCompleteComponent.onInputElFocused() is called', event);
     this.isListLoading = false;
     <span class="missing-if-branch" title="else path not taken" >E</span>if (typeof this._orgInputValue === 'undefined') {
       this._orgInputValue = this.inputEl.value;
@@ -575,7 +562,6 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
   }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  onInputElKeyup(</span>event: KeyboardEvent): void {
-<span class="cstat-no" title="statement not covered" >    console.log('NguiAutoCompleteComponent.onInputKeyup() is called', event.key);</span>
     const firstList = <span class="cstat-no" title="statement not covered" >this.element.nativeElement.querySelector('ngui-list-item');</span>
 <span class="cstat-no" title="statement not covered" >    if (event.key === 'Enter' || event.key === 'Escape') {</span>
 <span class="cstat-no" title="statement not covered" >      if (firstList) {</span>
@@ -641,7 +627,6 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
 &nbsp;
   // set items of NguiInviewPageComponent
   addList(items: Array&lt;any&gt;): void {
-    console.log('&gt;&gt;&gt;&gt;&gt;&gt; NguiAutocompleteComponent.addList() is called()');
     this.isListLoading = false;
 &nbsp;
     // TODO: ........ for 1st page only, show no match found or blank option
@@ -670,7 +655,7 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Aug 03 2020 16:12:21 GMT+0200 (Central European Summer Time)
+                at Wed Feb 24 2021 09:25:39 GMT+0100 (Central European Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">96.97% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>32/33</span>
+                <span class='fraction'>31/31</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">96.43% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>27/28</span>
+                <span class='fraction'>26/26</span>
             </div>
         
             
@@ -192,10 +192,7 @@
 <a name='L133'></a><a href='#L133'>133</a>
 <a name='L134'></a><a href='#L134'>134</a>
 <a name='L135'></a><a href='#L135'>135</a>
-<a name='L136'></a><a href='#L136'>136</a>
-<a name='L137'></a><a href='#L137'>137</a>
-<a name='L138'></a><a href='#L138'>138</a>
-<a name='L139'></a><a href='#L139'>139</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
+<a name='L136'></a><a href='#L136'>136</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -321,13 +318,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -363,16 +357,16 @@ import { NguiInviewPageComponent } from './ngui-inview-page.component';
  * &lt;ngui-inview-page&gt; listens to (nguiInview) and (nguiOutview) events,
  * when &lt;ngui-inview-page&gt; is out of view port, it empties out the contents.
  * and it restores back the contents when it is in viewport again.
- *
- * ### example
- * ```ts
- * &lt;ngui-virtual-list (bottomInview)="loadItems($event)"&gt;
- *   &lt;ng-template let-items="items"&gt;
- *     &lt;div *ngIf="!items"&gt;Loading&lt;/div&gt;
- *     &lt;li *ngFor="let num of items; trackBy: num"&gt;row number: {{ num }}&lt;/li&gt;
- *   &lt;/ng-template&gt;
- * &lt;/ngui-virtual-list&gt;
- * ```
+&nbsp;
+ ### Example
+ ```html
+ &lt;ngui-virtual-list (bottomInview)="loadItems($event)"&gt;
+   &lt;ng-template let-items="items"&gt;
+     &lt;div *ngIf="!items"&gt;Loading&lt;/div&gt;
+     &lt;li *ngFor="let num of items; trackBy: num"&gt;row number: {{ num }}&lt;/li&gt;
+   &lt;/ng-template&gt;
+ &lt;/ngui-virtual-list&gt;
+ ```
  */
 @Component({
   selector: 'ngui-virtual-list',
@@ -405,18 +399,18 @@ export class NguiVirtualListComponent implements AfterViewInit {
    * Event fired when bottom of the virtual list is in view
    * The handler of this event must call `$event.addItems(items: Array&lt;any&gt;)` to fill contents
    * If not, only the first page is loaded, and rest of the pages won't be loaded;
-   *
-   * ### example
-   * ```ts
-   * &lt;ngui-virtual-list (bottomInview)="loadItems($event)"&gt;
-   *   &lt;ng-template let-items="items"&gt;
-   *     &lt;div *ngIf="items else noItems"&gt;
-   *        &lt;li *ngFor="let num of items; trackBy: num"&gt;row number: {{ num }}&lt;/li&gt;
-   *     &lt;/div&gt;
-   *     &lt;ng-template #noItems&gt;Loading&lt;/ng-template&gt;
-   *   &lt;/ng-template&gt;
-   * &lt;/ngui-virtual-list&gt;
-   * ```
+&nbsp;
+   ### Example
+   ```html
+   &lt;ngui-virtual-list (bottomInview)="loadItems($event)"&gt;
+     &lt;ng-template let-items="items"&gt;
+       &lt;div *ngIf="items else noItems"&gt;
+          &lt;li *ngFor="let num of items; trackBy: num"&gt;row number: {{ num }}&lt;/li&gt;
+       &lt;/div&gt;
+       &lt;ng-template #noItems&gt;Loading&lt;/ng-template&gt;
+     &lt;/ng-template&gt;
+   &lt;/ngui-virtual-list&gt;
+   ```
    */
   @Output() bottomInview: EventEmitter&lt;any&gt; = new EventEmitter();
 &nbsp;
@@ -458,15 +452,12 @@ export class NguiVirtualListComponent implements AfterViewInit {
       this.inviewPages.push(this.inviewPage);
 &nbsp;
       this.bottomInview.emit(this); // fire event, so that user can load items
-    } else {
-<span class="cstat-no" title="statement not covered" >      console.log('Already a page being inserted, skipping adding a page');</span>
     }
   }
 &nbsp;
   // set items of NguiInviewPageComponent
   addList(items: Array&lt;any&gt;): void {
     this.isListLoading = false;
-    console.log('&gt;&gt;&gt;&gt;&gt;&gt; NguiVirtualListComponent.addList() is called()');
     this.inviewPage.instance.setItems(items);
   }
 &nbsp;
@@ -478,7 +469,7 @@ export class NguiVirtualListComponent implements AfterViewInit {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Aug 03 2020 16:12:21 GMT+0200 (Central European Summer Time)
+                at Wed Feb 24 2021 09:25:39 GMT+0100 (Central European Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>
