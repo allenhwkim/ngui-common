@@ -8,8 +8,8 @@
   "scripts": {
     "start": "ng serve",
     "build": "npm run build:modules && npm run build:app",
-    "build:app": "ng build --prod --base-href=.",
-    "build:modules": "ng build --prod ngui-common",
+    "build:app": "ng build --configuration production --base-href=.",
+    "build:modules": "ng build --configuration production ngui-common",
     "doc": "compodoc projects/ngui-common/src/lib -p tsconfig.base.json",
     "test": "npm run test:unit && npm run test:acceptance",
     "test:unit": "jest --coverage=true",
@@ -43,24 +43,24 @@
     "lazy-rendering"
   ],
   "dependencies": {
-    "@angular/animations": "^11.2.14",
-    "@angular/common": "^11.2.14",
-    "@angular/compiler": "^11.2.14",
-    "@angular/core": "^11.2.14",
-    "@angular/forms": "^11.2.14",
-    "@angular/platform-browser": "^11.2.14",
-    "@angular/platform-browser-dynamic": "^11.2.14",
-    "@angular/router": "^11.2.14",
+    "@angular/animations": "^12.2.16",
+    "@angular/common": "^12.2.16",
+    "@angular/compiler": "^12.2.16",
+    "@angular/core": "^12.2.16",
+    "@angular/forms": "^12.2.16",
+    "@angular/platform-browser": "^12.2.16",
+    "@angular/platform-browser-dynamic": "^12.2.16",
+    "@angular/router": "^12.2.16",
     "core-js": "^2.6.9",
     "rxjs": "^6.6.2",
     "tslib": "^2.0.0",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.1102.18",
-    "@angular/cli": "~11.2.18",
-    "@angular/compiler-cli": "^11.2.14",
-    "@angular/language-service": "^11.2.14",
+    "@angular-devkit/build-angular": "^12.2.16",
+    "@angular/cli": "^12.2.16",
+    "@angular/compiler-cli": "^12.2.16",
+    "@angular/language-service": "^12.2.16",
     "@compodoc/compodoc": "^1.1.11",
     "@types/node": "^12.11.1",
     "codeceptjs": "^1.4.6",
@@ -70,7 +70,7 @@
     "jest-preset-angular": "^8.2.1",
     "mochawesome": "^6.1.1",
     "mocha": "^8.1.0",
-    "ng-packagr": "^11.2.4",
+    "ng-packagr": "^12.2.7",
     "ngentest": "^1.4.1",
     "pre-commit": "^1.2.2",
     "puppeteer": "^5.2.1",
@@ -78,6 +78,6 @@
     "ts-node": "~8.10.2",
     "tslint": "~6.1.0",
     "tslint-eslint-rules": "^5.4.0",
-    "typescript": "~4.1.6"
+    "typescript": "~4.3.5"
   }
 }
