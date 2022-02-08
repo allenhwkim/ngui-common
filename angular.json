@@ -52,20 +52,24 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true
-            }
+            },
+            "development": {}
           },
-          "defaultConfiguration": ""
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngui-common-app:build"
           },
           "configurations": {
             "production": {
               "browserTarget": "ngui-common-app:build:production"
+            },
+            "development": {
+              "browserTarget": "ngui-common-app:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -103,8 +107,10 @@
             "production": {
               "project": "projects/ngui-common/ng-package.prod.json",
               "tsConfig": "projects/ngui-common/tsconfig.lib.prod.json"
-}
-          }
+},
+            "development": {}
+          },
+          "defaultConfiguration": "production"
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",

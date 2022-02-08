@@ -8,8 +8,8 @@
   "scripts": {
     "start": "ng serve",
     "build": "npm run build:modules && npm run build:app",
-    "build:app": "ng build --configuration production --base-href=.",
-    "build:modules": "ng build --configuration production ngui-common",
+    "build:app": "ng build --base-href=.",
+    "build:modules": "ng build ngui-common",
     "doc": "compodoc projects/ngui-common/src/lib -p tsconfig.base.json",
     "test": "npm run test:unit && npm run test:acceptance",
     "test:unit": "jest --coverage=true",
