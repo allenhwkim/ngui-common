@@ -1,4 +1,5 @@
 import { ElementRef, EventEmitter, OnDestroy, OnInit, TemplateRef } from '@angular/core';
+import * as i0 from "@angular/core";
 /**
  An element that listens to viewport positioning and fires inView and notInview events
  ### Example
@@ -8,7 +9,6 @@ import { ElementRef, EventEmitter, OnDestroy, OnInit, TemplateRef } from '@angul
  </ngui-inview>
  ```
  */
-import * as ɵngcc0 from '@angular/core';
 export declare class NguiInviewComponent implements OnInit, OnDestroy {
     private element;
     private platformId;
@@ -42,8 +42,6 @@ export declare class NguiInviewComponent implements OnInit, OnDestroy {
      * this won't be invoked if user provides any (inview) event. e.g. (inview)="something()"
      */
     defaultInviewHandler(entry: any): any;
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<NguiInviewComponent, never>;
-    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<NguiInviewComponent, "ngui-inview", never, { "observerOptions": "observerOptions"; "blurEnabled": "blurEnabled"; "options": "options"; }, { "inview": "inview"; "notInview": "notInview"; }, ["template"], never>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NguiInviewComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NguiInviewComponent, "ngui-inview", never, { "observerOptions": "observerOptions"; "options": "options"; "blurEnabled": "blurEnabled"; }, { "inview": "inview"; "notInview": "notInview"; }, ["template"], never>;
 }
-
-//# sourceMappingURL=ngui-inview.component.d.ts.map

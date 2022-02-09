@@ -2,7 +2,7 @@ import { ElementRef, OnInit, Renderer2, ViewContainerRef } from '@angular/core';
 import { NguiListDirective } from './ngui-list.directive';
 import { NguiVirtualListComponent } from './ngui-virtual-list.component';
 import { NguiAutocompleteComponent } from './ngui-autocomplete.component';
-import * as ɵngcc0 from '@angular/core';
+import * as i0 from "@angular/core";
 export declare class NguiListItemDirective implements OnInit {
     private el;
     private renderer;
@@ -21,8 +21,6 @@ export declare class NguiListItemDirective implements OnInit {
     mousedown(): void;
     focused(): void;
     blurred(): void;
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<NguiListItemDirective, [null, null, null, { optional: true; host: true; }, { optional: true; host: true; }, { optional: true; host: true; }]>;
-    static ɵdir: ɵngcc0.ɵɵDirectiveDefWithMeta<NguiListItemDirective, "ngui-list-item", never, { "object": "item"; }, {}, never>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NguiListItemDirective, [null, null, null, { optional: true; host: true; }, { optional: true; host: true; }, { optional: true; host: true; }]>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NguiListItemDirective, "ngui-list-item", never, { "object": "item"; }, {}, never>;
 }
-
-//# sourceMappingURL=ngui-list-item.directive.d.ts.map

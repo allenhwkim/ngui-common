@@ -1,7 +1,7 @@
 {
   "name": "@ngui/common",
   "description": "Angular 6 and 7 common modules; virtual-scroll, lazy-rendering, interactive list, etc",
-  "version": "0.8.0",
+  "version": "1.0.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -23,30 +23,30 @@
     "lazy-rendering"
   ],
   "peerDependencies": {
-    "@angular/common": ">10.0.0",
-    "@angular/core": ">10.0.0"
+    "@angular/common": ">=12.0.0",
+    "@angular/core": ">=12.0.0"
   },
   "dependencies": {
     "tslib": "^2.0.0"
   },
-  "main": "bundles/ngui-common.umd.js",
-  "module_ivy_ngcc": "__ivy_ngcc__/fesm2015/ngui-common.js",
-  "module": "fesm2015/ngui-common.js",
-  "es2015_ivy_ngcc": "__ivy_ngcc__/fesm2015/ngui-common.js",
-  "es2015": "fesm2015/ngui-common.js",
-  "esm2015": "esm2015/ngui-common.js",
-  "fesm2015_ivy_ngcc": "__ivy_ngcc__/fesm2015/ngui-common.js",
-  "fesm2015": "fesm2015/ngui-common.js",
+  "module": "fesm2015/ngui-common.mjs",
+  "es2020": "fesm2020/ngui-common.mjs",
+  "esm2020": "esm2020/ngui-common.mjs",
+  "fesm2020": "fesm2020/ngui-common.mjs",
+  "fesm2015": "fesm2015/ngui-common.mjs",
   "typings": "ngui-common.d.ts",
-  "metadata": "ngui-common.metadata.json",
-  "sideEffects": false,
-  "__processed_by_ivy_ngcc__": {
-    "es2015": "10.0.7",
-    "fesm2015": "10.0.7",
-    "module": "10.0.7",
-    "typings": "10.0.7"
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./ngui-common.d.ts",
+      "esm2020": "./esm2020/ngui-common.mjs",
+      "es2020": "./fesm2020/ngui-common.mjs",
+      "es2015": "./fesm2015/ngui-common.mjs",
+      "node": "./fesm2015/ngui-common.mjs",
+      "default": "./fesm2020/ngui-common.mjs"
+    }
   },
-  "scripts": {
-    "prepublishOnly": "node --eval \"console.error('ERROR: Trying to publish a package that has been compiled by NGCC. This is not allowed.\\nPlease delete and rebuild the package, without compiling with NGCC, before attempting to publish.\\nNote that NGCC may have been run by importing this package into another project that is being built with Ivy enabled.\\n')\" && exit 1"
-  }
+  "sideEffects": false
 }

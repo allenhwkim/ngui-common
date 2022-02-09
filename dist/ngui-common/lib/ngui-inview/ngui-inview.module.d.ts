@@ -1,13 +1,12 @@
 import { NguiInviewComponent } from './src/ngui-inview.component';
 import { NguiInviewDirective } from './src/ngui-inview.directive';
-import * as ɵngcc0 from '@angular/core';
-import * as ɵngcc1 from './src/ngui-inview.component';
-import * as ɵngcc2 from './src/ngui-inview.directive';
-import * as ɵngcc3 from '@angular/common';
+import * as i0 from "@angular/core";
+import * as i1 from "./src/ngui-inview.component";
+import * as i2 from "./src/ngui-inview.directive";
+import * as i3 from "@angular/common";
 export { NguiInviewComponent, NguiInviewDirective };
 export declare class NguiInviewModule {
-    static ɵmod: ɵngcc0.ɵɵNgModuleDefWithMeta<NguiInviewModule, [typeof ɵngcc1.NguiInviewComponent, typeof ɵngcc2.NguiInviewDirective], [typeof ɵngcc3.CommonModule], [typeof ɵngcc1.NguiInviewComponent, typeof ɵngcc2.NguiInviewDirective]>;
-    static ɵinj: ɵngcc0.ɵɵInjectorDef<NguiInviewModule>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NguiInviewModule, never>;
+    static ɵmod: i0.ɵɵNgModuleDeclaration<NguiInviewModule, [typeof i1.NguiInviewComponent, typeof i2.NguiInviewDirective], [typeof i3.CommonModule], [typeof i1.NguiInviewComponent, typeof i2.NguiInviewDirective]>;
+    static ɵinj: i0.ɵɵInjectorDeclaration<NguiInviewModule>;
 }
-
-//# sourceMappingURL=ngui-inview.module.d.ts.map

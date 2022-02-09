@@ -1,6 +1,7 @@
 import { AfterViewInit, ChangeDetectorRef, ComponentRef, ElementRef, EventEmitter, Renderer2, TemplateRef, ViewContainerRef } from '@angular/core';
 import { DynamicComponentService } from '../../ngui-utils/src/dynamic-component.service';
 import { NguiInviewPageComponent } from './ngui-inview-page.component';
+import * as i0 from "@angular/core";
 /**
  * Virtual List
  *
@@ -24,7 +25,6 @@ import { NguiInviewPageComponent } from './ngui-inview-page.component';
  </ngui-virtual-list>
  ```
  */
-import * as ɵngcc0 from '@angular/core';
 export declare class NguiVirtualListComponent implements AfterViewInit {
     renderer: Renderer2;
     element: ElementRef;
@@ -72,8 +72,6 @@ export declare class NguiVirtualListComponent implements AfterViewInit {
      */
     addAnInviewPageToPages(): void;
     addList(items: Array<any>): void;
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<NguiVirtualListComponent, never>;
-    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<NguiVirtualListComponent, "ngui-virtual-list", never, {}, { "selected": "selected"; "escaped": "escaped"; "bottomInview": "bottomInview"; }, ["template"], never>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NguiVirtualListComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NguiVirtualListComponent, "ngui-virtual-list", never, {}, { "selected": "selected"; "escaped": "escaped"; "bottomInview": "bottomInview"; }, ["template"], never>;
 }
-
-//# sourceMappingURL=ngui-virtual-list.component.d.ts.map

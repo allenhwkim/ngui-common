@@ -1,4 +1,5 @@
 import { ChangeDetectorRef, ElementRef, OnDestroy, OnInit, Renderer2, TemplateRef } from '@angular/core';
+import * as i0 from "@angular/core";
 /**
  * A block of component that listens to inView and outView events,
  * so that it empties contents when out of view after backup items
@@ -15,7 +16,6 @@ import { ChangeDetectorRef, ElementRef, OnDestroy, OnInit, Renderer2, TemplateRe
  </ngui-inview-page>
  ```
  */
-import * as ɵngcc0 from '@angular/core';
 export declare class NguiInviewPageComponent implements OnInit, OnDestroy {
     private element;
     private renderer;
@@ -48,8 +48,6 @@ export declare class NguiInviewPageComponent implements OnInit, OnDestroy {
      */
     emptyItems(): void;
     setItems(items: Array<any>): void;
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<NguiInviewPageComponent, never>;
-    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<NguiInviewPageComponent, "ngui-inview-page", never, { "observerOptions": "observerOptions"; "items": "items"; }, {}, ["template"], never>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NguiInviewPageComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NguiInviewPageComponent, "ngui-inview-page", never, { "items": "items"; "observerOptions": "observerOptions"; }, {}, ["template"], never>;
 }
-
-//# sourceMappingURL=ngui-inview-page.component.d.ts.map

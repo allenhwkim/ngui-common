@@ -1,4 +1,5 @@
 import { Component, ComponentFactoryResolver, ComponentRef, ViewContainerRef } from '@angular/core';
+import * as i0 from "@angular/core";
 /**
  * Insert a component dynamically using a service
  *
@@ -25,7 +26,6 @@ import { Component, ComponentFactoryResolver, ComponentRef, ViewContainerRef } f
  }
  ```
  */
-import * as ɵngcc0 from '@angular/core';
 export declare class DynamicComponentService {
     /** used to create a factory from a component class */
     factoryResolver: ComponentFactoryResolver;
@@ -43,8 +43,6 @@ export declare class DynamicComponentService {
      * insert component
      */
     insertComponent(componentRef: ComponentRef<any>): Component;
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<DynamicComponentService, never>;
-    static ɵprov: ɵngcc0.ɵɵInjectableDef<DynamicComponentService>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<DynamicComponentService, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<DynamicComponentService>;
 }
-
-//# sourceMappingURL=dynamic-component.service.d.ts.map

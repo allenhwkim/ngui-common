@@ -1,10 +1,9 @@
-import * as ɵngcc0 from '@angular/core';
-import * as ɵngcc1 from './ngui-inview/ngui-inview.module';
-import * as ɵngcc2 from './ngui-list/ngui-list.module';
-import * as ɵngcc3 from './ngui-utils/ngui-utils.module';
+import * as i0 from "@angular/core";
+import * as i1 from "./ngui-inview/ngui-inview.module";
+import * as i2 from "./ngui-list/ngui-list.module";
+import * as i3 from "./ngui-utils/ngui-utils.module";
 export declare class NguiCommonModule {
-    static ɵmod: ɵngcc0.ɵɵNgModuleDefWithMeta<NguiCommonModule, never, [typeof ɵngcc1.NguiInviewModule, typeof ɵngcc2.NguiListModule, typeof ɵngcc3.NguiUtilsModule], [typeof ɵngcc1.NguiInviewModule, typeof ɵngcc2.NguiListModule, typeof ɵngcc3.NguiUtilsModule]>;
-    static ɵinj: ɵngcc0.ɵɵInjectorDef<NguiCommonModule>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NguiCommonModule, never>;
+    static ɵmod: i0.ɵɵNgModuleDeclaration<NguiCommonModule, never, [typeof i1.NguiInviewModule, typeof i2.NguiListModule, typeof i3.NguiUtilsModule], [typeof i1.NguiInviewModule, typeof i2.NguiListModule, typeof i3.NguiUtilsModule]>;
+    static ɵinj: i0.ɵɵInjectorDeclaration<NguiCommonModule>;
 }
-
-//# sourceMappingURL=ngui-common.module.d.ts.map

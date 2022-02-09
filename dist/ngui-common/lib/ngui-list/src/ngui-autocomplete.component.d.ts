@@ -1,6 +1,6 @@
 import { OnInit, TemplateRef } from '@angular/core';
 import { NguiVirtualListComponent } from './ngui-virtual-list.component';
-import * as ɵngcc0 from '@angular/core';
+import * as i0 from "@angular/core";
 export declare class NguiAutocompleteComponent extends NguiVirtualListComponent implements OnInit {
     for: string;
     minInputChars: number;
@@ -39,8 +39,6 @@ export declare class NguiAutocompleteComponent extends NguiVirtualListComponent 
     setFocused(elType: 'input' | 'listItem', val: boolean): void;
     positionThisUnderInputEl(): void;
     addList(items: Array<any>): void;
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<NguiAutocompleteComponent, never>;
-    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<NguiAutocompleteComponent, "ngui-autocomplete", never, { "minInputChars": "minInputChars"; "blankOption": "blankOption"; "noMatchItem": "noMatchItem"; "for": "for"; }, {}, ["template"], never>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NguiAutocompleteComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NguiAutocompleteComponent, "ngui-autocomplete", never, { "for": "for"; "minInputChars": "minInputChars"; "blankOption": "blankOption"; "noMatchItem": "noMatchItem"; }, {}, ["template"], never>;
 }
-
-//# sourceMappingURL=ngui-autocomplete.component.d.ts.map

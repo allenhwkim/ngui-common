@@ -1,8 +1,8 @@
 import { ElementRef, EventEmitter, OnDestroy, OnInit } from '@angular/core';
+import * as i0 from "@angular/core";
 /**
  * Fires (nguiInview) or (nguiOutview) events dependents on the element is in viewport or not
  */
-import * as ɵngcc0 from '@angular/core';
 export declare class NguiInviewDirective implements OnInit, OnDestroy {
     element: ElementRef;
     private platformId;
@@ -26,8 +26,6 @@ export declare class NguiInviewDirective implements OnInit, OnDestroy {
      *  and fires (nguiOutview) event when this element is not in viewport
      */
     handleIntersect(entries: any): void;
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<NguiInviewDirective, never>;
-    static ɵdir: ɵngcc0.ɵɵDirectiveDefWithMeta<NguiInviewDirective, "[nguiInview], [nguiOutview]", never, { "observerOptions": "observerOptions"; "options": "options"; }, { "nguiInview": "nguiInview"; "nguiOutview": "nguiOutview"; }, never>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NguiInviewDirective, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NguiInviewDirective, "[nguiInview], [nguiOutview]", never, { "observerOptions": "observerOptions"; "options": "options"; }, { "nguiInview": "nguiInview"; "nguiOutview": "nguiOutview"; }, never>;
 }
-
-//# sourceMappingURL=ngui-inview.directive.d.ts.map
