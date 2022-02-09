@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-	      <link rel="stylesheet" href="./styles/style.css">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
     </head>
     <body>
 
@@ -30,9 +31,15 @@
                <div class="content getting-started">
                    <div class="content-data">
 
+<h2 id="100-2022-02-09">1.0.0 (2022-02-09)</h2>
+<ul>
+<li>Support for Angular v12 and v13</li>
+<li>&quot;Ivy&quot; partial compilation mode</li>
+<li>Angular v11 and below are no longer supported</li>
+</ul>
 <h2 id="080-2021-02-16">0.8.0 (2021-02-16)</h2>
 <ul>
-<li><code>ngui-virtual-list</code> now just inserts newly loaded items without showing &quot;<number> items hidden&quot; message.</li>
+<li><code>ngui-virtual-list</code> now just inserts newly loaded items without showing <code>&lt;number&gt; items hidden</code> message.</li>
 <li><code>observerOptions</code> can now be customized for <code>ngui-inview-page</code></li>
 <li>Removed some <code>console.log()</code> debugging messages</li>
 </ul>
@@ -64,14 +71,15 @@
 
 
 
-                   
+
+
 
 
 
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -83,6 +91,15 @@
            </div>
        </div>
 
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 0;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
@@ -92,9 +109,9 @@
 
        <script src="./js/libs/custom-elements.min.js"></script>
        <script src="./js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+
        <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
 
        <script src="./js/libs/bootstrap-native.js"></script>
 

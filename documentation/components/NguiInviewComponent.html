@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
     </head>
     <body>
 
@@ -35,7 +36,9 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>NguiInviewComponent</li>
+  <li
+  >
+  NguiInviewComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,15 +64,16 @@
     <code>projects/ngui-common/src/lib/ngui-inview/src/ngui-inview.component.ts</code>
 </p>
 
+
     <p class="comment">
         <h3>Description</h3>
     </p>
     <p class="comment">
         <p>An element that listens to viewport positioning and fires inView and notInview events</p>
 <h3 id="example">Example</h3>
-<div><pre class="line-numbers"><code class="language-html"> &lt;ngui-inview [observerOptions]=&quot;myObserverOptions&quot; (inview)=&quot;doA()&quot; (notInview)=&quot;doB()&quot;&gt;
-   &lt;img *ngIf src=&quot;https://picsum.photos/800/300?image=1&gt;
- &lt;/ngui-inview&gt;</code></pre></div>
+<div><pre class="line-numbers"><code class="language-html">&lt;ngui-inview [observerOptions]=&quot;myObserverOptions&quot; (inview)=&quot;doA()&quot; (notInview)=&quot;doB()&quot;&gt;
+&lt;img *ngIf src=&quot;https://picsum.photos/800/300?image=1&gt;
+&lt;/ngui-inview&gt;</code></pre></div>
     </p>
 
 
@@ -84,7 +88,7 @@
 
 <section>
     <h3>Metadata</h3>
-    <table class="table table-sm table-hover">
+    <table class="table table-sm table-hover metadata">
         <tbody>
 
 
@@ -140,16 +144,16 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#isInview">isInview</a>
+                                <a href="#isInview" >isInview</a>
                             </li>
                             <li>
-                                <a href="#observer">observer</a>
+                                <a href="#observer" >observer</a>
                             </li>
                             <li>
-                                <a href="#once80PctVisible">once80PctVisible</a>
+                                <a href="#once80PctVisible" >once80PctVisible</a>
                             </li>
                             <li>
-                                <a href="#template">template</a>
+                                <a href="#template" >template</a>
                             </li>
                         </ul>
                     </td>
@@ -164,16 +168,16 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#defaultInviewHandler">defaultInviewHandler</a>
+                                <a href="#defaultInviewHandler" >defaultInviewHandler</a>
                             </li>
                             <li>
-                                <a href="#handleIntersect">handleIntersect</a>
+                                <a href="#handleIntersect" >handleIntersect</a>
                             </li>
                             <li>
-                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
                             </li>
                             <li>
-                                <a href="#ngOnInit">ngOnInit</a>
+                                <a href="#ngOnInit" >ngOnInit</a>
                             </li>
                         </ul>
                     </td>
@@ -188,13 +192,13 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#blurEnabled">blurEnabled</a>
+                                <a href="#blurEnabled" >blurEnabled</a>
                             </li>
                             <li>
-                                <a href="#observerOptions">observerOptions</a>
+                                <a href="#observerOptions" >observerOptions</a>
                             </li>
                             <li>
-                                <a href="#options">options</a>
+                                <a href="#options" class="deprecated-name">options</a>
                             </li>
                         </ul>
                     </td>
@@ -209,10 +213,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#inview">inview</a>
+                                <a href="#inview" >inview</a>
                             </li>
                             <li>
-                                <a href="#notInview">notInview</a>
+                                <a href="#notInview" >notInview</a>
                             </li>
                         </ul>
                     </td>
@@ -297,6 +301,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>true</code>
                     </td>
                 </tr>
@@ -340,7 +350,7 @@ Only applies when there are no &quot;inview&quot; event handlers defined.</p>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>IntersectionObserver options </p>
+                        <div class="io-description"><p>IntersectionObserver options</p>
 </div>
                     </td>
                 </tr>
@@ -432,9 +442,7 @@ Only applies when there are no &quot;inview&quot; event handlers defined.</p>
                 <td class="col-md-4">
                     <a name="defaultInviewHandler"></a>
                     <span class="name">
-                        <b>
-                            defaultInviewHandler
-                        </b>
+                        <span ><b>defaultInviewHandler</b></span>
                         <a href="#defaultInviewHandler"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -462,6 +470,7 @@ this won&#39;t be invoked if user provides any (inview) event. e.g. (inview)=&qu
 
                     <div class="io-description">
                         <b>Parameters :</b>
+                        
                         <table class="params">
                             <thead>
                                 <tr>
@@ -501,9 +510,7 @@ this won&#39;t be invoked if user provides any (inview) event. e.g. (inview)=&qu
                 <td class="col-md-4">
                     <a name="handleIntersect"></a>
                     <span class="name">
-                        <b>
-                            handleIntersect
-                        </b>
+                        <span ><b>handleIntersect</b></span>
                         <a href="#handleIntersect"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -525,11 +532,12 @@ this won&#39;t be invoked if user provides any (inview) event. e.g. (inview)=&qu
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>fires (inview) and (notInview) events when this component is visible or not visible  </p>
+                    <div class="io-description"><p>fires (inview) and (notInview) events when this component is visible or not visible</p>
 </div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
+                        
                         <table class="params">
                             <thead>
                                 <tr>
@@ -569,9 +577,7 @@ this won&#39;t be invoked if user provides any (inview) event. e.g. (inview)=&qu
                 <td class="col-md-4">
                     <a name="ngOnDestroy"></a>
                     <span class="name">
-                        <b>
-                            ngOnDestroy
-                        </b>
+                        <span ><b>ngOnDestroy</b></span>
                         <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -593,7 +599,7 @@ this won&#39;t be invoked if user provides any (inview) event. e.g. (inview)=&qu
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>stop IntersectionObserver </p>
+                    <div class="io-description"><p>stop IntersectionObserver</p>
 </div>
 
                     <div class="io-description">
@@ -610,9 +616,7 @@ this won&#39;t be invoked if user provides any (inview) event. e.g. (inview)=&qu
                 <td class="col-md-4">
                     <a name="ngOnInit"></a>
                     <span class="name">
-                        <b>
-                            ngOnInit
-                        </b>
+                        <span ><b>ngOnInit</b></span>
                         <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -634,7 +638,7 @@ this won&#39;t be invoked if user provides any (inview) event. e.g. (inview)=&qu
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Starts IntersectionObserver </p>
+                    <div class="io-description"><p>Starts IntersectionObserver</p>
 </div>
 
                     <div class="io-description">
@@ -648,142 +652,138 @@ this won&#39;t be invoked if user provides any (inview) event. e.g. (inview)=&qu
 </section>
     <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isInview"></a>
+                    <span class="name">
+                        <span ><b>isInview</b></span>
+                        <a href="#isInview"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="isInview"></a>
-                        <span class="name">
-                            <b>
-                            isInview</b>
-                            <a href="#isInview"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>false</code>
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">projects/ngui-common/src/lib/ngui-inview/src/ngui-inview.component.ts:53</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">projects/ngui-common/src/lib/ngui-inview/src/ngui-inview.component.ts:53</a></div>
-                            </td>
-                        </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>indicates that this element is in viewport </p>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>indicates that this element is in viewport</p>
 </div>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="observer"></a>
+                    <span class="name">
+                        <span ><b>observer</b></span>
+                        <a href="#observer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="observer"></a>
-                        <span class="name">
-                            <b>
-                            observer</b>
-                            <a href="#observer"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code>IntersectionObserver</code>
+                        <i>Type : </i>    <code>IntersectionObserver</code>
 
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">projects/ngui-common/src/lib/ngui-inview/src/ngui-inview.component.ts:51</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="once80PctVisible"></a>
-                        <span class="name">
-                            <b>
-                            once80PctVisible</b>
-                            <a href="#once80PctVisible"><span class="icon ion-ios-link"></span></a>
-                        </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>false</code>
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">projects/ngui-common/src/lib/ngui-inview/src/ngui-inview.component.ts:51</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">projects/ngui-common/src/lib/ngui-inview/src/ngui-inview.component.ts:55</a></div>
-                            </td>
-                        </tr>
 
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="once80PctVisible"></a>
+                    <span class="name">
+                        <span ><b>once80PctVisible</b></span>
+                        <a href="#once80PctVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>indicates that this element is 80% in viewport. Used by the default callback </p>
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">projects/ngui-common/src/lib/ngui-inview/src/ngui-inview.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>indicates that this element is 80% in viewport. Used by the default callback</p>
 </div>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="template"></a>
+                    <span class="name">
+                        <span ><b>template</b></span>
+                        <a href="#template"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="template"></a>
-                        <span class="name">
-                            <b>
-                            template</b>
-                            <a href="#template"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ContentChild(TemplateRef, {static: true})<br />
+                        </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">projects/ngui-common/src/lib/ngui-inview/src/ngui-inview.component.ts:36</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <b>Decorators : </b>
-                            <br />
-                            <code>
-                                @ContentChild(TemplateRef, {static: true})<br />
-                            </code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">projects/ngui-common/src/lib/ngui-inview/src/ngui-inview.component.ts:36</a></div>
-                            </td>
-                        </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p><ng-template> reference </p>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p><ng-template> reference</p>
 </div>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
 </div>
@@ -953,14 +953,15 @@ export class NguiInviewComponent implements OnInit, OnDestroy {
 
 
 
-                   
+
+
 
 
 
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -972,6 +973,15 @@ export class NguiInviewComponent implements OnInit, OnDestroy {
            </div>
        </div>
 
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
@@ -981,9 +991,9 @@ export class NguiInviewComponent implements OnInit, OnDestroy {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+
        <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

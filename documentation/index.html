@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-	      <link rel="stylesheet" href="./styles/style.css">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
     </head>
     <body>
 
@@ -31,7 +32,7 @@
                    <div class="content-data">
 
 <h1 id="nguicommon">@ngui/common</h1>
-<p>Angular 10+ UI common directives, functions, services</p>
+<p>Angular 12+ UI common directives, functions, services</p>
 <p><a href="https://travis-ci.org/allenhwkim/ngui-common"><img src="https://travis-ci.org/allenhwkim/ngui-common.svg?branch=master" alt="Build Status" class="img-responsive"></a>
 <a href="https://www.npmjs.com/package/@ngui/common"><img src="https://img.shields.io/npm/dt/@ngui/common.svg" alt="npm" class="img-responsive"></a> 
 <a href="https://www.npmjs.com/package/@ngui/common"><img src="https://img.shields.io/npm/v/@ngui/common.svg" alt="npm" class="img-responsive"></a>
@@ -42,7 +43,7 @@
 <li>install @ngui/common</li>
 </ol>
 <div><pre class="line-numbers"><code class="language-none">$ npm install &#64;ngui/common --save</code></pre></div><ol start="2">
-<li>import NguiCommonModule to your AppModule  </li>
+<li>import NguiCommonModule to your AppModule</li>
 </ol>
 <div><pre class="line-numbers"><code class="language-none">import { NguiInviewModule, NguiListModule, NguiUtilsModule } from &#39;&#64;ngui/common&#39;;
 
@@ -93,14 +94,15 @@ export class AppModule { }</code></pre></div><h2 id="use-it-in-your-code">Use it
 
 
 
-                   
+
+
 
 
 
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -112,6 +114,15 @@ export class AppModule { }</code></pre></div><h2 id="use-it-in-your-code">Use it
            </div>
        </div>
 
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 0;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
@@ -121,9 +132,9 @@ export class AppModule { }</code></pre></div><h2 id="use-it-in-your-code">Use it
 
        <script src="./js/libs/custom-elements.min.js"></script>
        <script src="./js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+
        <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
 
        <script src="./js/libs/bootstrap-native.js"></script>
 
