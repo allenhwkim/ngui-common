@@ -1,3 +1,6 @@
+const { pathsToModuleNameMapper } = require('ts-jest');
+const { paths } = require('./tsconfig.json').compilerOptions;
+
 // It's too big to have it in config.json
 module.exports = {
   "collectCoverage": false,
@@ -14,31 +17,10 @@ module.exports = {
       "lines": 80
     }
   },
-  "preset": "jest-preset-angular",
-  "setupFilesAfterEnv": ["<rootDir>/test/jest-setup.ts"],
-  "transform": {
-    "\\.(html|ts)$": "ts-jest"
-  },
-  "globals": {
-    "ts-jest": {
-      "tsConfig": "tsconfig.base.json",
-      "diagnostics": false,
-      "stringifyContentPathRegex": /\.html$/
-    }
-  },
-  "testMatch": [
-    "**/*.spec.ts"
-  ],
-  "moduleFileExtensions": [
-    "ts",
-    "js",
-    "html"
-  ],
-  "moduleNameMapper": null,
-  "transformIgnorePatterns": [
-    "node_modules/(?!(jest-test))"
-  ],
-  "reporters": [
+  preset: 'jest-preset-angular',
+  moduleNameMapper: pathsToModuleNameMapper(paths, { prefix: '<rootDir>' }),
+  setupFilesAfterEnv: ['<rootDir>/test/jest-setup.ts'],
+  reporters: [
     "default",
     ["./node_modules/jest-html-reporter", {
       "pageTitle": "Test Report",

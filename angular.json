@@ -13,7 +13,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "aot": true,
             "outputPath": "dist/ngui-common-app",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -25,40 +24,51 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
-              "budgets": [{
-                "type": "anyComponentStyle",
-                "maximumWarning": "6kb"
-              }, {
-                "type": "initial",
-                "maximumWarning": "2mb",
-                "maximumError": "5mb"
-              }],
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                },
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true
-            }
-          }
+            },
+            "development": {}
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "ngui-common-app:build"
-          },
+          "options": {},
           "configurations": {
             "production": {
               "browserTarget": "ngui-common-app:build:production"
+            },
+            "development": {
+              "browserTarget": "ngui-common-app:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -67,14 +77,11 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
             ]
           }
         }
@@ -87,7 +94,7 @@
       "prefix": "ngui",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/ngui-common/tsconfig.lib.json",
             "project": "projects/ngui-common/ng-package.json"
@@ -96,23 +103,25 @@
             "production": {
               "project": "projects/ngui-common/ng-package.prod.json",
               "tsConfig": "projects/ngui-common/tsconfig.lib.prod.json"
-}
-          }
+            },
+            "development": {}
+          },
+          "defaultConfiguration": "production"
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/ngui-common/tsconfig.lib.json",
-              "projects/ngui-common/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "projects/ngui-common/**/*.ts",
+              "projects/ngui-common/**/*.html"
             ]
           }
         }
       }
     }
   },
-  "defaultProject": "ngui-common-app"
+  "defaultProject": "ngui-common-app",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }

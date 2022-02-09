@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: 'ngui-list' // tslint:disable-line
+  selector: 'ngui-list' // eslint-disable-line
 })
 export class NguiListDirective {
   /** Fired when child `<ngui-list-item>` is selected */

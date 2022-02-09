@@ -5,9 +5,9 @@ import { Component } from '@angular/core';
     <h2>nguiHighlight pipe test</h2>
     <div [innerHTML]="'nguiHighlight pipe highlights the given word' | nguiHighlight:'highlight'"></div>
   `,
-  // tslint:disable
+  /* eslint-disable */
   styles: ['::ng-deep .ngui-highlight { color: red; font-weight: bold;}']
-  // tslint:enable
+  /* eslint-enable */
 })
 export class NguiHighlightPipeTestComponent {
 }

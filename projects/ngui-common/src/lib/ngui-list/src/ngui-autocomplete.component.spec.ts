@@ -1,12 +1,12 @@
-/* tslint:disable */
+/* eslint-disable */
 import { async, TestBed } from '@angular/core/testing';
 // import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 // do not import any other than you test. For others, mock it
 import { NguiAutocompleteComponent } from './ngui-autocomplete.component';
-import { MockComponent } from '../../../../../../test/jest-setup';
+import { MockComponent } from '../../../../../../test/test-utils';
 
-import {ChangeDetectorRef, ComponentRef, ElementRef, Renderer2} from '@angular/core';
+import {ChangeDetectorRef, ComponentRef, ElementRef, Injectable, Renderer2} from '@angular/core';
 
 import { DynamicComponentService } from '../../ngui-utils/src/dynamic-component.service';
 import 'jest';
@@ -20,6 +20,7 @@ class MockElementRef extends ElementRef {
   };
 }
 
+@Injectable()
 class MockDynamicComponentService extends DynamicComponentService {
   createComponent() {
     return <ComponentRef<any>>{ instance: {} }
@@ -109,7 +110,7 @@ describe('NguiAutocompleteComponent', () => {
   }));
 
   it('should run #onInputElKeup', async(() => {
-    component.element.nativeElement.querySelector 
+    component.element.nativeElement.querySelector
       = jest.fn().mockReturnValue({focus: jest.fn()});
     component.onEscaped = jest.fn();
     component.addAutocompleteList = jest.fn();
