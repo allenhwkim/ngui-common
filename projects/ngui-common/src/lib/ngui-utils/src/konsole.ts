@@ -6,7 +6,7 @@
  konsole.log(1,2,3,4,5);
  ```
  */
-export abstract class konsole { // tslint:disable-line
+export abstract class konsole { // eslint-disable-line
   /** all log levels */
   static LOG_LEVELS = {
     ALL:   parseInt('00000', 2),
@@ -47,7 +47,7 @@ export abstract class konsole { // tslint:disable-line
   static debug(...args: Array<any>): void {
     if (this.toLog('DEBUG')) {
         // noinspection TsLint
-        console.debug.apply(console, arguments); // tslint:disable-line
+        console.debug.apply(console, arguments); // eslint-disable-line
     }
   }
 
@@ -62,7 +62,7 @@ export abstract class konsole { // tslint:disable-line
   static info(...args: Array<any>): void {
     if (this.toLog('INFO')) {
         // noinspection TsLint
-        console.info.apply(console, arguments); // tslint:disable-line
+        console.info.apply(console, arguments); // eslint-disable-line
     }
   }
 

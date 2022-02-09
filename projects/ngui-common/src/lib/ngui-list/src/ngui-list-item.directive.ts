@@ -18,10 +18,10 @@ import { NoMatchFound } from './no-match-found';
 
 // tabindex, keydown, keyup(ENTER, ESC), click
 @Directive({
-  selector: 'ngui-list-item' // tslint:disable-line
+  selector: 'ngui-list-item' // eslint-disable-line
 })
 export class NguiListItemDirective implements OnInit {
-  @Input('item') object: any; // tslint:disable-line
+  @Input('item') object: any; // eslint-disable-line
 
   nextSibling: HTMLElement;
   prevSibling: HTMLElement;

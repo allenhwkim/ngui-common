@@ -1,4 +1,4 @@
-/* tslint:disable */
+/* eslint-disable */
 import { async, ComponentFixtureAutoDetect, TestBed } from '@angular/core/testing';
 // import { NO_ERRORS_SCHEMA } from '@angular/core';
 

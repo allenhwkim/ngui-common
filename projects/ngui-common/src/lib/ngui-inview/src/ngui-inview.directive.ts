@@ -15,7 +15,7 @@ import {isPlatformBrowser} from '@angular/common';
  * Fires (nguiInview) or (nguiOutview) events dependents on the element is in viewport or not
  */
 @Directive({
-    selector: '[nguiInview], [nguiOutview]' // tslint:disable-line
+    selector: '[nguiInview], [nguiOutview]' // eslint-disable-line
 })
 export class NguiInviewDirective implements OnInit, OnDestroy {
   observer: IntersectionObserver;

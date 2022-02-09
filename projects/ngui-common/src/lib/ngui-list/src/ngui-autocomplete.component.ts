@@ -62,7 +62,7 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
   }
 
   ngOnInit(): void {
-    this.inputEl = <HTMLInputElement> document.querySelector('#' + this.for); // tslint:disable-line
+    this.inputEl = <HTMLInputElement> document.querySelector('#' + this.for); // eslint-disable-line
     this.positionThisUnderInputEl();
 
     fromEvent(this.inputEl, 'keyup').subscribe(this.onInputElKeyup.bind(this));
