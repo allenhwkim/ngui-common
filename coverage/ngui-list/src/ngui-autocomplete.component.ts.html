@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85.42% </span>
+                <span class="strong">84.61% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>82/96</span>
+                <span class='fraction'>77/91</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">41.86% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>18/43</span>
+                <span class='fraction'>18/36</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">94.44% </span>
+                <span class="strong">94.11% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>17/18</span>
+                <span class='fraction'>16/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">84.44% </span>
+                <span class="strong">84.09% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>76/90</span>
+                <span class='fraction'>74/88</span>
             </div>
         
             
@@ -54,6 +54,12 @@
         <p class="quiet">
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input oninput="onInput()" type="search" id="fileSearch">
+            </div>
+        </template>
     </div>
     <div class='status-line high'></div>
     <pre><table class="coverage">
@@ -284,13 +290,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">14x</span>
@@ -515,7 +521,7 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
   }
 &nbsp;
   ngOnInit(): void {
-    this.inputEl = &lt;HTMLInputElement&gt; document.querySelector('#' + this.for); // tslint:disable-line
+    this.inputEl = &lt;HTMLInputElement&gt; document.querySelector('#' + this.for); // eslint-disable-line
     this.positionThisUnderInputEl();
 &nbsp;
     fromEvent(this.inputEl, 'keyup').subscribe(this.onInputElKeyup.bind(this));
@@ -535,7 +541,7 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
   onEscaped(): void {
     this._escapedFromList = true;
     this.inputEl.focus();
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (!this._lastSelected) {
+    if (!this._lastSelected) {
       this.inputEl.value = this._orgInputValue;
     }
     this.cdr.detectChanges(); // for ChangeDetectionStrategy.OnPush
@@ -543,7 +549,7 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
 &nbsp;
   onInputElFocused(event): void {
     this.isListLoading = false;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (typeof this._orgInputValue === 'undefined') {
+    if (typeof this._orgInputValue === 'undefined') {
       this._orgInputValue = this.inputEl.value;
     }
     this._prevInputValue = this.inputEl.value;
@@ -573,7 +579,7 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
 <span class="cstat-no" title="statement not covered" >      firstList.focus();</span>
     } else <span class="cstat-no" title="statement not covered" >if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {</span>
       //
-    } else <span class="cstat-no" title="statement not covered" >if (this.inputEl.value.length &gt;= this.minInputChars) {</span>
+    } else <span class="cstat-no" title="statement not covered" ><span class="missing-if-branch" title="if path not taken" >I</span>if (this.inputEl.value.length &gt;= this.minInputChars) {</span>
 <span class="cstat-no" title="statement not covered" >      this._selectedFromList = false;</span>
 <span class="cstat-no" title="statement not covered" >      this._escapedFromList = false;</span>
 <span class="cstat-no" title="statement not covered" >      this.addAutocompleteList();</span>
@@ -582,7 +588,7 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
 &nbsp;
   /** Complete the first page of autocomplete */
   addAutocompleteList(): void {
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (this.isReady) {
+    if (this.isReady) {
       clearTimeout(this._acTimer);
       this._acTimer = setTimeout(() =&gt; {
         this.isListLoading = false; // ???????/
@@ -597,7 +603,7 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
 &nbsp;
   /** Complete after the first page of autocomplete when it scrolls to the bottom */
   addMorePages(): void {
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (this.inviewPages.length) {
+    if (this.inviewPages.length) {
       this.addAnInviewPageToPages();
     }
   }
@@ -632,11 +638,11 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
     // TODO: ........ for 1st page only, show no match found or blank option
     let noMatchItem: any;
     let blankItem: any = {};
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (this.inviewPages.length === 1) {
+    if (this.inviewPages.length === 1) {
       <span class="missing-if-branch" title="if path not taken" >I</span>if (this.noMatchItem &amp;&amp; (!items || items.length === 0)) { // add no match item
 <span class="cstat-no" title="statement not covered" >        noMatchItem = new NoMatchFound();</span>
 <span class="cstat-no" title="statement not covered" >        blankItem.html = this.noMatchItem;</span>
-      } else <span class="missing-if-branch" title="else path not taken" >E</span>if (this.blankOption) {
+      } else if (this.blankOption) {
         blankItem = new NoneSelect();
         blankItem.html = this.blankOption;
       }
@@ -654,10 +660,9 @@ export class NguiAutocompleteComponent extends NguiVirtualListComponent implemen
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
-                <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Feb 24 2021 09:25:39 GMT+0100 (Central European Standard Time)
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at Wed Feb 09 2022 13:12:33 GMT+0100 (Central European Standard Time)
             </div>
-        </div>
         <script src="../../prettify.js"></script>
         <script>
             window.onload = function () {
