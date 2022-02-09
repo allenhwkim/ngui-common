@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "outDir": "./out-tsc/spec",
+    "types": [
+      "jest"
+    ]
+  },
+  "include": [
+    "projects/ngui-common/src/**/*.spec.ts",
+    "projects/ngui-common/src/**/*.d.ts"
+  ]
+}

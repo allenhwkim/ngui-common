@@ -1,6 +1,6 @@
 Feature('My First Test');
 
-Scenario('test something', I => {
+Scenario('test something', ({I}) => {
   I.amOnPage('/');
   I.see('Test Page');
 });

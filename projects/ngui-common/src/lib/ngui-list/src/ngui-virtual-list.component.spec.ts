@@ -4,10 +4,10 @@ import { async, ComponentFixtureAutoDetect, TestBed } from '@angular/core/testin
 
 // do not import any other than you test. For others, mock it
 import { NguiVirtualListComponent } from './ngui-virtual-list.component';
-import { MockComponent } from '../../../../../../test/jest-setup';
+import { MockComponent } from '../../../../../../test/test-utils';
 import 'jest';
 
-import {ChangeDetectorRef, ComponentRef, ElementRef, Renderer2} from '@angular/core';
+import {ChangeDetectorRef, ComponentRef, ElementRef, Injectable, Renderer2} from '@angular/core';
 
 import { DynamicComponentService } from '../../ngui-utils/ngui-utils.module';
 
@@ -16,6 +16,7 @@ class MockElementRef extends ElementRef {
   nativeElement = {};
 }
 
+@Injectable()
 class MockDynamicComponentService extends DynamicComponentService {
   createComponent() {
     return <ComponentRef<any>>{ instance: {} }
