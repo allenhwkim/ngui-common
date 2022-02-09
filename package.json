@@ -43,24 +43,24 @@
     "lazy-rendering"
   ],
   "dependencies": {
-    "@angular/animations": "^12.2.16",
-    "@angular/common": "^12.2.16",
-    "@angular/compiler": "^12.2.16",
-    "@angular/core": "^12.2.16",
-    "@angular/forms": "^12.2.16",
-    "@angular/platform-browser": "^12.2.16",
-    "@angular/platform-browser-dynamic": "^12.2.16",
-    "@angular/router": "^12.2.16",
+    "@angular/animations": "^13.2.2",
+    "@angular/common": "^13.2.2",
+    "@angular/compiler": "^13.2.2",
+    "@angular/core": "^13.2.2",
+    "@angular/forms": "^13.2.2",
+    "@angular/platform-browser": "^13.2.2",
+    "@angular/platform-browser-dynamic": "^13.2.2",
+    "@angular/router": "^13.2.2",
     "core-js": "^2.6.9",
     "rxjs": "^6.6.2",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^12.2.16",
-    "@angular/cli": "^12.2.16",
-    "@angular/compiler-cli": "^12.2.16",
-    "@angular/language-service": "^12.2.16",
+    "@angular-devkit/build-angular": "^13.2.2",
+    "@angular/cli": "^13.2.2",
+    "@angular/compiler-cli": "^13.2.2",
+    "@angular/language-service": "^13.2.2",
     "@compodoc/compodoc": "^1.1.11",
     "@types/node": "^12.11.1",
     "codeceptjs": "^1.4.6",
@@ -70,7 +70,7 @@
     "jest-preset-angular": "^8.2.1",
     "mochawesome": "^6.1.1",
     "mocha": "^8.1.0",
-    "ng-packagr": "^12.2.7",
+    "ng-packagr": "^13.2.1",
     "ngentest": "^1.4.1",
     "pre-commit": "^1.2.2",
     "puppeteer": "^5.2.1",
@@ -78,6 +78,6 @@
     "ts-node": "~8.10.2",
     "tslint": "~6.1.0",
     "tslint-eslint-rules": "^5.4.0",
-    "typescript": "~4.3.5"
+    "typescript": "~4.5.5"
   }
 }

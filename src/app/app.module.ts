@@ -53,7 +53,6 @@ import {
     FireEventTestComponent
   ],
   providers: [],
-  entryComponents: [MyDynamicComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

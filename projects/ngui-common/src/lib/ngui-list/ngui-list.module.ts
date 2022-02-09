@@ -27,8 +27,7 @@ export {NguiAutocompleteComponent, NguiListItemDirective, NguiListDirective, Ngu
     NguiListDirective,
     NguiListItemDirective,
     NguiVirtualListComponent
-  ],
-  entryComponents: [NguiInviewPageComponent]
+  ]
 })
 export class NguiListModule {
 }
