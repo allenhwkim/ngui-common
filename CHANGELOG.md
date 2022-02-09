@@ -1,3 +1,9 @@
+## 1.0.0 (2022-02-09)
+
+- Support for Angular v12 and v13
+- "Ivy" partial compilation mode
+- Angular v11 and below are no longer supported
+
 ## 0.8.0 (2021-02-16)
 
 - `ngui-virtual-list` now just inserts newly loaded items without showing `<number> items hidden` message.
